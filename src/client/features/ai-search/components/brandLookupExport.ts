@@ -16,11 +16,11 @@ export function buildBrandLookupExport(
     return {
       headers: [
         "URL",
-        "Domain",
-        "Platform",
-        "Source mentions",
-        "Source AI search volume",
-        "Fetched-sample prompt examples",
+        "Domínio",
+        "Plataforma",
+        "Menções da fonte",
+        "Volume de busca em IA da fonte",
+        "Exemplos de prompts da amostra",
       ],
       rows: sortedPages.map((row) => [
         row.url,
@@ -34,11 +34,11 @@ export function buildBrandLookupExport(
   }
   return {
     headers: [
-      "Query",
-      "Platform",
-      "AI search volume",
-      "First seen",
-      "Last seen",
+      "Consulta",
+      "Plataforma",
+      "Volume de busca em IA",
+      "Visto pela primeira vez",
+      "Visto pela última vez",
     ],
     rows: sortedQueries.map((row) => [
       row.question,

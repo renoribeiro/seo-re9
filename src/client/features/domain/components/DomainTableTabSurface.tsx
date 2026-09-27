@@ -13,7 +13,7 @@ type Props = {
   showFilters: boolean;
   onToggleFilters: () => void;
   activeFilterCount: number;
-  countLabel: string;
+  countLabel: { singular: string; plural: string };
   totalCount: number | null;
   fallbackCount: number;
   exportActions: DomainTableExportAction[];
@@ -44,11 +44,11 @@ export function DomainTableTabSurface({
         <button
           className={`btn btn-ghost btn-sm gap-1.5 ${showFilters ? "btn-active" : ""}`}
           onClick={onToggleFilters}
-          title="Toggle filters"
+          title="Mostrar/ocultar filtros"
           type="button"
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
@@ -56,7 +56,10 @@ export function DomainTableTabSurface({
           ) : null}
         </button>
         <span className="text-sm text-base-content/60">
-          {(totalCount ?? fallbackCount).toLocaleString()} {countLabel}
+          {(totalCount ?? fallbackCount).toLocaleString("pt-BR")}{" "}
+          {(totalCount ?? fallbackCount) === 1
+            ? countLabel.singular
+            : countLabel.plural}
         </span>
         <div className="flex-1" />
         <TableExportMenu actions={exportActions} />

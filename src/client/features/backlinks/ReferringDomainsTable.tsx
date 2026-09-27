@@ -28,8 +28,8 @@ const baseColumns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Domain"
-        helpText="The referring site linking to your target."
+        label="Domínio"
+        helpText="Site de referência que aponta para o seu alvo."
       />
     ),
     cell: ({ getValue }) => {
@@ -50,7 +50,7 @@ const baseColumns = [
       <SortableHeader
         column={column}
         label="Backlinks"
-        helpText="Total backlinks found from this domain."
+        helpText="Total de backlinks encontrados vindos deste domínio."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -61,8 +61,8 @@ const baseColumns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Referring Pages"
-        helpText="Unique pages on this domain that link to your target."
+        label="Páginas de referência"
+        helpText="Páginas únicas deste domínio que apontam para o seu alvo."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -73,8 +73,8 @@ const baseColumns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Rank"
-        helpText="Authority score for the referring domain."
+        label="Autoridade"
+        helpText="Pontuação de autoridade do domínio de referência."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -86,7 +86,7 @@ const baseColumns = [
       <SortableHeader
         column={column}
         label="Spam"
-        helpText="Spam risk score for this referring domain."
+        helpText="Pontuação de risco de spam deste domínio de referência."
       />
     ),
     cell: ({ getValue }) => formatDecimal(getValue()),
@@ -97,8 +97,8 @@ const baseColumns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="First Seen"
-        helpText="When this domain was first discovered linking to your target."
+        label="Descoberto em"
+        helpText="Quando este domínio foi descoberto pela primeira vez apontando para o seu alvo."
       />
     ),
     cell: ({ getValue }) => formatCompactDate(getValue()),
@@ -109,15 +109,15 @@ const baseColumns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Issues"
-        helpText="Broken link and broken page counts tied to this domain."
+        label="Problemas"
+        helpText="Quantidade de links quebrados e páginas quebradas ligados a este domínio."
       />
     ),
     cell: ({ row }) => (
       <div className="text-sm">
-        <div>Broken links: {formatNumber(row.original.brokenBacklinks)}</div>
+        <div>Links quebrados: {formatNumber(row.original.brokenBacklinks)}</div>
         <div className="text-base-content/55">
-          Broken pages: {formatNumber(row.original.brokenPages)}
+          Páginas quebradas: {formatNumber(row.original.brokenPages)}
         </div>
       </div>
     ),
@@ -140,7 +140,7 @@ function buildReferringDomainColumns(domainRatings: DomainRatings | null) {
     header: () => (
       <HeaderHelpLabel
         label="Ahrefs DR"
-        helpText="Ahrefs Domain Rating (0-100) for this referring domain."
+        helpText="Domain Rating da Ahrefs (0-100) deste domínio de referência."
       />
     ),
     cell: ({ row }) => {
@@ -191,7 +191,9 @@ export function ReferringDomainsTable({
   });
 
   if (rows.length === 0) {
-    return <EmptyTableState label="No referring domains match this filter." />;
+    return (
+      <EmptyTableState label="Nenhum domínio de referência corresponde a este filtro." />
+    );
   }
 
   return (

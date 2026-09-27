@@ -102,7 +102,7 @@ export function resolveBusinessIdentifier(args: {
   if (supplied.length !== 1) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Provide exactly one business identifier: businessName, cid, or placeId.",
+      "Informe exatamente um identificador da empresa: businessName, cid ou placeId.",
     );
   }
   return { keyword: args.businessName, cid: args.cid, placeId: args.placeId };

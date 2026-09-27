@@ -24,11 +24,11 @@ export function DeleteSavedKeywordsModal({
   return (
     <Modal onClose={onClose} labelledBy="delete-keywords-title">
       <h3 id="delete-keywords-title" className="text-lg font-semibold">
-        Delete keywords?
+        Excluir palavras-chave?
       </h3>
       <p className="text-sm text-base-content/70">
-        This will permanently delete {selectedCount} saved keyword
-        {selectedCount !== 1 ? "s" : ""}.
+        Isso vai excluir permanentemente {selectedCount}{" "}
+        {selectedCount !== 1 ? "palavras-chave salvas" : "palavra-chave salva"}.
       </p>
       <div className="flex justify-end gap-2">
         <button
@@ -36,7 +36,7 @@ export function DeleteSavedKeywordsModal({
           className="btn btn-ghost btn-sm"
           onClick={onClose}
         >
-          Cancel
+          Cancelar
         </button>
         <button
           type="button"
@@ -45,8 +45,8 @@ export function DeleteSavedKeywordsModal({
           disabled={isPending}
         >
           {isPending ? <Loader2 className="size-3 animate-spin" /> : null}
-          Delete {selectedCount} keyword
-          {selectedCount !== 1 ? "s" : ""}
+          Excluir {selectedCount}{" "}
+          {selectedCount !== 1 ? "palavras-chave" : "palavra-chave"}
         </button>
       </div>
     </Modal>

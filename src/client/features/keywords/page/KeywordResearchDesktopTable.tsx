@@ -62,7 +62,7 @@ export function KeywordResearchDesktopTable({
       keywordColumnHelper.accessor("keyword", {
         header: () => (
           <SortHeader
-            label="Keyword"
+            label="Palavra-chave"
             field="keyword"
             current={sortField}
             dir={sortDir}
@@ -105,7 +105,7 @@ export function KeywordResearchDesktopTable({
         header: () => (
           <SortHeader
             label="CPC"
-            helpText="Cost per click in USD."
+            helpText="Custo por clique em USD."
             field="cpc"
             current={sortField}
             dir={sortDir}
@@ -126,8 +126,8 @@ export function KeywordResearchDesktopTable({
       keywordColumnHelper.accessor("competition", {
         header: () => (
           <SortHeader
-            label="Comp."
-            helpText="Paid-search competition from Google Ads (0-1): higher means more advertisers bidding."
+            label="Conc."
+            helpText="Concorrência na busca paga do Google Ads (0-1): quanto maior, mais anunciantes disputando."
             field="competition"
             current={sortField}
             dir={sortDir}
@@ -148,8 +148,8 @@ export function KeywordResearchDesktopTable({
       keywordColumnHelper.accessor("keywordDifficulty", {
         header: () => (
           <SortHeader
-            label="Score"
-            helpText="Organic ranking difficulty (0-100): higher means harder to reach Google's top 10."
+            label="KD"
+            helpText="Dificuldade de ranqueamento orgânico (0-100): quanto maior, mais difícil chegar ao Top 10 do Google."
             field="keywordDifficulty"
             current={sortField}
             dir={sortDir}
@@ -161,7 +161,7 @@ export function KeywordResearchDesktopTable({
         meta: { headerClassName: "text-right", cellClassName: "text-right" },
       }),
       keywordColumnHelper.accessor("intent", {
-        header: "Intent",
+        header: "Intenção",
         cell: ({ getValue }) => <IntentBadge intent={getValue()} />,
         meta: {
           headerClassName: "text-center",

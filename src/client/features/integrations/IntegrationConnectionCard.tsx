@@ -64,10 +64,10 @@ function ConnectionStatusPill({
         ].join(" ")}
       />
       {connected
-        ? "Connected"
+        ? "Conectado"
         : setupRequired
-          ? "Setup required"
-          : "Not connected"}
+          ? "Configuração necessária"
+          : "Não conectado"}
     </span>
   );
 }

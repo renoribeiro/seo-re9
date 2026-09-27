@@ -43,18 +43,18 @@ const EMPTY_PAGES_ROWS: PageRow[] = [];
 const PAGE_TEXT_FILTERS = [
   {
     key: "include",
-    label: "Include Page Terms",
-    placeholder: "pricing, tools, guides",
+    label: "Incluir termos na página",
+    placeholder: "preços, ferramentas, guias",
   },
   {
     key: "exclude",
-    label: "Exclude Page Terms",
-    placeholder: "blog, tag, archive",
+    label: "Excluir termos na página",
+    placeholder: "blog, tag, arquivo",
   },
 ] as const;
 const PAGE_RANGE_FILTERS = [
-  { title: "Traffic", minKey: "minTraffic", maxKey: "maxTraffic" },
-  { title: "Keywords", minKey: "minVol", maxKey: "maxVol" },
+  { title: "Tráfego", minKey: "minTraffic", maxKey: "maxTraffic" },
+  { title: "Palavras-chave", minKey: "minVol", maxKey: "maxVol" },
 ] as const;
 
 type Props = {
@@ -173,7 +173,7 @@ export function PagesTab({
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(JSON.stringify(rows, null, 2));
-    toast.success("Copied data");
+    toast.success("Dados copiados");
   };
   const handleExportToSheets = () => {
     void exportTableToSheets({
@@ -200,8 +200,8 @@ export function PagesTab({
       {filtersOverBudget ? (
         <div className="alert alert-warning mb-3">
           <span>
-            Saved filters exceed this scope&apos;s {maxConditions}-condition
-            limit and were not applied. Open Filters to trim them.
+            Os filtros salvos excedem o limite de {maxConditions} condições
+            deste escopo e não foram aplicados. Abra os Filtros para reduzi-los.
           </span>
         </div>
       ) : null}
@@ -210,29 +210,29 @@ export function PagesTab({
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters((prev) => !prev)}
         activeFilterCount={activeFilterCount}
-        countLabel="pages"
+        countLabel={{ singular: "página", plural: "páginas" }}
         totalCount={totalCount}
         fallbackCount={rows.length}
         isLoading={isLoading}
         showTableLoading={showTableLoading}
         exportActions={[
           {
-            label: "Export to Sheets",
+            label: "Exportar para o Sheets",
             icon: <Sheet className="size-4" />,
             onClick: handleExportToSheets,
           },
           {
-            label: "Copy data (JSON)",
+            label: "Copiar dados (JSON)",
             icon: <Copy className="size-4" />,
             onClick: handleCopy,
           },
           {
-            label: "Download CSV",
+            label: "Baixar CSV",
             icon: <Download className="size-4" />,
             onClick: () => handleDownload("csv"),
           },
           {
-            label: "Download Excel",
+            label: "Baixar Excel",
             icon: <FileSpreadsheet className="size-4" />,
             onClick: () => handleDownload("xls"),
           },

@@ -51,11 +51,12 @@ export function ResultsView({
     <>
       {blockedCount > 0 && (
         <CrawlWarning
-          headline={`We were blocked on ${blockedCount} ${blockedCount === 1 ? "page" : "pages"}.`}
+          headline={`Fomos bloqueados em ${blockedCount} ${blockedCount === 1 ? "página" : "páginas"}.`}
         >
-          The site's bot protection challenged our crawler, so those pages
-          couldn't be audited. We don't have a workaround for this yet. Desktop
-          crawlers run from your own machine and usually get past it: try{" "}
+          A proteção contra bots do site barrou nosso rastreador, então essas
+          páginas não puderam ser auditadas. Ainda não temos uma solução para
+          isso. Rastreadores para desktop rodam no seu próprio computador e
+          costumam passar por essa barreira: experimente o{" "}
           <a
             className="link link-primary"
             href="https://github.com/PhialsBasement/LibreCrawl"
@@ -64,7 +65,7 @@ export function ResultsView({
           >
             LibreCrawl
           </a>{" "}
-          (free, open source) or{" "}
+          (gratuito, código aberto) ou o{" "}
           <a
             className="link link-primary"
             href="https://www.screamingfrog.co.uk/seo-spider/"
@@ -73,7 +74,7 @@ export function ResultsView({
           >
             Screaming Frog
           </a>{" "}
-          (free up to 500 URLs).
+          (gratuito até 500 URLs).
         </CrawlWarning>
       )}
 
@@ -81,15 +82,16 @@ export function ResultsView({
         <CrawlWarning
           headline={
             crawlStopped
-              ? "The crawl stopped early because of the site’s rate limit."
-              : `The site rate limited us on ${rateLimitedCount} ${rateLimitedCount === 1 ? "page" : "pages"}.`
+              ? "O rastreamento parou antes do fim por causa do limite de requisições do site."
+              : `O site limitou nossas requisições em ${rateLimitedCount} ${rateLimitedCount === 1 ? "página" : "páginas"}.`
           }
         >
           {crawlStopped
-            ? "The requested cooldown exceeded the audit time limit, so some URLs were left unvisited. This report is incomplete. "
-            : "Pages that returned 429 Too Many Requests could not be audited. "}
-          Re-run the audit after the rate limit resets, or ask the site owner to
-          allow the "OpenSEO-Audit" crawler.
+            ? "O tempo de espera exigido ultrapassou o limite de tempo da auditoria, então algumas URLs não foram visitadas. Este relatório está incompleto. "
+            : "Páginas que retornaram 429 Too Many Requests não puderam ser auditadas. "}
+          Refaça a auditoria depois que o limite de requisições for liberado ou
+          peça ao responsável pelo site para permitir o rastreador
+          "OpenSEO-Audit".
         </CrawlWarning>
       )}
 
@@ -226,13 +228,13 @@ function ResultsHeader({
   onExport: (format: "csv" | "json" | "sheets") => void;
 }) {
   const tabs: Array<{ tab: ResultsTab; label: string }> = [
-    { tab: "issues", label: `Issues (${issueCount})` },
-    { tab: "pages", label: `Pages (${pageCount})` },
+    { tab: "issues", label: `Problemas (${issueCount})` },
+    { tab: "pages", label: `Páginas (${pageCount})` },
     ...(hasPerformanceTab
       ? [
           {
             tab: "performance" as const,
-            label: `Performance (${lighthouseCount})`,
+            label: `Desempenho (${lighthouseCount})`,
           },
         ]
       : []),
@@ -298,9 +300,9 @@ function StatsStrip({
   }, [issues]);
 
   const items: StatItem[] = [
-    { label: "Pages crawled", value: String(pagesCrawled) },
+    { label: "Páginas rastreadas", value: String(pagesCrawled) },
     {
-      label: "Issues found",
+      label: "Problemas encontrados",
       value: String(issues.length),
       valueClass: issues.length === 0 ? "text-success" : "",
       sub: issues.length > 0 && (
@@ -314,14 +316,14 @@ function StatsStrip({
         </span>
       ),
     },
-    { label: "Avg response", value: `${averageResponseMs}ms` },
+    { label: "Resposta média", value: `${averageResponseMs}ms` },
   ];
 
   if (totalLighthouse > 0) {
     items.push(
-      { label: "Lighthouse tests", value: String(totalLighthouse) },
+      { label: "Testes do Lighthouse", value: String(totalLighthouse) },
       {
-        label: "Avg Lighthouse perf",
+        label: "Desempenho médio (Lighthouse)",
         value:
           lighthouseSummary.avgPerformance == null
             ? "-"
@@ -329,7 +331,7 @@ function StatsStrip({
         valueClass: scoreClass(lighthouseSummary.avgPerformance),
       },
       {
-        label: "Avg Lighthouse SEO",
+        label: "SEO médio (Lighthouse)",
         value:
           lighthouseSummary.avgSeo == null
             ? "-"
@@ -337,7 +339,7 @@ function StatsStrip({
         valueClass: scoreClass(lighthouseSummary.avgSeo),
       },
       {
-        label: "Avg Lighthouse a11y",
+        label: "Acessibilidade média (Lighthouse)",
         value:
           lighthouseSummary.avgAccessibility == null
             ? "-"
@@ -345,7 +347,7 @@ function StatsStrip({
         valueClass: scoreClass(lighthouseSummary.avgAccessibility),
       },
       {
-        label: "Lighthouse failures",
+        label: "Falhas do Lighthouse",
         value: String(lighthouseSummary.failed),
         valueClass:
           lighthouseSummary.failed > 0 ? "text-error" : "text-success",

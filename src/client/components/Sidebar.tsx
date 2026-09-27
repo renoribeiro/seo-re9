@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+import { BrandWordmark } from "@/client/components/BrandLogo";
 import type { LinkOptions } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState, type ComponentType } from "react";
@@ -123,21 +124,22 @@ export function Sidebar({ projectId, onNavigate, onClose }: SidebarProps) {
   };
 
   return (
-    <div className="flex h-full w-60 flex-col bg-base-200">
+    <div className="flex h-full w-64 flex-col bg-base-200">
       <div className="flex items-center justify-between px-4 pb-2 pt-3">
         <Link
           to="/"
           onClick={onNavigate}
-          className="text-base font-semibold text-base-content"
+          className="text-base"
+          aria-label="RE9 SEO"
         >
-          OpenSEO
+          <BrandWordmark />
         </Link>
         {onClose ? (
           <button
             type="button"
             onClick={onClose}
             className="btn btn-ghost btn-sm btn-circle"
-            aria-label="Close sidebar"
+            aria-label="Fechar barra lateral"
           >
             <X className="h-5 w-5" />
           </button>
@@ -158,7 +160,7 @@ export function Sidebar({ projectId, onNavigate, onClose }: SidebarProps) {
           <div role="tablist" className="tabs tabs-border w-full">
             <SidebarViewTab
               icon={LayoutGrid}
-              label="Browse"
+              label="Navegar"
               active={view === "browse"}
               onClick={openBrowse}
             />
@@ -263,7 +265,7 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
     <div className="shrink-0 border-t border-base-300 px-2 py-2 pb-safe">
       <SidebarNavLink
         icon={CircleHelp}
-        label="Help & Community"
+        label="Ajuda e comunidade"
         onNavigate={onNavigate}
         linkProps={{ to: "/support" }}
       />
@@ -274,7 +276,7 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
             type="button"
             tabIndex={0}
             className={`${navItemClass} w-full`}
-            aria-label="Open account menu"
+            aria-label="Abrir menu da conta"
           >
             <User className="h-4 w-4 shrink-0" />
             <span className="truncate" data-ph-mask>
@@ -289,7 +291,7 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
               <>
                 <li className="menu-title flex flex-row items-center gap-1.5 max-w-full">
                   <ArrowLeftRight className="h-3 w-3" />
-                  Organization
+                  Organização
                 </li>
                 {organizations.map((organization) => (
                   <li key={organization.organizationId}>
@@ -320,14 +322,14 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
             <li>
               <Link to="/settings" onClick={closeMenu}>
                 <Settings className="h-4 w-4" />
-                Settings
+                Configurações
               </Link>
             </li>
             {isHostedMode ? (
               <li>
                 <Link to={BILLING_ROUTE} onClick={closeMenu}>
                   <CreditCard className="h-4 w-4" />
-                  Billing
+                  Cobrança
                 </Link>
               </li>
             ) : null}
@@ -345,7 +347,7 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
                     onClick={() => signOutAndRedirect()}
                   >
                     <LogOut className="h-4 w-4" />
-                    Sign out
+                    Sair
                   </button>
                 </li>
               </>
@@ -355,7 +357,7 @@ function SidebarFooter({ onNavigate }: { onNavigate?: () => void }) {
       ) : (
         <SidebarNavLink
           icon={Settings}
-          label="Settings"
+          label="Configurações"
           onNavigate={onNavigate}
           linkProps={{ to: "/settings" }}
         />

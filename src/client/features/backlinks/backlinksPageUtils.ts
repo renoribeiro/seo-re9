@@ -3,11 +3,11 @@ import type { BacklinksOverviewData } from "./backlinksPageTypes";
 
 export const TAB_DESCRIPTIONS: Record<BacklinksTab, string> = {
   backlinks:
-    "See the individual links pointing to your target, including source page, anchor text, and link quality signals.",
+    "Veja cada link que aponta para o seu alvo, com página de origem, texto âncora e sinais de qualidade do link.",
   domains:
-    "View the unique domains linking to your target, grouped at the site level instead of by individual link.",
+    "Veja os domínios únicos que apontam para o seu alvo, agrupados por site em vez de por link individual.",
   pages:
-    "See which pages on the target site attract the most backlinks and referring domains.",
+    "Veja quais páginas do site-alvo atraem mais backlinks e domínios de referência.",
 };
 
 export function buildSummaryStats(data: BacklinksOverviewData | undefined) {
@@ -17,54 +17,58 @@ export function buildSummaryStats(data: BacklinksOverviewData | undefined) {
     {
       label: "Backlinks",
       value: formatNumber(data.summary.backlinks),
-      description: "Total links pointing to this site or page.",
+      description: "Total de links que apontam para este site ou página.",
     },
     {
-      label: "Referring Domains",
+      label: "Domínios de referência",
       value: formatNumber(data.summary.referringDomains),
-      description: "Unique domains linking to this site or page.",
+      description: "Domínios únicos que apontam para este site ou página.",
     },
     {
-      label: "Referring Pages",
+      label: "Páginas de referência",
       value: formatNumber(data.summary.referringPages),
-      description: "Unique pages linking to this site or page.",
+      description: "Páginas únicas que apontam para este site ou página.",
     },
     {
-      label: "Rank",
+      label: "Autoridade",
       value: formatNumber(data.summary.rank),
-      description: "DataForSEO's 0-100 authority score.",
+      description: "Pontuação de autoridade de 0 a 100 da DataForSEO.",
     },
     {
-      label: "Backlink Spam Score",
+      label: "Pontuação de spam dos backlinks",
       value: formatDecimal(data.summary.backlinksSpamScore),
-      description: "Estimated spam risk of links pointing here.",
+      description: "Risco estimado de spam dos links que apontam para cá.",
     },
     {
-      label: "Broken Backlinks",
+      label: "Backlinks quebrados",
       value: formatNumber(data.summary.brokenBacklinks),
-      description: "Links pointing to broken pages here.",
+      description: "Links que apontam para páginas quebradas daqui.",
     },
     {
-      label: "Broken Pages",
+      label: "Páginas quebradas",
       value: formatNumber(data.summary.brokenPages),
-      description: "Broken pages here that still have backlinks.",
+      description: "Páginas quebradas daqui que ainda recebem backlinks.",
     },
     {
-      label: "Target Spam Score",
+      label: "Pontuação de spam do alvo",
       value: formatDecimal(data.summary.targetSpamScore),
-      description: "Estimated spam risk of this site or page.",
+      description: "Risco estimado de spam deste site ou página.",
     },
   ];
 }
 
 export function formatNumber(value: number | null | undefined) {
   if (value == null) return "-";
-  return new Intl.NumberFormat().format(Math.round(value));
+  return new Intl.NumberFormat("pt-BR").format(Math.round(value));
 }
 
 export function formatDecimal(value: number | null | undefined) {
   if (value == null) return "-";
-  return value.toFixed(value >= 100 ? 0 : 1);
+  const digits = value >= 100 ? 0 : 1;
+  return new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(value);
 }
 
 export function formatTooltipValue(value: unknown) {
@@ -78,7 +82,7 @@ export function formatCompactDate(value: string | null | undefined) {
   if (!value) return "-";
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  return parsed.toLocaleDateString(undefined, {
+  return parsed.toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -88,7 +92,7 @@ export function formatCompactDate(value: string | null | undefined) {
 export function formatMonthLabel(value: string) {
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  return parsed.toLocaleDateString(undefined, {
+  return parsed.toLocaleDateString("pt-BR", {
     month: "short",
     year: "2-digit",
   });
@@ -96,8 +100,8 @@ export function formatMonthLabel(value: string) {
 
 export function formatRelativeTimestamp(value: string) {
   const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return "recently";
-  return parsed.toLocaleString(undefined, {
+  if (Number.isNaN(parsed.getTime())) return "recentemente";
+  return parsed.toLocaleString("pt-BR", {
     month: "short",
     day: "numeric",
     hour: "numeric",

@@ -82,7 +82,7 @@ export const createRankTrackerTool = {
     if (!domain) {
       throw new AppError(
         "VALIDATION_ERROR",
-        "Provide a domain or set the project's domain first",
+        "Informe um domínio ou defina primeiro o domínio do projeto",
       );
     }
 

@@ -161,11 +161,13 @@ function SavedKeywordsPage() {
         count: result.deletedCount,
       });
       toast.success(
-        `${result.deletedCount} keyword${result.deletedCount !== 1 ? "s" : ""} removed`,
+        `${result.deletedCount} ${result.deletedCount !== 1 ? "palavras-chave removidas" : "palavra-chave removida"}`,
       );
     },
     onError: (error) => {
-      setRemoveError(getStandardErrorMessage(error, "Remove failed."));
+      setRemoveError(
+        getStandardErrorMessage(error, "Não foi possível remover."),
+      );
     },
   });
 
@@ -188,11 +190,13 @@ function SavedKeywordsPage() {
       setShowTagModal(false);
       void invalidateSavedKeywords();
       toast.success(
-        `Updated tags for ${result.taggedCount} keyword${result.taggedCount !== 1 ? "s" : ""}`,
+        `Tags atualizadas em ${result.taggedCount} ${result.taggedCount !== 1 ? "palavras-chave" : "palavra-chave"}`,
       );
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Could not update tags"));
+      toast.error(
+        getStandardErrorMessage(error, "Não foi possível atualizar as tags"),
+      );
     },
   });
 
@@ -201,12 +205,15 @@ function SavedKeywordsPage() {
     onSuccess: (result) => {
       void invalidateSavedKeywords();
       toast.success(
-        `Updated stats for ${result.updated} keyword${result.updated !== 1 ? "s" : ""}`,
+        `Métricas atualizadas para ${result.updated} ${result.updated !== 1 ? "palavras-chave" : "palavra-chave"}`,
       );
     },
     onError: (error) => {
       toast.error(
-        getStandardErrorMessage(error, "Could not update keyword stats."),
+        getStandardErrorMessage(
+          error,
+          "Não foi possível atualizar as métricas das palavras-chave.",
+        ),
       );
     },
   });
@@ -318,7 +325,7 @@ function SavedKeywordsPage() {
               selectedRows.map((row) => row.keyword).join("\n"),
             );
             toast.success(
-              `${selectedCount} keyword${selectedCount !== 1 ? "s" : ""} copied`,
+              `${selectedCount} ${selectedCount !== 1 ? "palavras-chave copiadas" : "palavra-chave copiada"}`,
             );
           }}
           onOpenTags={() => setShowTagModal(true)}

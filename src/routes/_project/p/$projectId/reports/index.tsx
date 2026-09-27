@@ -39,9 +39,9 @@ function ReportsPage() {
       <div className="mx-auto max-w-5xl space-y-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-semibold">Reports</h1>
+            <h1 className="text-2xl font-semibold">Relatórios</h1>
             <p className="text-sm text-base-content/70">
-              HTML reports your agents saved to this project.
+              Relatórios HTML que seus agentes salvaram neste projeto.
             </p>
           </div>
           <Link
@@ -49,7 +49,7 @@ function ReportsPage() {
             params={{ projectId }}
             className="btn btn-ghost btn-sm"
           >
-            Templates
+            Modelos
           </Link>
         </div>
 
@@ -62,7 +62,7 @@ function ReportsPage() {
             <span className="text-sm">
               {getStandardErrorMessage(
                 reportsQuery.error,
-                "Failed to load reports",
+                "Não foi possível carregar os relatórios",
               )}
             </span>
           </div>

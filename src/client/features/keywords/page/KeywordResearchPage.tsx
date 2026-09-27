@@ -180,9 +180,10 @@ export function KeywordResearchPage(input: Props) {
     <div className="px-4 py-4 md:px-6 md:py-6 pb-24 md:pb-8 overflow-auto">
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
         <div>
-          <h1 className="text-2xl font-semibold">Keyword Research</h1>
+          <h1 className="text-2xl font-semibold">Pesquisa de palavras-chave</h1>
           <p className="text-sm text-base-content/70">
-            Discover keyword ideas, search demand, and ranking opportunities.
+            Descubra ideias de palavras-chave, demanda de busca e oportunidades
+            de ranqueamento.
           </p>
         </div>
 
@@ -196,7 +197,7 @@ export function KeywordResearchPage(input: Props) {
               onClick={showRecentSearches}
             >
               <ArrowLeft className="size-4" />
-              Recent searches
+              Buscas recentes
             </button>
             <SearchTabStrip
               projectId={projectId}
@@ -242,11 +243,11 @@ function KeywordResearchContent({
           </div>
           {isCreditsError ? (
             <Link to={BILLING_ROUTE} className="btn btn-sm">
-              Go to Billing
+              Ir para Cobrança
             </Link>
           ) : (
             <button className="btn btn-sm" onClick={controller.retrySearch}>
-              Try again
+              Tentar novamente
             </button>
           )}
         </div>
@@ -277,11 +278,14 @@ function KeywordSaveDialog({
     <div className="modal modal-open">
       <div className="modal-box">
         <h3 className="font-bold text-lg">
-          Save {controller.selectedRows.size} Keywords
+          Salvar {controller.selectedRows.size}{" "}
+          {controller.selectedRows.size === 1
+            ? "palavra-chave"
+            : "palavras-chave"}
         </h3>
         <div className="py-4">
           <p className="text-base-content/70 text-sm">
-            These keywords will be saved to your current project.
+            Estas palavras-chave serão salvas no projeto atual.
           </p>
         </div>
         <div className="modal-action">
@@ -289,10 +293,10 @@ function KeywordSaveDialog({
             className="btn"
             onClick={() => controller.setShowSaveDialog(false)}
           >
-            Cancel
+            Cancelar
           </button>
           <button className="btn btn-primary" onClick={controller.confirmSave}>
-            Save
+            Salvar
           </button>
         </div>
       </div>

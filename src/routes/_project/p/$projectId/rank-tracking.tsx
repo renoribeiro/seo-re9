@@ -9,9 +9,9 @@ function RankTrackingLayout() {
     <div className="px-4 py-4 pb-24 overflow-auto md:px-6 md:py-6 md:pb-8">
       <div className="mx-auto max-w-7xl space-y-4">
         <div>
-          <h1 className="text-2xl font-semibold">Rank Tracking</h1>
+          <h1 className="text-2xl font-semibold">Monitoramento de posições</h1>
           <p className="text-sm text-base-content/70">
-            Track keyword positions across domains
+            Acompanhe as posições das palavras-chave em vários domínios
           </p>
         </div>
 

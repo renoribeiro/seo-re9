@@ -44,7 +44,7 @@ const classifyBacklinksError = createDataforseoBillingClassifier({
   pathPrefix: "/backlinks/",
   billingIssueCode: "BACKLINKS_BILLING_ISSUE",
   billingIssueMessage:
-    "The connected DataForSEO account has a billing or balance issue",
+    "A conta da DataForSEO conectada tem um problema de cobrança ou saldo",
 });
 
 // DataForSEO ships both the misspelled (`*_reffering_*`) and corrected keys; we

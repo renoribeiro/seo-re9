@@ -45,7 +45,7 @@ function strikingExportTable(report: Report): ExportTable {
   const stamp = `${report.range.startDate}-to-${report.range.endDate}`;
   return {
     filename: `search-performance-striking-distance-${stamp}.csv`,
-    headers: ["Query", "Page", "Impressions", "Clicks", "Position"],
+    headers: ["Consulta", "Página", "Impressões", "Cliques", "Posição"],
     rows: report.strikingDistance.map((row) => [
       row.query,
       row.page,
@@ -65,11 +65,11 @@ function dimensionExportTable(
   return {
     filename: `search-performance-${isPage ? "pages" : "queries"}-${stamp}.csv`,
     headers: [
-      isPage ? "Page" : "Query",
-      "Clicks",
-      "Impressions",
+      isPage ? "Página" : "Consulta",
+      "Cliques",
+      "Impressões",
       "CTR",
-      "Position",
+      "Posição",
     ],
     rows: rows.map((row) => [
       row.key,
@@ -156,17 +156,17 @@ function positionDelta(current: number, previous: number): Delta {
 
 export function TotalsCards({ report }: { report: Report }) {
   const { totals, prevTotals, range } = report;
-  const deltaTitle = `vs ${range.prevStartDate} to ${range.prevEndDate}`;
+  const deltaTitle = `vs ${range.prevStartDate} a ${range.prevEndDate}`;
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
       <TotalCard
-        label="Clicks"
+        label="Cliques"
         value={formatCount(totals.clicks)}
         delta={percentDelta(totals.clicks, prevTotals.clicks)}
         deltaTitle={deltaTitle}
       />
       <TotalCard
-        label="Impressions"
+        label="Impressões"
         value={formatCount(totals.impressions)}
         delta={percentDelta(totals.impressions, prevTotals.impressions)}
         deltaTitle={deltaTitle}
@@ -178,7 +178,7 @@ export function TotalsCards({ report }: { report: Report }) {
         deltaTitle={deltaTitle}
       />
       <TotalCard
-        label="Avg position"
+        label="Posição média"
         value={formatPosition(totals.position)}
         delta={positionDelta(totals.position, prevTotals.position)}
         deltaTitle={deltaTitle}
@@ -239,7 +239,8 @@ export function DimensionTable({
       wrapperClassName="overflow-x-auto"
       empty={
         <p className="p-6 text-sm text-base-content/60">
-          No data for this period yet. Search Console data trails by a few days.
+          Ainda não há dados para este período. Os dados do Search Console
+          chegam com alguns dias de atraso.
         </p>
       }
     />
@@ -289,10 +290,10 @@ export function StrikingDistanceTable({
         .join("\n");
       await navigator.clipboard.writeText(text);
       toast.success(
-        `Copied ${selectedQueries.length} ${selectedQueries.length === 1 ? "keyword" : "keywords"}`,
+        `${selectedQueries.length} ${selectedQueries.length === 1 ? "palavra-chave copiada" : "palavras-chave copiadas"}`,
       );
     } catch {
-      toast.error("Couldn't copy to clipboard");
+      toast.error("Não foi possível copiar para a área de transferência");
     }
   };
 
@@ -308,21 +309,25 @@ export function StrikingDistanceTable({
         queryKey: ["savedKeywords", projectId],
       });
       toast.success(
-        `Saved ${keywords.length} ${keywords.length === 1 ? "keyword" : "keywords"}`,
+        `${keywords.length} ${keywords.length === 1 ? "palavra-chave salva" : "palavras-chave salvas"}`,
       );
       setRowSelection({});
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Could not save keywords"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível salvar as palavras-chave",
+        ),
+      );
     },
   });
 
   if (rows.length === 0) {
     return (
       <p className="p-6 text-sm text-base-content/60">
-        No striking-distance queries in this period. These are queries ranking
-        at positions 5 to 20, where an improvement is most likely to move
-        traffic.
+        Nenhuma consulta quase no topo neste período. São consultas nas posições
+        5 a 20, em que uma melhoria tem mais chance de trazer tráfego.
       </p>
     );
   }
@@ -331,8 +336,8 @@ export function StrikingDistanceTable({
     <>
       <div className="p-4">
         <p className="mb-3 text-sm text-base-content/60">
-          Queries ranking at positions 5 to 20, sorted by impressions. Improve
-          the listed page to move them into the top results.
+          Consultas nas posições 5 a 20, ordenadas por impressões. Melhore a
+          página listada para levá-las aos primeiros resultados.
         </p>
         <AppDataTable
           table={table}
@@ -352,7 +357,7 @@ export function StrikingDistanceTable({
       />
       <TableBulkActionBar
         selectedCount={selectedQueries.length}
-        selectedLabel={selectedQueries.length === 1 ? "query" : "queries"}
+        selectedLabel={selectedQueries.length === 1 ? "consulta" : "consultas"}
         onClear={() => setRowSelection({})}
         actions={
           <div className="flex items-center gap-1 px-1.5">
@@ -360,7 +365,7 @@ export function StrikingDistanceTable({
               icon={<Copy className="size-3.5" />}
               onClick={() => void copyKeywords()}
             >
-              Copy keywords
+              Copiar palavras-chave
             </TableBulkActionButton>
             <TableBulkActionButton
               icon={
@@ -373,7 +378,7 @@ export function StrikingDistanceTable({
               onClick={() => save.mutate(selectedQueries)}
               disabled={save.isPending}
             >
-              Save as keywords
+              Salvar como palavras-chave
             </TableBulkActionButton>
           </div>
         }

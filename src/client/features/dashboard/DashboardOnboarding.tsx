@@ -45,7 +45,7 @@ export function DashboardOnboarding({
       toast.error(
         getStandardErrorMessage(
           error,
-          "Couldn’t save your preference. Try again.",
+          "Não foi possível salvar sua preferência. Tente novamente.",
         ),
       ),
   });
@@ -66,13 +66,15 @@ export function DashboardOnboarding({
 
   return (
     <section
-      aria-label="Onboarding checklist"
+      aria-label="Checklist de primeiros passos"
       className="overflow-hidden rounded-xl border border-base-300 bg-base-100"
     >
       <header className="border-b border-base-300 px-5 py-5 sm:px-6">
-        <h2 className="text-lg font-semibold">Set up your workspace</h2>
+        <h2 className="text-lg font-semibold">
+          Configure seu espaço de trabalho
+        </h2>
         <p className="mt-1 text-sm text-base-content/65">
-          Add your website, connect your tools, and invite your team.
+          Adicione seu site, conecte suas ferramentas e convide sua equipe.
         </p>
       </header>
       {remaining.map((item) => {
@@ -104,7 +106,7 @@ export function DashboardOnboarding({
               </span>
               {item.id === "domain" && (
                 <span className="hidden text-xs text-primary sm:block">
-                  Start here
+                  Comece aqui
                 </span>
               )}
               <ChevronRight
@@ -129,8 +131,8 @@ export function DashboardOnboarding({
                       }
                     >
                       {item.id === "project"
-                        ? "I only need one project"
-                        : "Skip for now"}
+                        ? "Só preciso de um projeto"
+                        : "Pular por enquanto"}
                     </button>
                   </div>
                 </div>
@@ -143,7 +145,10 @@ export function DashboardOnboarding({
         <details className="group border-t border-base-300">
           <summary className="flex cursor-pointer list-none items-center gap-2 px-5 py-4 text-sm text-base-content/65 sm:px-6 [&::-webkit-details-marker]:hidden">
             <ChevronRight className="size-4 transition-transform group-open:rotate-90" />
-            {deferred.length} saved for later
+            {deferred.length}{" "}
+            {deferred.length === 1
+              ? "deixado para depois"
+              : "deixados para depois"}
           </summary>
           <ul className="space-y-1 px-5 pb-4 sm:px-6">
             {deferred.map((item) => (
@@ -154,14 +159,14 @@ export function DashboardOnboarding({
                 <span className="text-sm">{item.label}</span>
                 <button
                   type="button"
-                  aria-label={`Restore ${item.label}`}
+                  aria-label={`Restaurar ${item.label}`}
                   className="btn btn-ghost btn-sm shrink-0"
                   disabled={dismiss.isPending}
                   onClick={() =>
                     dismiss.mutate({ step: item.id, dismissed: false })
                   }
                 >
-                  <RotateCcw className="size-3.5" /> Restore
+                  <RotateCcw className="size-3.5" /> Restaurar
                 </button>
               </li>
             ))}
@@ -172,7 +177,8 @@ export function DashboardOnboarding({
         <details className="group border-t border-base-300">
           <summary className="flex cursor-pointer list-none items-center gap-2 px-5 py-4 text-sm sm:px-6 [&::-webkit-details-marker]:hidden">
             <Check className="size-4 text-success" />
-            {completed.length} completed
+            {completed.length}{" "}
+            {completed.length === 1 ? "concluído" : "concluídos"}
             <ChevronRight className="ml-auto size-4 text-base-content/60 transition-transform group-open:rotate-90" />
           </summary>
           <ul className="space-y-3 px-5 pb-5 sm:px-6">

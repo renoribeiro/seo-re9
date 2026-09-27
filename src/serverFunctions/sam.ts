@@ -36,7 +36,10 @@ export const createSamSession = createServerFn({ method: "POST" })
       userId: context.userId,
     });
     if (!session) {
-      throw new AppError("INTERNAL_ERROR", "Failed to create chat session");
+      throw new AppError(
+        "INTERNAL_ERROR",
+        "Não foi possível criar a sessão de chat",
+      );
     }
     waitUntil(
       captureServerEvent({
@@ -71,7 +74,7 @@ export const archiveSamSession = createServerFn({ method: "POST" })
         )
       : null;
     if (!session || !project) {
-      throw new AppError("NOT_FOUND", "Chat session not found");
+      throw new AppError("NOT_FOUND", "Sessão de chat não encontrada");
     }
     await SamSessionRepository.archiveSession(data.sessionId);
     waitUntil(

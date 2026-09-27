@@ -7,13 +7,15 @@ describe("BacklinksErrorState", () => {
   it("renders a visible retry state", () => {
     const markup = renderToStaticMarkup(
       createElement(BacklinksErrorState, {
-        errorMessage: "Could not load backlinks data.",
+        errorMessage: "Não foi possível carregar os dados de backlinks.",
         onRetry: vi.fn(),
       }),
     );
 
-    expect(markup).toContain("Could not load backlinks");
-    expect(markup).toContain("Could not load backlinks data.");
-    expect(markup).toContain("Retry");
+    expect(markup).toContain("Não foi possível carregar os backlinks");
+    expect(markup).toContain(
+      "Não foi possível carregar os dados de backlinks.",
+    );
+    expect(markup).toContain("Tentar novamente");
   });
 });

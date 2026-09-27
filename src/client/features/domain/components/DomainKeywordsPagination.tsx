@@ -20,11 +20,11 @@ function formatRange(
 ) {
   const start = (page - 1) * pageSize + 1;
   if (totalCount == null) {
-    return `${start.toLocaleString()}–${(start + pageSize - 1).toLocaleString()}`;
+    return `${start.toLocaleString("pt-BR")}–${(start + pageSize - 1).toLocaleString("pt-BR")}`;
   }
   if (totalCount === 0) return "0";
   const end = Math.min(totalCount, start + pageSize - 1);
-  return `${start.toLocaleString()}–${end.toLocaleString()} of ${totalCount.toLocaleString()}`;
+  return `${start.toLocaleString("pt-BR")}–${end.toLocaleString("pt-BR")} de ${totalCount.toLocaleString("pt-BR")}`;
 }
 
 export function DomainKeywordsPagination({
@@ -52,7 +52,7 @@ export function DomainKeywordsPagination({
 
       <div className="flex items-center gap-6">
         <label className="flex items-center gap-2 text-sm text-base-content/70">
-          <span className="whitespace-nowrap">Rows per page</span>
+          <span className="whitespace-nowrap">Linhas por página</span>
           <select
             className="select select-bordered select-sm w-20"
             value={pageSize}
@@ -68,15 +68,17 @@ export function DomainKeywordsPagination({
 
         <div className="flex items-center gap-2">
           <span className="whitespace-nowrap text-sm tabular-nums text-base-content/70">
-            Page {page.toLocaleString()}
-            {totalPages != null ? ` of ${totalPages.toLocaleString()}` : ""}
+            Página {page.toLocaleString("pt-BR")}
+            {totalPages != null
+              ? ` de ${totalPages.toLocaleString("pt-BR")}`
+              : ""}
           </span>
           <div className="flex items-center gap-1">
             <PageLink
               page={page - 1}
               disabled={!canGoPrev || isLoading}
               onPageChange={onPageChange}
-              label="Previous page"
+              label="Página anterior"
             >
               <ChevronLeft className="size-4" />
             </PageLink>
@@ -84,7 +86,7 @@ export function DomainKeywordsPagination({
               page={page + 1}
               disabled={!canGoNext || isLoading}
               onPageChange={onPageChange}
-              label="Next page"
+              label="Próxima página"
             >
               <ChevronRight className="size-4" />
             </PageLink>

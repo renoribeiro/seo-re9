@@ -71,7 +71,7 @@ export function assertFilterConditionBudget(conditionCount: number): void {
   if (conditionCount > MAX_DATAFORSEO_FILTER_CONDITIONS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Too many filter conditions (${conditionCount} of ${MAX_DATAFORSEO_FILTER_CONDITIONS} max).`,
+      `Condições de filtro demais (${conditionCount} de no máximo ${MAX_DATAFORSEO_FILTER_CONDITIONS}).`,
     );
   }
 }

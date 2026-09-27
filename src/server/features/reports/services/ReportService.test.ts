@@ -97,21 +97,21 @@ describe("saveReport", () => {
     mocks.getReport.mockResolvedValue(null);
 
     await expect(save({ reportId: "report_gone" })).rejects.toThrow(
-      "No report report_gone in this project. Call list_reports, or omit reportId to create a new one.",
+      "Não há relatório report_gone neste projeto. Chame list_reports ou omita reportId para criar um novo.",
     );
     expect(mocks.updateReportContent).not.toHaveBeenCalled();
   });
 
   it("refuses an over-long title and writes nothing", async () => {
     await expect(save({ title: "T".repeat(143) })).rejects.toThrow(
-      "Title is 143 characters; the limit is 120. Shorten it and save again.",
+      "O título tem 143 caracteres; o limite é 120. Encurte-o e salve novamente.",
     );
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
 
   it("refuses an over-long summary", async () => {
     await expect(save({ summary: "s".repeat(2720) })).rejects.toThrow(
-      "Summary is 2,720 characters; the limit is 2,500. Shorten it and save again.",
+      "O resumo tem 2,720 caracteres; o limite é 2,500. Encurte-o e salve novamente.",
     );
   });
 
@@ -119,14 +119,14 @@ describe("saveReport", () => {
     // 320,000 two-byte characters: under the cap by String.length, over it by
     // the bytes that actually reach the column.
     await expect(save({ html: "é".repeat(320_000) })).rejects.toThrow(
-      "Report is 640 KB; the limit is 500 KB. Inlined images are the usual cause. Remove them and save again.",
+      "O relatório tem 640 KB; o limite é 500 KB. Imagens embutidas costumam ser a causa. Remova-as e salve novamente.",
     );
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
 
   it("refuses a document that stopped mid-write", async () => {
     await expect(save({ html: "<html><body>half a repo" })).rejects.toThrow(
-      "The HTML has no closing </html>; the model stopped early. On Codex, escape backticks and ${.",
+      "O HTML não tem o fechamento </html>; o modelo parou antes do fim. No Codex, escape as crases e ${.",
     );
   });
 
@@ -139,7 +139,7 @@ describe("saveReport", () => {
     await expect(
       save({ reportId: "report_1", title: "Taken" }),
     ).rejects.toThrow(
-      "A report titled 'Taken' exists (id report_2). Pass reportId to update it, or change the title.",
+      "Já existe um relatório com o título 'Taken' (id report_2). Passe reportId para atualizá-lo ou altere o título.",
     );
     expect(mocks.updateReportContent).not.toHaveBeenCalled();
   });
@@ -148,7 +148,7 @@ describe("saveReport", () => {
     mocks.countReports.mockResolvedValue(REPORT_MAX_PER_PROJECT);
 
     await expect(save()).rejects.toThrow(
-      `This project has ${formatCount(REPORT_MAX_PER_PROJECT)} reports, the limit. Delete one from the Reports page.`,
+      `Este projeto tem ${formatCount(REPORT_MAX_PER_PROJECT)} relatórios, o limite. Exclua um na página Relatórios.`,
     );
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
@@ -169,7 +169,7 @@ describe("saveReport", () => {
     );
 
     await expect(save()).rejects.toThrow(
-      `This organization is storing ${formatCount(REPORT_MAX_BYTES_PER_ORG / 1_000_000)} MB of reports, the limit. Delete reports you no longer need from the Reports page.`,
+      `Esta organização está armazenando ${formatCount(REPORT_MAX_BYTES_PER_ORG / 1_000_000)} MB de relatórios, o limite. Exclua os relatórios de que não precisa mais na página Relatórios.`,
     );
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
@@ -192,7 +192,7 @@ describe("reads and deletes", () => {
     mocks.getReport.mockResolvedValue(null);
 
     await expect(getReport("project_1", "report_gone")).rejects.toThrow(
-      "No report report_gone in this project. Call list_reports to see what exists.",
+      "Não há relatório report_gone neste projeto. Chame list_reports para ver o que existe.",
     );
     expect(mocks.getReport).toHaveBeenCalledWith("project_1", "report_gone");
   });
@@ -201,7 +201,7 @@ describe("reads and deletes", () => {
     mocks.deleteReport.mockResolvedValue(false);
 
     await expect(deleteReport("project_1", "report_gone")).rejects.toThrow(
-      "No report report_gone in this project.",
+      "Não há relatório report_gone neste projeto.",
     );
     expect(mocks.deleteReport).toHaveBeenCalledWith("project_1", "report_gone");
   });
@@ -275,7 +275,7 @@ describe("sharing", () => {
     vi.mocked(isHostedServerAuthMode).mockResolvedValue(false);
 
     await expect(share()).rejects.toThrow(
-      "Sharing is only available on hosted OpenSEO.",
+      "O compartilhamento só está disponível no RE9 SEO hospedado.",
     );
     expect(mocks.setShareToken).not.toHaveBeenCalled();
     expect(mocks.getReport).not.toHaveBeenCalled();

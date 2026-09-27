@@ -130,7 +130,7 @@ export function SamChat({
           className="flex shrink-0 items-center gap-1.5 text-xs text-base-content/60 transition-colors hover:text-base-content"
         >
           <Brain className="size-3.5" />
-          Project memory
+          Memória do projeto
         </Link>
       </div>
       <div className="flex min-h-0 flex-1">

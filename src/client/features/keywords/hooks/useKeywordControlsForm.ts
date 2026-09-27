@@ -38,7 +38,7 @@ function getKeywordSearchValidationErrors(
     if (!validateEmptyKeyword) return null;
     return createFormValidationErrors({
       fields: {
-        keyword: "Please enter at least one keyword.",
+        keyword: "Digite pelo menos uma palavra-chave.",
       },
     });
   }
@@ -48,7 +48,7 @@ function getKeywordSearchValidationErrors(
   if (keywords.length > MAX_KEYWORDS_PER_SUBMIT) {
     return createFormValidationErrors({
       fields: {
-        keyword: `Please enter no more than ${MAX_KEYWORDS_PER_SUBMIT} keywords (one per line).`,
+        keyword: `Digite no máximo ${MAX_KEYWORDS_PER_SUBMIT} palavras-chave (uma por linha).`,
       },
     });
   }

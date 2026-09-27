@@ -104,7 +104,7 @@ describe("buildKeywordFilters", () => {
         minTraffic: 3,
         maxTraffic: 4,
       }),
-    ).toThrow(/Too many filter conditions/);
+    ).toThrow(/Condições de filtro demais/);
   });
 
   it("counts the search OR-group as 2 toward the cap", () => {
@@ -117,6 +117,6 @@ describe("buildKeywordFilters", () => {
         },
         "audit",
       ),
-    ).toThrow(/Too many filter conditions/);
+    ).toThrow(/Condições de filtro demais/);
   });
 });

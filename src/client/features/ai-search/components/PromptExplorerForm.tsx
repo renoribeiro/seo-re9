@@ -87,7 +87,7 @@ export function PromptExplorerForm({
             autoFocus
           />
           <div className="flex items-center justify-between text-xs text-base-content/60">
-            <span>What your customers might ask AI.</span>
+            <span>O que seus clientes poderiam perguntar à IA.</span>
             <span
               className={`tabular-nums ${promptOverLimit ? "font-medium text-error" : ""}`}
             >
@@ -102,7 +102,7 @@ export function PromptExplorerForm({
               className="block text-sm font-medium"
               htmlFor="prompt-explorer-brand"
             >
-              Highlight brand (optional)
+              Marca em destaque (opcional)
             </label>
             <input
               id="prompt-explorer-brand"
@@ -114,12 +114,12 @@ export function PromptExplorerForm({
               spellCheck={false}
             />
             <p className="text-xs text-base-content/60">
-              We&apos;ll flag whether each model mentions this brand.
+              Vamos indicar se cada modelo menciona esta marca.
             </p>
           </div>
 
           <div className="space-y-1.5">
-            <span className="block text-sm font-medium">Models</span>
+            <span className="block text-sm font-medium">Modelos</span>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1.5">
               {PROMPT_EXPLORER_MODELS.map((model) => {
                 const isActive = form.models.includes(model);
@@ -152,12 +152,12 @@ export function PromptExplorerForm({
                 onChange={(event) => onWebSearchChange(event.target.checked)}
               />
               <span className="text-sm">
-                Allow web search (more current answers)
+                Permitir busca na web (respostas mais atuais)
               </span>
             </label>
             <select
               id="prompt-explorer-country"
-              aria-label="Web search location"
+              aria-label="Localização da busca na web"
               className="select select-bordered select-sm min-w-0 sm:max-w-xs"
               value={form.webSearchCountryCode}
               onChange={(event) =>
@@ -177,7 +177,7 @@ export function PromptExplorerForm({
             className="btn btn-primary shrink-0 px-6"
             disabled={isLoading || form.models.length === 0}
           >
-            {isLoading ? "Running…" : "Run"}
+            {isLoading ? "Executando…" : "Executar"}
           </button>
         </div>
 

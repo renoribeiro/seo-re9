@@ -13,10 +13,12 @@ export function useMetricsRefresh(projectId: string, configId: string) {
       void queryClient.invalidateQueries({
         queryKey: ["rankTrackingResults", projectId, configId],
       });
-      toast.success(`Metrics updated for ${result.updated} keywords`);
+      toast.success(
+        `Métricas atualizadas para ${result.updated} ${result.updated === 1 ? "palavra-chave" : "palavras-chave"}`,
+      );
     },
     onError: () => {
-      toast.error("Failed to refresh keyword metrics");
+      toast.error("Não foi possível atualizar as métricas das palavras-chave");
     },
   });
   return { refresh: mutation.mutate, isRefreshing: mutation.isPending };

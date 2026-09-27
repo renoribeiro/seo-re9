@@ -18,10 +18,10 @@ import {
 } from "./shared";
 
 const ROLE_LABELS: Record<KeyPageRole, string> = {
-  hub: "Hub page",
-  spoke: "Supporting page",
-  money: "Money page",
-  other: "Other",
+  hub: "Página hub",
+  spoke: "Página de apoio",
+  money: "Página de conversão",
+  other: "Outra",
 };
 
 export function KeyPagesSection({
@@ -66,8 +66,8 @@ export function KeyPagesSection({
   return (
     <section className="space-y-3">
       <SectionHeader
-        title="Key pages"
-        hint="A shortlist of the pages that carry the site — not an inventory."
+        title="Páginas-chave"
+        hint="Uma lista curta das páginas que sustentam o site — não um inventário."
         action={
           <button
             type="button"
@@ -75,7 +75,7 @@ export function KeyPagesSection({
             onClick={() => setAdding(true)}
           >
             <Plus className="size-3.5" />
-            Add page
+            Adicionar página
           </button>
         }
       />
@@ -93,8 +93,9 @@ export function KeyPagesSection({
       {keyPages.length === 0 ? (
         adding ? null : (
           <EmptyState>
-            No key pages yet. Add the handful that has to rank, or let an agent
-            propose them from your last site audit.
+            Nenhuma página-chave ainda. Adicione as poucas que precisam ranquear
+            ou deixe um agente sugeri-las a partir da sua última auditoria do
+            site.
           </EmptyState>
         )
       ) : (
@@ -125,7 +126,7 @@ export function KeyPagesSection({
                   </div>
                   {page.topic ? (
                     <p className="text-sm text-base-content/70">
-                      Target: {page.topic}
+                      Tema-alvo: {page.topic}
                     </p>
                   ) : null}
                   {page.notes ? (
@@ -137,13 +138,13 @@ export function KeyPagesSection({
                   <button
                     type="button"
                     className="btn btn-ghost btn-xs"
-                    aria-label={`Edit ${page.url}`}
+                    aria-label={`Editar ${page.url}`}
                     onClick={() => setEditingId(page.id)}
                   >
                     <Pencil className="size-3.5" />
                   </button>
                   <ConfirmDeleteButton
-                    label={`Remove ${page.url}`}
+                    label={`Remover ${page.url}`}
                     pending={update.isPending}
                     onConfirm={() =>
                       update.mutate([{ removeKeyPages: [page.url] }])
@@ -198,10 +199,10 @@ function KeyPageForm({
         type="text"
         value={draft.url}
         onChange={(event) => setDraft({ ...draft, url: event.target.value })}
-        placeholder="example.com/pricing"
+        placeholder="exemplo.com.br/precos"
         maxLength={2048}
         className="input input-bordered input-sm w-full"
-        aria-label="Page URL"
+        aria-label="URL da página"
       />
       <div className="grid gap-2 sm:grid-cols-2">
         <select
@@ -215,7 +216,7 @@ function KeyPageForm({
             })
           }
           className="select select-bordered select-sm w-full"
-          aria-label="Page role"
+          aria-label="Função da página"
         >
           {KEY_PAGE_ROLES.map((role) => (
             <option key={role} value={role}>
@@ -229,20 +230,20 @@ function KeyPageForm({
           onChange={(event) =>
             setDraft({ ...draft, topic: event.target.value })
           }
-          placeholder="Target topic (optional)"
+          placeholder="Tema-alvo (opcional)"
           maxLength={200}
           className="input input-bordered input-sm w-full"
-          aria-label="Target topic"
+          aria-label="Tema-alvo"
         />
       </div>
       <input
         type="text"
         value={draft.notes}
         onChange={(event) => setDraft({ ...draft, notes: event.target.value })}
-        placeholder="Notes (optional)"
+        placeholder="Observações (opcional)"
         maxLength={500}
         className="input input-bordered input-sm w-full"
-        aria-label="Page notes"
+        aria-label="Observações da página"
       />
       <FormActions
         pending={pending}

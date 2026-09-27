@@ -30,7 +30,7 @@ export function BacklinksTrendChart({
     <div
       ref={containerRef}
       className="h-56 min-w-0"
-      aria-label="Backlink trend chart"
+      aria-label="Gráfico de tendência de backlinks"
     >
       {chartWidth > 0 ? (
         <LineChart
@@ -65,7 +65,7 @@ export function BacklinksTrendChart({
             yAxisId="left"
             type="monotone"
             dataKey="backlinks"
-            stroke="#2563eb"
+            stroke="#ED1C24"
             strokeWidth={2}
             dot={false}
             name="Backlinks"
@@ -74,10 +74,10 @@ export function BacklinksTrendChart({
             yAxisId="right"
             type="monotone"
             dataKey="referringDomains"
-            stroke="#14b8a6"
+            stroke="#6b7280"
             strokeWidth={2}
             dot={false}
-            name="Referring domains"
+            name="Domínios de referência"
           />
         </LineChart>
       ) : null}
@@ -100,7 +100,7 @@ export function BacklinksNewLostChart({
     <div
       ref={containerRef}
       className="h-56 min-w-0"
-      aria-label="New and lost backlinks chart"
+      aria-label="Gráfico de backlinks novos e perdidos"
     >
       {chartWidth > 0 ? (
         <LineChart
@@ -131,7 +131,7 @@ export function BacklinksNewLostChart({
             stroke="#ef4444"
             strokeWidth={2}
             dot={false}
-            name="Lost backlinks"
+            name="Backlinks perdidos"
           />
           <Line
             type="monotone"
@@ -139,7 +139,7 @@ export function BacklinksNewLostChart({
             stroke="#16a34a"
             strokeWidth={2}
             dot={false}
-            name="New backlinks"
+            name="Backlinks novos"
           />
         </LineChart>
       ) : null}
@@ -177,15 +177,17 @@ function useChartWidth() {
 function EmptyChartState() {
   return (
     <div className="flex h-56 items-center justify-center rounded-xl border border-dashed border-base-300 text-sm text-base-content/55">
-      Not enough historical data yet.
+      Ainda não há dados históricos suficientes.
     </div>
   );
 }
 
 function formatAxisValue(value: unknown) {
   if (typeof value !== "number") return "";
-  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`;
-  if (value >= 1_000) return `${(value / 1_000).toFixed(0)}K`;
+  if (value >= 1_000_000) {
+    return `${(value / 1_000_000).toFixed(1).replace(".", ",")} mi`;
+  }
+  if (value >= 1_000) return `${(value / 1_000).toFixed(0)} mil`;
   return String(value);
 }
 

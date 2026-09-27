@@ -18,20 +18,20 @@ export function SamSetupGate({
             <Wrench className="size-5" />
           </div>
           <div className="max-w-3xl space-y-1.5">
-            <h2 className="text-xl font-semibold">Enable AI Features</h2>
+            <h2 className="text-xl font-semibold">Ativar recursos de IA</h2>
             <div className="text-sm text-base-content/68">
-              SAM, OpenSEO's in-app AI agent, needs an OpenRouter API key.
-              Create a key on OpenRouter, set it as the{" "}
-              <code>OPENROUTER_API_KEY</code> environment variable, restart
-              OpenSEO, then confirm here.
+              O SAM, agente de IA do RE9 SEO, precisa de uma chave de API do
+              OpenRouter. Crie uma chave no OpenRouter, defina-a na variável de
+              ambiente <code>OPENROUTER_API_KEY</code>, reinicie o RE9 SEO e
+              confirme aqui.
             </div>
             <div className="text-xs text-base-content/50">
-              Step-by-step instructions for every deployment are in the{" "}
+              As instruções passo a passo para cada tipo de instalação estão no{" "}
               <Link
                 className="underline underline-offset-2 hover:text-base-content/70"
                 to="/help/openrouter-api-key"
               >
-                OpenRouter API key setup guide
+                guia de configuração da chave de API do OpenRouter
               </Link>
               .
             </div>
@@ -44,7 +44,7 @@ export function SamSetupGate({
             onClick={onRetry}
             disabled={isRefetching}
           >
-            {isRefetching ? "Confirming..." : "Confirm API Key"}
+            {isRefetching ? "Confirmando..." : "Confirmar chave de API"}
           </button>
           <a
             className="btn"
@@ -52,7 +52,7 @@ export function SamSetupGate({
             target="_blank"
             rel="noreferrer"
           >
-            Open OpenRouter Keys
+            Abrir chaves do OpenRouter
           </a>
         </div>
 

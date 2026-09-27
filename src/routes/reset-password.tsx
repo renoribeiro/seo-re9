@@ -21,16 +21,16 @@ const resetPasswordSchema = z
       .string()
       .min(
         HOSTED_PASSWORD_MIN_LENGTH,
-        `Password must be at least ${HOSTED_PASSWORD_MIN_LENGTH} characters.`,
+        `A senha deve ter pelo menos ${HOSTED_PASSWORD_MIN_LENGTH} caracteres.`,
       )
       .max(
         HOSTED_PASSWORD_MAX_LENGTH,
-        `Password must be at most ${HOSTED_PASSWORD_MAX_LENGTH} characters.`,
+        `A senha deve ter no máximo ${HOSTED_PASSWORD_MAX_LENGTH} caracteres.`,
       ),
     confirmPassword: z.string(),
   })
   .refine((value) => value.password === value.confirmPassword, {
-    message: "Passwords do not match.",
+    message: "As senhas não coincidem.",
     path: ["confirmPassword"],
   });
 
@@ -47,12 +47,12 @@ export const Route = createFileRoute("/reset-password")({
 function getResetPasswordErrorMessage(error: string | undefined) {
   switch ((error ?? "").toLowerCase()) {
     case "invalid_token":
-      return "This reset link is no longer valid. Request a new one to keep going.";
+      return "Este link de redefinição não é mais válido. Peça um novo para continuar.";
     case "token_expired":
-      return "This reset link has expired. Request a new one to keep going.";
+      return "Este link de redefinição expirou. Peça um novo para continuar.";
     default:
       return error
-        ? "This reset link can't be used anymore. Request a new one and try again."
+        ? "Este link de redefinição não pode mais ser usado. Peça um novo e tente novamente."
         : null;
   }
 }
@@ -70,31 +70,30 @@ function getResetPasswordPageCopy({
 }) {
   if (!isHostedMode) {
     return {
-      title: "Reset password",
-      helperText: "Password reset isn't available right now.",
+      title: "Redefinir senha",
+      helperText: "A redefinição de senha não está disponível no momento.",
     };
   }
 
   if (isComplete) {
     return {
-      title: "Password updated",
-      helperText:
-        "Your password has been updated. Sign in with your new password.",
+      title: "Senha atualizada",
+      helperText: "Sua senha foi atualizada. Entre com a nova senha.",
     };
   }
 
   if (routeError || !hasToken) {
     return {
-      title: "Reset link expired",
+      title: "Link de redefinição expirado",
       helperText:
         routeError ||
-        "This reset link is no longer valid. Request a new one to keep going.",
+        "Este link de redefinição não é mais válido. Peça um novo para continuar.",
     };
   }
 
   return {
-    title: "Reset password",
-    helperText: "Choose a new password for your account.",
+    title: "Redefinir senha",
+    helperText: "Escolha uma nova senha para sua conta.",
   };
 }
 
@@ -116,7 +115,7 @@ function ResetPasswordPage() {
       if (!token) {
         formApi.setErrorMap({
           onSubmit: {
-            form: "This reset link is no longer valid. Request a new one and try again.",
+            form: "Este link de redefinição não é mais válido. Peça um novo e tente novamente.",
             fields: {},
           },
         });
@@ -132,7 +131,7 @@ function ResetPasswordPage() {
         if (result.error) {
           formApi.setErrorMap({
             onSubmit: {
-              form: "This reset link is no longer valid. Request a new one and try again.",
+              form: "Este link de redefinição não é mais válido. Peça um novo e tente novamente.",
               fields: {},
             },
           });
@@ -141,7 +140,7 @@ function ResetPasswordPage() {
       } catch {
         formApi.setErrorMap({
           onSubmit: {
-            form: "We couldn't update your password right now. Please try again.",
+            form: "Não foi possível atualizar sua senha agora. Tente novamente.",
             fields: {},
           },
         });
@@ -178,7 +177,7 @@ function ResetPasswordPage() {
                     search={getSignInSearch(redirectTo)}
                     className="text-base-content/50 hover:text-base-content transition-colors"
                   >
-                    Sign in
+                    Entrar
                   </Link>
                 </p>
               }
@@ -192,7 +191,7 @@ function ResetPasswordPage() {
                   }
                   className="btn btn-soft w-full"
                 >
-                  Continue to sign in
+                  Continuar para Entrar
                 </a>
               ) : routeError || !token ? (
                 <Link
@@ -200,7 +199,7 @@ function ResetPasswordPage() {
                   search={getSignInSearch(redirectTo)}
                   className="btn btn-soft w-full"
                 >
-                  Request a new reset link
+                  Pedir um novo link de redefinição
                 </Link>
               ) : (
                 <form
@@ -219,7 +218,7 @@ function ResetPasswordPage() {
                           <input
                             type="password"
                             className="input input-bordered w-full"
-                            placeholder="New password..."
+                            placeholder="Nova senha..."
                             value={field.state.value}
                             onChange={(event) =>
                               field.handleChange(event.target.value)
@@ -246,7 +245,7 @@ function ResetPasswordPage() {
                           <input
                             type="password"
                             className="input input-bordered w-full"
-                            placeholder="Confirm new password..."
+                            placeholder="Confirme a nova senha..."
                             value={field.state.value}
                             onChange={(event) =>
                               field.handleChange(event.target.value)
@@ -271,7 +270,7 @@ function ResetPasswordPage() {
                     className="btn btn-soft w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Updating password..." : "Update password"}
+                    {isSubmitting ? "Atualizando senha..." : "Atualizar senha"}
                   </button>
                 </form>
               )}

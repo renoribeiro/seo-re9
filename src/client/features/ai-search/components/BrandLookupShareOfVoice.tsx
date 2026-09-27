@@ -35,9 +35,9 @@ export function BrandLookupShareOfVoice({
           {isDomainLevel ? (
             <span
               className="tooltip badge badge-ghost badge-sm shrink-0 font-normal"
-              data-tip="Share of Voice compares whole domains — it is not narrowed to the page or folder you searched."
+              data-tip="O Share of Voice compara domínios inteiros — não se limita à página ou pasta que você buscou."
             >
-              Domain-level
+              Domínio inteiro
             </span>
           ) : null}
         </h3>
@@ -47,7 +47,7 @@ export function BrandLookupShareOfVoice({
               {target.label}
             </span>{" "}
             {target.sharePct == null
-              ? "· no comparable data"
+              ? "· sem dados comparáveis"
               : `· ${Math.round(target.sharePct)}%`}
           </span>
         ) : null}
@@ -67,9 +67,9 @@ export function BrandLookupShareOfVoice({
       {/* Captions only the platforms actually summed — when one platform's
           cross_aggregated call failed, the leaderboard must not claim both. */}
       <p className="border-t border-base-200 px-4 py-2 text-[11px] text-base-content/50">
-        Mentions share across{" "}
-        {shareOfVoice.platforms.map(formatPlatformLabel).join(" and ")} · bars
-        relative to the leader.
+        Participação nas menções em{" "}
+        {shareOfVoice.platforms.map(formatPlatformLabel).join(" e ")} · barras
+        relativas ao líder.
       </p>
     </section>
   );
@@ -99,7 +99,7 @@ function LeaderboardRow({
         <div className="flex items-center gap-2">
           <span className="truncate text-sm">{entry.label}</span>
           {entry.isTarget ? (
-            <span className="badge badge-primary badge-xs border-0">You</span>
+            <span className="badge badge-primary badge-xs border-0">Você</span>
           ) : null}
           <span className="ml-auto shrink-0 text-xs tabular-nums text-base-content/50">
             {/* Null mentions = "no data"; render a dash, not zero. */}

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BrandWordmark } from "@/client/components/BrandLogo";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Menu } from "lucide-react";
@@ -174,14 +175,14 @@ function MobileTopBar({
       <button
         type="button"
         className="btn btn-square btn-ghost btn-sm"
-        aria-label="Toggle sidebar"
+        aria-label="Alternar barra lateral"
         aria-expanded={drawerOpen}
         onClick={onOpenDrawer}
       >
         <Menu className="h-5 w-5" />
       </button>
-      <Link to="/" className="ml-1 font-semibold text-base-content">
-        OpenSEO
+      <Link to="/" className="ml-1" aria-label="RE9 SEO">
+        <BrandWordmark logoClassName="h-6" />
       </Link>
     </div>
   );

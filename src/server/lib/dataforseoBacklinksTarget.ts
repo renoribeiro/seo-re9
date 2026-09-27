@@ -62,7 +62,7 @@ export function normalizeBacklinksTarget(
   if (/[?#]/.test(trimmed)) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Page URLs with query strings or fragments are not supported",
+      "URLs de página com query string ou fragmento (#) não são aceitas",
     );
   }
 

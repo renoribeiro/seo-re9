@@ -9,7 +9,7 @@ import {
 
 export const startAuditSchema = z.object({
   projectId: z.string().min(1),
-  startUrl: z.string().min(1, "URL is required").max(2048),
+  startUrl: z.string().min(1, "Informe a URL").max(2048),
   maxPages: z
     .number()
     .int()

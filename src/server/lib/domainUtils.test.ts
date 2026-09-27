@@ -28,15 +28,17 @@ describe("normalizeDomainInput", () => {
 
   it("rejects a fake TLD before it can reach DataForSEO", () => {
     expect(() => normalizeDomainInput("victorgomez.por", false)).toThrowError(
-      /valid domain/i,
+      /domínio válido/i,
     );
     // Validation must also run on the includeSubdomains=true path.
     expect(() => normalizeDomainInput("victorgomez.por", true)).toThrowError(
-      /valid domain/i,
+      /domínio válido/i,
     );
   });
 
   it("rejects empty input", () => {
-    expect(() => normalizeDomainInput("   ", false)).toThrowError(/required/i);
+    expect(() => normalizeDomainInput("   ", false)).toThrowError(
+      /informe um domínio/i,
+    );
   });
 });

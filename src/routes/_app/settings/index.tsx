@@ -17,9 +17,9 @@ const THEME_OPTIONS: {
   label: string;
   icon: typeof Sun;
 }[] = [
-  { value: "system", label: "System", icon: Monitor },
-  { value: "light", label: "Light", icon: Sun },
-  { value: "dark", label: "Dark", icon: Moon },
+  { value: "system", label: "Sistema", icon: Monitor },
+  { value: "light", label: "Claro", icon: Sun },
+  { value: "dark", label: "Escuro", icon: Moon },
 ];
 
 function PersonalSettings() {
@@ -37,12 +37,18 @@ function PersonalSettings() {
         analyticsOptedOut: !enabled,
       });
       if (result.error) {
-        toast.error("We couldn't update your analytics setting.");
+        toast.error(
+          "Não foi possível atualizar sua preferência de análise de uso.",
+        );
       } else {
-        toast.success(enabled ? "Analytics enabled" : "Analytics disabled");
+        toast.success(
+          enabled ? "Análise de uso ativada" : "Análise de uso desativada",
+        );
       }
     } catch {
-      toast.error("We couldn't update your analytics setting.");
+      toast.error(
+        "Não foi possível atualizar sua preferência de análise de uso.",
+      );
     } finally {
       setIsSaving(false);
     }
@@ -51,12 +57,12 @@ function PersonalSettings() {
   return (
     <div className="space-y-10">
       <section className="space-y-3">
-        <h2 className="text-sm font-medium text-base-content/50">Appearance</h2>
+        <h2 className="text-sm font-medium text-base-content/50">Aparência</h2>
         <div className="flex items-center justify-between gap-6">
-          <span className="text-sm">Theme</span>
+          <span className="text-sm">Tema</span>
           <div
             role="radiogroup"
-            aria-label="Theme preference"
+            aria-label="Preferência de tema"
             className="flex gap-0.5 rounded-lg bg-base-200 p-0.5"
           >
             {THEME_OPTIONS.map((option) => {
@@ -91,13 +97,13 @@ function PersonalSettings() {
 
           <section className="space-y-3">
             <h2 className="text-sm font-medium text-base-content/50">
-              Analytics
+              Análise de uso
             </h2>
             <div className="flex items-start justify-between gap-6">
               <div>
-                <p className="text-sm">Help improve OpenSEO</p>
+                <p className="text-sm">Ajude a melhorar o RE9 SEO</p>
                 <p className="mt-1 text-sm text-base-content/60">
-                  Share analytics and usage data.
+                  Compartilhe dados de análise e de uso.
                 </p>
               </div>
               <input
@@ -108,16 +114,16 @@ function PersonalSettings() {
                 onChange={(event) => {
                   void updateAnalyticsPreference(event.currentTarget.checked);
                 }}
-                aria-label="Enable product analytics"
+                aria-label="Ativar análise de uso do produto"
               />
             </div>
           </section>
         </>
       ) : (
         <section className="space-y-3">
-          <h2 className="text-sm font-medium text-base-content/50">About</h2>
+          <h2 className="text-sm font-medium text-base-content/50">Sobre</h2>
           <div className="flex items-center justify-between gap-6">
-            <span className="text-sm">Version</span>
+            <span className="text-sm">Versão</span>
             <span className="font-mono text-sm text-base-content/60">
               v{version}
             </span>

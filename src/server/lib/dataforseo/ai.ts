@@ -27,7 +27,7 @@ const classifyAiSearchError = createDataforseoBillingClassifier({
   pathPrefix: "/ai_optimization/",
   billingIssueCode: "AI_SEARCH_BILLING_ISSUE",
   billingIssueMessage:
-    "The connected DataForSEO account has a billing or balance issue",
+    "A conta da DataForSEO conectada tem um problema de cobrança ou saldo",
 });
 
 const assertOptions = (path: string) =>
@@ -203,7 +203,7 @@ export async function fetchLlmCrossAggregatedMetrics(
   if (input.groups.length < 2 || input.groups.length > 10) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "DataForSEO llm_mentions/cross_aggregated_metrics requires 2 to 10 target groups",
+      "A comparação de menções exige de 2 a 10 grupos de alvos",
     );
   }
 

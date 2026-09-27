@@ -117,8 +117,8 @@ describe("RankTrackingService management invariants", () => {
     expect(error).toBeInstanceOf(Error);
     if (!(error instanceof Error) || !("code" in error)) throw error;
     expect(error.code).toBe("VALIDATION_ERROR");
-    expect(error.message).toContain("nominal queued estimate");
-    expect(error.message).toContain("Live fallback");
+    expect(error.message).toContain("estimativa nominal em fila");
+    expect(error.message).toContain("fallback ao vivo");
     expect(mocks.addKeywordsToConfig).not.toHaveBeenCalled();
   });
 
@@ -286,7 +286,7 @@ describe("RankTrackingService management invariants", () => {
     expect(error).toBeInstanceOf(Error);
     if (!(error instanceof Error) || !("code" in error)) throw error;
     expect(error.code).toBe("VALIDATION_ERROR");
-    expect(error.message).toContain("costs 12 credits");
+    expect(error.message).toContain("custa 12 créditos");
     expect(mocks.beginRankCheckRun).not.toHaveBeenCalled();
   });
 

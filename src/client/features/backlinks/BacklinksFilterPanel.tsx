@@ -41,28 +41,28 @@ export function BacklinksFilterPanel({
         textFields={[
           {
             key: "include",
-            label: "Source URL Contains",
+            label: "URL de origem contém",
             placeholder: "example.com, blog",
           },
           {
             key: "exclude",
-            label: "Source URL Excludes",
-            placeholder: "spam, forum",
+            label: "URL de origem não contém",
+            placeholder: "spam, fórum",
           },
         ]}
         rangeFields={[
           {
-            title: "Domain Authority",
+            title: "Autoridade do domínio",
             minKey: "minDomainRank",
             maxKey: "maxDomainRank",
           },
           {
-            title: "Link Authority",
+            title: "Autoridade do link",
             minKey: "minLinkAuthority",
             maxKey: "maxLinkAuthority",
           },
           {
-            title: "Spam Score",
+            title: "Pontuação de spam",
             minKey: "minSpamScore",
             maxKey: "maxSpamScore",
             step: "0.1",
@@ -97,13 +97,13 @@ export function BacklinksFilterPanel({
         textFields={[
           {
             key: "include",
-            label: "Domain Contains",
+            label: "Domínio contém",
             placeholder: "example.com, blog",
           },
           {
             key: "exclude",
-            label: "Domain Excludes",
-            placeholder: "spam, forum",
+            label: "Domínio não contém",
+            placeholder: "spam, fórum",
           },
         ]}
         rangeFields={[
@@ -112,9 +112,9 @@ export function BacklinksFilterPanel({
             minKey: "minBacklinks",
             maxKey: "maxBacklinks",
           },
-          { title: "Rank", minKey: "minRank", maxKey: "maxRank" },
+          { title: "Autoridade", minKey: "minRank", maxKey: "maxRank" },
           {
-            title: "Spam Score",
+            title: "Pontuação de spam",
             minKey: "minSpamScore",
             maxKey: "maxSpamScore",
             step: "0.1",
@@ -145,23 +145,23 @@ export function BacklinksFilterPanel({
       textFields={[
         {
           key: "include",
-          label: "Page URL Contains",
+          label: "URL da página contém",
           placeholder: "/blog, /products",
         },
         {
           key: "exclude",
-          label: "Page URL Excludes",
+          label: "URL da página não contém",
           placeholder: "/tag, /author",
         },
       ]}
       rangeFields={[
         { title: "Backlinks", minKey: "minBacklinks", maxKey: "maxBacklinks" },
         {
-          title: "Referring Domains",
+          title: "Domínios de referência",
           minKey: "minReferringDomains",
           maxKey: "maxReferringDomains",
         },
-        { title: "Rank", minKey: "minRank", maxKey: "maxRank" },
+        { title: "Autoridade", minKey: "minRank", maxKey: "maxRank" },
       ]}
       onApply={(values) => {
         state.apply(values);
@@ -186,7 +186,7 @@ function BacklinksToggleControls({
     <div className="flex flex-wrap items-center gap-4">
       <div className="space-y-1.5">
         <p className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-          Link Type
+          Tipo de link
         </p>
         <div className="flex items-center gap-1">
           {(["", "dofollow", "nofollow"] as const).map((value) => (
@@ -197,7 +197,7 @@ function BacklinksToggleControls({
               onClick={() => setValue("linkType", value)}
             >
               {value === ""
-                ? "All"
+                ? "Todos"
                 : value === "dofollow"
                   ? "Dofollow"
                   : "Nofollow"}
@@ -208,7 +208,7 @@ function BacklinksToggleControls({
 
       <div className="space-y-1.5">
         <p className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-          Visibility
+          Visibilidade
         </p>
         <div className="flex items-center gap-3">
           <label className="flex items-center gap-1.5 cursor-pointer">
@@ -220,7 +220,7 @@ function BacklinksToggleControls({
                 setValue("hideLost", event.target.checked ? "true" : "")
               }
             />
-            <span className="text-xs">Hide lost</span>
+            <span className="text-xs">Ocultar perdidos</span>
           </label>
           <label className="flex items-center gap-1.5 cursor-pointer">
             <input
@@ -231,7 +231,7 @@ function BacklinksToggleControls({
                 setValue("hideBroken", event.target.checked ? "true" : "")
               }
             />
-            <span className="text-xs">Hide broken</span>
+            <span className="text-xs">Ocultar quebrados</span>
           </label>
         </div>
       </div>

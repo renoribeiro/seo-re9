@@ -14,22 +14,24 @@ export function SamBetaGate({ onContinue }: { onContinue: () => void }) {
         <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary">
           <Sparkles className="size-5" />
         </div>
-        <h2 className="mt-4 text-xl font-semibold">Sam is in beta</h2>
+        <h2 className="mt-4 text-xl font-semibold">O Sam está em beta</h2>
         <div className="mt-3 space-y-3 text-sm leading-relaxed text-base-content/70">
           <p>
-            Sam is the OpenSEO MCP and skills wrapped in a chat window. The
-            agent you already use, like Claude Code, ChatGPT, Grok Bot, or
-            Hermes, runs that same toolset on a much more capable harness. We
-            recommend using OpenSEO there.
+            O Sam é o MCP e as skills do RE9 SEO dentro de uma janela de chat. O
+            agente que você já usa, como Claude Code, ChatGPT, Grok Bot ou
+            Hermes, roda essas mesmas ferramentas em uma estrutura bem mais
+            capaz. Recomendamos usar o RE9 SEO por lá.
           </p>
-          <p>You can still use Sam, but it is early and has rough edges.</p>
+          <p>
+            Você ainda pode usar o Sam, mas ele está no começo e tem limitações.
+          </p>
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link to="/ai" className="btn btn-primary">
-            Set up your agent
+            Configure seu agente
           </Link>
           <button type="button" className="btn btn-ghost" onClick={onContinue}>
-            Use Sam anyway
+            Usar o Sam mesmo assim
           </button>
         </div>
       </div>

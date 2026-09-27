@@ -24,23 +24,23 @@ export function buildBacklinksTabExport(args: {
   if (tab === "backlinks") {
     return {
       headers: [
-        "Domain",
-        "Source URL",
-        "Target URL",
-        "Anchor",
-        "Type",
+        "Domínio",
+        "URL de origem",
+        "URL de destino",
+        "Texto âncora",
+        "Tipo",
         "Dofollow",
-        "Rel Attributes",
-        "Domain Rank",
+        "Atributos rel",
+        "Autoridade do domínio",
         ...(domainRatings ? ["Ahrefs DR"] : []),
-        "Source Page Rank",
-        "Target Rank",
-        "Spam Score",
-        "First Seen",
-        "Last Seen",
-        "Lost",
-        "Broken",
-        "Links Count",
+        "Autoridade da página de origem",
+        "Autoridade do link",
+        "Pontuação de spam",
+        "Descoberto em",
+        "Visto por último em",
+        "Perdido",
+        "Quebrado",
+        "Quantidade de links",
       ],
       rows: rows.backlinks.map((row) => [
         row.domainFrom,
@@ -67,15 +67,15 @@ export function buildBacklinksTabExport(args: {
   if (tab === "domains") {
     return {
       headers: [
-        "Domain",
+        "Domínio",
         "Backlinks",
-        "Referring Pages",
-        "Rank",
+        "Páginas de referência",
+        "Autoridade",
         ...(domainRatings ? ["Ahrefs DR"] : []),
-        "Spam Score",
-        "First Seen",
-        "Broken Backlinks",
-        "Broken Pages",
+        "Pontuação de spam",
+        "Descoberto em",
+        "Backlinks quebrados",
+        "Páginas quebradas",
       ],
       rows: rows.referringDomains.map((row) => [
         row.domain,
@@ -93,11 +93,11 @@ export function buildBacklinksTabExport(args: {
 
   return {
     headers: [
-      "Page",
+      "Página",
       "Backlinks",
-      "Referring Domains",
-      "Rank",
-      "Broken Backlinks",
+      "Domínios de referência",
+      "Autoridade",
+      "Backlinks quebrados",
     ],
     rows: rows.topPages.map((row) => [
       row.page,

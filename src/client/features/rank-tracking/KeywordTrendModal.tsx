@@ -21,8 +21,8 @@ const DEVICE_STYLE: Record<
   "desktop" | "mobile",
   { label: string; color: string }
 > = {
-  desktop: { label: "Desktop", color: "#2563eb" },
-  mobile: { label: "Mobile", color: "#14b8a6" },
+  desktop: { label: "Desktop", color: "#ED1C24" },
+  mobile: { label: "Mobile", color: "#6b7280" },
 };
 
 export interface KeywordTrendTarget {
@@ -122,14 +122,14 @@ export function KeywordTrendModal({
     ]);
 
   const handleCopy = () => {
-    const headers = ["Date", "Device", "Position", "Change vs previous"];
+    const headers = ["Data", "Dispositivo", "Posição", "Variação vs anterior"];
     void navigator.clipboard.writeText(buildCsv(headers, exportRows()));
-    toast.success("Copied to clipboard");
+    toast.success("Copiado para a área de transferência");
     captureClientEvent("rank_tracking:keyword_trend_copy");
   };
 
   const handleExport = () => {
-    const headers = ["Date", "Device", "Position", "Change vs previous"];
+    const headers = ["Data", "Dispositivo", "Posição", "Variação vs anterior"];
     downloadCsv(
       `rank-history-${slugify(target.keyword)}.csv`,
       buildCsv(headers, exportRows()),
@@ -153,7 +153,7 @@ export function KeywordTrendModal({
             {locationName
               ? formatLocationLabel(locationName, 2)
               : (LOCATIONS[locationCode] ?? "US")}{" "}
-            &middot; Position over time
+            &middot; Posição ao longo do tempo
           </p>
         </div>
         <TrendRangeToggle value={sinceDays} onChange={setSinceDays} />
@@ -185,14 +185,14 @@ export function KeywordTrendModal({
           <div className="flex items-center justify-end gap-2">
             <button className="btn btn-ghost btn-xs gap-1" onClick={handleCopy}>
               <Copy className="size-3.5" />
-              Copy
+              Copiar
             </button>
             <button
               className="btn btn-ghost btn-xs gap-1"
               onClick={handleExport}
             >
               <Download className="size-3.5" />
-              Export CSV
+              Exportar CSV
             </button>
           </div>
 
@@ -200,10 +200,10 @@ export function KeywordTrendModal({
             <table className="table table-sm">
               <thead className="sticky top-0 bg-base-100">
                 <tr>
-                  <th>Date</th>
-                  {devices.length > 1 && <th>Device</th>}
-                  <th>Position</th>
-                  <th>Δ vs previous check</th>
+                  <th>Data</th>
+                  {devices.length > 1 && <th>Dispositivo</th>}
+                  <th>Posição</th>
+                  <th>Δ vs verificação anterior</th>
                 </tr>
               </thead>
               <tbody>
@@ -217,7 +217,7 @@ export function KeywordTrendModal({
                   return (
                     <tr key={`${r.device}-${r.checkedAt}-${idx}`}>
                       <td className="whitespace-nowrap text-xs">
-                        {new Date(r.checkedAt).toLocaleDateString()}
+                        {new Date(r.checkedAt).toLocaleDateString("pt-BR")}
                       </td>
                       {devices.length > 1 && (
                         <td className="text-xs">
@@ -227,7 +227,7 @@ export function KeywordTrendModal({
                       <td>
                         {r.position === null ? (
                           <span className="text-base-content/40 text-xs">
-                            Not in top {serpDepth}
+                            Fora do top {serpDepth}
                           </span>
                         ) : (
                           <span className="font-mono text-sm">
@@ -271,7 +271,7 @@ export function KeywordTrendModal({
 
       <div className="flex justify-end">
         <button className="btn btn-ghost btn-sm" onClick={onClose}>
-          Close
+          Fechar
         </button>
       </div>
     </Modal>
@@ -282,8 +282,8 @@ function EmptyState({ count }: { count: number }) {
   return (
     <div className="rounded-lg border border-dashed border-base-300 p-10 text-center text-sm text-base-content/60">
       {count === 0
-        ? "No history yet — run a check to start tracking position over time."
-        : "Only 1 check so far — the trend chart fills in after the next check."}
+        ? "Ainda não há histórico — execute uma verificação para acompanhar a posição ao longo do tempo."
+        : "Apenas 1 verificação até agora — o gráfico de tendência aparece após a próxima verificação."}
     </div>
   );
 }
@@ -302,7 +302,7 @@ function ChartTooltip({
   return (
     <div className="rounded-md border border-base-300 bg-base-100 px-3 py-2 shadow-sm space-y-0.5">
       <p className="text-xs text-base-content/60">
-        {new Date(label).toLocaleDateString("en-US", {
+        {new Date(label).toLocaleDateString("pt-BR", {
           month: "short",
           day: "numeric",
           year: "numeric",
@@ -319,7 +319,7 @@ function ChartTooltip({
             {device}:{" "}
             {inBottomBand ? (
               <span className="text-base-content/60">
-                Not in top {serpDepth}
+                Fora do top {serpDepth}
               </span>
             ) : (
               e.value

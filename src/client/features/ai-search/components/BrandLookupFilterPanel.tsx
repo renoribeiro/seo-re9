@@ -56,8 +56,8 @@ function FilterRangeInputs({
         {title}
       </p>
       <div className="grid grid-cols-2 gap-2">
-        <CompactRangeInput form={form} name={minName} placeholder="Min" />
-        <CompactRangeInput form={form} name={maxName} placeholder="Max" />
+        <CompactRangeInput form={form} name={minName} placeholder="Mín." />
+        <CompactRangeInput form={form} name={maxName} placeholder="Máx." />
       </div>
     </div>
   );
@@ -94,7 +94,7 @@ function PlatformToggle({ form }: { form: AnyForm }) {
   return (
     <div className="space-y-1.5">
       <p className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-        Platform
+        Plataforma
       </p>
       <form.Field name="platform">
         {(field: {
@@ -109,7 +109,7 @@ function PlatformToggle({ form }: { form: AnyForm }) {
                 className={`btn btn-xs ${field.state.value === value ? "btn-soft" : "btn-ghost"}`}
                 onClick={() => field.handleChange(value)}
               >
-                {value === "" ? "All" : formatPlatformLabel(value)}
+                {value === "" ? "Todas" : formatPlatformLabel(value)}
               </button>
             ))}
           </div>
@@ -130,13 +130,13 @@ function TopPagesFilters({
         <FilterTextInput
           form={form}
           name="include"
-          label="Include Terms"
+          label="Incluir termos"
           placeholder="reddit, forbes"
         />
         <FilterTextInput
           form={form}
           name="exclude"
-          label="Exclude Terms"
+          label="Excluir termos"
           placeholder="pinterest, /tag"
         />
       </div>
@@ -146,7 +146,7 @@ function TopPagesFilters({
         <div className="min-w-[220px]">
           <FilterRangeInputs
             form={form}
-            title="Source mentions"
+            title="Menções da fonte"
             minName="minMentions"
             maxName="maxMentions"
           />
@@ -167,13 +167,13 @@ function QueriesFilters({
         <FilterTextInput
           form={form}
           name="include"
-          label="Include Terms"
-          placeholder="pricing, reviews"
+          label="Incluir termos"
+          placeholder="preço, avaliações"
         />
         <FilterTextInput
           form={form}
           name="exclude"
-          label="Exclude Terms"
+          label="Excluir termos"
           placeholder="login, download"
         />
       </div>
@@ -183,7 +183,7 @@ function QueriesFilters({
         <div className="min-w-[220px]">
           <FilterRangeInputs
             form={form}
-            title="AI search volume"
+            title="Volume de busca em IA"
             minName="minVolume"
             maxName="maxVolume"
           />
@@ -206,10 +206,11 @@ export function BrandLookupFilterPanel({
     <div className="shrink-0 border-b border-base-300 bg-gradient-to-b from-base-100 to-base-200/30 px-4 py-3 space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold">Refine results</p>
+          <p className="text-sm font-semibold">Refinar resultados</p>
           {current.activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
-              {current.activeFilterCount} active
+              {current.activeFilterCount}{" "}
+              {current.activeFilterCount === 1 ? "ativo" : "ativos"}
             </span>
           ) : null}
         </div>
@@ -220,7 +221,7 @@ export function BrandLookupFilterPanel({
           disabled={current.activeFilterCount === 0}
         >
           <RotateCcw className="size-3" />
-          Clear all
+          Limpar tudo
         </button>
       </div>
 

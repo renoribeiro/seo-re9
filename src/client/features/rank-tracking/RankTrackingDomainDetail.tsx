@@ -140,10 +140,12 @@ export function RankTrackingDomainDetail({
     setShowAddKeywords(false);
     captureClientEvent("rank_tracking:keywords_add");
     toast.success(
-      `${result.added} keyword${result.added !== 1 ? "s" : ""} added`,
+      `${result.added} ${result.added !== 1 ? "palavras-chave adicionadas" : "palavra-chave adicionada"}`,
     );
     if (!result.checkTriggered && result.added > 0) {
-      toast.info("Use 'Check Now' to check these keywords");
+      toast.info(
+        'Use "Verificar posições" para verificar estas palavras-chave',
+      );
     }
   };
 
@@ -193,15 +195,15 @@ export function RankTrackingDomainDetail({
         onClick={onBack}
       >
         <ArrowLeft className="size-3" />
-        Back to domains
+        Voltar para domínios
       </button>
 
       {config.lastSkipReason === "insufficient_credits" && (
         <div className="alert alert-warning text-sm py-2">
           <AlertTriangle className="size-4" />
           <span>
-            Last scheduled check was skipped due to insufficient credits. Top up
-            your balance to resume automatic tracking.
+            A última verificação agendada foi ignorada por falta de créditos.
+            Recarregue seu saldo para retomar o monitoramento automático.
           </span>
         </div>
       )}
@@ -210,7 +212,7 @@ export function RankTrackingDomainDetail({
         <div className="alert alert-warning text-sm py-2">
           <AlertTriangle className="size-4" />
           <span>
-            This run may be unresponsive and will be cleaned up automatically.
+            Esta execução pode ter travado e será encerrada automaticamente.
           </span>
         </div>
       )}
@@ -219,7 +221,7 @@ export function RankTrackingDomainDetail({
         <div className="alert alert-error text-sm py-2">
           <AlertTriangle className="size-4" />
           <span>
-            <span className="font-medium">Last check failed.</span>{" "}
+            <span className="font-medium">A última verificação falhou.</span>{" "}
             {latestRun.errorMessage}
           </span>
         </div>
@@ -295,7 +297,9 @@ export function RankTrackingDomainDetail({
             void navigator.clipboard.writeText(
               filtered.map((r) => r.keyword).join("\n"),
             );
-            toast.success("Keywords copied to clipboard");
+            toast.success(
+              "Palavras-chave copiadas para a área de transferência",
+            );
           }}
           onCheckNow={() => {
             const count = costEstimate?.keywordCount ?? rows?.length ?? 0;

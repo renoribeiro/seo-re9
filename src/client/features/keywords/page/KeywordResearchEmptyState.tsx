@@ -31,16 +31,16 @@ function NoResultsState({
         <Globe className="size-10 mx-auto text-base-content/40" />
         <div className="space-y-2">
           <p className="text-lg font-semibold text-base-content">
-            Not enough keyword data for this query yet
+            Ainda não há dados suficientes de palavras-chave para esta busca
           </p>
           <p className="text-sm text-base-content/70">
-            We could not find keyword opportunities for
+            Não encontramos oportunidades de palavras-chave para
             <span className="font-medium text-base-content">
               {` "${lastSearchKeyword}" `}
             </span>
-            in
+            em
             <span className="font-medium text-base-content">
-              {` ${LOCATIONS[lastSearchLocationCode] || "this location"}`}
+              {` ${LOCATIONS[lastSearchLocationCode] || "esta localização"}`}
             </span>
             .
           </p>
@@ -71,8 +71,8 @@ function SearchHistoryState({
             <div className="flex items-center gap-2">
               <History className="size-4 text-base-content/45" />
               <span className="text-sm text-base-content/60">
-                {history.length} recent search
-                {history.length !== 1 ? "es" : ""}
+                {history.length}{" "}
+                {history.length !== 1 ? "buscas recentes" : "busca recente"}
               </span>
             </div>
           </div>
@@ -105,7 +105,7 @@ function SearchHistoryState({
                 </Link>
                 <div className="flex shrink-0 items-center gap-2">
                   <span className="text-xs text-base-content/40">
-                    {new Date(item.timestamp).toLocaleDateString(undefined, {
+                    {new Date(item.timestamp).toLocaleDateString("pt-BR", {
                       month: "short",
                       day: "numeric",
                     })}
@@ -114,6 +114,8 @@ function SearchHistoryState({
                     type="button"
                     className="btn btn-ghost btn-xs opacity-0 group-hover:opacity-100 p-1"
                     onClick={() => removeHistoryItem(item.timestamp)}
+                    aria-label="Remover do histórico"
+                    title="Remover do histórico"
                   >
                     <X className="size-3" />
                   </button>
@@ -126,11 +128,11 @@ function SearchHistoryState({
         <section className="rounded-2xl border border-dashed border-base-300 bg-base-100/70 p-6 text-center text-base-content/50 space-y-3">
           <Search className="size-10 mx-auto opacity-40" />
           <p className="text-lg font-medium text-base-content/80">
-            Enter a keyword to get started
+            Digite uma palavra-chave para começar
           </p>
           <p className="text-sm max-w-md mx-auto">
-            Search for any keyword to see volume, difficulty, CPC, and related
-            keyword ideas.
+            Busque qualquer palavra-chave para ver volume, dificuldade, CPC e
+            ideias de palavras-chave relacionadas.
           </p>
         </section>
       )}

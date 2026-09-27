@@ -16,10 +16,10 @@ import {
 import { useStickToBottom } from "@/client/components/chat/useStickToBottom";
 
 const SUGGESTIONS = [
-  "What keywords should I focus on next?",
-  "Who are my top SERP competitors?",
-  "How is my Search Console traffic trending?",
-  "Find quick-win keywords I already rank for",
+  "Em quais palavras-chave devo focar agora?",
+  "Quem são meus principais concorrentes na SERP?",
+  "Qual é a tendência do meu tráfego no Search Console?",
+  "Encontre palavras-chave de ganho rápido em que já estou ranqueando",
 ];
 
 export function SamConversation({
@@ -157,7 +157,7 @@ export function SamConversation({
           className="btn btn-ghost btn-xs absolute right-3 top-2 z-10 text-base-content/40"
           onClick={() => clearHistory()}
         >
-          Clear history (dev)
+          Limpar histórico (dev)
         </button>
       ) : null}
       <div
@@ -169,12 +169,12 @@ export function SamConversation({
           {messages.length === 0 ? (
             <div className="space-y-2 text-sm text-base-content/80">
               <p>
-                Hey, I’m SAM — your in-app SEO agent. I can research keywords,
-                size up competitors, read your SERPs, backlinks, rank tracking
-                and Search Console, and turn it into next steps for this
-                project.
+                Oi, eu sou o SAM — seu agente de SEO dentro do app. Posso
+                pesquisar palavras-chave, avaliar concorrentes, analisar suas
+                SERPs, backlinks, monitoramento de posições e Search Console, e
+                transformar tudo isso em próximos passos para este projeto.
               </p>
-              <p>Ask me anything, or start with one of these:</p>
+              <p>Pergunte o que quiser ou comece por uma destas:</p>
             </div>
           ) : null}
 
@@ -216,13 +216,13 @@ export function SamConversation({
 
           {isRecovering ? (
             <p className="text-xs text-base-content/50">
-              Saving the reply that got cut off…
+              Salvando a resposta que foi interrompida…
             </p>
           ) : null}
 
           {status === "error" ? (
             <div className="flex flex-wrap items-center gap-3 text-sm text-error">
-              <span>SAM stopped before finishing this reply.</span>
+              <span>O SAM parou antes de terminar esta resposta.</span>
               {lastUserMessage ? (
                 <button
                   type="button"
@@ -231,7 +231,7 @@ export function SamConversation({
                   onClick={retryLast}
                 >
                   <RotateCcw className="size-3" />
-                  Retry
+                  Tentar novamente
                 </button>
               ) : null}
             </div>
@@ -260,7 +260,7 @@ export function SamConversation({
             busy={isBusy}
             onSend={sendText}
             onStop={() => void stop()}
-            placeholder="Ask SAM to research, analyze, or track anything…"
+            placeholder="Peça ao SAM para pesquisar, analisar ou monitorar qualquer coisa…"
           />
         </div>
       </div>

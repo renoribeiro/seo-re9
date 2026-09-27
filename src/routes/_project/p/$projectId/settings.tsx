@@ -8,8 +8,8 @@ export const Route = createFileRoute("/_project/p/$projectId/settings")({
 });
 
 const tabs = [
-  { to: "/p/$projectId/settings" as const, label: "General", exact: true },
-  { to: "/p/$projectId/settings/integrations" as const, label: "Integrations" },
+  { to: "/p/$projectId/settings" as const, label: "Geral", exact: true },
+  { to: "/p/$projectId/settings/integrations" as const, label: "Integrações" },
 ];
 
 function ProjectSettingsLayout() {
@@ -29,11 +29,11 @@ function ProjectSettingsLayout() {
             className="inline-flex items-center gap-1 text-sm text-base-content/60 transition-colors hover:text-base-content"
           >
             <ChevronLeft className="size-4" />
-            Projects
+            Projetos
           </Link>
           <div>
             <h1 className="text-2xl font-bold tracking-tight">
-              Project settings
+              Configurações do projeto
             </h1>
             <p className="text-sm text-base-content/60">
               {project?.name ?? " "}

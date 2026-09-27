@@ -44,8 +44,8 @@ function shareDescription(summary: string): string {
 // product without loading its stylesheet. Dark follows the OS: an anonymous
 // reader has no stored preference.
 const STYLES = `
-:root{color-scheme:light dark;--bg:oklch(97% 0 0);--surface:oklch(100% 0 0);--border:oklch(92% 0 0);--text:oklch(20% 0 0);--muted:oklch(20% 0 0 / .5);--primary:oklch(50% 0.12 262);--primary-text:oklch(100% 0 0);--ghost-hover:oklch(20% 0 0 / .08)}
-@media (prefers-color-scheme:dark){:root{--bg:oklch(12% 0 0);--surface:oklch(18% 0 0);--border:oklch(27% 0 0);--text:oklch(92% 0 0);--muted:oklch(92% 0 0 / .5);--primary:oklch(66% 0.12 262);--ghost-hover:oklch(92% 0 0 / .1)}}
+:root{color-scheme:light dark;--bg:oklch(97% 0 0);--surface:oklch(100% 0 0);--border:oklch(92% 0 0);--text:oklch(20% 0 0);--muted:oklch(20% 0 0 / .5);--primary:oklch(55% 0.22 27);--primary-text:oklch(100% 0 0);--ghost-hover:oklch(20% 0 0 / .08)}
+@media (prefers-color-scheme:dark){:root{--bg:oklch(12% 0 0);--surface:oklch(18% 0 0);--border:oklch(27% 0 0);--text:oklch(92% 0 0);--muted:oklch(92% 0 0 / .5);--primary:oklch(62% 0.22 27);--ghost-hover:oklch(92% 0 0 / .1)}}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{display:flex;flex-direction:column;background:var(--bg);color:var(--text);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
@@ -75,9 +75,9 @@ document.getElementById("share").addEventListener("click",async function(){
     try{await navigator.share({title:document.title,url:url})}catch(e){}
     return;
   }
-  try{await navigator.clipboard.writeText(url);label.textContent="Link copied"}
-  catch(e){label.textContent="Copy failed"}
-  setTimeout(function(){label.textContent="Share"},2000);
+  try{await navigator.clipboard.writeText(url);label.textContent="Link copiado"}
+  catch(e){label.textContent="Falha ao copiar"}
+  setTimeout(function(){label.textContent="Compartilhar"},2000);
 });`;
 
 function TryButton() {
@@ -88,7 +88,7 @@ function TryButton() {
       target="_blank"
       rel="noreferrer"
     >
-      Try OpenSEO
+      Experimente o RE9 SEO
     </a>
   );
 }
@@ -103,7 +103,7 @@ function Document({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <meta charSet="utf-8" />
         <meta
@@ -111,7 +111,7 @@ function Document({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <meta name="robots" content="noindex, nofollow" />
-        <title>{`${title} · OpenSEO`}</title>
+        <title>{`${title} · RE9 SEO`}</title>
         {head}
         <link rel="icon" href="/favicon.ico" />
         <style dangerouslySetInnerHTML={{ __html: STYLES }} />
@@ -140,7 +140,7 @@ function unavailable(heading: string, detail: string): Response {
   // generic title keeps the report's own title out of it: that is content the
   // link no longer grants access to.
   return htmlResponse(
-    <Document title="Report unavailable">
+    <Document title="Relatório indisponível">
       <main>
         <h1>{heading}</h1>
         <p>{detail}</p>
@@ -153,8 +153,8 @@ function unavailable(heading: string, detail: string): Response {
 
 const missing = () =>
   unavailable(
-    "This report isn't shared.",
-    "The link may have been turned off, or the report may have been deleted.",
+    "Este relatório não está compartilhado.",
+    "O link pode ter sido desativado ou o relatório pode ter sido excluído.",
   );
 
 /**
@@ -173,8 +173,8 @@ export async function renderSharePage(
   if (!report) return missing();
   if (report.archived) {
     return unavailable(
-      "This project has been archived.",
-      "Its reports are hidden until the owner restores it.",
+      "Este projeto foi arquivado.",
+      "Os relatórios dele ficam ocultos até que o proprietário o restaure.",
     );
   }
 
@@ -195,7 +195,7 @@ export async function renderSharePage(
       head={
         <>
           <meta property="og:type" content="article" />
-          <meta property="og:site_name" content="OpenSEO" />
+          <meta property="og:site_name" content="RE9 SEO" />
           <meta property="og:title" content={report.title} />
           <meta name="twitter:title" content={report.title} />
           {description ? (
@@ -208,11 +208,11 @@ export async function renderSharePage(
           <meta property="og:image" content={imageUrl} />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
-          <meta property="og:image:alt" content={`${report.title} · OpenSEO`} />
+          <meta property="og:image:alt" content={`${report.title} · RE9 SEO`} />
           <meta name="twitter:image" content={imageUrl} />
           <meta
             name="twitter:image:alt"
-            content={`${report.title} · OpenSEO`}
+            content={`${report.title} · RE9 SEO`}
           />
           <meta name="twitter:card" content="summary_large_image" />
         </>
@@ -222,7 +222,8 @@ export async function renderSharePage(
         <div className="title">
           <h1>{report.title}</h1>
           <p className="meta">
-            Made with OpenSEO · Updated {formatRelativeTime(report.updatedAt)}
+            Feito com RE9 SEO · Atualizado{" "}
+            {formatRelativeTime(report.updatedAt)}
           </p>
         </div>
         <div className="actions">
@@ -242,7 +243,7 @@ export async function renderSharePage(
               <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
               <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
             </svg>
-            <span>Share</span>
+            <span>Compartilhar</span>
           </button>
           <TryButton />
         </div>

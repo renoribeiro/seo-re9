@@ -63,19 +63,30 @@ export function getResearchInputPath(input: string): string {
 
 export function formatNumber(value: number | null | undefined) {
   if (value == null) return "-";
-  return new Intl.NumberFormat().format(value);
+  return new Intl.NumberFormat("pt-BR").format(value);
 }
 
 export function formatRounded(value: number | null | undefined) {
   if (value == null) return "-";
-  return new Intl.NumberFormat().format(Math.round(value));
+  return new Intl.NumberFormat("pt-BR").format(Math.round(value));
+}
+
+const usdFormatter = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+export function formatUsd(value: number) {
+  return usdFormatter.format(value);
 }
 
 export function formatMetric(
   value: number | null | undefined,
   hasData: boolean | undefined,
 ) {
-  if (!hasData) return "Not enough data";
+  if (!hasData) return "Dados insuficientes";
   return formatRounded(value);
 }
 
@@ -83,7 +94,15 @@ type ExportTable = { headers: string[]; rows: (string | number | null)[][] };
 
 export function keywordsToTable(rows: KeywordRow[]): ExportTable {
   return {
-    headers: ["Keyword", "Rank", "Volume", "Traffic", "CPC", "URL", "Score"],
+    headers: [
+      "Palavra-chave",
+      "Posição",
+      "Volume",
+      "Tráfego",
+      "CPC",
+      "URL",
+      "Dificuldade (KD)",
+    ],
     rows: rows.map((row) => [
       row.keyword,
       row.position,
@@ -98,7 +117,7 @@ export function keywordsToTable(rows: KeywordRow[]): ExportTable {
 
 export function pagesToTable(rows: PageRow[]): ExportTable {
   return {
-    headers: ["Page", "Organic Traffic", "Keywords"],
+    headers: ["Página", "Tráfego orgânico", "Palavras-chave"],
     rows: rows.map((row) => [row.page, row.organicTraffic, row.keywords]),
   };
 }

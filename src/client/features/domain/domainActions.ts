@@ -34,7 +34,7 @@ export function saveSelectedKeywords({
   locationCode?: number;
 }) {
   if (selectedKeywords.size === 0) {
-    toast.error("Select at least one keyword first");
+    toast.error("Selecione pelo menos uma palavra-chave");
     return;
   }
 
@@ -59,10 +59,14 @@ export function saveSelectedKeywords({
           source_feature: "domain_overview",
           keyword_count: selectedKeywords.size,
         });
-        toast.success(`Saved ${selectedKeywords.size} keywords`);
+        toast.success(
+          selectedKeywords.size === 1
+            ? "1 palavra-chave salva"
+            : `${selectedKeywords.size} palavras-chave salvas`,
+        );
       },
       onError: (error: unknown) => {
-        toast.error(getStandardErrorMessage(error, "Save failed."));
+        toast.error(getStandardErrorMessage(error, "Falha ao salvar."));
       },
     },
   );

@@ -94,7 +94,7 @@ async function setProperty(input: {
   if (!grants.some((grant) => grant.accountId === input.accountId)) {
     throw new AppError(
       "NOT_FOUND",
-      "That Google account isn't connected to your OpenSEO account.",
+      "Essa conta Google não está conectada à sua conta do RE9 SEO.",
     );
   }
 
@@ -108,7 +108,7 @@ async function setProperty(input: {
   ) {
     throw new AppError(
       "NOT_FOUND",
-      "That Google Analytics property isn't available on your connected Google account.",
+      "Essa propriedade do Google Analytics não está disponível na sua conta Google conectada.",
     );
   }
 

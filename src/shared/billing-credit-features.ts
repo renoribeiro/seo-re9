@@ -10,19 +10,19 @@ export type CreditFeature =
   | "agent";
 
 const CREDIT_FEATURE_LABELS: Record<string, string> = {
-  keyword_research: "Keyword Research",
-  domain_overview: "Domain Overview",
+  keyword_research: "Pesquisa de palavras-chave",
+  domain_overview: "Visão geral do domínio",
   backlinks: "Backlinks",
-  site_audit: "Site Audit",
-  rank_tracking: "Rank Tracking",
-  ai_citations: "AI Citations",
-  ai_prompt_responses: "AI Prompt Responses",
-  ai_search: "AI Search",
-  local_seo: "Local SEO",
+  site_audit: "Auditoria do site",
+  rank_tracking: "Monitoramento de posições",
+  ai_citations: "Citações em IA",
+  ai_prompt_responses: "Respostas de prompts de IA",
+  ai_search: "Busca com IA",
+  local_seo: "SEO local",
   // The onboarding chat is gone, but historical usage events still carry this
   // key — keep the label so old billing breakdowns don't render "Other".
-  onboarding: "Onboarding",
-  agent: "SAM Agent",
+  onboarding: "Primeiros passos",
+  agent: "Agente SAM",
 };
 
 /**
@@ -74,5 +74,5 @@ export function mapDataforseoPathToCreditFeature(
 }
 
 export function creditFeatureLabel(key: string) {
-  return CREDIT_FEATURE_LABELS[key] ?? "Other";
+  return CREDIT_FEATURE_LABELS[key] ?? "Outros";
 }

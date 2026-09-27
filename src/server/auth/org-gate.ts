@@ -14,7 +14,7 @@ export function requireOrgPermission(
   if (!hasOrgPermission(context.role, permissions)) {
     throw new AppError(
       "FORBIDDEN",
-      "Your organization role does not allow this action.",
+      "Sua função na organização não permite esta ação.",
     );
   }
 }

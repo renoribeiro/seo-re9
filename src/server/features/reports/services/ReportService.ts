@@ -63,13 +63,13 @@ export async function saveReport(params: SaveReportParams): Promise<{
   if (title.length > REPORT_MAX_TITLE_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Title is ${formatCount(title.length)} characters; the limit is ${formatCount(REPORT_MAX_TITLE_CHARS)}. Shorten it and save again.`,
+      `O título tem ${formatCount(title.length)} caracteres; o limite é ${formatCount(REPORT_MAX_TITLE_CHARS)}. Encurte-o e salve novamente.`,
     );
   }
   if (summary.length > REPORT_MAX_SUMMARY_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Summary is ${formatCount(summary.length)} characters; the limit is ${formatCount(REPORT_MAX_SUMMARY_CHARS)}. Shorten it and save again.`,
+      `O resumo tem ${formatCount(summary.length)} caracteres; o limite é ${formatCount(REPORT_MAX_SUMMARY_CHARS)}. Encurte-o e salve novamente.`,
     );
   }
   // UTF-8 bytes, not code units: a `.length` check understates multi-byte
@@ -78,7 +78,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
   if (sizeBytes > REPORT_MAX_HTML_BYTES) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Report is ${kbUp(sizeBytes)}; the limit is ${kbDown(REPORT_MAX_HTML_BYTES)}. Inlined images are the usual cause. Remove them and save again.`,
+      `O relatório tem ${kbUp(sizeBytes)}; o limite é ${kbDown(REPORT_MAX_HTML_BYTES)}. Imagens embutidas costumam ser a causa. Remova-as e salve novamente.`,
     );
   }
   // The cheap structural check, not an HTML parser: models have stopped
@@ -88,7 +88,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
   if (!trimmed.includes("<html") || !trimmed.endsWith("</html>")) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "The HTML has no closing </html>; the model stopped early. On Codex, escape backticks and ${.",
+      "O HTML não tem o fechamento </html>; o modelo parou antes do fim. No Codex, escape as crases e ${.",
     );
   }
 
@@ -98,7 +98,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
   if (params.reportId && !existing) {
     throw new AppError(
       "NOT_FOUND",
-      `No report ${params.reportId} in this project. Call list_reports, or omit reportId to create a new one.`,
+      `Não há relatório ${params.reportId} neste projeto. Chame list_reports ou omita reportId para criar um novo.`,
     );
   }
 
@@ -111,7 +111,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
       "VALIDATION_ERROR",
       // A same-title save without a reportId is almost always an agent that
       // forgot to list first; point it at the id it should have reused.
-      `A report titled '${clash.title}' exists (id ${clash.id}). Pass reportId to update it, or change the title.`,
+      `Já existe um relatório com o título '${clash.title}' (id ${clash.id}). Passe reportId para atualizá-lo ou altere o título.`,
     );
   }
 
@@ -123,7 +123,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
     if (total >= REPORT_MAX_PER_PROJECT) {
       throw new AppError(
         "VALIDATION_ERROR",
-        `This project has ${formatCount(REPORT_MAX_PER_PROJECT)} reports, the limit. Delete one from the Reports page.`,
+        `Este projeto tem ${formatCount(REPORT_MAX_PER_PROJECT)} relatórios, o limite. Exclua um na página Relatórios.`,
       );
     }
   }
@@ -140,7 +140,7 @@ export async function saveReport(params: SaveReportParams): Promise<{
   ) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `This organization is storing ${mb(orgBytes)} of reports, the limit. Delete reports you no longer need from the Reports page.`,
+      `Esta organização está armazenando ${mb(orgBytes)} de relatórios, o limite. Exclua os relatórios de que não precisa mais na página Relatórios.`,
     );
   }
 
@@ -253,7 +253,7 @@ async function shareReport(params: ShareParams): Promise<ReportMetadata> {
   if (!(await sharesEnabled())) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Sharing is only available on hosted OpenSEO.",
+      "O compartilhamento só está disponível no RE9 SEO hospedado.",
     );
   }
 
@@ -306,7 +306,7 @@ async function unshareReport(params: ShareParams): Promise<ReportMetadata> {
 function notFound(reportId: string) {
   return new AppError(
     "NOT_FOUND",
-    `No report ${reportId} in this project. Call list_reports to see what exists.`,
+    `Não há relatório ${reportId} neste projeto. Chame list_reports para ver o que existe.`,
   );
 }
 

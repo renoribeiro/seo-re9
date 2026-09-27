@@ -82,7 +82,10 @@ export async function prepareRankCheckKeywords(input: {
   }
 
   if (trackingKeywords.length === 0) {
-    throw new AppError("INTERNAL_ERROR", "No keywords to track");
+    throw new AppError(
+      "INTERNAL_ERROR",
+      "Não há palavras-chave para monitorar",
+    );
   }
 
   const { costCredits } = estimateRankCheckCredits(
@@ -118,7 +121,7 @@ export async function prepareRankCheckKeywords(input: {
     if (available < costCredits) {
       throw new AppError(
         "INSUFFICIENT_CREDITS",
-        "Insufficient credits for rank check",
+        "Créditos insuficientes para a verificação de posições",
       );
     }
   }

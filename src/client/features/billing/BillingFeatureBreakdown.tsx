@@ -121,7 +121,7 @@ export function getBillingFeatureBreakdownRows(
 
   for (const event of events) {
     const feature = getCreditFeatureFromUsageEvent(event);
-    const label = feature ? creditFeatureLabel(feature) : "Other";
+    const label = feature ? creditFeatureLabel(feature) : "Outros";
     creditsByLabel.set(label, (creditsByLabel.get(label) ?? 0) + event.value);
   }
 
@@ -149,8 +149,8 @@ export function BillingFeatureBreakdown() {
   return (
     <div className="rounded-lg border border-base-300 bg-base-100 p-4 space-y-3">
       <div className="flex items-baseline justify-between gap-4">
-        <span className="font-semibold">Usage by feature</span>
-        <span className="text-xs text-base-content/50">Last 30 days</span>
+        <span className="font-semibold">Uso por recurso</span>
+        <span className="text-xs text-base-content/50">Últimos 30 dias</span>
       </div>
 
       {eventsQuery.isLoading ? (
@@ -161,7 +161,7 @@ export function BillingFeatureBreakdown() {
         </div>
       ) : rows.length === 0 ? (
         <div className="text-sm text-base-content/40">
-          No usage recorded yet
+          Nenhum uso registrado ainda
         </div>
       ) : (
         <ul className="space-y-2.5">
@@ -175,7 +175,7 @@ export function BillingFeatureBreakdown() {
               </div>
               <div className="h-1.5 w-full overflow-hidden rounded-full bg-base-200">
                 <div
-                  className="h-full rounded-full bg-[#7c3aed]"
+                  className="h-full rounded-full bg-[#ED1C24]"
                   style={{ width: `${(row.usd / total) * 100}%` }}
                 />
               </div>

@@ -26,10 +26,10 @@ export function FilterPanel({
     <div className="shrink-0 border-b border-base-300 bg-gradient-to-b from-base-100 to-base-200/30 px-4 py-3 space-y-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold">Refine results</p>
+          <p className="text-sm font-semibold">Refinar resultados</p>
           {activeFilterCount > 0 && (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
-              {activeFilterCount} active
+              {activeFilterCount} {activeFilterCount === 1 ? "ativo" : "ativos"}
             </span>
           )}
         </div>
@@ -39,28 +39,28 @@ export function FilterPanel({
           disabled={activeFilterCount === 0}
         >
           <RotateCcw className="size-3" />
-          Clear all
+          Limpar tudo
         </button>
       </div>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
         <div className="space-y-1.5">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-            Include
+            Incluir
           </p>
           <input
             className="input input-bordered input-sm w-full bg-base-100"
-            placeholder="e.g. seo, tool"
+            placeholder="ex.: seo, ferramenta"
             value={filters.include}
             onChange={(e) => update("include", e.target.value)}
           />
         </div>
         <div className="space-y-1.5">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-            Exclude
+            Excluir
           </p>
           <input
             className="input input-bordered input-sm w-full bg-base-100"
-            placeholder="e.g. free, cheap"
+            placeholder="ex.: grátis, barato"
             value={filters.exclude}
             onChange={(e) => update("exclude", e.target.value)}
           />
@@ -68,14 +68,14 @@ export function FilterPanel({
       </div>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
         <RangeFilter
-          title="Desktop position"
+          title="Posição no Desktop"
           minValue={filters.minDesktopPos}
           maxValue={filters.maxDesktopPos}
           onMinChange={(v) => update("minDesktopPos", v)}
           onMaxChange={(v) => update("maxDesktopPos", v)}
         />
         <RangeFilter
-          title="Mobile position"
+          title="Posição no Mobile"
           minValue={filters.minMobilePos}
           maxValue={filters.maxMobilePos}
           onMinChange={(v) => update("minMobilePos", v)}
@@ -91,7 +91,7 @@ export function FilterPanel({
           onMaxChange={(v) => update("maxVolume", v)}
         />
         <RangeFilter
-          title="Keyword difficulty"
+          title="Dificuldade da palavra-chave"
           minValue={filters.minKd}
           maxValue={filters.maxKd}
           onMinChange={(v) => update("minKd", v)}
@@ -130,11 +130,11 @@ export function DomainListFilterBar({
       <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
         <label className="form-control flex-1 gap-1.5">
           <span className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-            Search
+            Buscar
           </span>
           <input
             className="input input-bordered input-sm w-full bg-base-100"
-            placeholder="Domain or website"
+            placeholder="Domínio ou site"
             value={filters.query}
             onChange={(event) =>
               onChange({ ...filters, query: event.target.value })
@@ -143,7 +143,7 @@ export function DomainListFilterBar({
         </label>
         <label className="form-control gap-1.5 lg:w-44">
           <span className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-            Device
+            Dispositivo
           </span>
           <select
             className="select select-bordered select-sm w-full bg-base-100"
@@ -160,7 +160,7 @@ export function DomainListFilterBar({
               }
             }}
           >
-            <option value="all">All devices</option>
+            <option value="all">Todos os dispositivos</option>
             {options.devices.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -170,7 +170,7 @@ export function DomainListFilterBar({
         </label>
         <label className="form-control gap-1.5 lg:w-52">
           <span className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60">
-            Country
+            País
           </span>
           <select
             className="select select-bordered select-sm w-full bg-base-100"
@@ -179,7 +179,7 @@ export function DomainListFilterBar({
               onChange({ ...filters, locationCode: event.target.value })
             }
           >
-            <option value="all">All countries</option>
+            <option value="all">Todos os países</option>
             {options.locations.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -193,7 +193,7 @@ export function DomainListFilterBar({
             onClick={onReset}
           >
             <RotateCcw className="size-3" />
-            Clear
+            Limpar
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
             </span>
@@ -225,14 +225,14 @@ function RangeFilter({
       <div className="grid grid-cols-2 gap-2">
         <input
           className="input input-bordered input-xs bg-base-100"
-          placeholder="Min"
+          placeholder="Mín."
           type="number"
           value={minValue}
           onChange={(e) => onMinChange(e.target.value)}
         />
         <input
           className="input input-bordered input-xs bg-base-100"
-          placeholder="Max"
+          placeholder="Máx."
           type="number"
           value={maxValue}
           onChange={(e) => onMaxChange(e.target.value)}

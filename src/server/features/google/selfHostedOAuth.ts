@@ -155,7 +155,7 @@ async function verifyState(input: {
   if (!payload || !signature) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Invalid ${input.integration.displayName} state`,
+      `Estado de autorização do ${input.integration.displayName} inválido`,
     );
   }
   const ok = await crypto.subtle.verify(
@@ -167,7 +167,7 @@ async function verifyState(input: {
   if (!ok) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Invalid ${input.integration.displayName} state`,
+      `Estado de autorização do ${input.integration.displayName} inválido`,
     );
   }
   const parsed = oauthStateSchema.parse(
@@ -176,7 +176,7 @@ async function verifyState(input: {
   if (parsed.exp < Date.now()) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Expired ${input.integration.displayName} state`,
+      `Estado de autorização do ${input.integration.displayName} expirado`,
     );
   }
   return parsed;
@@ -193,7 +193,7 @@ function getGoogleAccountId(tokens: GoogleTokenResponse) {
   if (!tokens.id_token) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Google did not return an ID token.",
+      "O Google não retornou um token de ID.",
     );
   }
   return googleIdTokenSchema.parse(decodeJwt(tokens.id_token)).sub;
@@ -277,7 +277,7 @@ async function exchangeCode(input: {
   if (!response.ok) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Google rejected the ${input.integration.displayName} authorization code.`,
+      `O Google rejeitou o código de autorização do ${input.integration.displayName}.`,
     );
   }
   return googleTokenResponseSchema.parse(await response.json());
@@ -293,7 +293,7 @@ export async function createSelfHostedGoogleAuthorizationUrl(input: {
   if (!config || !(await hasSelfHostedGoogleOAuthConfig(config))) {
     throw new AppError(
       "AUTH_CONFIG_MISSING",
-      `${input.integration.displayName} is not configured. Set GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and BETTER_AUTH_SECRET.`,
+      `O ${input.integration.displayName} não está configurado. Defina GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET e BETTER_AUTH_SECRET.`,
     );
   }
   const redirectUri = getRedirectUri(input.publicOrigin, input.integration);

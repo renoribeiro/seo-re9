@@ -57,8 +57,8 @@ export function PostSignupOnboarding({
         <fieldset disabled={isSaving}>
           {step === 0 ? (
             <OnboardingChoiceGroup
-              title="What brings you here?"
-              description="Pick up to three things you want to work on."
+              title="O que traz você aqui?"
+              description="Escolha até três coisas em que você quer trabalhar."
               maxSelections={3}
               options={[...INTEREST_OPTIONS]}
               selectedValues={answers.selectedInterests}
@@ -77,7 +77,7 @@ export function PostSignupOnboarding({
             />
           ) : step === 1 ? (
             <OnboardingChoiceGroup
-              title="Who are you doing SEO for?"
+              title="Para quem você faz SEO?"
               options={[...WORK_FOR_OPTIONS]}
               selectedValues={answers.workFor ? [answers.workFor] : []}
               onToggle={(workFor) => updateAnswers({ workFor })}
@@ -85,7 +85,8 @@ export function PostSignupOnboarding({
               onOtherChange={(workForOther) => updateAnswers({ workForOther })}
               followUp={{
                 showForValue: CLIENT_WORK_FOR,
-                label: "About how many client sites do you work on?",
+                label:
+                  "Em quantos sites de clientes você trabalha, mais ou menos?",
                 options: [...CLIENT_WEBSITE_COUNT_OPTIONS],
                 value: answers.clientWebsiteCount,
                 onChange: (clientWebsiteCount) =>
@@ -94,7 +95,7 @@ export function PostSignupOnboarding({
             />
           ) : step === 2 ? (
             <OnboardingChoiceGroup
-              title="How did you find OpenSEO?"
+              title="Como você conheceu o RE9 SEO?"
               options={[...SOURCE_OPTIONS]}
               selectedValues={answers.source ? [answers.source] : []}
               onToggle={(source) => updateAnswers({ source })}
@@ -123,7 +124,7 @@ export function PostSignupOnboarding({
                   className="flex min-h-10 items-center gap-1.5 text-xs text-base-content/60 hover:text-base-content"
                   onClick={onBack}
                 >
-                  <ArrowLeft className="size-3.5" /> Back
+                  <ArrowLeft className="size-3.5" /> Voltar
                 </button>
               ) : (
                 <button
@@ -131,7 +132,7 @@ export function PostSignupOnboarding({
                   className="btn btn-ghost"
                   onClick={onSkip}
                 >
-                  Skip
+                  Pular
                 </button>
               )}
               <div className="flex items-center gap-2">
@@ -141,7 +142,7 @@ export function PostSignupOnboarding({
                     className="btn btn-ghost btn-sm text-base-content/55"
                     onClick={onSkip}
                   >
-                    Skip
+                    Pular
                   </button>
                 )}
                 <button
@@ -150,7 +151,7 @@ export function PostSignupOnboarding({
                   disabled={!canContinue || isSaving}
                   onClick={onNext}
                 >
-                  Continue <ArrowRight className="size-4" />
+                  Continuar <ArrowRight className="size-4" />
                 </button>
               </div>
             </div>
@@ -228,9 +229,7 @@ function OnboardingChoiceGroup({
                 >
                   {selected && <Check className="size-3" />}
                 </span>
-                <span className="capitalize">
-                  {ONBOARDING_OPTION_LABELS[option] ?? option}
-                </span>
+                <span>{ONBOARDING_OPTION_LABELS[option] ?? option}</span>
               </button>
 
               {showFollowUpHere && followUp ? (
@@ -275,8 +274,8 @@ function OnboardingChoiceGroup({
         <input
           type="text"
           className="input input-bordered mt-4 w-full"
-          aria-label={multiple ? "Other tasks" : "Other answer"}
-          placeholder={multiple ? "Tell us what else..." : "Tell us more..."}
+          aria-label={multiple ? "Outras tarefas" : "Outra resposta"}
+          placeholder={multiple ? "Conte o que mais..." : "Conte mais..."}
           value={otherValue}
           onChange={(event) => onOtherChange(event.target.value)}
         />

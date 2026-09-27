@@ -83,7 +83,7 @@ describe("saveReportTemplate", () => {
 
   it("refuses an unknown templateId", async () => {
     await expect(save({ templateId: "template_other" })).rejects.toThrow(
-      /No report template template_other/,
+      /Não há modelo de relatório template_other/,
     );
   });
 
@@ -92,9 +92,7 @@ describe("saveReportTemplate", () => {
       stored({ id: "template_other", name: "client-ready AUDIT summary" }),
     ]);
 
-    await expect(save()).rejects.toThrow(
-      /exists in this project \(id template_other\)/,
-    );
+    await expect(save()).rejects.toThrow(/neste projeto \(id template_other\)/);
     expect(mocks.insertTemplate).not.toHaveBeenCalled();
   });
 
@@ -105,7 +103,7 @@ describe("saveReportTemplate", () => {
       ),
     );
 
-    await expect(save()).rejects.toThrow(/report templates, the limit/);
+    await expect(save()).rejects.toThrow(/modelos de relatório, o limite/);
     expect(mocks.insertTemplate).not.toHaveBeenCalled();
   });
 });
@@ -116,7 +114,7 @@ describe("deleteReportTemplate", () => {
 
     await expect(
       deleteReportTemplate("project_1", "template_x"),
-    ).rejects.toThrow(/No report template template_x/);
+    ).rejects.toThrow(/Não há modelo de relatório template_x/);
     expect(mocks.deleteTemplate).toHaveBeenCalledWith(
       "project_1",
       "template_x",

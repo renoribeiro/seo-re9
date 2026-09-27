@@ -44,18 +44,18 @@ type Props = {
 const PROMPT_EXPLORER_BULLETS = [
   {
     icon: Columns3,
-    title: "Four models side-by-side",
-    body: "Run one prompt across ChatGPT, Claude, Gemini, and Perplexity and compare answers in a single view.",
+    title: "Quatro modelos lado a lado",
+    body: "Execute um prompt no ChatGPT, Claude, Gemini e Perplexity e compare as respostas em uma única tela.",
   },
   {
     icon: SearchCheck,
-    title: "See what the models cite",
-    body: "Every answer lists the sources it drew from, so you can audit where each model gets its information.",
+    title: "Veja o que os modelos citam",
+    body: "Cada resposta lista as fontes usadas, para você verificar de onde cada modelo tira as informações.",
   },
   {
     icon: Sparkles,
-    title: "Check brand mentions",
-    body: "Highlight a brand to instantly see whether it shows up in the answer text or the cited sources.",
+    title: "Confira menções à marca",
+    body: "Destaque uma marca para ver na hora se ela aparece no texto da resposta ou nas fontes citadas.",
   },
 ];
 
@@ -161,17 +161,17 @@ function PromptExplorerPageInner({
     event.preventDefault();
     const trimmed = form.prompt.trim();
     if (trimmed.length === 0) {
-      setValidationError("Enter a prompt");
+      setValidationError("Digite um prompt");
       return;
     }
     if (trimmed.length > PROMPT_EXPLORER_MAX_PROMPT_LENGTH) {
       setValidationError(
-        `Keep prompts under ${PROMPT_EXPLORER_MAX_PROMPT_LENGTH} characters`,
+        `O prompt deve ter menos de ${PROMPT_EXPLORER_MAX_PROMPT_LENGTH} caracteres`,
       );
       return;
     }
     if (form.models.length === 0) {
-      setValidationError("Select at least one model");
+      setValidationError("Selecione pelo menos um modelo");
       return;
     }
     setValidationError(null);
@@ -200,17 +200,17 @@ function PromptExplorerPageInner({
     <div className="px-4 py-4 pb-24 overflow-auto md:px-6 md:py-6 md:pb-8">
       <div className="mx-auto max-w-7xl space-y-4">
         <div>
-          <h1 className="text-2xl font-semibold">Prompt Explorer</h1>
+          <h1 className="text-2xl font-semibold">Explorador de prompts</h1>
           <p className="text-sm text-base-content/70">
-            Ask any prompt across ChatGPT, Claude, Gemini, and Perplexity
-            side-by-side.
+            Envie qualquer prompt ao ChatGPT, Claude, Gemini e Perplexity e veja
+            as respostas lado a lado.
           </p>
         </div>
 
         {planGate.isFreePlan ? (
           <AiSearchPaidPlanGate
-            feature="Prompt Explorer"
-            description="Ask one prompt across ChatGPT, Claude, Gemini, and Perplexity at the same time and compare their answers — including which sources each model cites."
+            feature="Explorador de prompts"
+            description="Envie um prompt ao ChatGPT, Claude, Gemini e Perplexity ao mesmo tempo e compare as respostas — incluindo as fontes que cada modelo cita."
             bullets={PROMPT_EXPLORER_BULLETS}
           />
         ) : (
@@ -255,7 +255,7 @@ function PromptExplorerPageInner({
                     className="btn btn-ghost btn-sm gap-2 px-0 text-base-content/70 hover:bg-transparent"
                   >
                     <ArrowLeft className="size-4" />
-                    Recent searches
+                    Buscas recentes
                   </Link>
                 </div>
                 <PromptExplorerResults result={resultData} />

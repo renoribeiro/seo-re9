@@ -11,13 +11,15 @@ export const Route = createFileRoute("/_authenticated/oauth-consent")({
 const SCOPES = [
   {
     icon: Database,
-    label: "Read your OpenSEO data",
-    description: "Projects, keyword reports, and audit results.",
+    label: "Ler seus dados do RE9 SEO",
+    description:
+      "Projetos, relatórios de palavras-chave e resultados de auditoria.",
   },
   {
     icon: KeyRound,
-    label: "Act on your behalf via MCP",
-    description: "Run tools and write results back to your organization.",
+    label: "Agir em seu nome via MCP",
+    description:
+      "Executar ferramentas e gravar os resultados na sua organização.",
   },
 ];
 
@@ -55,7 +57,7 @@ function OAuthConsentPage() {
     } = await response.json();
 
     if (!response.ok) {
-      setError(data.error ?? "Unable to complete authorization.");
+      setError(data.error ?? "Não foi possível concluir a autorização.");
       setIsSubmitting(false);
       return;
     }
@@ -65,7 +67,9 @@ function OAuthConsentPage() {
       return;
     }
 
-    setError("Authorization response did not include a redirect URL.");
+    setError(
+      "A resposta da autorização não trouxe uma URL de redirecionamento.",
+    );
     setIsSubmitting(false);
   }
 
@@ -74,12 +78,13 @@ function OAuthConsentPage() {
       <div className="flex flex-col items-center text-center">
         <img
           src="/transparent-logo.png"
-          alt="OpenSEO"
+          alt="RE9 SEO"
           className="size-10 rounded-lg"
         />
-        <h1 className="mt-5 text-xl font-semibold">Authorize MCP access</h1>
+        <h1 className="mt-5 text-xl font-semibold">Autorizar acesso via MCP</h1>
         <p className="mt-2 text-sm text-base-content/70">
-          An MCP client is requesting access to your OpenSEO workspace.
+          Um cliente MCP está pedindo acesso ao seu espaço de trabalho no RE9
+          SEO.
         </p>
       </div>
 
@@ -89,7 +94,7 @@ function OAuthConsentPage() {
             <User className="size-4" />
           </div>
           <div className="flex-1">
-            <div className="text-xs text-base-content/60">Signed in as</div>
+            <div className="text-xs text-base-content/60">Conectado como</div>
             <div className="font-medium">{userEmail}</div>
           </div>
         </div>
@@ -97,7 +102,7 @@ function OAuthConsentPage() {
 
       <div className="mt-6">
         <div className="text-xs font-medium uppercase tracking-wide text-base-content/60">
-          This will allow it to
+          Com isso, ele poderá
         </div>
         <ul className="mt-3 space-y-3">
           {SCOPES.map((scope) => (
@@ -127,7 +132,7 @@ function OAuthConsentPage() {
           disabled={isSubmitting}
           onClick={() => void respond(false)}
         >
-          Cancel
+          Cancelar
         </button>
         <button
           type="button"
@@ -135,12 +140,12 @@ function OAuthConsentPage() {
           disabled={isSubmitting}
           onClick={() => void respond(true)}
         >
-          {isSubmitting ? "Authorizing..." : "Authorize"}
+          {isSubmitting ? "Autorizando..." : "Autorizar"}
         </button>
       </div>
 
       <p className="mt-6 text-center text-xs text-base-content/50">
-        You can revoke access at any time in Settings.
+        Você pode revogar o acesso a qualquer momento em Configurações.
       </p>
     </div>
   );

@@ -19,14 +19,14 @@ export async function renderReportSocialImage(
         display: "flex",
         flexDirection: "column",
         padding: 64,
-        backgroundColor: "#f5f4ef",
-        color: "#1d2925",
+        backgroundColor: "#f5f5f5",
+        color: "#1f1f1f",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
         <img src={logo} width={64} height={64} style={{ borderRadius: 14 }} />
         <div style={{ fontSize: 34, fontWeight: 600, letterSpacing: -1 }}>
-          OpenSEO
+          RE9 SEO
         </div>
       </div>
       <div
@@ -58,7 +58,7 @@ export async function renderReportSocialImage(
             maxWidth: "80%",
             fontSize: 24,
             fontWeight: 400,
-            color: "#65716b",
+            color: "#6b7280",
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",

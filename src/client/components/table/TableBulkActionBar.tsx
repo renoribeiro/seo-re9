@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export function TableBulkActionBar({
   selectedCount,
-  selectedLabel = "selected",
+  selectedLabel,
   actions,
   onClear,
   placement = "fixed",
@@ -27,18 +27,21 @@ export function TableBulkActionBar({
 
   return (
     <div className={wrapperClass}>
-      <div role="toolbar" aria-label="Bulk actions" className={toolbarClass}>
+      <div role="toolbar" aria-label="Ações em massa" className={toolbarClass}>
         <div className="flex items-center gap-2 border-r border-base-content/10 px-3 py-2 text-sm">
           <button
             type="button"
-            aria-label="Clear selection"
+            aria-label="Limpar seleção"
             className="-ml-1 rounded p-1 text-base-content/55 hover:bg-base-content/10 hover:text-base-content"
             onClick={onClear}
           >
             <X className="size-3.5" />
           </button>
           <span className="font-medium tabular-nums">{selectedCount}</span>
-          <span className="text-base-content/60">{selectedLabel}</span>
+          <span className="text-base-content/60">
+            {selectedLabel ??
+              (selectedCount === 1 ? "selecionado" : "selecionados")}
+          </span>
         </div>
         {actions}
       </div>
@@ -103,7 +106,7 @@ export function TableBulkExportMenu({
         ) : (
           <Download className="size-3.5" />
         )}
-        Export
+        Exportar
         <ChevronDown className="size-3 opacity-60" />
       </button>
       <ul
@@ -146,7 +149,7 @@ export function TableExportMenu({
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className={buttonClassName}>
         <Download className="size-4" />
-        Export
+        Exportar
         <ChevronDown className="size-3 opacity-60" />
       </div>
       <ul tabIndex={0} className={menuClassName}>

@@ -43,23 +43,23 @@ type Props = {
   ) => void;
 };
 
-const KEYWORD_SCOPE_REASON = "Scopes apply to domain lookups";
+const KEYWORD_SCOPE_REASON = "Escopos se aplicam apenas a consultas de domínio";
 
 const BRAND_LOOKUP_BULLETS = [
   {
     icon: TrendingUp,
-    title: "Track AI visibility",
-    body: "See estimated counts for ChatGPT and Google AI Overview answers that cite your brand, and watch the trend month over month.",
+    title: "Acompanhe a visibilidade em IA",
+    body: "Veja estimativas de quantas respostas do ChatGPT e do Google AI Overview citam sua marca e acompanhe a tendência mês a mês.",
   },
   {
     icon: Quote,
-    title: "See the prompts",
-    body: "View sample user questions where LLMs reference your brand or domain.",
+    title: "Veja os prompts",
+    body: "Veja exemplos de perguntas de usuários em que LLMs citam sua marca ou domínio.",
   },
   {
     icon: BarChart3,
-    title: "Map the competition",
-    body: "Spot the pages LLMs cite alongside you so you know who's competing for attention in AI answers.",
+    title: "Mapeie a concorrência",
+    body: "Descubra as páginas que os LLMs citam junto com você e saiba quem disputa atenção nas respostas de IA.",
   },
 ];
 
@@ -179,14 +179,14 @@ function BrandLookupPageInner({
     if (trimmed.length === 0) {
       setValidationError({
         field: "query",
-        message: "Enter a brand name or domain",
+        message: "Informe o nome de uma marca ou um domínio",
       });
       return;
     }
     if (trimmed.length > BRAND_LOOKUP_MAX_INPUT_LENGTH) {
       setValidationError({
         field: "query",
-        message: `Keep it under ${BRAND_LOOKUP_MAX_INPUT_LENGTH} characters`,
+        message: `Use menos de ${BRAND_LOOKUP_MAX_INPUT_LENGTH} caracteres`,
       });
       return;
     }
@@ -201,7 +201,7 @@ function BrandLookupPageInner({
     if (tooLong) {
       setValidationError({
         field: "competitors",
-        message: `Keep each competitor under ${BRAND_LOOKUP_MAX_INPUT_LENGTH} characters`,
+        message: `Cada concorrente deve ter menos de ${BRAND_LOOKUP_MAX_INPUT_LENGTH} caracteres`,
       });
       return;
     }
@@ -213,7 +213,7 @@ function BrandLookupPageInner({
     if (matchesTarget) {
       setValidationError({
         field: "competitors",
-        message: `"${matchesTarget}" matches the brand you're looking up — remove it from competitors`,
+        message: `"${matchesTarget}" é a mesma marca que você está consultando — remova-a dos concorrentes`,
       });
       return;
     }
@@ -224,7 +224,8 @@ function BrandLookupPageInner({
     ) {
       setValidationError({
         field: "query",
-        message: "Add a path to use Subfolder (e.g. example.com/blog)",
+        message:
+          "Adicione um caminho para usar Subpasta (ex.: example.com/blog)",
       });
       return;
     }
@@ -260,16 +261,16 @@ function BrandLookupPageInner({
     <div className="px-4 py-4 pb-24 overflow-auto md:px-6 md:py-6 md:pb-8">
       <div className="mx-auto max-w-7xl space-y-4">
         <div>
-          <h1 className="text-2xl font-semibold">Brand Lookup</h1>
+          <h1 className="text-2xl font-semibold">Consulta de marca</h1>
           <p className="text-sm text-base-content/70">
-            See how AI search cites any brand name or domain.
+            Veja como a busca com IA cita qualquer marca ou domínio.
           </p>
         </div>
 
         {planGate.isFreePlan ? (
           <AiSearchPaidPlanGate
-            feature="Brand Lookup"
-            description="See how ChatGPT and Google AI Overview cite any brand or domain — total mentions, sample prompts where it appears, and the pages cited alongside it."
+            feature="Consulta de marca"
+            description="Veja como o ChatGPT e o Google AI Overview citam qualquer marca ou domínio — total de menções, exemplos de prompts em que ela aparece e as páginas citadas junto com ela."
             bullets={BRAND_LOOKUP_BULLETS}
           />
         ) : (
@@ -317,7 +318,7 @@ function BrandLookupPageInner({
                     className="btn btn-ghost btn-sm gap-2 px-0 text-base-content/70 hover:bg-transparent"
                   >
                     <ArrowLeft className="size-4" />
-                    Recent searches
+                    Buscas recentes
                   </Link>
                 </div>
                 <BrandLookupResults result={resultData} projectId={projectId} />

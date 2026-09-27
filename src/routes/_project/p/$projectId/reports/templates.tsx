@@ -56,13 +56,13 @@ function ReportTemplatesPage() {
         project_id: projectId,
         template_id: templateId,
       });
-      toast.success("Template deleted");
+      toast.success("Modelo excluído");
       setPendingDelete(null);
       invalidate();
     },
     onError: (error: Error) => {
       toast.error(
-        getStandardErrorMessage(error, "Failed to delete the template"),
+        getStandardErrorMessage(error, "Não foi possível excluir o modelo"),
       );
     },
   });
@@ -76,15 +76,15 @@ function ReportTemplatesPage() {
           className="inline-flex items-center gap-1 text-sm text-base-content/60 transition-colors hover:text-base-content"
         >
           <ChevronLeft className="size-4" />
-          Reports
+          Relatórios
         </Link>
 
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-semibold">Report templates</h1>
+            <h1 className="text-2xl font-semibold">Modelos de relatório</h1>
             <p className="text-sm text-base-content/70">
-              Reusable briefs your agents follow when they write a report: who
-              it is for, which sections it has, and how it should sound.
+              Briefings reutilizáveis que seus agentes seguem ao escrever um
+              relatório: para quem ele é, quais seções tem e qual tom deve ter.
             </p>
           </div>
           <button
@@ -93,7 +93,7 @@ function ReportTemplatesPage() {
             onClick={() => setForm({})}
           >
             <Plus className="size-4" />
-            New template
+            Novo modelo
           </button>
         </div>
 
@@ -106,7 +106,7 @@ function ReportTemplatesPage() {
             <span className="text-sm">
               {getStandardErrorMessage(
                 templatesQuery.error,
-                "Failed to load templates",
+                "Não foi possível carregar os modelos",
               )}
             </span>
           </div>
@@ -133,9 +133,9 @@ function ReportTemplatesPage() {
 
       {pendingDelete ? (
         <ConfirmDeleteModal
-          title={`Delete \u201c${pendingDelete.name}\u201d?`}
-          detail="Reports already written from it are not affected."
-          confirmLabel="Delete template"
+          title={`Excluir \u201c${pendingDelete.name}\u201d?`}
+          detail="Os relatórios já escritos com ele não serão afetados."
+          confirmLabel="Excluir modelo"
           isPending={deleteMutation.isPending}
           onClose={() => setPendingDelete(null)}
           onConfirm={() => deleteMutation.mutate(pendingDelete.id)}

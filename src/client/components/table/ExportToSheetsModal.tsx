@@ -39,21 +39,24 @@ export function ExportToSheetsModal() {
             <Check className="size-4" />
           </span>
           <h3 id="export-to-sheets-title" className="text-base font-semibold">
-            Copied {rowCount} row{rowCount === 1 ? "" : "s"} to your clipboard
+            {rowCount === 1
+              ? "1 linha copiada"
+              : `${rowCount.toLocaleString("pt-BR")} linhas copiadas`}{" "}
+            para a área de transferência
           </h3>
         </div>
         <button
           type="button"
           className="btn btn-ghost btn-xs btn-square"
           onClick={closeExportToSheetsModal}
-          aria-label="Close"
+          aria-label="Fechar"
         >
           <X className="size-4" />
         </button>
       </div>
 
       <p className="text-sm text-base-content/75">
-        Open a new Google Sheet and paste to fill it.
+        Abra uma nova planilha do Google e cole para preenchê-la.
       </p>
 
       <div className="flex justify-end">
@@ -62,7 +65,7 @@ export function ExportToSheetsModal() {
           className="btn btn-primary btn-sm gap-1.5"
           onClick={handleOpenSheet}
         >
-          Open new Google Sheet
+          Abrir nova planilha do Google
           <ExternalLink className="size-3.5" />
         </button>
       </div>

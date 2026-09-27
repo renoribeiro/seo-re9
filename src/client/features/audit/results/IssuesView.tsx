@@ -25,9 +25,9 @@ const SEVERITY_RULE: Record<IssueSeverity, string> = {
 };
 
 const SEVERITY_LABEL: Record<IssueSeverity, string> = {
-  critical: "Critical",
-  warning: "Warning",
-  info: "Info",
+  critical: "Crítico",
+  warning: "Alerta",
+  info: "Informativo",
 };
 
 interface IssueGroup {
@@ -94,10 +94,13 @@ export function IssuesView({ issues }: { issues: AuditIssueRow[] }) {
   if (issues.length === 0) {
     return (
       <div className="py-10 text-center text-base-content/60">
-        <p className="font-medium">No issues recorded for this audit.</p>
+        <p className="font-medium">
+          Nenhum problema registrado nesta auditoria.
+        </p>
         <p className="text-sm mt-1">
-          Either the site is in great shape, or this audit ran before issue
-          checks existed — run a new audit to get the full report.
+          Ou o site está em ótima forma, ou esta auditoria foi feita antes de
+          existirem as verificações de problemas — faça uma nova auditoria para
+          ver o relatório completo.
         </p>
       </div>
     );
@@ -168,7 +171,8 @@ function IssueRow({ group }: { group: IssueGroup }) {
           {group.title}
         </span>
         <span className="text-xs tabular-nums text-base-content/50 shrink-0">
-          {group.issues.length} {group.issues.length === 1 ? "page" : "pages"}
+          {group.issues.length}{" "}
+          {group.issues.length === 1 ? "página" : "páginas"}
         </span>
         <ChevronRight
           className={`size-4 shrink-0 text-base-content/40 transition-transform ${
@@ -186,7 +190,7 @@ function IssueRow({ group }: { group: IssueGroup }) {
           )}
           {group.howToFix && (
             <p className="text-sm max-w-prose">
-              <span className="font-medium">How to fix: </span>
+              <span className="font-medium">Como corrigir: </span>
               <span className="text-base-content/80">{group.howToFix}</span>
             </p>
           )}
@@ -222,7 +226,8 @@ function AffectedUrlList({ issues }: { issues: AuditIssueRow[] }) {
       ))}
       {remaining > 0 && (
         <div className="px-3 py-2 text-xs text-base-content/50">
-          …and {remaining} more — export the issues CSV for the full list.
+          …e mais {remaining} — exporte o CSV de problemas para ver a lista
+          completa.
         </div>
       )}
     </div>

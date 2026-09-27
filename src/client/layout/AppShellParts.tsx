@@ -19,13 +19,13 @@ function SeoApiStatusBanners({
             <div className="alert alert-warning">
               <AlertTriangle className="size-4 shrink-0" />
               <span className="text-sm">
-                Setup needed: add your DataForSEO API key to use OpenSEO
-                features. See the quick steps on the{" "}
+                Configuração necessária: adicione sua chave de API da DataForSEO
+                para usar os recursos do RE9 SEO. Veja o passo a passo rápido na{" "}
                 <Link
                   {...dataforseoHelpLinkOptions}
                   className="link link-primary font-medium"
                 >
-                  help page
+                  página de ajuda
                 </Link>
                 .
               </span>
@@ -40,13 +40,13 @@ function SeoApiStatusBanners({
             <div className="alert alert-info">
               <AlertTriangle className="size-4 shrink-0" />
               <span className="text-sm">
-                We could not verify your DataForSEO setup. If features are not
-                working, check the setup steps on the{" "}
+                Não conseguimos verificar sua configuração da DataForSEO. Se os
+                recursos não estiverem funcionando, confira os passos na{" "}
                 <Link
                   {...dataforseoHelpLinkOptions}
                   className="link link-primary font-medium"
                 >
-                  help page
+                  página de ajuda
                 </Link>
                 .
               </span>
@@ -73,7 +73,7 @@ function MobileSidebarDrawer({
     <div className="fixed inset-0 z-50 md:hidden">
       <button
         type="button"
-        aria-label="Close sidebar"
+        aria-label="Fechar barra lateral"
         className="absolute inset-0 bg-black/45"
         onClick={onClose}
       />
@@ -113,27 +113,28 @@ const MissingSeoSetupModal = React.forwardRef<
               id="dataforseo-setup-title"
               className="text-lg font-semibold text-base-content"
             >
-              One quick setup step
+              Só um passo rápido de configuração
             </h2>
             <p
               id="dataforseo-setup-description"
               className="text-sm text-base-content/75"
             >
-              Add your DataForSEO API key to start using OpenSEO.
+              Adicione sua chave de API da DataForSEO para começar a usar o RE9
+              SEO.
             </p>
           </div>
         </div>
 
         <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
           <button type="button" className="btn btn-ghost" onClick={onClose}>
-            Dismiss
+            Dispensar
           </button>
           <Link
             {...dataforseoHelpLinkOptions}
             className="btn btn-primary"
             onClick={onClose}
           >
-            Open setup guide
+            Abrir guia de configuração
             <ExternalLink className="size-4" />
           </Link>
         </div>

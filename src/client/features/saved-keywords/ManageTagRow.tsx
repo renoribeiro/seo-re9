@@ -8,6 +8,17 @@ import {
 } from "@/shared/tag-colors";
 import type { SavedKeywordTagSummary } from "@/types/keywords";
 
+const TAG_COLOR_LABELS: Record<TagColorKey, string> = {
+  slate: "Cinza",
+  rose: "Rosa",
+  amber: "Âmbar",
+  lime: "Lima",
+  emerald: "Esmeralda",
+  sky: "Azul-céu",
+  violet: "Violeta",
+  fuchsia: "Fúcsia",
+};
+
 export function ManageTagRow({
   tag,
   isBusy,
@@ -32,7 +43,7 @@ export function ManageTagRow({
     <div className="space-y-2 border-y border-base-300 bg-base-200/40 px-3 py-2.5">
       <div className="space-y-1">
         <label className="text-[11px] font-semibold uppercase tracking-wide text-base-content/55">
-          Rename
+          Renomear
         </label>
         <div className="flex items-center gap-1.5">
           <Pencil className="size-3 opacity-50" />
@@ -46,14 +57,14 @@ export function ManageTagRow({
 
       <div className="space-y-1">
         <label className="text-[11px] font-semibold uppercase tracking-wide text-base-content/55">
-          Color
+          Cor
         </label>
         <div className="flex flex-wrap items-center gap-1.5">
           {TAG_COLOR_KEYS.map((key) => (
             <button
               key={key}
               type="button"
-              aria-label={key}
+              aria-label={TAG_COLOR_LABELS[key]}
               className={`size-5 rounded-full transition ${tagSwatchClass(key)} ${
                 color === key
                   ? "ring-2 ring-offset-2 ring-offset-base-200 ring-base-content/40"
@@ -73,7 +84,7 @@ export function ManageTagRow({
           disabled={isBusy}
         >
           <Trash2 className="size-3" />
-          Delete
+          Excluir
         </button>
         <div className="flex items-center gap-1.5">
           <button
@@ -81,7 +92,7 @@ export function ManageTagRow({
             className="rounded px-2 py-1 text-xs text-base-content/70 hover:bg-base-300"
             onClick={onCancel}
           >
-            Cancel
+            Cancelar
           </button>
           <button
             type="button"
@@ -94,7 +105,7 @@ export function ManageTagRow({
               })
             }
           >
-            Save
+            Salvar
           </button>
         </div>
       </div>

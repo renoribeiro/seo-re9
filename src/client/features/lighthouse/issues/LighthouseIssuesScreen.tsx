@@ -72,12 +72,12 @@ export function LighthouseIssuesScreen(props: LighthouseIssuesScreenProps) {
 
   const issuesErrorMessage = getStandardErrorMessage(
     issuesQuery.error,
-    "Failed to load Lighthouse issues.",
+    "Não foi possível carregar os problemas do Lighthouse.",
   );
   const showsLegacyPayloadNotice =
     issuesQuery.data != null && !issuesQuery.data.hasIssueDetails;
   const emptyMessage = showsLegacyPayloadNotice
-    ? "This audit was saved without issue-level Lighthouse details. Re-run the audit to populate this screen."
+    ? "Esta auditoria foi salva sem os detalhes de cada problema do Lighthouse. Refaça a auditoria para preencher esta tela."
     : undefined;
 
   return (
@@ -106,9 +106,9 @@ export function LighthouseIssuesScreen(props: LighthouseIssuesScreenProps) {
               <div className="alert alert-warning">
                 <TriangleAlert className="size-4" />
                 <span>
-                  This Lighthouse run was stored before issue details were
-                  preserved. Re-run the audit to see category counts and issue
-                  cards.
+                  Esta execução do Lighthouse foi salva antes de os detalhes dos
+                  problemas serem armazenados. Refaça a auditoria para ver as
+                  contagens por categoria e os cartões de problemas.
                 </span>
               </div>
             ) : null}
@@ -167,10 +167,12 @@ function useLighthouseIssuesActions({
     try {
       const exported = await exportMutation.mutateAsync(data);
       downloadFile(exported.content, exported.filename, "application/json");
-      toast.success("Download started");
+      toast.success("Download iniciado");
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Failed to export payload";
+        error instanceof Error
+          ? error.message
+          : "Não foi possível exportar o payload";
       toast.error(message);
     }
   };
@@ -181,7 +183,7 @@ function useLighthouseIssuesActions({
   ) => {
     const filename = `lighthouse-${variant}-${category}-issues.csv`;
     downloadFile(issuesToCsv(rows), filename, "text/csv");
-    toast.success("CSV download started");
+    toast.success("Download do CSV iniciado");
   };
 
   const runExportSheets = (
@@ -203,7 +205,9 @@ function useLighthouseIssuesActions({
       toast.success(toastMessage);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : "Failed to copy payload";
+        error instanceof Error
+          ? error.message
+          : "Não foi possível copiar o payload";
       toast.error(message);
     }
   };

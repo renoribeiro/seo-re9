@@ -50,10 +50,10 @@ export async function resolveCloudflareAccessContext(
       policyAud ? null : "POLICY_AUD",
     ]
       .filter(Boolean)
-      .join(" and ");
+      .join(" e ");
     throw new AppError(
       "AUTH_CONFIG_MISSING",
-      `Missing Cloudflare Access configuration: set ${missing} on the deployment. See docs/SELF_HOSTING_CLOUDFLARE.md.`,
+      `Configuração do Cloudflare Access ausente: defina ${missing} na implantação. Veja docs/SELF_HOSTING_CLOUDFLARE.md.`,
     );
   }
 
@@ -65,7 +65,7 @@ export async function resolveCloudflareAccessContext(
     // route, which is a setup problem, not a signed-out user.
     throw new AppError(
       "AUTH_CONFIG_MISSING",
-      "No Cloudflare Access token on the request. Cloudflare Access is not enabled in front of this deployment — add an Access application covering this hostname in Zero Trust, or set AUTH_MODE=local_noauth if you intend to run without auth on a private network.",
+      "Nenhum token do Cloudflare Access na requisição. O Cloudflare Access não está ativado na frente desta implantação — adicione um aplicativo do Access que cubra este hostname no Zero Trust ou defina AUTH_MODE=local_noauth se você pretende rodar sem autenticação em uma rede privada.",
     );
   }
 

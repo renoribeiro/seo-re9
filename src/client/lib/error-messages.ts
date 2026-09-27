@@ -2,34 +2,34 @@ import { FREE_MAX_AUDIT_PAGES } from "@/shared/audit-limits";
 import { isErrorCode, type ErrorCode } from "@/shared/error-codes";
 
 const STANDARD_MESSAGES: Record<ErrorCode, string> = {
-  UNAUTHENTICATED: "Please sign in and try again.",
+  UNAUTHENTICATED: "Entre na sua conta e tente novamente.",
   AUTH_CONFIG_MISSING:
-    "OpenSEO auth is not configured. Follow the README setup steps for Cloudflare Access.",
-  PAYMENT_REQUIRED:
-    "An active hosted subscription is required before you can use OpenSEO.",
+    "A autenticação do RE9 SEO não está configurada. Siga os passos de configuração do README para o Cloudflare Access.",
+  PAYMENT_REQUIRED: "É necessária uma assinatura ativa para usar o RE9 SEO.",
   INSUFFICIENT_CREDITS:
-    "You've run out of credits. Add more credits or upgrade your plan to continue.",
-  FORBIDDEN: "You do not have access to this resource.",
-  NOT_FOUND: "The requested resource was not found.",
+    "Seus créditos acabaram. Adicione mais créditos ou faça upgrade do seu plano para continuar.",
+  FORBIDDEN: "Você não tem acesso a este recurso.",
+  NOT_FOUND: "O recurso solicitado não foi encontrado.",
   AUDIT_CAPACITY_REACHED:
-    "You've reached audit capacity for your account. Delete old audits from your projects to start a new one.",
-  AUDIT_PAGE_LIMIT_EXCEEDED: `Free plan audits are limited to ${FREE_MAX_AUDIT_PAGES} pages. Upgrade to run larger audits.`,
+    "Você atingiu o limite de auditorias da sua conta. Exclua auditorias antigas dos seus projetos para iniciar uma nova.",
+  AUDIT_PAGE_LIMIT_EXCEEDED: `As auditorias do plano gratuito são limitadas a ${FREE_MAX_AUDIT_PAGES} páginas. Faça upgrade para rodar auditorias maiores.`,
   AUDIT_ALREADY_RUNNING:
-    "You've reached the limit of audits running at once. Wait for one to finish or delete it before starting another.",
-  VALIDATION_ERROR: "Please check your input and try again.",
-  CRAWL_TARGET_BLOCKED: "This crawl target is blocked by security policy.",
+    "Você atingiu o limite de auditorias em execução ao mesmo tempo. Aguarde uma terminar ou exclua-a antes de iniciar outra.",
+  VALIDATION_ERROR: "Confira os dados informados e tente novamente.",
+  CRAWL_TARGET_BLOCKED:
+    "Este destino de rastreamento está bloqueado pela política de segurança.",
   BACKLINKS_BILLING_ISSUE:
-    "The connected DataForSEO account has a billing or balance issue.",
+    "A conta da DataForSEO conectada tem um problema de cobrança ou saldo.",
   AI_SEARCH_BILLING_ISSUE:
-    "The connected DataForSEO account has a billing or balance issue.",
+    "A conta da DataForSEO conectada tem um problema de cobrança ou saldo.",
   DATAFORSEO_AUTH_FAILED:
-    "DataForSEO rejected the API key. Check that DATAFORSEO_API_KEY is the base64 of your DataForSEO login:password.",
-  RATE_LIMITED: "Too many requests. Please wait and try again.",
+    "A DataForSEO rejeitou a chave de API. Verifique se DATAFORSEO_API_KEY é o base64 do seu login:senha da DataForSEO.",
+  RATE_LIMITED: "Muitas solicitações. Aguarde e tente novamente.",
   UPSTREAM_UNAVAILABLE:
-    "The data provider is temporarily unavailable. Please retry in a moment.",
-  CONFLICT: "This request conflicts with existing data.",
+    "O provedor de dados está temporariamente indisponível. Tente novamente em instantes.",
+  CONFLICT: "Esta solicitação entra em conflito com dados existentes.",
   INTERNAL_ERROR:
-    "An unexpected error occurred. Please check server logs and try again.",
+    "Ocorreu um erro inesperado. Confira os logs do servidor e tente novamente.",
 };
 
 // Setup errors cross the wire as "CODE: detail" (see toClientError) so the

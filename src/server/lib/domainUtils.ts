@@ -35,7 +35,7 @@ export function normalizeDomainInput(
 ): string {
   const trimmed = input.trim().toLowerCase();
   if (!trimmed) {
-    throw new AppError("VALIDATION_ERROR", "Domain is required");
+    throw new AppError("VALIDATION_ERROR", "Informe um domínio");
   }
 
   const withProtocol = /^[a-zA-Z][a-zA-Z\d+.-]*:\/\//.test(trimmed)
@@ -46,11 +46,11 @@ export function normalizeDomainInput(
   try {
     host = new URL(withProtocol).hostname.toLowerCase().replace(/^www\./, "");
   } catch {
-    throw new AppError("VALIDATION_ERROR", "Domain is invalid");
+    throw new AppError("VALIDATION_ERROR", "Domínio inválido");
   }
 
   if (!host) {
-    throw new AppError("VALIDATION_ERROR", "Domain is invalid");
+    throw new AppError("VALIDATION_ERROR", "Domínio inválido");
   }
 
   // Reject fake TLDs / non-registrable hosts (e.g. "example.por") before they
@@ -58,7 +58,7 @@ export function normalizeDomainInput(
   if (!isValidDomainHost(host)) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Enter a valid domain like example.com",
+      "Informe um domínio válido, como exemplo.com.br",
     );
   }
 

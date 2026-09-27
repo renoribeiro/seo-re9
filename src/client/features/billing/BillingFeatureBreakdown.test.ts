@@ -18,7 +18,7 @@ describe("getBillingFeatureBreakdownRows", () => {
       },
     ]);
 
-    expect(rows).toEqual([{ label: "Rank Tracking", usd: 0.25 }]);
+    expect(rows).toEqual([{ label: "Monitoramento de posições", usd: 0.25 }]);
   });
 
   it("supports raw Autumn property aliases", () => {
@@ -32,7 +32,7 @@ describe("getBillingFeatureBreakdownRows", () => {
       },
     ]);
 
-    expect(rows).toEqual([{ label: "Local SEO", usd: 0.2 }]);
+    expect(rows).toEqual([{ label: "SEO local", usd: 0.2 }]);
   });
 
   it("infers legacy events from DataForSEO paths", () => {
@@ -61,8 +61,8 @@ describe("getBillingFeatureBreakdownRows", () => {
 
     expect(rows).toEqual([
       { label: "Backlinks", usd: 0.6 },
-      { label: "Domain Overview", usd: 0.25 },
-      { label: "AI Citations", usd: 0.125 },
+      { label: "Visão geral do domínio", usd: 0.25 },
+      { label: "Citações em IA", usd: 0.125 },
     ]);
   });
 
@@ -82,7 +82,7 @@ describe("getBillingFeatureBreakdownRows", () => {
       },
     ]);
 
-    expect(rows).toEqual([{ label: "AI Prompt Responses", usd: 0.5 }]);
+    expect(rows).toEqual([{ label: "Respostas de prompts de IA", usd: 0.5 }]);
   });
 
   it("falls back to Other when neither feature nor path is available", () => {
@@ -93,6 +93,6 @@ describe("getBillingFeatureBreakdownRows", () => {
       },
     ]);
 
-    expect(rows).toEqual([{ label: "Other", usd: 0.1 }]);
+    expect(rows).toEqual([{ label: "Outros", usd: 0.1 }]);
   });
 });

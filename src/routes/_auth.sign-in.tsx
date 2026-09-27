@@ -14,8 +14,8 @@ import { getSignInSearch, getVerifyEmailSearch } from "@/lib/auth-redirect";
 import { z } from "zod";
 
 const signInSchema = z.object({
-  email: z.string().trim().email("Enter a valid email address."),
-  password: z.string().min(1, "Enter your password."),
+  email: z.string().trim().email("Informe um e-mail válido."),
+  password: z.string().min(1, "Informe sua senha."),
 });
 
 export const Route = createFileRoute("/_auth/sign-in")({
@@ -79,14 +79,15 @@ function SignInPage() {
 
         formApi.setErrorMap({
           onSubmit: {
-            form: result.error.message || "We couldn't sign you in.",
+            form:
+              result.error.message || "Não foi possível entrar na sua conta.",
             fields: {},
           },
         });
       } catch {
         formApi.setErrorMap({
           onSubmit: {
-            form: "Unable to sign in right now. Please try again.",
+            form: "Não foi possível entrar agora. Tente novamente.",
             fields: {},
           },
         });
@@ -109,19 +110,20 @@ function SignInPage() {
 
       if (result.error) {
         setSocialError(
-          result.error.message || "Google sign in is not available right now.",
+          result.error.message ||
+            "Entrar com o Google não está disponível no momento.",
         );
         setIsStartingGoogle(false);
       }
     } catch {
-      setSocialError("Google sign in is not available right now.");
+      setSocialError("Entrar com o Google não está disponível no momento.");
       setIsStartingGoogle(false);
     }
   }
 
   return (
     <AuthPageCard
-      title="Sign in"
+      title="Entrar"
       footer={
         isHostedMode ? (
           <div
@@ -137,7 +139,7 @@ function SignInPage() {
                 search={getSignInSearch(redirectTo)}
                 className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"
               >
-                Forgot password?
+                Esqueceu a senha?
               </Link>
             ) : null}
             <Link
@@ -145,7 +147,7 @@ function SignInPage() {
               search={getSignInSearch(redirectTo)}
               className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"
             >
-              Create account
+              Criar conta
             </Link>
           </div>
         ) : null
@@ -154,7 +156,7 @@ function SignInPage() {
       {!showEmailForm ? (
         <>
           <AuthMethodChooser
-            googleLabel="Continue with Google"
+            googleLabel="Continuar com o Google"
             disabled={!isHostedMode}
             isBusy={isStartingGoogle}
             onContinueWithGoogle={() => {
@@ -186,7 +188,7 @@ function SignInPage() {
                   <input
                     type="email"
                     className="input input-bordered w-full"
-                    placeholder="Email address..."
+                    placeholder="Endereço de e-mail..."
                     value={field.state.value}
                     onChange={(event) => field.handleChange(event.target.value)}
                     autoComplete="email"
@@ -210,7 +212,7 @@ function SignInPage() {
                   <input
                     type="password"
                     className="input input-bordered w-full"
-                    placeholder="Password..."
+                    placeholder="Senha..."
                     value={field.state.value}
                     onChange={(event) => field.handleChange(event.target.value)}
                     autoComplete="current-password"
@@ -242,7 +244,7 @@ function SignInPage() {
                     className="btn btn-soft w-full"
                     disabled={!isHostedMode || isSubmitting}
                   >
-                    {isSubmitting ? "Signing in..." : "Sign in"}
+                    {isSubmitting ? "Entrando..." : "Entrar"}
                   </button>
                 </>
               );

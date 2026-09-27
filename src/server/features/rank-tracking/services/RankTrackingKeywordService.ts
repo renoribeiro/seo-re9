@@ -7,6 +7,7 @@ import {
   estimateScheduledRankCheckCredits,
   isScheduledRankTrackingInterval,
   MAX_KEYWORDS_PER_CONFIG,
+  scheduleLabel,
 } from "@/shared/rank-tracking";
 
 async function addKeywords(
@@ -29,7 +30,7 @@ async function addKeywords(
   if (existing.length >= MAX_KEYWORDS_PER_CONFIG) {
     throw new AppError(
       "INTERNAL_ERROR",
-      `Maximum ${MAX_KEYWORDS_PER_CONFIG} keywords per domain. Currently tracking ${existing.length}.`,
+      `Máximo de ${MAX_KEYWORDS_PER_CONFIG} palavras-chave por domínio. Monitorando atualmente: ${existing.length}.`,
     );
   }
 
@@ -179,7 +180,10 @@ async function getValidatedConfig(configId: string, projectId: string) {
     projectId,
   });
   if (!config) {
-    throw new AppError("NOT_FOUND", "Rank tracking config not found");
+    throw new AppError(
+      "NOT_FOUND",
+      "Configuração de monitoramento de posições não encontrada",
+    );
   }
   return config;
 }
@@ -190,7 +194,7 @@ function scheduledApprovalError(
 ) {
   return new AppError(
     "VALIDATION_ERROR",
-    `Adding these keywords would make each ${scheduleInterval} scheduled check cost a nominal queued estimate of ${estimate.costCredits} credits (~$${estimate.costUsd.toFixed(4)} per check; ~${estimate.monthlyCostCredits} credits/month). Call estimate_rank_tracker_cost with additionalKeywordCount, show the recurring estimate and live-fallback caveat to the user, then retry with maxEstimatedScheduledCheckCredits set to the approved per-check estimate. Live fallback for rejected, failed, or timed-out queued tasks may use additional separately billed credits.`,
+    `Adicionar estas palavras-chave faria cada verificação agendada (${scheduleLabel(scheduleInterval).toLowerCase()}) custar uma estimativa nominal em fila de ${estimate.costCredits} créditos (~$${estimate.costUsd.toFixed(4)} por verificação; ~${estimate.monthlyCostCredits} créditos/mês). Chame estimate_rank_tracker_cost com additionalKeywordCount, mostre ao usuário a estimativa recorrente e o aviso sobre o fallback ao vivo e tente novamente com maxEstimatedScheduledCheckCredits definido como a estimativa aprovada por verificação. O fallback ao vivo para tarefas em fila rejeitadas, com falha ou expiradas pode usar créditos adicionais cobrados separadamente.`,
   );
 }
 

@@ -25,7 +25,7 @@ function formatTrendDay(date: string): string {
   // Construct in local time: Date.parse("2026-08-01") is UTC midnight, which
   // toLocaleDateString would render as the previous day west of Greenwich.
   const [year, month, day] = date.split("-").map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+  return new Date(year, month - 1, day).toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
   });
@@ -60,7 +60,8 @@ function SessionsTooltip({
         {label ? formatTrendDay(label) : ""}
       </p>
       <p className="text-sm font-medium tabular-nums">
-        {formatCount(payload[0].value)} sessions
+        {formatCount(payload[0].value)}{" "}
+        {payload[0].value === 1 ? "sessão" : "sessões"}
       </p>
     </div>
   );
@@ -89,8 +90,8 @@ export function Ga4Card({
 
   return (
     <CardShell
-      title="Organic traffic"
-      stamp="Google Analytics · last 28 days"
+      title="Tráfego orgânico"
+      stamp="Google Analytics · últimos 28 dias"
       action={
         <Link
           to="/p/$projectId/settings"
@@ -98,7 +99,7 @@ export function Ga4Card({
           hash="google-analytics"
           className={moreDetailsClass}
         >
-          Manage
+          Gerenciar
         </Link>
       }
     >
@@ -113,20 +114,21 @@ export function Ga4Card({
         </div>
       ) : reportQuery.isError ? (
         <p className="text-sm text-base-content/60">
-          Couldn&rsquo;t load Google Analytics data. Try again shortly.
+          Não foi possível carregar os dados do Google Analytics. Tente
+          novamente em breve.
         </p>
       ) : report?.connected ? (
         // Covers null (no report row) and 0: a zero-session period would
         // otherwise render an all-zero flatline chart in an empty box.
         !report.totals.sessions ? (
           <p className="text-sm text-base-content/60">
-            No organic search traffic recorded in the last 28 days yet.
+            Nenhum tráfego de busca orgânica registrado nos últimos 28 dias.
           </p>
         ) : (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
               <Stat
-                label="Sessions"
+                label="Sessões"
                 value={statValue(report.totals.sessions, formatCount)}
                 sub={statDelta(
                   report.totals.sessions,
@@ -134,7 +136,7 @@ export function Ga4Card({
                 )}
               />
               <Stat
-                label="Active users"
+                label="Usuários ativos"
                 value={statValue(report.totals.activeUsers, formatCount)}
                 sub={statDelta(
                   report.totals.activeUsers,
@@ -142,11 +144,11 @@ export function Ga4Card({
                 )}
               />
               <Stat
-                label="Engagement rate"
+                label="Taxa de engajamento"
                 value={statValue(report.totals.engagementRate, formatCtr)}
               />
               <Stat
-                label="Key events"
+                label="Eventos principais"
                 value={statValue(report.totals.keyEvents, formatCount)}
                 sub={statDelta(
                   report.totals.keyEvents,

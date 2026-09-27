@@ -15,23 +15,23 @@ const FEATURE_SHORT_LABELS: Record<string, string> = {
   ai_overview: "AI",
   local_pack: "Local",
   knowledge_panel: "KP",
-  video: "Video",
+  video: "Vídeo",
   images: "Img",
-  shopping: "Shop",
-  top_stories: "News",
+  shopping: "Compras",
+  top_stories: "Notícias",
 };
 
 const FEATURE_TOOLTIPS: Record<string, string> = {
   featured_snippet:
-    "Featured Snippet — highlighted answer box at top of results",
-  people_also_ask: "People Also Ask — expandable related questions",
-  ai_overview: "AI Overview — AI-generated summary at top of search",
-  local_pack: "Local Pack — map with local business listings",
-  knowledge_panel: "Knowledge Panel — info box about an entity",
-  video: "Video — video results shown in the SERP",
-  images: "Images — image results shown in the SERP",
-  shopping: "Shopping — product listings with prices",
-  top_stories: "Top Stories — news articles carousel",
+    "Featured Snippet — caixa de resposta em destaque no topo dos resultados",
+  people_also_ask: "People Also Ask — perguntas relacionadas expansíveis",
+  ai_overview: "AI Overview — resumo gerado por IA no topo da busca",
+  local_pack: "Local Pack — mapa com empresas locais",
+  knowledge_panel: "Knowledge Panel — painel de informações sobre uma entidade",
+  video: "Vídeo — resultados em vídeo exibidos na SERP",
+  images: "Imagens — resultados de imagem exibidos na SERP",
+  shopping: "Shopping — anúncios de produtos com preços",
+  top_stories: "Top Stories — carrossel de notícias",
 };
 
 export function SerpFeatureTags({ features }: { features: string[] }) {
@@ -74,7 +74,7 @@ export function DeviceRankCell({
         </span>
         <span className="text-base-content/30">→</span>
         <span className="font-mono rounded px-1.5 py-0.5 text-xs font-semibold bg-error/20 text-error">
-          lost
+          perdida
         </span>
       </span>
     );
@@ -129,7 +129,7 @@ export function DeviceUrlCell({
   );
 }
 
-const compactFormatter = new Intl.NumberFormat("en-US", {
+const compactFormatter = new Intl.NumberFormat("pt-BR", {
   notation: "compact",
   maximumFractionDigits: 1,
 });
@@ -165,8 +165,8 @@ export function csvChange(
   current: number | null,
   previous: number | null,
 ): number | string {
-  if (previous === null) return current !== null ? "new" : "";
-  if (current === null) return "lost";
+  if (previous === null) return current !== null ? "nova" : "";
+  if (current === null) return "perdida";
   return previous - current;
 }
 
@@ -177,27 +177,27 @@ export function buildRankTrackingExport(
   locationName?: string | null,
 ): { headers: string[]; rows: (string | number)[][] } {
   const headers = [
-    "Keyword",
+    "Palavra-chave",
     // Exports lack the table's tooltip, so name the city inline.
     locationName
-      ? `Local volume (${formatLocationLabel(locationName, 2)})`
+      ? `Volume local (${formatLocationLabel(locationName, 2)})`
       : "Volume",
     "KD",
     "CPC",
     ...(showDesktop
       ? [
-          "Desktop Position",
-          "Desktop Change",
-          "Desktop URL",
-          "Desktop SERP Features",
+          "Posição Desktop",
+          "Variação Desktop",
+          "URL Desktop",
+          "Recursos da SERP Desktop",
         ]
       : []),
     ...(showMobile
       ? [
-          "Mobile Position",
-          "Mobile Change",
-          "Mobile URL",
-          "Mobile SERP Features",
+          "Posição Mobile",
+          "Variação Mobile",
+          "URL Mobile",
+          "Recursos da SERP Mobile",
         ]
       : []),
   ];
@@ -251,7 +251,7 @@ export function exportRankTrackingCsv(
   locationName?: string | null,
 ) {
   if (sorted.length === 0) {
-    toast.error("No data to export");
+    toast.error("Não há dados para exportar");
     return;
   }
   const { headers, rows } = buildRankTrackingExport(

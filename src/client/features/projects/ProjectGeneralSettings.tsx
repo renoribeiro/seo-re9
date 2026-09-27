@@ -61,10 +61,12 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
       }),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["projects"] });
-      toast.success("Project updated");
+      toast.success("Projeto atualizado");
     },
     onError: (error) =>
-      toast.error(getStandardErrorMessage(error, "Failed to update project")),
+      toast.error(
+        getStandardErrorMessage(error, "Não foi possível atualizar o projeto"),
+      ),
   });
 
   const isDirty =
@@ -77,7 +79,7 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
     event.preventDefault();
     if (updateMutation.isPending) return;
     if (!name.trim()) {
-      toast.error("Project name is required");
+      toast.error("Informe o nome do projeto");
       return;
     }
     updateMutation.mutate();
@@ -85,10 +87,10 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
 
   return (
     <section className="space-y-3">
-      <h2 className="text-sm font-medium text-base-content/50">General</h2>
+      <h2 className="text-sm font-medium text-base-content/50">Geral</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium">Name</span>
+          <span className="font-medium">Nome</span>
           <input
             type="text"
             value={name}
@@ -100,13 +102,13 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
 
         <label className="flex flex-col gap-1.5 text-sm">
           <span className="font-medium">
-            Domain <span className="text-base-content/50">(optional)</span>
+            Domínio <span className="text-base-content/50">(opcional)</span>
           </span>
           <input
             type="text"
             value={domain}
             onChange={(event) => setDomain(event.target.value)}
-            placeholder="example.com"
+            placeholder="exemplo.com.br"
             maxLength={255}
             className="input input-bordered w-full"
           />
@@ -115,8 +117,8 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
         <div className="flex flex-col gap-1.5">
           <ProjectMarketFields value={market} onChange={setMarket} />
           <span className="text-xs text-base-content/50">
-            Keyword, SERP, and domain data uses this country and language unless
-            a call asks for a different one.
+            Os dados de palavras-chave, SERP e domínio usam este país e idioma,
+            a menos que uma consulta peça outros.
           </span>
         </div>
 
@@ -126,7 +128,7 @@ function GeneralSection({ project }: { project: ProjectSummary }) {
             className="btn btn-primary btn-sm"
             disabled={updateMutation.isPending || !isDirty}
           >
-            Save changes
+            Salvar alterações
           </button>
         </div>
       </form>
@@ -150,29 +152,32 @@ function DangerSection({
     onSuccess: async () => {
       if (getLastProjectId() === project.id) clearLastProjectId();
       await queryClient.invalidateQueries({ queryKey: ["projects"] });
-      toast.success("Project archived");
+      toast.success("Projeto arquivado");
       // Re-resolve to a remaining project via the landing redirect.
       void navigate({ to: "/" });
     },
     onError: (error) =>
-      toast.error(getStandardErrorMessage(error, "Failed to archive project")),
+      toast.error(
+        getStandardErrorMessage(error, "Não foi possível arquivar o projeto"),
+      ),
   });
 
   return (
     <section className="space-y-3 border-t border-base-300 pt-8">
       <h2 className="text-sm font-medium text-base-content/50">
-        Archive project
+        Arquivar projeto
       </h2>
 
       {confirming ? (
         <div className="space-y-3">
           <p className="text-sm text-base-content/70">
-            Archiving{" "}
+            Arquivar{" "}
             <span className="font-medium text-base-content">
               {project.name}
             </span>{" "}
-            removes it from your workspace and stops its scheduled rank
-            tracking. You can restore it later from the Projects page.
+            remove o projeto do seu espaço de trabalho e interrompe o
+            monitoramento de posições agendado. Você pode restaurá-lo depois na
+            página Projetos.
           </p>
           <div className="flex gap-2">
             <button
@@ -181,7 +186,7 @@ function DangerSection({
               onClick={() => archiveMutation.mutate()}
               disabled={archiveMutation.isPending}
             >
-              Yes, archive project
+              Sim, arquivar projeto
             </button>
             <button
               type="button"
@@ -189,7 +194,7 @@ function DangerSection({
               onClick={() => setConfirming(false)}
               disabled={archiveMutation.isPending}
             >
-              Cancel
+              Cancelar
             </button>
           </div>
         </div>
@@ -197,8 +202,8 @@ function DangerSection({
         <div className="flex items-center justify-between gap-4">
           <p className="text-sm text-base-content/60">
             {canArchive
-              ? "Archive this project to remove it from your organization."
-              : "You can't archive your only project."}
+              ? "Arquive este projeto para removê-lo da sua organização."
+              : "Você não pode arquivar seu único projeto."}
           </p>
           <button
             type="button"
@@ -206,7 +211,7 @@ function DangerSection({
             onClick={() => setConfirming(true)}
             disabled={!canArchive}
           >
-            Archive project
+            Arquivar projeto
           </button>
         </div>
       )}

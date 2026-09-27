@@ -62,7 +62,7 @@ function IndexRedirect() {
           <AuthConfigErrorCard
             message={getStandardErrorMessage(
               error,
-              "An unexpected error occurred. Please check server logs.",
+              "Ocorreu um erro inesperado. Verifique os logs do servidor.",
             )}
             onRetry={() => {
               void refetch();
@@ -76,7 +76,7 @@ function IndexRedirect() {
       return (
         <div className="flex items-center justify-center h-full p-4">
           <UnauthenticatedErrorCard
-            message="Please sign in to access your OpenSEO organization."
+            message="Entre na sua conta para acessar sua organização no RE9 SEO."
             onRetry={() => {
               void refetch();
             }}
@@ -90,7 +90,7 @@ function IndexRedirect() {
         <div className="flex items-center justify-center h-full p-4">
           <div className="flex flex-col items-center gap-3 max-w-xl text-center">
             <p className="text-base-content/80">
-              Redirecting you to billing so you can start a hosted subscription.
+              Redirecionando para a cobrança para você iniciar uma assinatura.
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ function IndexRedirect() {
           <p className="text-error text-center">
             {getStandardErrorMessage(
               error,
-              "An unexpected error occurred. Please check server logs.",
+              "Ocorreu um erro inesperado. Verifique os logs do servidor.",
             )}
           </p>
         </div>

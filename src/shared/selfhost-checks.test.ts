@@ -24,7 +24,7 @@ describe("validateTeamDomain", () => {
     if (!result.ok) {
       expect(result.message).toContain("https://");
       expect(result.message).toContain(
-        'add the https:// prefix to "your-team.cloudflareaccess.com"',
+        'adicione o prefixo https:// em "your-team.cloudflareaccess.com"',
       );
     }
   });

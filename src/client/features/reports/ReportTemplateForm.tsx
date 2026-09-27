@@ -12,22 +12,22 @@ import type { ReportTemplate } from "@/types/schemas/report-templates";
 // One form for create and edit. Shape only, as at every other boundary: the
 // caps come back from the service with their copy and show in the alert.
 const formSchema = z.object({
-  name: z.string().trim().min(1, "Give the template a name."),
+  name: z.string().trim().min(1, "Dê um nome ao modelo."),
   description: z
     .string()
     .trim()
-    .min(1, "Say in one line when to use this template."),
+    .min(1, "Diga em uma linha quando usar este modelo."),
   instructions: z
     .string()
     .trim()
-    .min(1, "Say who the report is for and which sections it has."),
+    .min(1, "Diga para quem é o relatório e quais seções ele tem."),
 });
 
-const INSTRUCTIONS_PLACEHOLDER = `Audience: the client's marketing lead, not technical.
-Sections, in order: Where we are / What we did this month / What moved / What to expect next.
-Tone: plain and confident. Gloss every SEO term. No exclamation points.
-Sign off as: Acme SEO
-Accent: #1C4ED8`;
+const INSTRUCTIONS_PLACEHOLDER = `Público: responsável de marketing do cliente, sem perfil técnico.
+Seções, nesta ordem: Onde estamos / O que fizemos este mês / O que mudou / O que esperar a seguir.
+Tom: simples e confiante. Explique todo termo de SEO. Sem pontos de exclamação.
+Assinar como: Acme SEO
+Accent: #ED1C24`;
 
 export function ReportTemplateForm({
   projectId,
@@ -63,7 +63,10 @@ export function ReportTemplateForm({
   });
 
   const error = saveMutation.error
-    ? getStandardErrorMessage(saveMutation.error, "Failed to save the template")
+    ? getStandardErrorMessage(
+        saveMutation.error,
+        "Não foi possível salvar o modelo",
+      )
     : null;
 
   const form = useForm({
@@ -79,7 +82,7 @@ export function ReportTemplateForm({
   return (
     <Modal maxWidth="max-w-2xl" onClose={onClose} labelledBy="template-title">
       <h3 id="template-title" className="text-lg font-semibold">
-        {template ? "Edit template" : "New template"}
+        {template ? "Editar modelo" : "Novo modelo"}
       </h3>
 
       <form
@@ -92,13 +95,13 @@ export function ReportTemplateForm({
         <form.Field name="name">
           {(field) => (
             <Labelled
-              label="Name"
+              label="Nome"
               error={getFieldError(field.state.meta.errors)}
             >
               <input
                 type="text"
                 className="input input-bordered w-full"
-                placeholder="Monthly client check-in"
+                placeholder="Acompanhamento mensal do cliente"
                 value={field.state.value}
                 onChange={(event) => field.handleChange(event.target.value)}
               />
@@ -109,14 +112,14 @@ export function ReportTemplateForm({
         <form.Field name="description">
           {(field) => (
             <Labelled
-              label="Description"
-              hint="One line saying when to use it. This is what an agent reads to decide."
+              label="Descrição"
+              hint="Uma linha dizendo quando usar. É isso que o agente lê para decidir."
               error={getFieldError(field.state.meta.errors)}
             >
               <input
                 type="text"
                 className="input input-bordered w-full"
-                placeholder="The monthly update we send retainer clients."
+                placeholder="A atualização mensal que enviamos aos clientes recorrentes."
                 value={field.state.value}
                 onChange={(event) => field.handleChange(event.target.value)}
               />
@@ -127,8 +130,8 @@ export function ReportTemplateForm({
         <form.Field name="instructions">
           {(field) => (
             <Labelled
-              label="Instructions"
-              hint="Brand voice for the whole project lives in Context › Writing preferences."
+              label="Instruções"
+              hint="O tom de voz da marca para o projeto inteiro fica em Contexto › Preferências de escrita."
               error={getFieldError(field.state.meta.errors)}
             >
               <textarea
@@ -153,7 +156,7 @@ export function ReportTemplateForm({
             className="btn btn-ghost btn-sm"
             onClick={onClose}
           >
-            Cancel
+            Cancelar
           </button>
           <button
             type="submit"
@@ -163,7 +166,7 @@ export function ReportTemplateForm({
             {saveMutation.isPending ? (
               <Loader2 className="size-3 animate-spin" />
             ) : null}
-            {template ? "Save changes" : "Create template"}
+            {template ? "Salvar alterações" : "Criar modelo"}
           </button>
         </div>
       </form>

@@ -100,7 +100,7 @@ async function pollBusinessTask(
     if (error instanceof AppError) {
       throw new AppError(
         error.code,
-        `${error.message} The queued task is still collectable — call again with taskId "${publicTaskId}" at no extra cost.`,
+        `${error.message} A tarefa em fila ainda pode ser coletada — chame novamente com taskId "${publicTaskId}" sem custo extra.`,
       );
     }
     throw error;
@@ -305,7 +305,7 @@ function parseReviewsTaskId(taskId: string): {
   if (!match) {
     throw new AppError(
       "VALIDATION_ERROR",
-      'taskId must be the value this tool returned, formatted as "google:<id>" or "extended:<id>".',
+      'taskId deve ser o valor que esta ferramenta retornou, no formato "google:<id>" ou "extended:<id>".',
     );
   }
   return {
@@ -525,7 +525,7 @@ export const getBusinessUpdatesTool = {
       if (args.taskId.includes(":")) {
         throw new AppError(
           "VALIDATION_ERROR",
-          "That looks like a get_business_reviews taskId; pass the bare taskId this tool returned.",
+          "Isso parece um taskId de get_business_reviews; passe o taskId puro que esta ferramenta retornou.",
         );
       }
       taskId = args.taskId;
@@ -921,7 +921,7 @@ export const getLocalRankGridTool = {
     ) {
       throw new AppError(
         "VALIDATION_ERROR",
-        "target needs at least one of cid, placeId, or name.",
+        "target precisa de pelo menos um entre cid, placeId ou name.",
       );
     }
 

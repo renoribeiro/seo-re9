@@ -5,7 +5,6 @@ import { getStandardErrorMessage } from "@/client/lib/error-messages";
 import { getProjectContext } from "@/serverFunctions/projectContext";
 import {
   PROJECT_CONTEXT_SECTION_KEYS,
-  PROJECT_CONTEXT_SECTION_LABELS,
   PROSE_MAX_CHARS,
   type ProjectContextSectionKey,
 } from "@/types/schemas/projectContext";
@@ -24,22 +23,31 @@ import {
   type ProjectContextData,
 } from "./shared";
 
+// UI labels in pt-BR. The shared PROJECT_CONTEXT_SECTION_LABELS stay in
+// English because the server also uses them for agent-facing text.
+const SECTION_LABELS: Record<ProjectContextSectionKey, string> = {
+  business_overview: "Visão geral do negócio",
+  current_goal: "Objetivo atual",
+  positioning: "Posicionamento",
+  writing_preferences: "Preferências de escrita",
+};
+
 const SECTION_HINTS: Record<ProjectContextSectionKey, string> = {
-  business_overview: "What you sell, who buys it, and where.",
-  current_goal: "What you're pushing for right now, and by when.",
-  positioning: "Why someone picks you over the alternatives.",
-  writing_preferences: "Voice, words to avoid, topics that are off-limits.",
+  business_overview: "O que você vende, quem compra e onde.",
+  current_goal: "O que você está buscando agora e até quando.",
+  positioning: "Por que alguém escolhe você em vez das alternativas.",
+  writing_preferences: "Tom de voz, palavras a evitar, temas proibidos.",
 };
 
 const SECTION_PLACEHOLDERS: Record<ProjectContextSectionKey, string> = {
   business_overview:
-    "e.g. Booking software for independent restaurants in the US and Canada. Buyers are owner-operators, not marketers.",
+    "ex.: Software de reservas para restaurantes independentes no Brasil e em Portugal. Quem compra são os donos, não profissionais de marketing.",
   current_goal:
-    "e.g. Double organic signups by Q4. Comparison pages are the current bet.",
+    "ex.: Dobrar os cadastros orgânicos até o 4º trimestre. A aposta atual são as páginas de comparação.",
   positioning:
-    "e.g. The only booking tool that sets up in an afternoon. Cheaper than the incumbents, simpler than the DIY stack.",
+    "ex.: A única ferramenta de reservas que fica pronta em uma tarde. Mais barata que as líderes e mais simples que montar tudo por conta própria.",
   writing_preferences:
-    "e.g. Plain and direct, no hype. Never say 'seamless' or 'game-changing'. Don't write about competitor pricing.",
+    "ex.: Simples e direto, sem exageros. Nunca use 'revolucionário' ou 'sem complicação'. Não escreva sobre preços de concorrentes.",
 };
 
 export function ProjectContextPage({ projectId }: { projectId: string }) {
@@ -65,7 +73,7 @@ export function ProjectContextPage({ projectId }: { projectId: string }) {
         <span className="text-sm">
           {getStandardErrorMessage(
             contextQuery.error,
-            "Failed to load project context",
+            "Não foi possível carregar o contexto do projeto",
           )}
         </span>
       </div>
@@ -79,9 +87,9 @@ export function ProjectContextPage({ projectId }: { projectId: string }) {
     // draft, open form, or edit state can carry over to another project.
     <div key={projectId} className="space-y-8">
       <p className="text-sm text-base-content/70">
-        What SAM, Claude Code, and any connected MCP client know about this
-        project. They read it before they work and write back what they learn,
-        so correct anything that looks wrong.
+        O que o SAM, o Claude Code e qualquer cliente MCP conectado sabem sobre
+        este projeto. Eles leem isto antes de trabalhar e registram o que
+        aprendem, então corrija o que parecer errado.
       </p>
 
       <ProseSections
@@ -162,8 +170,8 @@ function ProseSections({
     <form onSubmit={handleSubmit} className="space-y-5">
       {missingSections.length === PROJECT_CONTEXT_SECTION_KEYS.length ? (
         <EmptyState>
-          Nothing written down yet. Fill in what you can — or ask SAM to draft
-          it from your site and confirm what it got right.
+          Nada registrado ainda. Preencha o que puder — ou peça ao SAM para
+          redigir a partir do seu site e confirme o que ele acertou.
         </EmptyState>
       ) : null}
 
@@ -176,12 +184,12 @@ function ProseSections({
                 htmlFor={`context-${key}`}
                 className="text-sm font-medium text-base-content"
               >
-                {PROJECT_CONTEXT_SECTION_LABELS[key]}
+                {SECTION_LABELS[key]}
               </label>
               {section ? (
                 <Provenance by={section.updatedBy} at={section.updatedAt} />
               ) : (
-                <span className="text-xs text-base-content/40">Empty</span>
+                <span className="text-xs text-base-content/40">Vazio</span>
               )}
             </div>
             <p className="text-xs text-base-content/50">{SECTION_HINTS[key]}</p>
@@ -216,7 +224,7 @@ function ProseSections({
           className="btn btn-primary btn-sm"
           disabled={update.isPending || changed.length === 0}
         >
-          Save changes
+          Salvar alterações
         </button>
       </div>
     </form>
@@ -236,14 +244,14 @@ function CustomSections({
   return (
     <section className="space-y-3">
       <SectionHeader
-        title="Custom sections"
-        hint="Anything an agent wrote down that didn't fit the sections above."
+        title="Seções personalizadas"
+        hint="Tudo o que um agente registrou e não coube nas seções acima."
       />
 
       {customSections.length === 0 ? (
         <EmptyState>
-          Nothing here yet. Agents add a section when they learn something
-          important that has nowhere else to live.
+          Nada aqui ainda. Os agentes adicionam uma seção quando aprendem algo
+          importante que não se encaixa em outro lugar.
         </EmptyState>
       ) : (
         <div className="space-y-3">
@@ -277,13 +285,13 @@ function CustomSections({
                     <button
                       type="button"
                       className="btn btn-ghost btn-xs"
-                      aria-label={`Edit ${custom.title ?? custom.slug}`}
+                      aria-label={`Editar ${custom.title ?? custom.slug}`}
                       onClick={() => setEditingSlug(custom.slug)}
                     >
                       <Pencil className="size-3.5" />
                     </button>
                     <ConfirmDeleteButton
-                      label={`Delete ${custom.title ?? custom.slug}`}
+                      label={`Excluir ${custom.title ?? custom.slug}`}
                       pending={update.isPending}
                       onConfirm={() =>
                         update.mutate([{ deleteCustomSection: custom.slug }])
@@ -333,7 +341,7 @@ function CustomSectionForm({
         placeholder={custom.slug}
         maxLength={120}
         className="input input-bordered input-sm w-full"
-        aria-label="Section title"
+        aria-label="Título da seção"
       />
       <textarea
         value={content}
@@ -341,7 +349,7 @@ function CustomSectionForm({
         rows={5}
         maxLength={PROSE_MAX_CHARS}
         className="textarea textarea-bordered w-full text-sm"
-        aria-label="Section content"
+        aria-label="Conteúdo da seção"
       />
       <FormActions
         pending={pending}
@@ -364,13 +372,14 @@ function ResearchLog({
   return (
     <section className="space-y-3">
       <SectionHeader
-        title="Research log"
-        hint="What's already been looked up, so nobody buys the same data twice."
+        title="Registro de pesquisas"
+        hint="O que já foi pesquisado, para ninguém pagar pelos mesmos dados duas vezes."
       />
 
       {researchLog.length === 0 ? (
         <EmptyState>
-          Nothing logged yet. Agents record paid research here as they run it.
+          Nada registrado ainda. Os agentes registram aqui as pesquisas pagas
+          que fazem.
         </EmptyState>
       ) : (
         <ul className={listClass}>
@@ -388,7 +397,7 @@ function ResearchLog({
               </div>
               <RowActions>
                 <ConfirmDeleteButton
-                  label={`Delete log entry from ${entry.entryDate}`}
+                  label={`Excluir registro de ${entry.entryDate}`}
                   pending={update.isPending}
                   onConfirm={() =>
                     update.mutate([{ removeResearchLog: [entry.id] }])

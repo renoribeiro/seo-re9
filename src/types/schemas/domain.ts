@@ -24,7 +24,7 @@ export const domainField = z
       if (!hostname.includes(".") || !isValidDomainHost(hostname)) {
         ctx.addIssue({
           code: "custom",
-          message: "Enter a valid domain like example.com",
+          message: "Informe um domínio válido, como exemplo.com.br",
         });
         return z.NEVER;
       }
@@ -32,7 +32,7 @@ export const domainField = z
     } catch {
       ctx.addIssue({
         code: "custom",
-        message: "Enter a valid domain like example.com",
+        message: "Informe um domínio válido, como exemplo.com.br",
       });
       return z.NEVER;
     }
@@ -44,7 +44,7 @@ export const booleanSearchParamSchema = z
 
 export const domainOverviewSchema = z.object({
   projectId: z.string().uuid(),
-  domain: z.string().min(1, "Domain is required").max(2048),
+  domain: z.string().min(1, "Informe o domínio").max(2048),
   scope: researchScopeSchema.optional(),
   locationCode: z.number().int().positive().optional(),
   languageCode: z.string().min(2).max(8).optional(),
@@ -60,7 +60,7 @@ const domainTabs = ["keywords", "pages"] as const;
 
 export const domainKeywordSuggestionsSchema = z.object({
   projectId: z.string().uuid(),
-  domain: z.string().min(1, "Domain is required").max(2048),
+  domain: z.string().min(1, "Informe o domínio").max(2048),
   scope: researchScopeSchema.optional(),
   locationCode: z.number().int().positive().optional(),
   languageCode: z.string().min(2).max(8).optional(),
@@ -78,7 +78,7 @@ const optionalNumber = z
       if (trimmed === "") return undefined;
       const parsed = Number(trimmed);
       if (!Number.isFinite(parsed)) {
-        ctx.addIssue({ code: "custom", message: "Invalid number" });
+        ctx.addIssue({ code: "custom", message: "Número inválido" });
         return z.NEVER;
       }
       return parsed;

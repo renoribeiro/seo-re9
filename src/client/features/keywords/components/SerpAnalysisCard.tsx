@@ -40,7 +40,7 @@ export function SerpAnalysisCard({
         <p>{error}</p>
         {onRetry ? (
           <button className="btn btn-xs" onClick={onRetry}>
-            {deepFetchFailed ? "Show top 20" : "Retry"}
+            {deepFetchFailed ? "Mostrar top 20" : "Tentar novamente"}
           </button>
         ) : null}
       </div>
@@ -52,10 +52,11 @@ export function SerpAnalysisCard({
     <div>
       <div className="flex items-center justify-between mb-3">
         <div className="text-xs text-base-content/50">
-          {items.length} organic results
+          {items.length}{" "}
+          {items.length === 1 ? "resultado orgânico" : "resultados orgânicos"}
         </div>
         <ExportToSheetsButton
-          headers={["Rank", "Title", "URL", "Domain"]}
+          headers={["Posição", "Título", "URL", "Domínio"]}
           rows={items.map((item) => [
             item.rank,
             item.title ?? "",
@@ -88,7 +89,7 @@ function SerpAnalysisTable({ items }: { items: SerpResultItem[] }) {
         <thead>
           <tr className="text-xs text-base-content/60">
             <th className="w-8">#</th>
-            <th>Page</th>
+            <th>Página</th>
           </tr>
         </thead>
         <tbody>
@@ -149,10 +150,10 @@ function SerpAnalysisPagination({
     <div className="flex items-center justify-between mt-3 pt-3 border-t border-base-200">
       <span className="text-xs text-base-content/50">
         {loadingMore ? (
-          "Loading more results…"
+          "Carregando mais resultados…"
         ) : (
           <>
-            Page {page + 1} of {totalPages}
+            Página {page + 1} de {totalPages}
           </>
         )}
       </span>
@@ -163,14 +164,14 @@ function SerpAnalysisPagination({
           onClick={() => onPageChange(page - 1)}
         >
           <ChevronLeft className="size-3.5" />
-          Prev
+          Anterior
         </button>
         <button
           className="btn btn-ghost btn-xs"
           disabled={loadingMore || (page >= totalPages - 1 && !canLoadMore)}
           onClick={() => onPageChange(page + 1)}
         >
-          {nextBuysDeeperSnapshot ? "Load top 100" : "Next"}
+          {nextBuysDeeperSnapshot ? "Carregar top 100" : "Próxima"}
           <ChevronRight className="size-3.5" />
         </button>
       </div>
@@ -195,9 +196,11 @@ function SerpAnalysisLoadingState() {
 function SerpAnalysisEmptyState({ keyword }: { keyword?: string | null }) {
   return (
     <div className="text-sm text-base-content/50 text-center py-8">
-      <p>No SERP details available for this keyword yet.</p>
+      <p>Ainda não há detalhes da SERP para esta palavra-chave.</p>
       {keyword ? (
-        <p className="mt-1">Try clicking another keyword to load data.</p>
+        <p className="mt-1">
+          Clique em outra palavra-chave para carregar os dados.
+        </p>
       ) : null}
     </div>
   );

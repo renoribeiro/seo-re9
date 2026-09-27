@@ -35,7 +35,7 @@ export async function consumeInvitationSendBudget(
   ) {
     throw new AppError(
       "RATE_LIMITED",
-      "This organization has reached its daily invitation limit.",
+      "Esta organização atingiu o limite diário de convites.",
     );
   }
   if (
@@ -46,7 +46,7 @@ export async function consumeInvitationSendBudget(
   ) {
     throw new AppError(
       "RATE_LIMITED",
-      "This address has already received several invitations today.",
+      "Este endereço já recebeu vários convites hoje.",
     );
   }
 }

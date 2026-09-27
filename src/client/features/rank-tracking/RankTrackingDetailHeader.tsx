@@ -54,11 +54,12 @@ export function RankTrackingDetailHeader({
           {run?.lastCheckedAt && (
             <>
               {" "}
-              &middot; Last: {new Date(run.lastCheckedAt).toLocaleDateString()}
+              &middot; Última:{" "}
+              {new Date(run.lastCheckedAt).toLocaleDateString("pt-BR")}
             </>
           )}
           {costEstimate && costEstimate.keywordCount > 0 && (
-            <> &middot; ~${costEstimate.costUsd.toFixed(2)}/check</>
+            <> &middot; ~${costEstimate.costUsd.toFixed(2)}/verificação</>
           )}
         </p>
       </div>
@@ -83,29 +84,29 @@ export function RankTrackingDetailHeader({
         )}
         <select
           className="select select-bordered select-sm text-xs w-auto"
-          title="Comparison period"
+          title="Período de comparação"
           value={comparePeriod}
           onChange={(e) => {
             if (isComparePeriod(e.target.value))
               onComparePeriodChange(e.target.value);
           }}
         >
-          <option value="1d">vs yesterday</option>
-          <option value="7d">vs last week</option>
-          <option value="30d">vs last month</option>
-          <option value="90d">vs 90 days ago</option>
+          <option value="1d">vs ontem</option>
+          <option value="7d">vs semana passada</option>
+          <option value="30d">vs mês passado</option>
+          <option value="90d">vs 90 dias atrás</option>
         </select>
         <div className="hidden sm:block h-6 w-px bg-base-300" />
         <button className="btn btn-sm gap-1" onClick={onEdit}>
           <Settings className="size-3.5" />
-          Configure
+          Configurar
         </button>
         <button
           className="btn btn-primary btn-sm gap-1"
           onClick={onToggleAddKeywords}
         >
           <Plus className="size-3.5" />
-          Add Keywords
+          Adicionar palavras-chave
         </button>
       </div>
     </div>

@@ -115,13 +115,14 @@ function buildPagesColumns({
       sortingFn: nullableNumberSort,
     }),
     pageColumnHelper.accessor("title", {
-      header: ({ column }) => <SortableHeader column={column} label="Title" />,
+      header: ({ column }) => <SortableHeader column={column} label="Título" />,
       cell: ({ getValue, row }) => {
         if (isRedirect(row.original)) {
           const target = row.original.redirectUrl;
           return (
             <span className="text-xs text-base-content/60">
-              → {target ? displayPath(target, canonicalHost) : "redirect"}
+              →{" "}
+              {target ? displayPath(target, canonicalHost) : "redirecionamento"}
             </span>
           );
         }
@@ -132,7 +133,7 @@ function buildPagesColumns({
         // Red only when the engine flagged it — a 200 that isn't an HTML
         // document (robots.txt, security.txt) legitimately has no title.
         return missingTitlePageIds.has(row.original.id) ? (
-          <span className="text-error text-xs">missing</span>
+          <span className="text-error text-xs">ausente</span>
         ) : (
           <EmptyCell />
         );
@@ -146,13 +147,17 @@ function buildPagesColumns({
         hasAnalyzedContent(row.original) ? getValue() : <EmptyCell />,
     }),
     pageColumnHelper.accessor("wordCount", {
-      header: ({ column }) => <SortableHeader column={column} label="Words" />,
+      header: ({ column }) => (
+        <SortableHeader column={column} label="Palavras" />
+      ),
       cell: ({ getValue, row }) =>
         hasAnalyzedContent(row.original) ? getValue() : <EmptyCell />,
     }),
     pageColumnHelper.display({
       id: "images",
-      header: ({ column }) => <SortableHeader column={column} label="Images" />,
+      header: ({ column }) => (
+        <SortableHeader column={column} label="Imagens" />
+      ),
       cell: ({ row }) => {
         if (!hasAnalyzedContent(row.original)) return <EmptyCell />;
         return row.original.imagesMissingAlt > 0 ? (
@@ -169,7 +174,7 @@ function buildPagesColumns({
         left.original.imagesTotal - right.original.imagesTotal,
     }),
     pageColumnHelper.accessor("responseTimeMs", {
-      header: ({ column }) => <SortableHeader column={column} label="Speed" />,
+      header: ({ column }) => <SortableHeader column={column} label="Tempo" />,
       cell: ({ getValue }) => {
         const value = getValue();
         return value ? (
@@ -245,7 +250,9 @@ export function PagesTable({
       <AppDataTable
         table={table}
         className="table table-sm"
-        empty={<EmptyTableMessage label="No pages match these filters." />}
+        empty={
+          <EmptyTableMessage label="Nenhuma página corresponde a estes filtros." />
+        }
       />
     </div>
   );

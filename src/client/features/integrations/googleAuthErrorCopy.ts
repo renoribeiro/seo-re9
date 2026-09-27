@@ -12,33 +12,40 @@ export function googleAuthErrorCopy(
   code: string,
   providerLabel?: string,
 ): { title: string; description: string } {
-  const what = providerLabel ? `${providerLabel} connection` : "Google sign-in";
+  // Concordância de gênero: "conexão" é feminino, "login" é masculino.
+  const what = providerLabel
+    ? {
+        noun: `Conexão com o ${providerLabel}`,
+        done: "concluída",
+        canceled: "cancelada",
+      }
+    : { noun: "Login com o Google", done: "concluído", canceled: "cancelado" };
 
   switch (code) {
     case "state_mismatch":
       return {
-        title: `${what} didn't finish`,
+        title: `${what.noun} não ${what.done}`,
         description:
-          "The attempt expired or was interrupted. Try again in a single browser tab and finish the Google steps within 10 minutes. If it keeps happening, make sure your browser allows cookies for this site.",
+          "A tentativa expirou ou foi interrompida. Tente de novo em uma única aba do navegador e conclua as etapas do Google em até 10 minutos. Se continuar acontecendo, confira se o seu navegador permite cookies para este site.",
       };
     case "access_denied":
       return {
-        title: `${what} was canceled`,
+        title: `${what.noun} ${what.canceled}`,
         description:
-          "Google's permission screen was closed or declined. Try again whenever you're ready.",
+          "A tela de permissão do Google foi fechada ou recusada. Tente de novo quando quiser.",
       };
     case "account_already_linked_to_different_user":
       return {
-        title: "Google account already connected",
+        title: "Conta Google já conectada",
         description: providerLabel
-          ? `Sign in to the OpenSEO user that linked it, open the ${providerLabel} property picker, and choose Remove account beside the Google account. Then link it here.`
-          : "That Google account is already linked to a different OpenSEO user. Sign in with that user, or contact support for help.",
+          ? `Entre com o usuário do RE9 SEO que fez a vinculação, abra o seletor de propriedades do ${providerLabel} e escolha Remover conta ao lado da conta Google. Depois, vincule-a aqui.`
+          : "Essa conta Google já está vinculada a outro usuário do RE9 SEO. Entre com esse usuário ou fale com o suporte.",
       };
     default:
       return {
-        title: `${what} didn't finish`,
+        title: `${what.noun} não ${what.done}`,
         description:
-          "Something went wrong while talking to Google. Please try again — if it keeps failing, contact support.",
+          "Algo deu errado na comunicação com o Google. Tente novamente — se continuar falhando, fale com o suporte.",
       };
   }
 }

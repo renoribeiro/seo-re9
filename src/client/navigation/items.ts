@@ -18,7 +18,7 @@ import { GoogleGlyphMuted } from "@/client/features/gsc/GoogleGlyph";
 const projectNavItems = [
   {
     to: "/p/$projectId" as const,
-    label: "Dashboard",
+    label: "Painel",
     icon: LayoutDashboard,
     // Without exact matching, the index path is a prefix of every project
     // route and the Dashboard item would render active everywhere.
@@ -26,27 +26,27 @@ const projectNavItems = [
   },
   {
     to: "/p/$projectId/keywords" as const,
-    label: "Keyword Research",
+    label: "Pesquisa de palavras-chave",
     icon: Search,
   },
   {
     to: "/p/$projectId/saved" as const,
-    label: "Saved Keywords",
+    label: "Palavras-chave salvas",
     icon: Bookmark,
   },
   {
     to: "/p/$projectId/rank-tracking" as const,
-    label: "Rank Tracking",
+    label: "Monitoramento de posições",
     icon: TrendingUp,
   },
   {
     to: "/p/$projectId/search-performance" as const,
-    label: "GSC Insights",
+    label: "Insights do GSC",
     icon: GoogleGlyphMuted,
   },
   {
     to: "/p/$projectId/domain" as const,
-    label: "Domain Overview",
+    label: "Visão geral do domínio",
     icon: Globe,
   },
   {
@@ -56,27 +56,27 @@ const projectNavItems = [
   },
   {
     to: "/p/$projectId/audit" as const,
-    label: "Site Audit",
+    label: "Auditoria do site",
     icon: ClipboardCheck,
   },
   {
     to: "/p/$projectId/brand-lookup" as const,
-    label: "Brand Lookup",
+    label: "Consulta de marca",
     icon: Sparkles,
   },
   {
     to: "/p/$projectId/prompt-explorer" as const,
-    label: "Prompt Explorer",
+    label: "Explorador de prompts",
     icon: MessageSquare,
   },
   {
     to: "/p/$projectId/reports" as const,
-    label: "Reports",
+    label: "Relatórios",
     icon: FileText,
   },
   {
     to: "/p/$projectId/context" as const,
-    label: "Context",
+    label: "Contexto",
     icon: Brain,
   },
 ] as const;
@@ -85,14 +85,14 @@ const projectNavItems = [
 // is selected, and on its own (connectNavGroup) when none is.
 const aiNavItem = linkOptions({
   to: "/ai" as const,
-  label: "Agent setup",
+  label: "Configuração do agente",
   icon: Bot,
 });
 
 // Shown only when no project is selected; with a project, Agent setup lives in
 // the "AI" group below.
 export const connectNavGroup = {
-  label: "AI",
+  label: "IA",
   items: [aiNavItem],
 };
 
@@ -115,11 +115,11 @@ export function getProjectNavGroups(projectId: string) {
 
   return [
     {
-      label: "Overview",
+      label: "Visão geral",
       items: [byPath("/p/$projectId")],
     },
     {
-      label: "Research",
+      label: "Pesquisa",
       items: [
         byPath("/p/$projectId/keywords"),
         byPath("/p/$projectId/domain"),
@@ -129,7 +129,7 @@ export function getProjectNavGroups(projectId: string) {
       ],
     },
     {
-      label: "My Site",
+      label: "Meu site",
       items: [
         byPath("/p/$projectId/search-performance"),
         byPath("/p/$projectId/rank-tracking"),
@@ -138,7 +138,7 @@ export function getProjectNavGroups(projectId: string) {
       ],
     },
     {
-      label: "AI",
+      label: "IA",
       items: [
         byPath("/p/$projectId/reports"),
         byPath("/p/$projectId/context"),

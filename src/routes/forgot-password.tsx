@@ -12,7 +12,7 @@ import { getSignInSearch, normalizeAuthRedirect } from "@/lib/auth-redirect";
 import { z } from "zod";
 
 const forgotPasswordSchema = z.object({
-  email: z.string().trim().email("Enter a valid email address."),
+  email: z.string().trim().email("Informe um e-mail válido."),
 });
 
 export const Route = createFileRoute("/forgot-password")({
@@ -45,7 +45,9 @@ function ForgotPasswordPage() {
         if (result.error) {
           formApi.setErrorMap({
             onSubmit: {
-              form: result.error.message || "We couldn't send the reset email.",
+              form:
+                result.error.message ||
+                "Não foi possível enviar o e-mail de redefinição.",
               fields: {},
             },
           });
@@ -54,7 +56,7 @@ function ForgotPasswordPage() {
       } catch {
         formApi.setErrorMap({
           onSubmit: {
-            form: "We couldn't send the reset email right now. Please try again.",
+            form: "Não foi possível enviar o e-mail de redefinição agora. Tente novamente.",
             fields: {},
           },
         });
@@ -77,13 +79,13 @@ function ForgotPasswordPage() {
 
           return (
             <AuthPageCard
-              title={isSuccess ? "Check your email" : "Forgot password"}
+              title={isSuccess ? "Confira seu e-mail" : "Esqueci minha senha"}
               helperText={
                 isSuccess
-                  ? `If an account exists for ${submittedEmail}, we sent a reset link.`
+                  ? `Se existir uma conta para ${submittedEmail}, enviamos um link de redefinição.`
                   : isHostedMode
-                    ? "Enter your email and we'll send you a password reset link."
-                    : "Password reset isn't available right now."
+                    ? "Informe seu e-mail e enviaremos um link para redefinir sua senha."
+                    : "A redefinição de senha não está disponível no momento."
               }
               footer={
                 <p className="text-sm">
@@ -92,7 +94,7 @@ function ForgotPasswordPage() {
                     search={getSignInSearch(redirectTo)}
                     className="text-base-content/50 hover:text-base-content transition-colors"
                   >
-                    Back to sign in
+                    Voltar para Entrar
                   </Link>
                 </p>
               }
@@ -100,8 +102,8 @@ function ForgotPasswordPage() {
               {isSuccess ? (
                 <div className="alert alert-success">
                   <span>
-                    If an account exists for that email, you'll receive password
-                    reset instructions shortly.
+                    Se existir uma conta com esse e-mail, você vai receber as
+                    instruções para redefinir a senha em instantes.
                   </span>
                 </div>
               ) : (
@@ -121,7 +123,7 @@ function ForgotPasswordPage() {
                           <input
                             type="email"
                             className="input input-bordered w-full"
-                            placeholder="Email address..."
+                            placeholder="Endereço de e-mail..."
                             value={field.state.value}
                             onChange={(event) =>
                               field.handleChange(event.target.value)
@@ -145,7 +147,9 @@ function ForgotPasswordPage() {
                     className="btn btn-soft w-full"
                     disabled={!isHostedMode || isSubmitting}
                   >
-                    {isSubmitting ? "Sending reset link..." : "Send reset link"}
+                    {isSubmitting
+                      ? "Enviando link..."
+                      : "Enviar link de redefinição"}
                   </button>
                 </form>
               )}

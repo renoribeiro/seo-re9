@@ -32,8 +32,8 @@ async function resolveAudit(projectId: string, auditId?: string) {
     throw new AppError(
       "NOT_FOUND",
       auditId
-        ? `Audit ${auditId} not found in this project.`
-        : "No audits exist for this project yet. Start one with run_site_audit.",
+        ? `Auditoria ${auditId} não encontrada neste projeto.`
+        : "Ainda não há auditorias neste projeto. Inicie uma com run_site_audit.",
     );
   }
   return audit;

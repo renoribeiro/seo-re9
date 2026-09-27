@@ -131,10 +131,10 @@ function ReportDetailPage() {
               {/* A deleted report and another project's report are the
                   same answer on purpose, so ids cannot be probed. */}
               {getErrorCode(reportQuery.error) === "NOT_FOUND"
-                ? "This report does not exist or you do not have access to it."
+                ? "Este relatório não existe ou você não tem acesso a ele."
                 : getStandardErrorMessage(
                     reportQuery.error,
-                    "Failed to load the report",
+                    "Não foi possível carregar o relatório",
                   )}
             </span>
           </div>
@@ -143,7 +143,7 @@ function ReportDetailPage() {
             params={{ projectId }}
             className="btn btn-ghost btn-sm"
           >
-            &larr; Back to reports
+            &larr; Voltar para relatórios
           </Link>
         </div>
       </div>
@@ -172,7 +172,7 @@ function ReportDetailPage() {
             onClick={() => setExpanded(false)}
           >
             <Minimize2 className="size-4" />
-            Exit
+            Sair
           </button>
         </div>
         <div className="min-h-0 flex-1 p-2">
@@ -195,25 +195,25 @@ function ReportDetailPage() {
           className="inline-flex items-center gap-1 text-sm text-base-content/60 transition-colors hover:text-base-content"
         >
           <ChevronLeft className="size-4" />
-          Reports
+          Relatórios
         </Link>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold">{report.title}</h1>
             <dl className="mt-1.5 flex flex-wrap items-baseline gap-x-6 gap-y-1 text-sm">
               <div className="flex items-baseline gap-1.5">
-                <dt className="text-base-content/50">Created by</dt>
+                <dt className="text-base-content/50">Criado por</dt>
                 <dd>{formatCreatedBy(report)}</dd>
               </div>
               <div className="flex items-baseline gap-1.5">
-                <dt className="text-base-content/50">Type</dt>
+                <dt className="text-base-content/50">Tipo</dt>
                 {/* As in the list's Type column: the template name when the
                     report followed one, else the skill, else an em dash. */}
                 <dd>{report.templateName ?? report.skill ?? "—"}</dd>
               </div>
               <div className="flex items-baseline gap-1.5">
-                <dt className="text-base-content/50">Updated</dt>
-                <dd title={new Date(report.updatedAt).toLocaleString()}>
+                <dt className="text-base-content/50">Atualizado</dt>
+                <dd title={new Date(report.updatedAt).toLocaleString("pt-BR")}>
                   {formatRelativeTime(report.updatedAt)}
                 </dd>
               </div>
@@ -236,7 +236,7 @@ function ReportDetailPage() {
                 ) : (
                   <Lock className="size-4" />
                 )}
-                Share
+                Compartilhar
               </button>
             ) : (
               <button
@@ -245,11 +245,11 @@ function ReportDetailPage() {
                 onClick={exportPdf}
               >
                 <FileDown className="size-4" />
-                Export
+                Exportar
               </button>
             )}
             <PortalMenu
-              ariaLabel="Report actions"
+              ariaLabel="Ações do relatório"
               triggerClassName="btn btn-ghost btn-sm btn-square"
               triggerContent={<MoreHorizontal className="size-4" />}
               menuClassName="w-52"
@@ -266,7 +266,7 @@ function ReportDetailPage() {
                           }}
                         >
                           <FileDown className="size-4" />
-                          Export
+                          Exportar
                         </button>
                       </li>
                       <li
@@ -284,7 +284,7 @@ function ReportDetailPage() {
                       }}
                     >
                       <Trash2 className="size-4" />
-                      Delete
+                      Excluir
                     </button>
                   </li>
                 </>
@@ -304,8 +304,8 @@ function ReportDetailPage() {
           <button
             type="button"
             className="btn btn-ghost btn-sm btn-square"
-            aria-label="Full screen"
-            title="Full screen"
+            aria-label="Tela cheia"
+            title="Tela cheia"
             onClick={() => setExpanded(true)}
           >
             <Maximize2 className="size-4" />
@@ -315,8 +315,8 @@ function ReportDetailPage() {
             target="_blank"
             rel="noreferrer"
             className="btn btn-ghost btn-sm btn-square"
-            aria-label="Open in new tab"
-            title="Open in new tab"
+            aria-label="Abrir em nova aba"
+            title="Abrir em nova aba"
           >
             <ExternalLink className="size-4" />
           </a>

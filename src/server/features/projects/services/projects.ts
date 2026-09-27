@@ -64,7 +64,7 @@ function isReservedDefaultConflict(
 }
 
 const RESERVED_DEFAULT_MESSAGE =
-  'A project named "Default" with no domain already exists. Pick a different name or add a domain.';
+  'Já existe um projeto chamado "Default" sem domínio. Escolha outro nome ou adicione um domínio.';
 
 export async function listProjects(organizationId: string) {
   const rows = await ProjectRepository.listProjects(organizationId);
@@ -97,7 +97,7 @@ function normalizeProjectDomain(domain: string | undefined) {
   } catch {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Enter a valid domain, like acme.com.",
+      "Informe um domínio válido, como exemplo.com.br.",
     );
   }
 }
@@ -151,7 +151,7 @@ export async function archiveProject(
 ) {
   const remaining = await ProjectRepository.countProjects(organizationId);
   if (remaining <= 1) {
-    throw new AppError("CONFLICT", "You can't archive your only project.");
+    throw new AppError("CONFLICT", "Você não pode arquivar seu único projeto.");
   }
 
   await ProjectRepository.archiveProject(input.projectId, organizationId);
@@ -182,7 +182,7 @@ export async function restoreProject(
     ) {
       throw new AppError(
         "CONFLICT",
-        'An active project named "Default" with no domain already exists. Rename it first, then restore this one.',
+        'Já existe um projeto ativo chamado "Default" sem domínio. Renomeie-o primeiro e depois restaure este.',
       );
     }
     throw error;
@@ -222,7 +222,8 @@ export async function setProjectWebsite(
   input: SetProjectWebsiteInput,
 ) {
   const domain = normalizeProjectDomain(input.domain);
-  if (!domain) throw new AppError("VALIDATION_ERROR", "Enter a valid domain.");
+  if (!domain)
+    throw new AppError("VALIDATION_ERROR", "Informe um domínio válido.");
   assertLanguageForLocation(input.locationCode, input.languageCode);
   const row = await ProjectRepository.updateProjectWebsite(
     input.projectId,

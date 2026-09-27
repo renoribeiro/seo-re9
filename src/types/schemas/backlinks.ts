@@ -70,7 +70,7 @@ export function normalizeBacklinksSpamFilterOptions(
   };
 }
 export const backlinksLookupSchema = z.object({
-  target: z.string().min(1, "Target is required").max(2048),
+  target: z.string().min(1, "Informe o alvo").max(2048),
   scope: backlinksScopeParamSchema.optional(),
 });
 
@@ -93,7 +93,7 @@ const optionalNumber = z
       if (trimmed === "") return undefined;
       const parsed = Number(trimmed);
       if (!Number.isFinite(parsed)) {
-        ctx.addIssue({ code: "custom", message: "Invalid number" });
+        ctx.addIssue({ code: "custom", message: "Número inválido" });
         return z.NEVER;
       }
       return parsed;

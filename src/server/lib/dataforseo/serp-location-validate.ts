@@ -75,11 +75,11 @@ export async function assertSerpLocationNameAccepted(input: {
   if (invalidFieldName(task.status_message) !== "location_name") {
     throw new AppError(
       "VALIDATION_ERROR",
-      `DataForSEO rejected this tracker: ${task.status_message}`,
+      `A DataForSEO rejeitou este monitoramento: ${task.status_message}`,
     );
   }
   throw new AppError(
     "VALIDATION_ERROR",
-    `"${input.locationName}" is not a Google location name. Call search_serp_locations({ query: "${input.locationName.split(",")[0].trim()}"${input.countryCode ? `, countryCode: "${input.countryCode}"` : ""} }) and pass the returned locationName exactly.`,
+    `"${input.locationName}" não é um nome de localização do Google. Chame search_serp_locations({ query: "${input.locationName.split(",")[0].trim()}"${input.countryCode ? `, countryCode: "${input.countryCode}"` : ""} }) e passe exatamente o locationName retornado.`,
   );
 }

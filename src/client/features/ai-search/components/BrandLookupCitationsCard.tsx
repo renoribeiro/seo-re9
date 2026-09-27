@@ -165,7 +165,7 @@ export function CitationTabsCard({
             className={`tab ${queriesActive ? "tab-active" : ""}`}
             onClick={() => setActiveTab("queries")}
           >
-            Queries
+            Consultas
           </button>
           <button
             type="button"
@@ -174,7 +174,7 @@ export function CitationTabsCard({
             className={`tab ${pagesActive ? "tab-active" : ""}`}
             onClick={() => setActiveTab("pages")}
           >
-            Cited sources
+            Fontes citadas
           </button>
         </div>
 
@@ -185,7 +185,7 @@ export function CitationTabsCard({
             className={`btn btn-ghost btn-sm gap-1.5 ${canExport ? "" : "btn-disabled"}`}
           >
             <Download className="size-3.5" />
-            Export
+            Exportar
             <ChevronDown className="size-3.5" />
           </div>
           <ul
@@ -221,10 +221,10 @@ export function CitationTabsCard({
           type="button"
           className={`btn btn-ghost btn-sm gap-1.5 ${filters.showFilters ? "btn-active" : ""}`}
           onClick={() => filters.setShowFilters((current) => !current)}
-          title="Toggle table filters"
+          title="Mostrar/ocultar filtros da tabela"
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {currentFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {currentFilterCount}
@@ -237,21 +237,23 @@ export function CitationTabsCard({
         <span>
           {activeTab === "pages" ? (
             <>
-              {isUrlScoped ? "Cited pages within " : "Pages cited alongside "}
+              {isUrlScoped
+                ? "Páginas citadas dentro de "
+                : "Páginas citadas junto com "}
               <strong className="text-base-content/80">
                 {result.resolvedTarget}
               </strong>
-              {isUrlScoped ? "." : " in AI answers."} Prompt examples come from
-              the fetched sample.
+              {isUrlScoped ? "." : " em respostas de IA."} Os exemplos de
+              prompts vêm da amostra obtida.
             </>
           ) : (
             <>
-              Fetched sample of prompts whose AI answer cited{" "}
-              {isUrlScoped ? "a page within " : null}
+              Amostra de prompts cuja resposta de IA citou{" "}
+              {isUrlScoped ? "uma página dentro de " : null}
               <strong className="text-base-content/80">
                 {result.resolvedTarget}
               </strong>
-              {isUrlScoped ? "." : " in its text or sources."}
+              {isUrlScoped ? "." : " no texto ou nas fontes."}
             </>
           )}
         </span>
@@ -277,7 +279,7 @@ export function CitationTabsCard({
           // citations exist for that section.
           emptyMessage={
             isUrlScoped
-              ? `None of this domain's top cited pages fall under ${result.resolvedTarget}. Broaden the scope to see domain-level citations.`
+              ? `Nenhuma das páginas mais citadas deste domínio está em ${result.resolvedTarget}. Amplie o escopo para ver as citações do domínio inteiro.`
               : undefined
           }
         />
@@ -286,7 +288,7 @@ export function CitationTabsCard({
           table={queriesTable}
           emptyMessage={
             isUrlScoped
-              ? `No sampled prompts cited a page under ${result.resolvedTarget}. Broaden the scope to see domain-level prompts.`
+              ? `Nenhum prompt da amostra citou uma página em ${result.resolvedTarget}. Amplie o escopo para ver os prompts do domínio inteiro.`
               : undefined
           }
         />

@@ -73,7 +73,7 @@ export function BrandLookupSearchCard({
               <Search className="size-4 text-base-content/60" />
               <input
                 type="text"
-                placeholder="Enter a brand name or domain"
+                placeholder="Digite o nome de uma marca ou um domínio"
                 value={query}
                 maxLength={BRAND_LOOKUP_MAX_INPUT_LENGTH}
                 onChange={(event) => onQueryChange(event.target.value)}
@@ -98,14 +98,14 @@ export function BrandLookupSearchCard({
               className="btn btn-primary shrink-0 px-6"
               disabled={isLoading}
             >
-              {isLoading ? "Looking up..." : "Look up"}
+              {isLoading ? "Consultando..." : "Consultar"}
             </button>
           </div>
 
           <div className="flex flex-col gap-1">
             <input
               type="text"
-              placeholder="Add competitors (comma-separated)"
+              placeholder="Adicione concorrentes (separados por vírgula)"
               value={competitors}
               onChange={(event) => onCompetitorsChange(event.target.value)}
               autoComplete="off"
@@ -113,15 +113,15 @@ export function BrandLookupSearchCard({
               className={`input input-bordered w-full ${
                 competitorsError ? "input-error" : ""
               }`}
-              aria-label="Competitors"
+              aria-label="Concorrentes"
               aria-invalid={competitorsError || undefined}
               aria-describedby={
                 competitorsError ? "brand-lookup-input-error" : undefined
               }
             />
             <p className="text-xs text-base-content/60">
-              Add up to 5 competitor brands or domains to see your Share of
-              Voice.
+              Adicione até 5 marcas ou domínios concorrentes para ver seu Share
+              of Voice.
             </p>
           </div>
         </form>
@@ -134,16 +134,16 @@ export function BrandLookupSearchCard({
 
         <div className="flex flex-wrap items-center gap-3 text-xs text-base-content/60">
           <p className="tabular-nums">
-            Est.{" "}
+            Estimativa:{" "}
             <span className="font-medium text-base-content/80">
               ${BRAND_LOOKUP_DISPLAYED_COST_USD.toFixed(2)}
             </span>
             {hasCompetitors ? (
               <span>
                 {" "}
-                plus ~$
-                {BRAND_LOOKUP_COMPETITOR_DISPLAYED_COST_USD.toFixed(2)} to
-                compare competitors
+                mais ~$
+                {BRAND_LOOKUP_COMPETITOR_DISPLAYED_COST_USD.toFixed(2)} para
+                comparar concorrentes
               </span>
             ) : null}
           </p>

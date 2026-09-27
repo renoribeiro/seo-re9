@@ -18,8 +18,8 @@ export function ReportsList({
   if (reports.length === 0) {
     return (
       <p className="rounded-lg border border-dashed border-base-300 px-4 py-6 text-sm text-base-content/60">
-        No reports yet. Run an OpenSEO skill such as seo-audit from Claude Code
-        or Codex and the report will appear here.
+        Nenhum relatório ainda. Rode uma skill do RE9 SEO, como a seo-audit, no
+        Claude Code ou no Codex, e o relatório vai aparecer aqui.
       </p>
     );
   }
@@ -30,10 +30,10 @@ export function ReportsList({
         <table className="table table-sm">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Created by</th>
-              <th>Type</th>
-              <th>Updated</th>
+              <th>Título</th>
+              <th>Criado por</th>
+              <th>Tipo</th>
+              <th>Atualizado</th>
               <th></th>
             </tr>
           </thead>
@@ -62,7 +62,7 @@ export function ReportsList({
                   {formatRelativeTime(report.updatedAt)}
                 </td>
                 <td className="w-10 text-right">
-                  <PortalMenu ariaLabel={`Actions for ${report.title}`}>
+                  <PortalMenu ariaLabel={`Ações para ${report.title}`}>
                     {(close) => (
                       <li>
                         <button
@@ -73,7 +73,7 @@ export function ReportsList({
                           }}
                         >
                           <Trash2 className="size-3.5" />
-                          Delete
+                          Excluir
                         </button>
                       </li>
                     )}
@@ -86,7 +86,7 @@ export function ReportsList({
       </div>
       {reports.length === REPORT_APP_LIST_LIMIT ? (
         <p className="text-xs text-base-content/60">
-          Showing the {REPORT_APP_LIST_LIMIT} most recent reports.
+          Mostrando os {REPORT_APP_LIST_LIMIT} relatórios mais recentes.
         </p>
       ) : null}
     </div>

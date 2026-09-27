@@ -26,7 +26,7 @@ export function BacklinksHistorySection({
       <section className="rounded-2xl border border-dashed border-base-300 bg-base-100/70 p-6 text-center text-base-content/55 space-y-2">
         <Link2 className="size-9 mx-auto opacity-35" />
         <p className="text-base font-medium text-base-content/80">
-          Enter a domain or URL to get started
+          Digite um domínio ou URL para começar
         </p>
       </section>
     );
@@ -38,7 +38,8 @@ export function BacklinksHistorySection({
         <div className="flex items-center gap-2">
           <History className="size-4 text-base-content/45" />
           <span className="text-sm text-base-content/60">
-            {history.length} recent search{history.length !== 1 ? "es" : ""}
+            {history.length}{" "}
+            {history.length !== 1 ? "pesquisas recentes" : "pesquisa recente"}
           </span>
         </div>
       </div>
@@ -76,7 +77,7 @@ export function BacklinksHistorySection({
             </Link>
             <div className="flex items-center gap-2 shrink-0">
               <span className="text-xs text-base-content/40">
-                {new Date(item.timestamp).toLocaleDateString(undefined, {
+                {new Date(item.timestamp).toLocaleDateString("pt-BR", {
                   month: "short",
                   day: "numeric",
                 })}
@@ -85,6 +86,7 @@ export function BacklinksHistorySection({
                 type="button"
                 className="btn btn-ghost btn-xs opacity-0 group-hover:opacity-100 p-1"
                 onClick={() => onRemoveHistoryItem(item.timestamp)}
+                aria-label="Remover do histórico"
               >
                 <X className="size-3" />
               </button>

@@ -24,7 +24,9 @@ export function WorkspaceMergeBanner() {
     mutationFn: () => mergeLegacyWorkspaces(),
     onSuccess: ({ mergedWorkspaces }) => {
       toast.success(
-        `Migrated ${mergedWorkspaces} organization${mergedWorkspaces === 1 ? "" : "s"} into the shared organization.`,
+        mergedWorkspaces === 1
+          ? "1 organização migrada para a organização compartilhada."
+          : `${mergedWorkspaces} organizações migradas para a organização compartilhada.`,
       );
       // The merge changes projects, connections, and the banner's own status —
       // refetch everything rather than enumerating keys.
@@ -34,7 +36,7 @@ export function WorkspaceMergeBanner() {
       toast.error(
         getStandardErrorMessage(
           error,
-          "Couldn't migrate the organizations. Try again.",
+          "Não foi possível migrar as organizações. Tente novamente.",
         ),
       ),
   });
@@ -46,10 +48,10 @@ export function WorkspaceMergeBanner() {
   return (
     <div className="rounded-xl border border-warning/40 bg-warning/10 p-5">
       <p className="max-w-3xl text-sm">
-        When self-hosting on Cloudflare, there was a bug where each user had
-        their own workspace. It was intended for all users to be in one
-        workspace. Clicking the button below will migrate everyone&apos;s
-        previous work into this shared workspace.
+        Na hospedagem própria no Cloudflare, havia um bug em que cada usuário
+        tinha o próprio espaço de trabalho. A intenção era que todos ficassem em
+        um único espaço. Clique no botão abaixo para migrar o trabalho anterior
+        de todos para este espaço de trabalho compartilhado.
       </p>
       <button
         type="button"
@@ -57,7 +59,7 @@ export function WorkspaceMergeBanner() {
         disabled={mergeMutation.isPending}
         onClick={() => mergeMutation.mutate()}
       >
-        {mergeMutation.isPending ? "Migrating…" : "Migrate organizations"}
+        {mergeMutation.isPending ? "Migrando…" : "Migrar organizações"}
       </button>
     </div>
   );

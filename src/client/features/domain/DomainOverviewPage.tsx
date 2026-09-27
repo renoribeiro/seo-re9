@@ -359,7 +359,7 @@ function useDomainOverviewState({
         ? createFormValidationErrors({
             form: getStandardErrorMessage(
               overviewQuery.error,
-              "Lookup failed.",
+              "A consulta falhou.",
             ),
           })
         : undefined,
@@ -386,7 +386,7 @@ function useDomainOverviewState({
       locationCode: routeState.locationCode,
     });
     if (!overview.hasData) {
-      toast.info("Not enough data for this domain");
+      toast.info("Não há dados suficientes para este domínio");
     }
   }, [
     addSearch,
@@ -523,7 +523,7 @@ export function DomainOverviewPage({
   // hostname plus subdomains, so anything narrower needs a label.
   const overviewMetricsHint =
     state.overview && state.overview.scope !== "subdomains"
-      ? "Whole domain incl. subdomains"
+      ? "Domínio inteiro, incluindo subdomínios"
       : undefined;
 
   const tabControls = routeState.domain ? (
@@ -538,7 +538,7 @@ export function DomainOverviewPage({
           }}
         >
           <ArrowLeft className="size-4" />
-          Recent searches
+          Pesquisas recentes
         </button>
       </div>
       <SearchTabStrip
@@ -556,10 +556,10 @@ export function DomainOverviewPage({
     <div className="px-4 py-4 md:px-6 md:py-6 pb-24 md:pb-8 overflow-auto">
       <div className="mx-auto max-w-7xl space-y-4">
         <div>
-          <h1 className="text-2xl font-semibold">Domain Overview</h1>
+          <h1 className="text-2xl font-semibold">Visão geral do domínio</h1>
           <p className="text-sm text-base-content/70">
-            Analyze any domain&apos;s SEO profile: traffic, keywords, and
-            backlinks.
+            Analise o perfil de SEO de qualquer domínio: tráfego, palavras-chave
+            e backlinks.
           </p>
         </div>
 
@@ -604,7 +604,7 @@ export function DomainOverviewPage({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <StatCard
-                label="Estimated Organic Traffic"
+                label="Tráfego orgânico estimado"
                 value={formatMetric(
                   state.overview.organicTraffic,
                   state.overview.hasData,
@@ -612,7 +612,7 @@ export function DomainOverviewPage({
                 hint={overviewMetricsHint}
               />
               <StatCard
-                label="Organic Keywords"
+                label="Palavras-chave orgânicas"
                 value={formatMetric(
                   state.overview.organicKeywords,
                   state.overview.hasData,
@@ -624,8 +624,8 @@ export function DomainOverviewPage({
             {!state.overview.hasData ? (
               <div className="alert alert-info">
                 <span>
-                  Not enough data for this scope yet. Try another domain or a
-                  broader scope.
+                  Ainda não há dados suficientes para este escopo. Tente outro
+                  domínio ou um escopo mais amplo.
                 </span>
               </div>
             ) : null}
@@ -640,7 +640,7 @@ export function DomainOverviewPage({
                     className={`tab ${routeState.tab === "keywords" ? "tab-active" : ""}`}
                     onClick={() => state.handleTabChange("keywords")}
                   >
-                    Top Keywords
+                    Principais palavras-chave
                   </button>
                   <button
                     type="button"
@@ -649,7 +649,7 @@ export function DomainOverviewPage({
                     className={`tab ${routeState.tab === "pages" ? "tab-active" : ""}`}
                     onClick={() => state.handleTabChange("pages")}
                   >
-                    Top Pages
+                    Principais páginas
                   </button>
                 </div>
               </div>

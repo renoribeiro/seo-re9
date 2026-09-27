@@ -36,7 +36,7 @@ export function OverviewStats({ keyword }: { keyword: KeywordResearchRow }) {
           </span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="text-base-content/50">Comp</span>
+          <span className="text-base-content/50">Conc.</span>
           <span className="font-semibold tabular-nums">
             {keyword.competition == null ? "-" : keyword.competition.toFixed(2)}
           </span>

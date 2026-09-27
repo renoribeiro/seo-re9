@@ -23,10 +23,10 @@ import { markDashboardCompetitorClicked } from "@/serverFunctions/dashboard";
 import type { DashboardSetupStep } from "@/types/schemas/dashboard";
 import { parseResearchTarget } from "@/shared/researchScope";
 
-const projectPrompt = `Use OpenSEO to set up a separate project for each website below. List my existing projects first and reuse matches so you don’t create duplicates. Set the country and language for each site, and ask me about anything missing.
+const projectPrompt = `Use o RE9 SEO para criar um projeto separado para cada site abaixo. Liste primeiro meus projetos existentes e reaproveite os que coincidirem, para não criar duplicados. Defina o país e o idioma de cada site e me pergunte sobre o que estiver faltando.
 
-Replace this list with my websites:
-- Project name — website — country — language`;
+Substitua esta lista pelos meus sites:
+- Nome do projeto — site — país — idioma`;
 
 export function DashboardSetupAction({
   step,
@@ -92,8 +92,8 @@ export function DashboardSetupAction({
     return (
       <div className="space-y-4">
         <p className="text-sm leading-relaxed text-base-content/65">
-          Explore a competitor’s domain to discover the topics they rank for and
-          the websites linking to them.
+          Explore o domínio de um concorrente para descobrir os temas em que ele
+          ranqueia e os sites que apontam links para ele.
         </p>
         <button
           type="button"
@@ -101,7 +101,7 @@ export function DashboardSetupAction({
           disabled={competitor.isPending}
           onClick={() => competitor.mutate()}
         >
-          Open domain lookup
+          Abrir consulta de domínio
         </button>
       </div>
     );
@@ -120,10 +120,10 @@ export function DashboardSetupAction({
     return (
       <p className="text-sm text-base-content/65">
         {org.isPending
-          ? "Checking workspace permissions…"
+          ? "Verificando permissões do espaço de trabalho…"
           : org.isError
             ? getStandardErrorMessage(org.error)
-            : "Ask a workspace owner or admin to help with this step."}
+            : "Peça ajuda com esta etapa a um proprietário ou administrador do espaço de trabalho."}
       </p>
     );
   if (step === "gsc")
@@ -141,35 +141,35 @@ export function DashboardSetupAction({
     return (
       <div className="space-y-4">
         <p className="text-sm leading-relaxed text-base-content/65">
-          Keep each website’s research, rankings, and connections in its own
-          project. Use the project switcher in the sidebar → New project
-          anytime.
+          Mantenha as pesquisas, os ranqueamentos e as conexões de cada site em
+          um projeto próprio. Use o seletor de projetos na barra lateral → Novo
+          projeto quando quiser.
         </p>
         <button
           type="button"
           className="btn btn-primary btn-sm"
           onClick={() => setShowModal(true)}
         >
-          Create another project
+          Criar outro projeto
         </button>
         <details className="rounded-lg border border-base-300 p-4">
           <summary className="cursor-pointer text-sm font-medium">
-            Have a list of websites? Let your agent set them up.
+            Tem uma lista de sites? Deixe seu agente configurá-los.
           </summary>
           <div className="mt-3 space-y-3">
             <p className="text-sm text-base-content/65">
               <Link to="/ai" className="link">
-                Connect your agent
-              </Link>
-              , then paste this prompt with your list of websites.
+                Conecte seu agente
+              </Link>{" "}
+              e depois cole este prompt com a sua lista de sites.
             </p>
             <pre className="whitespace-pre-wrap break-words font-sans text-sm leading-relaxed text-base-content/65">
               {projectPrompt}
             </pre>
             <CopyButton
               value={projectPrompt}
-              label="Copy project prompt"
-              successMessage="Project prompt copied"
+              label="Copiar prompt de projetos"
+              successMessage="Prompt de projetos copiado"
             />
           </div>
         </details>
@@ -181,15 +181,15 @@ export function DashboardSetupAction({
   return (
     <div className="space-y-4">
       <p className="text-sm leading-relaxed text-base-content/65">
-        Bring a teammate into your workspace to share projects, research, and
-        results.
+        Traga alguém da equipe para o seu espaço de trabalho e compartilhe
+        projetos, pesquisas e resultados.
       </p>
       <button
         type="button"
         className="btn btn-primary btn-sm"
         onClick={() => setShowModal(true)}
       >
-        Invite a teammate
+        Convidar alguém da equipe
       </button>
       {showModal && (
         <InviteTeammateModal
@@ -235,14 +235,14 @@ function WebsiteForm({
           queryKey: ["projectAccess", project.id],
         }),
       ]);
-      toast.success("Website saved");
+      toast.success("Site salvo");
       onComplete();
     },
     onError: (error) =>
       toast.error(
         getStandardErrorMessage(
           error,
-          "Couldn’t save your website. Try again.",
+          "Não foi possível salvar seu site. Tente novamente.",
         ),
       ),
   });
@@ -267,8 +267,9 @@ function WebsiteForm({
       }}
     >
       <p className="text-sm leading-relaxed text-base-content/65">
-        Add the website for this project and choose the country your customers
-        search from. You can change these in project settings anytime.
+        Adicione o site deste projeto e escolha o país de onde seus clientes
+        fazem buscas. Você pode alterar isso quando quiser nas configurações do
+        projeto.
       </p>
       <form.Field
         name="domain"
@@ -281,12 +282,12 @@ function WebsiteForm({
       >
         {(field) => (
           <label className="flex flex-col gap-1.5 text-sm">
-            <span className="font-medium">Website</span>
+            <span className="font-medium">Site</span>
             <input
               type="text"
               required
               maxLength={255}
-              placeholder="example.com"
+              placeholder="exemplo.com.br"
               className="input input-bordered w-full"
               value={field.state.value}
               onBlur={field.handleBlur}
@@ -318,7 +319,7 @@ function WebsiteForm({
             className="btn btn-primary btn-sm"
             disabled={!canSubmit || isSubmitting || save.isPending}
           >
-            {save.isPending ? "Saving…" : "Save website"}
+            {save.isPending ? "Salvando…" : "Salvar site"}
           </button>
         )}
       </form.Subscribe>

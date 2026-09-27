@@ -63,9 +63,9 @@ export function RankTrendChart({
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between text-[11px] text-base-content/50">
-        <span>Google position (1 = best)</span>
+        <span>Posição no Google (1 = melhor)</span>
         <span className="inline-flex items-center gap-1">
-          Better <span aria-hidden>↑</span>
+          Melhor <span aria-hidden>↑</span>
         </span>
       </div>
       <div ref={containerRef} className="w-full min-w-0" style={{ height }}>
@@ -153,7 +153,7 @@ export function RankTrendChart({
 }
 
 export function formatDateTick(value: number): string {
-  return new Date(value).toLocaleDateString("en-US", {
+  return new Date(value).toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
   });
@@ -184,7 +184,7 @@ export function useChartWidth() {
 const TREND_RANGES = [
   { label: "30d", sinceDays: 30 },
   { label: "90d", sinceDays: 90 },
-  { label: "All", sinceDays: 730 },
+  { label: "Tudo", sinceDays: 730 },
 ] as const;
 
 export function TrendRangeToggle({

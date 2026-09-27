@@ -50,21 +50,21 @@ const EMPTY_KEYWORDS: KeywordRow[] = [];
 const KEYWORD_TEXT_FILTERS = [
   {
     key: "include",
-    label: "Include Terms",
-    placeholder: "audit, checker, template",
+    label: "Incluir termos",
+    placeholder: "auditoria, verificador, modelo",
   },
   {
     key: "exclude",
-    label: "Exclude Terms",
-    placeholder: "jobs, salary, course",
+    label: "Excluir termos",
+    placeholder: "vagas, salário, curso",
   },
 ] as const;
 const KEYWORD_RANGE_FILTERS = [
-  { title: "Traffic", minKey: "minTraffic", maxKey: "maxTraffic" },
+  { title: "Tráfego", minKey: "minTraffic", maxKey: "maxTraffic" },
   { title: "Volume", minKey: "minVol", maxKey: "maxVol" },
   { title: "CPC (USD)", minKey: "minCpc", maxKey: "maxCpc", step: "0.01" },
-  { title: "Score (KD)", minKey: "minKd", maxKey: "maxKd" },
-  { title: "Rank", minKey: "minRank", maxKey: "maxRank" },
+  { title: "Dificuldade (KD)", minKey: "minKd", maxKey: "maxKd" },
+  { title: "Posição", minKey: "minRank", maxKey: "maxRank" },
 ] as const;
 
 type Props = {
@@ -224,7 +224,7 @@ export function KeywordsTab({
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(JSON.stringify(rows, null, 2));
-    toast.success("Copied data");
+    toast.success("Dados copiados");
   };
   const handleExportToSheets = () => {
     void exportTableToSheets({
@@ -276,17 +276,17 @@ export function KeywordsTab({
               onClick={handleSaveKeywords}
               disabled={!canSaveKeywords}
             >
-              Save Keywords
+              Salvar palavras-chave
             </TableBulkActionButton>
             <TableBulkExportMenu
               actions={[
                 {
-                  label: "Export to Sheets",
+                  label: "Exportar para o Sheets",
                   icon: <Sheet className="size-4" />,
                   onClick: handleExportSelectionToSheets,
                 },
                 {
-                  label: "Download CSV",
+                  label: "Baixar CSV",
                   icon: <Download className="size-4" />,
                   onClick: handleDownloadSelectionCsv,
                 },
@@ -299,8 +299,8 @@ export function KeywordsTab({
       {filtersOverBudget ? (
         <div className="alert alert-warning mb-3">
           <span>
-            Saved filters exceed this scope&apos;s {maxConditions}-condition
-            limit and were not applied. Open Filters to trim them.
+            Os filtros salvos excedem o limite de {maxConditions} condições
+            deste escopo e não foram aplicados. Abra os Filtros para reduzi-los.
           </span>
         </div>
       ) : null}
@@ -309,29 +309,29 @@ export function KeywordsTab({
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters((prev) => !prev)}
         activeFilterCount={activeFilterCount}
-        countLabel="keywords"
+        countLabel={{ singular: "palavra-chave", plural: "palavras-chave" }}
         totalCount={totalCount}
         fallbackCount={rows.length}
         isLoading={isLoading}
         showTableLoading={showTableLoading}
         exportActions={[
           {
-            label: "Export to Sheets",
+            label: "Exportar para o Sheets",
             icon: <Sheet className="size-4" />,
             onClick: handleExportToSheets,
           },
           {
-            label: "Copy data (JSON)",
+            label: "Copiar dados (JSON)",
             icon: <Copy className="size-4" />,
             onClick: handleCopy,
           },
           {
-            label: "Download CSV",
+            label: "Baixar CSV",
             icon: <Download className="size-4" />,
             onClick: () => handleDownload("csv"),
           },
           {
-            label: "Download Excel",
+            label: "Baixar Excel",
             icon: <FileSpreadsheet className="size-4" />,
             onClick: () => handleDownload("xls"),
           },

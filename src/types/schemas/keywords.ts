@@ -70,7 +70,7 @@ export const saveKeywordsSchema = z
   })
   .refine(
     (value) => value.tagMode !== "replace" || (value.tags?.length ?? 0) > 0,
-    "Replacement tags are required when tagMode is replace.",
+    "Informe as tags de substituição quando tagMode for replace.",
   );
 
 export const removeSavedKeywordsSchema = z.object({
@@ -114,7 +114,7 @@ export const updateSavedKeywordTagsSchema = z
   .refine(
     (value) =>
       (value.addTags?.length ?? 0) > 0 || (value.removeTagIds?.length ?? 0) > 0,
-    "Add or remove at least one tag.",
+    "Adicione ou remova pelo menos uma tag.",
   );
 
 export const updateSavedKeywordTagSchema = z
@@ -126,7 +126,7 @@ export const updateSavedKeywordTagSchema = z
   })
   .refine(
     (value) => value.name !== undefined || value.color !== undefined,
-    "Provide a name or color to update.",
+    "Informe um nome ou uma cor para atualizar.",
   );
 
 export const deleteSavedKeywordTagSchema = z.object({

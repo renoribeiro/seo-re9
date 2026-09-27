@@ -13,22 +13,22 @@ function OpenrouterApiKeyHelpPage() {
         <div className="card bg-base-100 border border-base-300">
           <div className="card-body gap-3">
             <h1 className="text-2xl font-semibold">
-              Set up your OpenRouter API key
+              Configure sua chave de API do OpenRouter
             </h1>
             <p className="text-sm text-base-content/70">
-              OpenSEO needs the <code>OPENROUTER_API_KEY</code> secret before AI
-              features like SAM, the in-app SEO agent, can run. It is optional —
-              everything else in OpenSEO works without it.
+              O RE9 SEO precisa do secret <code>OPENROUTER_API_KEY</code> para
+              executar os recursos de IA, como o SAM, o agente de SEO do app.
+              Ele é opcional: todo o resto do RE9 SEO funciona sem ele.
             </p>
           </div>
         </div>
 
         <div className="card bg-base-100 border border-base-300">
           <div className="card-body gap-4">
-            <h2 className="card-title text-base">Steps</h2>
+            <h2 className="card-title text-base">Passos</h2>
             <ol className="list-decimal pl-5 text-sm space-y-3 text-base-content/80">
               <li>
-                Create an account at{" "}
+                Crie uma conta em{" "}
                 <a
                   className="link link-primary"
                   href="https://openrouter.ai"
@@ -37,10 +37,10 @@ function OpenrouterApiKeyHelpPage() {
                 >
                   openrouter.ai
                 </a>{" "}
-                and add credits (pay-as-you-go, like DataForSEO).
+                e adicione créditos (pagamento por uso, como na DataForSEO).
               </li>
               <li>
-                Go to{" "}
+                Acesse{" "}
                 <a
                   className="link link-primary"
                   href={OPENROUTER_KEYS_URL}
@@ -49,22 +49,22 @@ function OpenrouterApiKeyHelpPage() {
                 >
                   OpenRouter API Keys
                 </a>{" "}
-                and click "Create API Key".
+                e clique em "Create API Key".
               </li>
               <li>
-                Save the key as the <code>OPENROUTER_API_KEY</code> secret in
-                your environment:
+                Salve a chave como o secret <code>OPENROUTER_API_KEY</code> no
+                seu ambiente:
                 <ul className="list-disc pl-5 mt-2 space-y-1">
                   <li>
-                    Docker self-hosting: <code>.env</code>
+                    Docker auto-hospedado: <code>.env</code>
                   </li>
-                  <li>Cloudflare: set it in the Workers UI (see below)</li>
+                  <li>Cloudflare: defina no painel do Workers (veja abaixo)</li>
                   <li>
-                    Local development: <code>.env.local</code>
+                    Desenvolvimento local: <code>.env.local</code>
                   </li>
                 </ul>
               </li>
-              <li>Restart OpenSEO.</li>
+              <li>Reinicie o RE9 SEO.</li>
             </ol>
           </div>
         </div>
@@ -72,32 +72,31 @@ function OpenrouterApiKeyHelpPage() {
         <div className="card bg-base-100 border border-base-300">
           <div className="card-body gap-2 text-sm text-base-content/75">
             <h2 className="card-title text-base">
-              Cloudflare Workers (Dashboard UI)
+              Cloudflare Workers (painel web)
             </h2>
             <ol className="list-decimal pl-5 space-y-2 text-sm text-base-content/80">
               <li>
-                In Cloudflare, go to <code>Compute</code> -&gt;{" "}
-                <code>Workers &amp; Pages</code>
-                and open your OpenSEO Worker.
+                No Cloudflare, acesse <code>Compute</code> -&gt;{" "}
+                <code>Workers &amp; Pages</code>e abra o Worker do RE9 SEO.
               </li>
               <li>
-                Open <code>Settings</code>.
+                Abra <code>Settings</code>.
               </li>
               <li>
-                Go to <code>Variables &amp; Secrets</code> and add a new secret
-                named
+                Acesse <code>Variables &amp; Secrets</code> e adicione um novo
+                secret chamado
                 <code className="mx-1">OPENROUTER_API_KEY</code>.
               </li>
-              <li>Paste your OpenRouter API key and save.</li>
+              <li>Cole sua chave de API do OpenRouter e salve.</li>
             </ol>
 
             <div className="divider my-1" />
 
-            <p>Or set the same secret from your terminal with:</p>
+            <p>Ou defina o mesmo secret pelo terminal com:</p>
             <pre className="p-3 rounded bg-base-200 border border-base-300 overflow-x-auto text-xs">
               <code>npx wrangler secret put OPENROUTER_API_KEY</code>
             </pre>
-            <p>Paste your OpenRouter API key when prompted.</p>
+            <p>Quando for solicitado, cole sua chave de API do OpenRouter.</p>
           </div>
         </div>
       </div>

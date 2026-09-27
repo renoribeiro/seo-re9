@@ -20,7 +20,7 @@ async function assertPaidPlan(organizationId: string) {
   if (await customerHasPaidPlan(organizationId)) return;
   throw new AppError(
     "PAYMENT_REQUIRED",
-    "Upgrade to the paid plan to use AI Visibility",
+    "Faça upgrade para o plano pago para usar a Visibilidade em IA",
   );
 }
 

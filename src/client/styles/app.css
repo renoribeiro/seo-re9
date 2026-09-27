@@ -5,12 +5,12 @@
 }
 
 :root {
-  --trend-grid-color: oklch(56% 0.01 255 / 0.28);
-  --trend-axis-color: oklch(42% 0.01 255 / 0.85);
+  --trend-grid-color: oklch(56% 0 0 / 0.28);
+  --trend-axis-color: oklch(42% 0 0 / 0.85);
   --trend-fill-start-opacity: 0.32;
   --trend-fill-end-opacity: 0.05;
-  --trend-tooltip-bg: oklch(99% 0.005 255 / 0.96);
-  --trend-tooltip-border: oklch(84% 0.01 255 / 0.7);
+  --trend-tooltip-bg: oklch(99% 0 0 / 0.96);
+  --trend-tooltip-border: oklch(84% 0 0 / 0.7);
   --trend-tooltip-shadow: oklch(0% 0 0 / 0.1);
 }
 
@@ -29,11 +29,13 @@
   --color-base-200: oklch(97% 0 0);
   --color-base-300: oklch(92% 0 0);
   --color-base-content: oklch(20% 0 0);
-  --color-primary: oklch(50% 0.12 262);
+  /* RE9 brand: red #ED1C24 (oklch 60.3% 0.235 27), darkened slightly so
+     white text on primary keeps AA contrast; secondary is the brand gray. */
+  --color-primary: oklch(55% 0.22 27);
   --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(55% 0.15 145);
+  --color-secondary: oklch(40% 0 0);
   --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(50% 0.12 262);
+  --color-accent: oklch(60.3% 0.235 27);
   --color-accent-content: oklch(100% 0 0);
   --color-neutral: oklch(25% 0 0);
   --color-neutral-content: oklch(100% 0 0);
@@ -64,11 +66,11 @@
   --color-base-200: oklch(12% 0 0);
   --color-base-300: oklch(27% 0 0);
   --color-base-content: oklch(92% 0 0);
-  --color-primary: oklch(66% 0.12 262);
+  --color-primary: oklch(62% 0.22 27);
   --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(60% 0.15 145);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(66% 0.12 262);
+  --color-secondary: oklch(75% 0 0);
+  --color-secondary-content: oklch(18% 0 0);
+  --color-accent: oklch(62% 0.22 27);
   --color-accent-content: oklch(100% 0 0);
   --color-neutral: oklch(85% 0 0);
   --color-neutral-content: oklch(20% 0 0);
@@ -97,6 +99,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
+}
+
+/* Brand logo: show the variant that contrasts with the active theme. */
+.brand-logo-dark {
+  display: none;
+}
+[data-theme="openseo-dark"] .brand-logo-light {
+  display: none;
+}
+[data-theme="openseo-dark"] .brand-logo-dark {
+  display: block;
 }
 
 /* Prevent Safari mobile from zooming on input focus (requires 16px minimum) */
@@ -346,12 +359,12 @@ html[data-theme="openseo-dark"] .score-tier-6 {
 }
 
 html[data-theme="openseo-dark"] {
-  --trend-grid-color: oklch(78% 0.01 255 / 0.22);
-  --trend-axis-color: oklch(84% 0.01 255 / 0.62);
+  --trend-grid-color: oklch(78% 0 0 / 0.22);
+  --trend-axis-color: oklch(84% 0 0 / 0.62);
   --trend-fill-start-opacity: 0.24;
   --trend-fill-end-opacity: 0.03;
-  --trend-tooltip-bg: oklch(21% 0.01 255 / 0.95);
-  --trend-tooltip-border: oklch(40% 0.01 255 / 0.65);
+  --trend-tooltip-bg: oklch(21% 0 0 / 0.95);
+  --trend-tooltip-border: oklch(40% 0 0 / 0.65);
   --trend-tooltip-shadow: oklch(0% 0 0 / 0.35);
 }
 

@@ -38,9 +38,9 @@ const baseColumns: ColumnDef<SuggestedKeyword>[] = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Keyword"
+        label="Palavra-chave"
         id="keyword"
-        tooltip="The search term this domain ranks for"
+        tooltip="O termo de busca para o qual este domínio está ranqueado"
       />
     ),
     cell: ({ getValue }) => (
@@ -54,9 +54,9 @@ const baseColumns: ColumnDef<SuggestedKeyword>[] = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Position"
+        label="Posição"
         id="position"
-        tooltip="Current Google ranking position"
+        tooltip="Posição atual no ranqueamento do Google"
       />
     ),
     cell: ({ getValue }) => {
@@ -81,13 +81,13 @@ const baseColumns: ColumnDef<SuggestedKeyword>[] = [
         column={column}
         label="Volume"
         id="searchVolume"
-        tooltip="Monthly search volume"
+        tooltip="Volume de busca mensal"
       />
     ),
     cell: ({ getValue }) => {
       const vol = getValue<number | null>();
       return vol != null ? (
-        vol.toLocaleString()
+        vol.toLocaleString("pt-BR")
       ) : (
         <span className="text-base-content/40">—</span>
       );
@@ -104,15 +104,15 @@ const baseColumns: ColumnDef<SuggestedKeyword>[] = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Traffic"
+        label="Tráfego"
         id="traffic"
-        tooltip="Estimated monthly organic traffic"
+        tooltip="Tráfego orgânico mensal estimado"
       />
     ),
     cell: ({ getValue }) => {
       const traffic = getValue<number | null>();
       return traffic != null ? (
-        Math.round(traffic).toLocaleString()
+        Math.round(traffic).toLocaleString("pt-BR")
       ) : (
         <span className="text-base-content/40">—</span>
       );
@@ -210,11 +210,18 @@ export function KeywordSuggestionStep({
     mutationFn: (keywords: string[]) =>
       addTrackingKeywords({ data: { projectId, configId, keywords } }),
     onSuccess: (result) => {
-      toast.success(`Added ${result.added} keywords for tracking`);
+      toast.success(
+        `${result.added} ${result.added === 1 ? "palavra-chave adicionada" : "palavras-chave adicionadas"} ao monitoramento`,
+      );
       onDone(configId);
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to add keywords"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível adicionar as palavras-chave",
+        ),
+      );
     },
   });
 
@@ -241,14 +248,15 @@ export function KeywordSuggestionStep({
   if (!labsSupported) {
     return (
       <>
-        {sectionHeader("Add keywords manually")}
+        {sectionHeader("Adicionar palavras-chave manualmente")}
         <div className="flex flex-col items-center justify-center gap-3 py-16">
           <p className="text-xs text-base-content/50">
-            Ranked-keyword suggestions aren't available for this country.
-            Continue and add the keywords you want to track manually.
+            Sugestões de palavras-chave ranqueadas não estão disponíveis para
+            este país. Continue e adicione manualmente as palavras-chave que
+            deseja monitorar.
           </p>
           <button className="btn btn-primary btn-sm mt-2" onClick={onClose}>
-            Continue
+            Continuar
           </button>
         </div>
       </>
@@ -259,11 +267,11 @@ export function KeywordSuggestionStep({
   if (suggestionsQuery.isLoading) {
     return (
       <>
-        {sectionHeader("Finding your top keywords...")}
+        {sectionHeader("Buscando suas principais palavras-chave…")}
         <div className="flex flex-col items-center justify-center gap-3 py-16">
           <Loader2 className="size-8 animate-spin text-primary" />
           <p className="text-xs text-base-content/50">
-            This usually takes a few seconds
+            Isso costuma levar alguns segundos
           </p>
         </div>
       </>
@@ -274,15 +282,16 @@ export function KeywordSuggestionStep({
   if (suggestionsQuery.isError) {
     return (
       <>
-        {sectionHeader("Couldn't fetch keywords")}
+        {sectionHeader("Não foi possível buscar as palavras-chave")}
         <div className="flex flex-col items-center justify-center gap-3 py-16">
           <AlertCircle className="size-8 text-error" />
           <p className="text-xs text-base-content/50">
-            You can skip this step and add keywords manually later.
+            Você pode pular esta etapa e adicionar palavras-chave manualmente
+            depois.
           </p>
           <div className="flex gap-2 mt-2">
             <button className="btn btn-primary btn-sm" onClick={onClose}>
-              Skip
+              Pular
             </button>
           </div>
         </div>
@@ -294,14 +303,15 @@ export function KeywordSuggestionStep({
   if (data.length === 0) {
     return (
       <>
-        {sectionHeader("No rankings found")}
+        {sectionHeader("Nenhum ranqueamento encontrado")}
         <div className="flex flex-col items-center justify-center gap-3 py-16">
           <p className="text-xs text-base-content/50">
-            We couldn't find any keywords {domain} currently ranks for. You can
-            add keywords manually.
+            Não encontramos palavras-chave para as quais {domain} esteja
+            ranqueado no momento. Você pode adicionar palavras-chave
+            manualmente.
           </p>
           <button className="btn btn-primary btn-sm mt-2" onClick={onClose}>
-            Skip
+            Pular
           </button>
         </div>
       </>
@@ -311,10 +321,12 @@ export function KeywordSuggestionStep({
   // Data loaded
   return (
     <div className="flex flex-col gap-3">
-      {sectionHeader("Choose keywords to track")}
+      {sectionHeader("Escolha as palavras-chave para monitorar")}
       <div className="flex items-center justify-between">
         <p className="text-sm text-base-content/60">
-          We found {data.length} keywords {domain} ranks for.
+          Encontramos {data.length}{" "}
+          {data.length === 1 ? "palavra-chave" : "palavras-chave"} para as quais{" "}
+          {domain} está ranqueado.
         </p>
       </div>
 
@@ -337,11 +349,12 @@ export function KeywordSuggestionStep({
 
       <div className="flex items-center justify-between gap-3 pt-1">
         <p className="text-xs text-base-content/60">
-          {selectedCount} of {data.length} selected
+          {selectedCount} de {data.length}{" "}
+          {selectedCount === 1 ? "selecionada" : "selecionadas"}
         </p>
         <div className="flex items-center gap-2">
           <button className="btn btn-ghost btn-sm" onClick={onClose}>
-            Skip
+            Pular
           </button>
           <button
             type="button"
@@ -352,7 +365,7 @@ export function KeywordSuggestionStep({
             {addMutation.isPending && (
               <Loader2 className="size-3.5 animate-spin" />
             )}
-            Save Keyword{selectedCount !== 1 ? "s" : ""}
+            Salvar {selectedCount !== 1 ? "palavras-chave" : "palavra-chave"}
           </button>
         </div>
       </div>

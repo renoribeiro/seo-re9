@@ -60,7 +60,7 @@ describe("parseResearchTarget", () => {
     const result = parseResearchTarget("example.com", "subfolder");
     expect(result).toEqual({
       ok: false,
-      message: "Add a path to use Subfolder (e.g. example.com/blog)",
+      message: "Adicione um caminho para usar Subpasta (ex.: example.com/blog)",
     });
   });
 

@@ -45,17 +45,17 @@ export function SavedKeywordsBulkActionBar({
               busy={exportBusy}
               actions={[
                 {
-                  label: "Copy keywords",
+                  label: "Copiar palavras-chave",
                   icon: <Copy className="size-4" />,
                   onClick: onCopy,
                 },
                 {
-                  label: "Export to Sheets",
+                  label: "Exportar para o Sheets",
                   icon: <Sheet className="size-4" />,
                   onClick: onExportSheets,
                 },
                 {
-                  label: "Export CSV",
+                  label: "Exportar CSV",
                   icon: <FileDown className="size-4" />,
                   onClick: onExportCsv,
                 },
@@ -69,7 +69,7 @@ export function SavedKeywordsBulkActionBar({
               onClick={onDelete}
               variant="danger"
             >
-              Delete
+              Excluir
             </TableBulkActionButton>
           </div>
         </>

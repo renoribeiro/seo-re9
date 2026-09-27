@@ -7,9 +7,21 @@ export const ONBOARDING_LAST_STEP = 4;
 // Option values below are persisted and used by analytics. Change display copy
 // here instead of renaming those values, so historical answers stay comparable.
 export const ONBOARDING_OPTION_LABELS: Readonly<Record<string, string>> = {
-  "AI workflows with Claude or Codex (MCP)": "AI Workflows (MCP + Skills)",
-  "My own startup or business": "My Own Business",
-  "My employer's website": "My Company's Website",
+  "AI workflows with Claude or Codex (MCP)": "Fluxos com IA (MCP + Skills)",
+  "Keyword research": "Pesquisa de palavras-chave",
+  "Competitor research": "Pesquisa de concorrentes",
+  "Backlink analysis": "Análise de backlinks",
+  "Site audits": "Auditorias de site",
+  "Rank tracking": "Monitoramento de posições",
+  "My own startup or business": "Meu próprio negócio",
+  "My clients": "Meus clientes",
+  "My employer's website": "Site da empresa onde trabalho",
+  "My own side project": "Meu projeto paralelo",
+  "I'm exploring before choosing a project":
+    "Estou explorando antes de escolher um projeto",
+  "Friend or colleague": "Amigo ou colega",
+  "AI (Claude, ChatGPT, etc)": "IA (Claude, ChatGPT etc.)",
+  Other: "Outro",
 };
 
 export const INTEREST_OPTIONS = [

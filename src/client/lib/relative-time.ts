@@ -12,9 +12,9 @@ export function formatRelativeTime(iso: string): string {
   if (Number.isNaN(then)) return "";
   const diff = then - Date.now();
   const absolute = Math.abs(diff);
-  const formatter = new Intl.RelativeTimeFormat("en-US", { numeric: "auto" });
+  const formatter = new Intl.RelativeTimeFormat("pt-BR", { numeric: "auto" });
   for (const [unit, ms] of RELATIVE_UNITS) {
     if (absolute >= ms) return formatter.format(Math.round(diff / ms), unit);
   }
-  return "just now";
+  return "agora mesmo";
 }

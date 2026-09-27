@@ -144,7 +144,7 @@ describe("save_report", () => {
         },
         toolContext,
       ),
-    ).rejects.toThrow(/No report template template_other_project/);
+    ).rejects.toThrow(/Não há modelo de relatório template_other_project/);
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
 
@@ -164,7 +164,7 @@ describe("save_report", () => {
         },
         toolContext,
       ),
-    ).rejects.toThrow(/Pass reportId to update it/);
+    ).rejects.toThrow(/Passe reportId para atualizá-lo/);
     expect(mocks.insertReport).not.toHaveBeenCalled();
   });
 });

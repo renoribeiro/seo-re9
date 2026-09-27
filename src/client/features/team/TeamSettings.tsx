@@ -37,7 +37,7 @@ export function TeamSettings() {
     mutationFn: (email: string) => sendTeamInvitation({ data: { email } }),
     onSuccess: () => {
       captureClientEvent("team:invitation_resend");
-      toast.success("Invitation resent");
+      toast.success("Convite reenviado");
       void refreshTeam();
     },
     onError: (error: Error) => {
@@ -51,16 +51,18 @@ export function TeamSettings() {
         memberIdOrEmail: memberId,
       });
       if (result.error) {
-        throw new Error(result.error.message || "Failed to remove the member");
+        throw new Error(
+          result.error.message || "Não foi possível remover o membro",
+        );
       }
     },
     onSuccess: () => {
       captureClientEvent("team:member_remove");
-      toast.success("Member removed");
+      toast.success("Membro removido");
       void refreshTeam();
     },
     onError: (error: Error) => {
-      toast.error(error.message || "We couldn't remove that member.");
+      toast.error(error.message || "Não foi possível remover esse membro.");
     },
   });
 
@@ -71,17 +73,17 @@ export function TeamSettings() {
       });
       if (result.error) {
         throw new Error(
-          result.error.message || "Failed to cancel the invitation",
+          result.error.message || "Não foi possível cancelar o convite",
         );
       }
     },
     onSuccess: () => {
       captureClientEvent("team:invitation_cancel");
-      toast.success("Invitation canceled");
+      toast.success("Convite cancelado");
       void refreshTeam();
     },
     onError: (error: Error) => {
-      toast.error(error.message || "We couldn't cancel that invitation.");
+      toast.error(error.message || "Não foi possível cancelar esse convite.");
     },
   });
 
@@ -98,14 +100,14 @@ export function TeamSettings() {
     return (
       <div className="space-y-3">
         <p className="text-sm text-base-content/70">
-          We couldn&rsquo;t load your team right now.
+          Não foi possível carregar sua equipe agora.
         </p>
         <button
           type="button"
           className="btn btn-soft btn-sm"
           onClick={() => void teamQuery.refetch()}
         >
-          Try again
+          Tentar novamente
         </button>
       </div>
     );
@@ -114,20 +116,20 @@ export function TeamSettings() {
   return (
     <section className="space-y-3">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-sm font-medium text-base-content/50">Members</h2>
+        <h2 className="text-sm font-medium text-base-content/50">Membros</h2>
         {canManageTeam ? (
           <button
             type="button"
             className="btn btn-primary btn-sm"
             onClick={() => setIsInviteOpen(true)}
           >
-            Invite teammate
+            Convidar para a equipe
           </button>
         ) : null}
       </div>
       <p className="text-sm text-base-content/60">
-        Teammates join as Admins. Admins have full access to each project except
-        for billing.
+        Quem entra na equipe vira Administrador. Administradores têm acesso
+        total a todos os projetos, exceto à cobrança.
       </p>
 
       {teamQuery.isPending ? (
@@ -139,8 +141,8 @@ export function TeamSettings() {
           <table className="table table-sm">
             <thead>
               <tr>
-                <th>Member</th>
-                <th>Role</th>
+                <th>Membro</th>
+                <th>Função</th>
                 <th>Status</th>
                 <th className="w-10"></th>
               </tr>

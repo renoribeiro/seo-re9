@@ -47,11 +47,16 @@ export function useSaveConfigMutations(input: {
       }),
     onSuccess: (result) => {
       captureClientEvent("rank_tracking:config_create");
-      toast.success("Domain added for rank tracking");
+      toast.success("Domínio adicionado ao monitoramento de posições");
       onCreated(result.id);
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to save config"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível salvar a configuração",
+        ),
+      );
     },
   });
 
@@ -71,11 +76,16 @@ export function useSaveConfigMutations(input: {
       }),
     onSuccess: () => {
       captureClientEvent("rank_tracking:config_update");
-      toast.success("Configuration updated");
+      toast.success("Configuração atualizada");
       onUpdated();
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to update config"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível atualizar a configuração",
+        ),
+      );
     },
   });
 

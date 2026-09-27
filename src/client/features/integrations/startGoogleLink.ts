@@ -83,7 +83,9 @@ export async function startGoogleLink(
         errorCallbackURL: withGoogleLinkErrorParam(callbackURL, provider),
       });
       if (res.error) {
-        toast.error(res.error.message ?? "Could not start Google sign-in");
+        toast.error(
+          res.error.message ?? "Não foi possível iniciar o login com o Google",
+        );
         return false;
       }
       url = res.data?.url;

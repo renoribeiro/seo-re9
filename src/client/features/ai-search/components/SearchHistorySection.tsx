@@ -16,10 +16,10 @@ type Props<TItem extends { timestamp: number }> = {
   /** Empty-state headline copy. */
   emptyMessage: string;
   /**
-   * Label noun used in the "{n} recent {noun}(s)" header (e.g. "lookup",
-   * "prompt"). Pluralization is handled by the component.
+   * Singular/plural nouns used in the "{n} {noun} recente(s)" header (e.g.
+   * "consulta"/"consultas"). The component picks the form by count.
    */
-  noun: string;
+  noun: { singular: string; plural: string };
   /** Item body — primary (and optional secondary) text shown in each row. */
   renderItem: (item: TItem) => ReactNode;
 };
@@ -55,8 +55,9 @@ export function SearchHistorySection<TItem extends { timestamp: number }>({
         <div className="flex items-center gap-2">
           <History className="size-4 text-base-content/45" />
           <span className="text-sm text-base-content/60">
-            {history.length} recent {noun}
-            {history.length !== 1 ? "s" : ""}
+            {history.length === 1
+              ? `${history.length} ${noun.singular} recente`
+              : `${history.length} ${noun.plural} recentes`}
           </span>
         </div>
       </div>
@@ -76,7 +77,7 @@ export function SearchHistorySection<TItem extends { timestamp: number }>({
             )}
             <div className="flex items-center gap-2 shrink-0">
               <span className="text-xs text-base-content/40">
-                {new Date(item.timestamp).toLocaleDateString(undefined, {
+                {new Date(item.timestamp).toLocaleDateString("pt-BR", {
                   month: "short",
                   day: "numeric",
                 })}
@@ -85,7 +86,7 @@ export function SearchHistorySection<TItem extends { timestamp: number }>({
                 type="button"
                 className="btn btn-ghost btn-xs opacity-0 group-hover:opacity-100 p-1"
                 onClick={() => onRemoveHistoryItem(item.timestamp)}
-                aria-label="Remove from history"
+                aria-label="Remover do histórico"
               >
                 <X className="size-3" />
               </button>

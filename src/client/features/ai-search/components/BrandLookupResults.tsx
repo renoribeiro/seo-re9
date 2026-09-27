@@ -19,7 +19,15 @@ type PlatformRow = BrandLookupResult["perPlatform"][number];
 type MetricKey = "mentions" | "aiSearchVolume";
 
 const DOMAIN_LEVEL_TIP =
-  "AI search providers report mentions per domain, not per page. This number covers the whole domain — the cited pages below are limited to your scope.";
+  "Os provedores de busca com IA informam menções por domínio, não por página. Este número cobre o domínio inteiro — as páginas citadas abaixo se limitam ao seu escopo.";
+
+const TARGET_TYPE_LABELS: Record<
+  BrandLookupResult["detectedTargetType"],
+  string
+> = {
+  domain: "domínio",
+  keyword: "marca",
+};
 
 /**
  * Marks a metric that could not be narrowed to a URL scope, so a page-scoped
@@ -31,7 +39,7 @@ function DomainLevelBadge() {
       className="tooltip badge badge-ghost badge-sm shrink-0 normal-case"
       data-tip={DOMAIN_LEVEL_TIP}
     >
-      Domain-level
+      Domínio inteiro
     </span>
   );
 }
@@ -48,24 +56,28 @@ export function BrandLookupResults({ result, projectId }: Props) {
     if (allPlatformsErrored) {
       return (
         <div className="rounded-lg border border-warning/30 bg-warning/10 p-4 text-sm">
-          AI mention data is temporarily unavailable for{" "}
-          <strong>{result.resolvedTarget}</strong>. Please try again shortly.
+          Os dados de menções em IA estão temporariamente indisponíveis para{" "}
+          <strong>{result.resolvedTarget}</strong>. Tente novamente em
+          instantes.
         </div>
       );
     }
     return (
       <div className="space-y-3">
         <div className="rounded-lg border border-info/30 bg-info/10 p-4 text-sm">
-          No AI mentions found for <strong>{result.resolvedTarget}</strong>.
+          Nenhuma menção em IA encontrada para{" "}
+          <strong>{result.resolvedTarget}</strong>.
         </div>
         {erroredPlatforms.length > 0 ? (
           <p className="text-xs text-base-content/60">
-            Note:{" "}
+            Observação:{" "}
             {erroredPlatforms
               .map((p) => formatPlatformLabel(p.platform))
-              .join(" and ")}{" "}
-            {erroredPlatforms.length === 1 ? "was" : "were"} unavailable — some
-            mentions may be missing.
+              .join(" e ")}{" "}
+            {erroredPlatforms.length === 1
+              ? "estava indisponível"
+              : "estavam indisponíveis"}{" "}
+            — algumas menções podem estar faltando.
           </p>
         ) : null}
       </div>
@@ -111,7 +123,7 @@ function BrandHeader({ result }: { result: BrandLookupResult }) {
           {result.resolvedTarget}
         </h2>
         <span className="badge badge-ghost badge-sm">
-          {result.detectedTargetType}
+          {TARGET_TYPE_LABELS[result.detectedTargetType]}
         </span>
         {result.scope ? (
           <span className="badge badge-ghost badge-sm">
@@ -120,7 +132,7 @@ function BrandHeader({ result }: { result: BrandLookupResult }) {
         ) : null}
       </div>
       <p className="text-xs text-base-content/50">
-        Updated {formatRelative(result.fetchedAt)}
+        Atualizado {formatRelative(result.fetchedAt)}
       </p>
     </section>
   );
@@ -131,16 +143,16 @@ function StatsCard({ result }: { result: BrandLookupResult }) {
     <section className="rounded-xl border border-base-300 bg-base-100">
       <div className="flex h-full flex-col divide-y divide-base-200">
         <StatBlock
-          label="Mentions"
-          tooltip="Estimated count of AI answers where the searched brand or domain appeared in the answer text or cited sources."
+          label="Menções"
+          tooltip="Estimativa de quantas respostas de IA mostraram a marca ou o domínio buscado no texto da resposta ou nas fontes citadas."
           value={result.totalMentions}
           perPlatform={result.perPlatform}
           metric="mentions"
           isDomainLevel={result.aggregatesAreDomainLevel}
         />
         <StatBlock
-          label="AI search volume"
-          tooltip="Estimated monthly search demand for prompts where the searched brand or domain appears in AI answers. This is prompt demand, not mention count."
+          label="Volume de busca em IA"
+          tooltip="Demanda mensal estimada de buscas para prompts em que a marca ou o domínio buscado aparece em respostas de IA. É a demanda dos prompts, não o número de menções."
           value={result.totalAiSearchVolume}
           perPlatform={result.perPlatform}
           metric="aiSearchVolume"
@@ -206,13 +218,13 @@ function PlatformStatRow({
         {row.platform === "chat_gpt" ? (
           <span
             className="tooltip z-20 inline-flex"
-            data-tip="DataForSEO indexes ChatGPT mentions for US English only — country selection is not available for this platform."
+            data-tip="O DataForSEO indexa menções do ChatGPT apenas em inglês dos EUA — a seleção de país não está disponível para esta plataforma."
           >
             <Info className="size-3 text-base-content/40" />
           </span>
         ) : null}
         {row.status === "error" ? (
-          <span className="text-error">unavailable</span>
+          <span className="text-error">indisponível</span>
         ) : null}
       </span>
       <span className="font-medium tabular-nums text-base-content/90">
@@ -227,7 +239,7 @@ function MentionTrendCard({ result }: { result: BrandLookupResult }) {
     <section className="overflow-hidden rounded-xl border border-base-300 bg-base-100">
       <div className="flex items-center justify-between gap-2 border-b border-base-300 px-4 py-3">
         <h3 className="text-sm font-semibold">
-          Mention trend (last 12 months)
+          Tendência de menções (últimos 12 meses)
         </h3>
         {result.aggregatesAreDomainLevel ? <DomainLevelBadge /> : null}
       </div>
@@ -240,15 +252,15 @@ function MentionTrendCard({ result }: { result: BrandLookupResult }) {
 
 function formatRelative(iso: string): string {
   const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return "just now";
+  if (Number.isNaN(date.getTime())) return "agora mesmo";
 
   const diffMs = Date.now() - date.getTime();
   const diffMin = Math.floor(diffMs / 60_000);
 
-  if (diffMin < 1) return "just now";
-  if (diffMin < 60) return `${diffMin}m ago`;
+  if (diffMin < 1) return "agora mesmo";
+  if (diffMin < 60) return `há ${diffMin} min`;
   const diffHr = Math.floor(diffMin / 60);
-  if (diffHr < 24) return `${diffHr}h ago`;
+  if (diffHr < 24) return `há ${diffHr} h`;
   const diffDay = Math.floor(diffHr / 24);
-  return `${diffDay}d ago`;
+  return `há ${diffDay} d`;
 }

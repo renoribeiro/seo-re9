@@ -95,7 +95,7 @@ function ModelResultCard({
       {modelResult.fanOutQueries.length > 0 ? (
         <div className="border-t border-base-200 px-5 py-3">
           <p className="mb-2 text-xs font-medium uppercase tracking-wider text-base-content/50">
-            Related queries the model considered
+            Consultas relacionadas que o modelo considerou
           </p>
           <div className="flex flex-wrap gap-1.5">
             {modelResult.fanOutQueries.map((query, index) => (
@@ -128,7 +128,7 @@ function CitationsList({
   return (
     <div className="border-t border-base-200 bg-base-200/30 px-5 py-3">
       <p className="mb-2 text-xs font-medium uppercase tracking-wider text-base-content/50">
-        Cited sources ({citations.length})
+        Fontes citadas ({citations.length})
       </p>
       <ul className="space-y-1.5">
         {visible.map((citation, index) => (
@@ -164,7 +164,7 @@ function CitationsList({
           onClick={() => setExpanded((current) => !current)}
           className="mt-1.5 text-xs text-base-content/50 hover:text-base-content"
         >
-          {expanded ? "Show less" : `+${remaining} more`}
+          {expanded ? "Mostrar menos" : `+${remaining} a mais`}
         </button>
       ) : null}
     </div>
@@ -198,7 +198,7 @@ function ModelHeader({
           <code className="text-xs text-base-content/50">{modelName}</code>
         ) : null}
         {status === "error" ? (
-          <span className="badge badge-error badge-sm">Error</span>
+          <span className="badge badge-error badge-sm">Erro</span>
         ) : null}
         <BrandMentionBadge
           mentioned={brandMentioned}
@@ -207,13 +207,13 @@ function ModelHeader({
         {webSearch ? (
           <span className="inline-flex items-center gap-1 text-xs text-base-content/60">
             <Globe className="size-3" />
-            web search
+            busca na web
           </span>
         ) : null}
       </div>
       {tokens != null ? (
         <span className="text-xs tabular-nums text-base-content/50">
-          {tokens.toLocaleString()} tokens
+          {tokens.toLocaleString("pt-BR")} tokens
         </span>
       ) : null}
     </header>
@@ -239,7 +239,7 @@ function BrandMentionBadge({
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-base-200 px-2 py-0.5 text-xs text-base-content/60">
       <XCircle className="size-3" />
-      no {highlightBrand}
+      sem {highlightBrand}
     </span>
   );
 }

@@ -29,7 +29,12 @@ export function AddKeywordsPanel({
       onSuccess(result);
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to add keywords"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível adicionar as palavras-chave",
+        ),
+      );
     },
   });
   const isPending = mutation.isPending;
@@ -39,13 +44,13 @@ export function AddKeywordsPanel({
         <textarea
           className="textarea textarea-bordered textarea-sm w-full"
           rows={3}
-          placeholder="Enter keywords, one per line"
+          placeholder="Digite as palavras-chave, uma por linha"
           value={keywordInput}
           onChange={(e) => setKeywordInput(e.target.value)}
         />
         <label
           className="flex items-center gap-2 text-xs cursor-pointer w-fit"
-          title="Track these keywords exactly as typed instead of lowercasing them. Google can return different results for a capitalized brand name."
+          title="Monitora estas palavras-chave exatamente como digitadas, sem converter para minúsculas. O Google pode retornar resultados diferentes para um nome de marca com maiúsculas."
         >
           <input
             type="checkbox"
@@ -53,7 +58,7 @@ export function AddKeywordsPanel({
             checked={matchCase}
             onChange={(e) => setMatchCase(e.target.checked)}
           />
-          Match case
+          Diferenciar maiúsculas
         </label>
       </div>
       <div className="flex flex-col gap-1">
@@ -66,7 +71,7 @@ export function AddKeywordsPanel({
               .filter(Boolean);
             if (lines.some((l) => l.length > MAX_TRACKED_KEYWORD_LENGTH)) {
               toast.error(
-                `Keywords must be ${MAX_TRACKED_KEYWORD_LENGTH} characters or fewer.`,
+                `As palavras-chave devem ter no máximo ${MAX_TRACKED_KEYWORD_LENGTH} caracteres.`,
               );
               return;
             }
@@ -75,10 +80,10 @@ export function AddKeywordsPanel({
           disabled={isPending || !keywordInput.trim()}
         >
           {isPending && <Loader2 className="size-3 animate-spin" />}
-          Add
+          Adicionar
         </button>
         <button className="btn btn-ghost btn-sm" onClick={onCancel}>
-          Cancel
+          Cancelar
         </button>
       </div>
     </div>

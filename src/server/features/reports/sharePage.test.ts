@@ -55,7 +55,7 @@ describe("renderSharePage", () => {
       `<iframe src="/s/${TOKEN}/raw" sandbox="${REPORT_IFRAME_SANDBOX}"`,
     );
     expect(html).toContain(
-      "<title>badseo.dev &lt;SEO&gt; audit · OpenSEO</title>",
+      "<title>badseo.dev &lt;SEO&gt; audit · RE9 SEO</title>",
     );
     expect(html).toContain(
       '<meta property="og:description" content="Fix the &quot;titles&quot; first."/>',
@@ -69,10 +69,10 @@ describe("renderSharePage", () => {
     expect($('meta[property="og:image"]').attr("content")).toBe(imageUrl);
     expect($('meta[name="twitter:image"]').attr("content")).toBe(imageUrl);
     expect($('meta[property="og:image:alt"]').attr("content")).toBe(
-      `${SHARED_REPORT.title} · OpenSEO`,
+      `${SHARED_REPORT.title} · RE9 SEO`,
     );
     expect($('meta[name="twitter:image:alt"]').attr("content")).toBe(
-      `${SHARED_REPORT.title} · OpenSEO`,
+      `${SHARED_REPORT.title} · RE9 SEO`,
     );
     // No app bundle: the reader has never signed in and needs none of it.
     expect(html).not.toContain("/assets/");
@@ -134,7 +134,7 @@ describe("renderSharePage", () => {
     const html = await response.text();
 
     expect(response.status).toBe(404);
-    expect(html).toContain("This project has been archived.");
+    expect(html).toContain("Este projeto foi arquivado.");
     expect(html).not.toContain("badseo.dev");
     expect(html).not.toContain("og:image");
     expect(html).not.toContain("twitter:image");
@@ -162,7 +162,7 @@ describe("renderSharePage", () => {
 
     expect(response.status).toBe(404);
     const html = await response.text();
-    expect(html).toContain("This report isn&#x27;t shared.");
+    expect(html).toContain("Este relatório não está compartilhado.");
     expect(html).not.toContain("og:image");
     expect(html).not.toContain("twitter:image");
   });

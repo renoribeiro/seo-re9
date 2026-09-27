@@ -76,7 +76,7 @@ describe("buildBacklinksTabExport", () => {
       },
     });
 
-    expect(content).toContain('"Domain","Source URL","Target URL"');
+    expect(content).toContain('"Domínio","URL de origem","URL de destino"');
     expect(content).not.toContain('"Ahrefs DR"');
     expect(content).toContain('"example.org"');
     expect(content).toContain('"noopener, noreferrer"');
@@ -93,7 +93,7 @@ describe("buildBacklinksTabExport", () => {
       },
     });
 
-    expect(content).toContain('"Rank","Ahrefs DR","Spam Score"');
+    expect(content).toContain('"Autoridade","Ahrefs DR","Pontuação de spam"');
     expect(content).toContain('"71.5"');
   });
 
@@ -108,7 +108,9 @@ describe("buildBacklinksTabExport", () => {
       },
     });
 
-    expect(content).toContain('"Domain Rank","Ahrefs DR","Source Page Rank"');
+    expect(content).toContain(
+      '"Autoridade do domínio","Ahrefs DR","Autoridade da página de origem"',
+    );
     expect(content).toContain('"33"');
   });
 
@@ -122,7 +124,7 @@ describe("buildBacklinksTabExport", () => {
       },
     });
 
-    expect(content).toContain('"Domain","Backlinks","Referring Pages"');
+    expect(content).toContain('"Domínio","Backlinks","Páginas de referência"');
     expect(content).toContain('"source.com"');
   });
 
@@ -145,7 +147,7 @@ describe("buildBacklinksTabExport", () => {
     });
 
     expect(content).toContain(
-      '"Page","Backlinks","Referring Domains","Rank","Broken Backlinks"',
+      '"Página","Backlinks","Domínios de referência","Autoridade","Backlinks quebrados"',
     );
     expect(content).toContain('"https://docs.example.com/start"');
   });

@@ -36,10 +36,15 @@ export function useContextUpdate(projectId: string) {
     onMutate: () => queryClient.cancelQueries({ queryKey }),
     onSuccess: (context) => {
       queryClient.setQueryData(queryKey, context);
-      toast.success("Project context updated");
+      toast.success("Contexto do projeto atualizado");
     },
     onError: (error) =>
-      toast.error(getStandardErrorMessage(error, "Couldn't save your changes")),
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível salvar suas alterações",
+        ),
+      ),
     // The page instantiates this mutation per section, so two concurrent
     // patches can settle out of order and the slower (earlier-snapshotted)
     // response can land in the cache last; a settle-time refetch converges
@@ -49,17 +54,17 @@ export function useContextUpdate(projectId: string) {
 }
 
 const AUTHOR_LABELS: Record<ContextAuthor, string> = {
-  user: "you",
+  user: "você",
   sam: "SAM",
-  mcp: "your AI client",
+  mcp: "seu cliente de IA",
 };
 
 export function Provenance({ by, at }: { by: ContextAuthor; at?: string }) {
   return (
     <span className="text-xs text-base-content/40">
       {at
-        ? `Updated by ${AUTHOR_LABELS[by]} · ${formatRelativeTime(at)}`
-        : `Added by ${AUTHOR_LABELS[by]}`}
+        ? `Atualizado por ${AUTHOR_LABELS[by]} · ${formatRelativeTime(at)}`
+        : `Adicionado por ${AUTHOR_LABELS[by]}`}
     </span>
   );
 }
@@ -128,14 +133,14 @@ export function ConfirmDeleteButton({
             onConfirm();
           }}
         >
-          Remove
+          Remover
         </button>
         <button
           type="button"
           className="btn btn-ghost btn-xs"
           onClick={() => setConfirming(false)}
         >
-          Cancel
+          Cancelar
         </button>
       </>
     );
@@ -171,14 +176,14 @@ export function FormActions({
         onClick={onCancel}
         disabled={pending}
       >
-        Cancel
+        Cancelar
       </button>
       <button
         type="submit"
         className="btn btn-primary btn-xs"
         disabled={disabled || pending}
       >
-        Save
+        Salvar
       </button>
     </div>
   );

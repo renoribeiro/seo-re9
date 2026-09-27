@@ -21,7 +21,7 @@ export function FilterIntentSelect({
         id="keyword-intent-filter-label"
         className="text-[11px] font-semibold uppercase tracking-wide text-base-content/60"
       >
-        Intent
+        Intenção
       </p>
       <form.Field name="intents">
         {(field) => {
@@ -110,13 +110,13 @@ export function FilterRangeInputs({
         <CompactRangeInput
           form={form}
           name={minName}
-          placeholder="Min"
+          placeholder="Mín"
           step={step}
         />
         <CompactRangeInput
           form={form}
           name={maxName}
-          placeholder="Max"
+          placeholder="Máx"
           step={step}
         />
       </div>
@@ -161,11 +161,11 @@ export function EmptyFilterResults({
   return (
     <div className="h-full flex flex-col items-center justify-center text-center px-4 text-base-content/50 gap-3">
       <p className="text-sm font-medium">
-        No keywords match your current filters.
+        Nenhuma palavra-chave corresponde aos filtros atuais.
       </p>
       {activeFilterCount > 0 ? (
         <button className="btn btn-ghost btn-sm" onClick={resetFilters}>
-          Clear filters
+          Limpar filtros
         </button>
       ) : null}
     </div>

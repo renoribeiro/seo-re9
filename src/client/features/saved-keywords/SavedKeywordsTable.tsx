@@ -48,7 +48,7 @@ export function SavedKeywordsTable({
       makeSelectionColumn<SavedKeywordRow>(selectAnchorRef),
       columnHelper.accessor("keyword", {
         header: ({ column }) => (
-          <SortableHeader column={column} label="Keyword" />
+          <SortableHeader column={column} label="Palavra-chave" />
         ),
         cell: ({ getValue }) => (
           <span className="font-medium">{getValue()}</span>
@@ -71,8 +71,8 @@ export function SavedKeywordsTable({
         header: ({ column }) => (
           <SortableHeader
             column={column}
-            label="Competition"
-            helpText="Paid-search competition from Google Ads (0-1): higher means more advertisers bidding."
+            label="Concorrência"
+            helpText="Concorrência na busca paga do Google Ads (0-1): quanto maior, mais anunciantes disputando."
           />
         ),
         cell: ({ getValue }) => {
@@ -84,14 +84,14 @@ export function SavedKeywordsTable({
         header: ({ column }) => (
           <SortableHeader
             column={column}
-            label="Difficulty"
-            helpText="Organic ranking difficulty (0-100): higher means harder to reach Google's top 10."
+            label="Dificuldade"
+            helpText="Dificuldade de ranqueamento orgânico (0-100): quanto maior, mais difícil chegar ao Top 10 do Google."
           />
         ),
         cell: ({ getValue }) => <DifficultyBadge value={getValue()} />,
       }),
       columnHelper.accessor("intent", {
-        header: () => "Intent",
+        header: () => "Intenção",
         cell: ({ getValue }) => (
           <IntentBadge intent={normalizeIntent(getValue())} />
         ),
@@ -106,7 +106,7 @@ export function SavedKeywordsTable({
       }),
       columnHelper.accessor("fetchedAt", {
         header: ({ column }) => (
-          <SortableHeader column={column} label="Last Fetched" />
+          <SortableHeader column={column} label="Atualizado em" />
         ),
         cell: ({ getValue }) => (
           <span className="text-xs text-base-content/55">
@@ -195,8 +195,8 @@ function SavedKeywordsEmptyState({
       <Search className="mx-auto mb-2 size-8 opacity-40" />
       <p>
         {hasActiveFilters
-          ? "No saved keywords match the current filters."
-          : "No saved keywords yet. Use the Keyword Research page to find and save keywords."}
+          ? "Nenhuma palavra-chave salva corresponde aos filtros atuais."
+          : "Nenhuma palavra-chave salva ainda. Use a página Pesquisa de palavras-chave para encontrar e salvar palavras-chave."}
       </p>
     </div>
   );

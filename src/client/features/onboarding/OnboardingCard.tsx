@@ -13,17 +13,17 @@ export function OnboardingCard({
     <div className="w-full max-w-xl py-8">
       <div className="flex items-center justify-center gap-2 text-sm font-semibold">
         <img src="/transparent-logo.png" alt="" className="size-7" />
-        OpenSEO
+        RE9 SEO
       </div>
       <main className="mt-8 rounded-2xl border border-base-300 bg-base-100 p-6 shadow-sm md:mt-12 md:p-10">
         <div
           className="mb-8 flex gap-2"
           role="progressbar"
-          aria-label="Onboarding progress"
+          aria-label="Progresso dos primeiros passos"
           aria-valuemin={1}
           aria-valuemax={total}
           aria-valuenow={step}
-          aria-valuetext={`Step ${step} of ${total}`}
+          aria-valuetext={`Passo ${step} de ${total}`}
         >
           {Array.from({ length: total }, (_, index) => (
             <span

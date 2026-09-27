@@ -10,6 +10,14 @@ export type KeywordMode = "auto" | KeywordSource;
 /** Actual result source; google_ads serves countries Labs doesn't cover. */
 export type ResearchSource = KeywordSource | "google_ads";
 
+/** Display labels for each research source (values stay as-is for logic). */
+export const RESEARCH_SOURCE_LABELS: Record<ResearchSource, string> = {
+  related: "palavras-chave relacionadas",
+  suggestions: "sugestões",
+  ideas: "ideias",
+  google_ads: "Google Ads",
+};
+
 export type KeywordFilterValues = {
   include: string;
   exclude: string;

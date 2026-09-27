@@ -21,6 +21,7 @@ import {
   OverviewStats,
   SerpAnalysisCard,
 } from "@/client/features/keywords/components";
+import { RESEARCH_SOURCE_LABELS } from "@/client/features/keywords/keywordResearchTypes";
 import type { KeywordResearchRow } from "@/types/keywords";
 import type { KeywordResearchControllerState } from "./types";
 import {
@@ -41,21 +42,21 @@ import {
 
 const MONTH_SHORT_LABELS = [
   "Jan",
-  "Feb",
+  "Fev",
   "Mar",
-  "Apr",
-  "May",
+  "Abr",
+  "Mai",
   "Jun",
   "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
+  "Ago",
+  "Set",
+  "Out",
   "Nov",
-  "Dec",
+  "Dez",
 ] as const;
 
 function formatTrendRangeLabel(trend: KeywordResearchRow["trend"]): string {
-  if (trend.length === 0) return "Last 12 available months";
+  if (trend.length === 0) return "Últimos 12 meses disponíveis";
 
   const sorted = sortBy(trend, (item) => item.year * 100 + item.month);
   const last12 = sorted.slice(-12);
@@ -100,13 +101,13 @@ function DesktopKeywordPanel({ controller }: Props) {
           className="rounded-lg border border-warning/40 bg-warning/15 px-3 py-2 text-sm text-base-content"
           role="status"
         >
-          No exact match for{" "}
-          <span className="font-medium">"{searchedKeyword}"</span>. Showing
-          closest related keywords instead.
+          Nenhuma correspondência exata para{" "}
+          <span className="font-medium">"{searchedKeyword}"</span>. Mostrando as
+          palavras-chave relacionadas mais próximas.
           {lastUsedFallback ? (
             <span className="text-base-content/75">
               {" "}
-              Source: {lastResultSource} fallback.
+              Fonte alternativa: {RESEARCH_SOURCE_LABELS[lastResultSource]}.
             </span>
           ) : null}
         </div>
@@ -133,10 +134,10 @@ function DesktopTableCard({ controller }: Props) {
 
   const keywordCountLabel =
     selectedRows.size > 0
-      ? `${selectedRows.size} of ${filteredRows.length} selected`
+      ? `${selectedRows.size} de ${filteredRows.length} ${selectedRows.size === 1 ? "selecionada" : "selecionadas"}`
       : activeFilterCount > 0
-        ? `Showing ${filteredRows.length} of ${rows.length} keywords`
-        : `Showing ${filteredRows.length} keywords`;
+        ? `Mostrando ${filteredRows.length} de ${rows.length} ${rows.length === 1 ? "palavra-chave" : "palavras-chave"}`
+        : `Mostrando ${filteredRows.length} ${filteredRows.length === 1 ? "palavra-chave" : "palavras-chave"}`;
 
   const canExport = filteredRows.length > 0;
   const selectedExportRows = filteredRows
@@ -171,10 +172,10 @@ function DesktopTableCard({ controller }: Props) {
         <button
           className={`btn btn-ghost btn-sm gap-1.5 ${showFilters ? "btn-active" : ""}`}
           onClick={() => controller.setShowFilters((current) => !current)}
-          title="Toggle table filters"
+          title="Mostrar/ocultar filtros da tabela"
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
@@ -192,7 +193,7 @@ function DesktopTableCard({ controller }: Props) {
             className={`btn btn-ghost btn-sm gap-1 ${!canExport ? "btn-disabled" : ""}`}
           >
             <Download className="size-3.5" />
-            <span className="hidden lg:inline">Export</span>
+            <span className="hidden lg:inline">Exportar</span>
             <ChevronDown className="size-3 opacity-60" />
           </div>
           <ul
@@ -202,13 +203,13 @@ function DesktopTableCard({ controller }: Props) {
             <li>
               <button onClick={handleExportToSheets} disabled={!canExport}>
                 <Sheet className="size-4" />
-                Export to Sheets
+                Exportar para o Sheets
               </button>
             </li>
             <li>
               <button onClick={controller.exportCsv} disabled={!canExport}>
                 <FileDown className="size-4" />
-                Export CSV
+                Exportar CSV
               </button>
             </li>
           </ul>
@@ -224,17 +225,17 @@ function DesktopTableCard({ controller }: Props) {
               icon={<Save className="size-3.5" />}
               onClick={controller.handleSaveKeywords}
             >
-              Save Keywords
+              Salvar palavras-chave
             </TableBulkActionButton>
             <TableBulkExportMenu
               actions={[
                 {
-                  label: "Export to Sheets",
+                  label: "Exportar para o Sheets",
                   icon: <Sheet className="size-4" />,
                   onClick: handleExportSelectionToSheets,
                 },
                 {
-                  label: "Export CSV",
+                  label: "Exportar CSV",
                   icon: <FileDown className="size-4" />,
                   onClick: handleExportSelectionCsv,
                 },
@@ -277,10 +278,10 @@ function DesktopFilters({ controller }: Props) {
     <div className="shrink-0 border-b border-base-300 bg-gradient-to-b from-base-100 to-base-200/30 px-4 py-3 space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold">Refine table results</p>
+          <p className="text-sm font-semibold">Refinar resultados da tabela</p>
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
-              {activeFilterCount} active
+              {activeFilterCount} {activeFilterCount === 1 ? "ativo" : "ativos"}
             </span>
           ) : null}
         </div>
@@ -290,7 +291,7 @@ function DesktopFilters({ controller }: Props) {
           disabled={activeFilterCount === 0}
         >
           <RotateCcw className="size-3" />
-          Clear all
+          Limpar tudo
         </button>
       </div>
 
@@ -298,21 +299,21 @@ function DesktopFilters({ controller }: Props) {
         <FilterTextInput
           form={filtersForm}
           name="include"
-          label="Include Terms"
-          placeholder="audit, checker, template"
+          label="Incluir termos"
+          placeholder="auditoria, verificador, modelo"
         />
         <FilterTextInput
           form={filtersForm}
           name="exclude"
-          label="Exclude Terms"
-          placeholder="jobs, salary, course"
+          label="Excluir termos"
+          placeholder="vagas, salário, curso"
         />
       </div>
 
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
         <FilterRangeInputs
           form={filtersForm}
-          title="Search Volume"
+          title="Volume de busca"
           minName="minVol"
           maxName="maxVol"
         />
@@ -325,7 +326,7 @@ function DesktopFilters({ controller }: Props) {
         />
         <FilterRangeInputs
           form={filtersForm}
-          title="Difficulty"
+          title="Dificuldade"
           minName="minKd"
           maxName="maxKd"
         />
@@ -340,14 +341,14 @@ function DesktopSerpPanel({ controller }: Props) {
   const { overviewKeyword } = controller;
   const trendRangeLabel = overviewKeyword
     ? formatTrendRangeLabel(overviewKeyword.trend)
-    : "Last 12 available months";
+    : "Últimos 12 meses disponíveis";
 
   return (
     <div className="order-1 xl:order-2 flex flex-col min-w-0 gap-2 xl:basis-2/5 xl:overflow-y-auto">
       {overviewKeyword && overviewKeyword.trend.length > 0 ? (
         <div className="shrink-0 overflow-hidden border border-base-300 rounded-xl bg-base-100 px-4 py-3">
           <h4 className="text-sm font-semibold mb-1">
-            Search Trends{" "}
+            Tendências de busca{" "}
             <span className="font-normal text-base-content/50">
               {trendRangeLabel}
             </span>
@@ -360,7 +361,7 @@ function DesktopSerpPanel({ controller }: Props) {
         <div className="shrink-0 px-4 py-3 border-b border-base-300">
           <h3 className="text-sm font-semibold flex items-center gap-1.5">
             <Globe className="size-3.5" />
-            SERP Analysis
+            Análise da SERP
             {controller.activeSerpKeyword ? (
               <span className="font-normal text-base-content/50 truncate">
                 : {controller.activeSerpKeyword}

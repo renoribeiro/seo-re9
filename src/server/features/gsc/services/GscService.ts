@@ -150,7 +150,7 @@ async function setSite(input: {
   if (!grants.some((grant) => grant.accountId === input.accountId)) {
     throw new AppError(
       "NOT_FOUND",
-      "That Google account isn't connected to your OpenSEO account.",
+      "Essa conta Google não está conectada à sua conta do RE9 SEO.",
     );
   }
 
@@ -163,13 +163,13 @@ async function setSite(input: {
   if (!match) {
     throw new AppError(
       "NOT_FOUND",
-      "That Search Console property isn't available on your connected Google account.",
+      "Essa propriedade do Search Console não está disponível na sua conta Google conectada.",
     );
   }
   if (match.permissionLevel === SITE_UNVERIFIED_PERMISSION) {
     throw new AppError(
       "FORBIDDEN",
-      "You don't have verified access to that Search Console property.",
+      "Você não tem acesso verificado a essa propriedade do Search Console.",
     );
   }
   let connectedAccountEmail: string | null = null;

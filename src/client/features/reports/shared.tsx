@@ -48,7 +48,7 @@ export function useDeleteReport(projectId: string, onDeleted?: () => void) {
         project_id: projectId,
         report_id: reportId,
       });
-      toast.success("Report deleted");
+      toast.success("Relatório excluído");
       void queryClient.invalidateQueries({
         queryKey: reportsQueryKey(projectId),
       });
@@ -61,7 +61,7 @@ export function useDeleteReport(projectId: string, onDeleted?: () => void) {
     },
     onError: (error: Error) => {
       toast.error(
-        getStandardErrorMessage(error, "Failed to delete the report"),
+        getStandardErrorMessage(error, "Não foi possível excluir o relatório"),
       );
     },
   });
@@ -81,9 +81,9 @@ export function DeleteReportModal({
 }) {
   return (
     <ConfirmDeleteModal
-      title={`Delete \u201c${title}\u201d?`}
-      detail="This cannot be undone."
-      confirmLabel="Delete report"
+      title={`Excluir \u201c${title}\u201d?`}
+      detail="Esta ação não pode ser desfeita."
+      confirmLabel="Excluir relatório"
       isPending={isPending}
       onClose={onClose}
       onConfirm={onConfirm}
@@ -140,9 +140,9 @@ export function ShareReportModal({
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      toast.success("Link copied");
+      toast.success("Link copiado");
     } catch {
-      toast.error("Clipboard not available");
+      toast.error("Área de transferência indisponível");
     }
   };
 
@@ -155,7 +155,7 @@ export function ShareReportModal({
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <h3 id="share-report-title" className="text-base font-semibold">
-            Share
+            Compartilhar
           </h3>
           <p className="truncate text-sm text-base-content/60">
             {report.title}
@@ -164,7 +164,7 @@ export function ShareReportModal({
         <button
           type="button"
           className="btn btn-ghost btn-sm btn-square -mr-2 -mt-1"
-          aria-label="Close"
+          aria-label="Fechar"
           onClick={onClose}
         >
           <X className="size-4" />
@@ -174,11 +174,11 @@ export function ShareReportModal({
       <div className="rounded-lg border border-base-300">
         <label className="flex cursor-pointer items-center justify-between gap-4 p-4">
           <span className="min-w-0">
-            <span className="block text-sm font-medium">Public link</span>
+            <span className="block text-sm font-medium">Link público</span>
             <span className="block text-xs text-base-content/60">
               {shared
-                ? "Anyone with the link can view. No sign-in needed."
-                : "Only members of your organization can open it. A link that was open can keep loading for up to a minute."}
+                ? "Qualquer pessoa com o link pode ver. Não é preciso entrar."
+                : "Só membros da sua organização podem abrir. Um link que já estava aberto pode continuar carregando por até um minuto."}
             </span>
           </span>
           <input
@@ -198,7 +198,7 @@ export function ShareReportModal({
               <input
                 readOnly
                 value={url}
-                aria-label="Share link"
+                aria-label="Link de compartilhamento"
                 onFocus={(event) => event.target.select()}
                 className="input input-sm input-bordered min-w-0 flex-1 basis-64 text-sm"
               />
@@ -207,8 +207,8 @@ export function ShareReportModal({
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Open link"
-                  title="Open"
+                  aria-label="Abrir link"
+                  title="Abrir"
                   className="btn btn-sm btn-ghost rounded-r-none border border-r-0 border-base-300"
                 >
                   <ExternalLink className="size-4" />
@@ -219,14 +219,14 @@ export function ShareReportModal({
                   className="btn btn-sm btn-primary rounded-l-none"
                 >
                   <Copy className="size-4" />
-                  Copy link
+                  Copiar link
                 </button>
               </div>
             </div>
             <p className="text-xs text-base-content/50">
-              Shows the latest saved version. Hidden from search engines.
+              Mostra a última versão salva. Oculto dos buscadores.
               {report.sharedAt
-                ? ` Link created ${formatRelativeTime(report.sharedAt)}.`
+                ? ` Link criado ${formatRelativeTime(report.sharedAt)}.`
                 : ""}
             </p>
           </div>
@@ -237,7 +237,10 @@ export function ShareReportModal({
           the toggle that would not move. */}
       {mutation.isError ? (
         <p className="text-sm text-error">
-          {getStandardErrorMessage(mutation.error, "Failed to update sharing")}
+          {getStandardErrorMessage(
+            mutation.error,
+            "Não foi possível atualizar o compartilhamento",
+          )}
         </p>
       ) : null}
     </Modal>

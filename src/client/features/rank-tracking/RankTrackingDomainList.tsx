@@ -78,7 +78,7 @@ export function RankTrackingDomainList({
       void queryClient.invalidateQueries({
         queryKey: ["rankTrackingConfigs", projectId],
       });
-      toast.success("Domain archived");
+      toast.success("Domínio arquivado");
     },
   });
 
@@ -86,13 +86,13 @@ export function RankTrackingDomainList({
     <div className="card bg-base-100 border border-base-300">
       <div className="card-body gap-0 p-0">
         <div className="flex items-center justify-between px-5 pt-4 pb-3">
-          <h2 className="text-sm font-semibold">Tracked Domains</h2>
+          <h2 className="text-sm font-semibold">Domínios monitorados</h2>
           <button
             className="btn btn-primary btn-sm gap-1"
             onClick={onAddDomain}
           >
             <Plus className="size-3.5" />
-            Add Domain
+            Adicionar domínio
           </button>
         </div>
         {(allSummaries.length >= FILTER_BAR_MIN_DOMAINS ||
@@ -121,10 +121,11 @@ export function RankTrackingDomainList({
                 <Globe className="size-5 text-base-content/40" />
               </div>
               <p className="text-sm font-medium text-base-content/70">
-                No tracked domains yet
+                Nenhum domínio monitorado ainda
               </p>
               <p className="text-xs text-base-content/40">
-                Add a domain to start monitoring keyword rankings over time.
+                Adicione um domínio para acompanhar o ranqueamento das
+                palavras-chave ao longo do tempo.
               </p>
             </div>
           ) : filteredSummaries.length === 0 ? (
@@ -134,10 +135,10 @@ export function RankTrackingDomainList({
               </div>
               <div className="space-y-1">
                 <p className="text-sm font-medium text-base-content/70">
-                  No matching tracked domains
+                  Nenhum domínio monitorado corresponde à busca
                 </p>
                 <p className="text-xs text-base-content/40">
-                  Try clearing search or adjusting filters.
+                  Limpe a busca ou ajuste os filtros.
                 </p>
               </div>
               <button
@@ -145,7 +146,7 @@ export function RankTrackingDomainList({
                 onClick={() => setFilters(EMPTY_DOMAIN_LIST_FILTERS)}
                 disabled={activeFilterCount === 0}
               >
-                Clear filters
+                Limpar filtros
               </button>
             </div>
           ) : (
@@ -167,18 +168,18 @@ export function RankTrackingDomainList({
           labelledBy="archive-domain-title"
         >
           <h3 id="archive-domain-title" className="text-lg font-semibold">
-            Archive {archiveTarget.domain}?
+            Arquivar {archiveTarget.domain}?
           </h3>
           <p className="text-sm text-base-content/70">
-            Scheduled checks will stop and this domain will be hidden from the
-            list. Ranking history is preserved.
+            As verificações agendadas serão interrompidas e este domínio ficará
+            oculto da lista. O histórico de ranqueamento é preservado.
           </p>
           <div className="flex justify-end gap-2">
             <button
               className="btn btn-ghost btn-sm"
               onClick={() => setArchiveTarget(null)}
             >
-              Cancel
+              Cancelar
             </button>
             <button
               className="btn btn-error btn-sm gap-1"
@@ -186,7 +187,7 @@ export function RankTrackingDomainList({
               disabled={archiveMutation.isPending}
             >
               <Archive className="size-3.5" />
-              Archive
+              Arquivar
             </button>
           </div>
         </Modal>
@@ -210,7 +211,7 @@ function DomainRow({
         to="/p/$projectId/rank-tracking/$configId"
         params={{ projectId, configId: summary.id }}
         className="absolute inset-0 z-0"
-        aria-label={`Open ${summary.domain}`}
+        aria-label={`Abrir ${summary.domain}`}
       />
       <div className="min-w-0 flex-1 pointer-events-none">
         <p className="font-medium truncate">{summary.domain}</p>
@@ -223,21 +224,21 @@ function DomainRow({
           {summary.lastRunCompletedAt && (
             <>
               {" "}
-              &middot; Last:{" "}
-              {new Date(summary.lastRunCompletedAt).toLocaleDateString()}
+              &middot; Última:{" "}
+              {new Date(summary.lastRunCompletedAt).toLocaleDateString("pt-BR")}
             </>
           )}
         </p>
         {summary.lastSkipReason === "insufficient_credits" && (
           <p className="flex items-center gap-1 text-xs text-warning">
             <AlertTriangle className="size-3" />
-            Scheduled check skipped — insufficient credits
+            Verificação agendada ignorada — créditos insuficientes
           </p>
         )}
         {summary.lastSkipReason === "plan_required" && (
           <p className="flex items-center gap-1 text-xs text-warning">
             <AlertTriangle className="size-3" />
-            Scheduled check skipped — paid plan required
+            Verificação agendada ignorada — requer plano pago
           </p>
         )}
       </div>
@@ -245,7 +246,7 @@ function DomainRow({
         {summary.keywordCount > 0 && (
           <div className="text-center">
             <p className="text-xs uppercase tracking-wide text-base-content/60">
-              Keywords
+              Palavras-chave
             </p>
             <p className="font-mono font-medium">{summary.keywordCount}</p>
           </div>
@@ -254,7 +255,7 @@ function DomainRow({
       <button
         type="button"
         className="btn btn-ghost btn-xs text-base-content/40 hover:text-error relative z-10"
-        title="Archive domain"
+        title="Arquivar domínio"
         onClick={(e) => {
           e.stopPropagation();
           e.preventDefault();

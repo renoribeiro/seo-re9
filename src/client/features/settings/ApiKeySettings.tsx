@@ -27,7 +27,9 @@ export function ApiKeySettings() {
     queryFn: async () => {
       const result = await authClient.apiKey.list();
       if (result.error) {
-        throw new Error(result.error.message ?? "Failed to load API keys");
+        throw new Error(
+          result.error.message ?? "Não foi possível carregar as chaves de API",
+        );
       }
       return result.data.apiKeys.map((key) => ({
         id: key.id,
@@ -43,7 +45,9 @@ export function ApiKeySettings() {
     mutationFn: async (keyName: string) => {
       const result = await authClient.apiKey.create({ name: keyName });
       if (result.error || !result.data?.key) {
-        throw new Error(result.error?.message ?? "Failed to create the key");
+        throw new Error(
+          result.error?.message ?? "Não foi possível criar a chave",
+        );
       }
       return result.data.key;
     },
@@ -62,12 +66,14 @@ export function ApiKeySettings() {
     mutationFn: async (keyId: string) => {
       const result = await authClient.apiKey.delete({ keyId });
       if (result.error) {
-        throw new Error(result.error.message ?? "Failed to revoke the key");
+        throw new Error(
+          result.error.message ?? "Não foi possível revogar a chave",
+        );
       }
     },
     onSuccess: () => {
       captureClientEvent("mcp:api_key_revoked");
-      toast.success("API key revoked");
+      toast.success("Chave de API revogada");
       void queryClient.invalidateQueries({ queryKey: ["apiKeys"] });
     },
     onError: (error) => {
@@ -85,15 +91,17 @@ export function ApiKeySettings() {
 
   return (
     <section className="space-y-3">
-      <h2 className="text-sm font-medium text-base-content/50">API keys</h2>
+      <h2 className="text-sm font-medium text-base-content/50">
+        Chaves de API
+      </h2>
       <div className="flex items-start justify-between gap-6">
         <div>
           <p className="text-sm">
-            Authenticate MCP clients when OAuth doesn't work
+            Autentique clientes MCP quando o OAuth não funcionar
           </p>
           <p className="mt-1 text-sm text-base-content/60">
-            Use this for remote agents like Hermes where the normal login flow
-            doesn't work.
+            Use em agentes remotos, como o Hermes, em que o fluxo normal de
+            login não funciona.
           </p>
           <p className="mt-1 text-sm">
             <a
@@ -102,7 +110,7 @@ export function ApiKeySettings() {
               target="_blank"
               rel="noreferrer"
             >
-              Setup guide
+              Guia de configuração
             </a>
           </p>
         </div>
@@ -111,21 +119,23 @@ export function ApiKeySettings() {
           className="btn btn-primary btn-sm"
           onClick={() => setIsCreateOpen(true)}
         >
-          Create API key
+          Criar chave de API
         </button>
       </div>
 
       {apiKeysQuery.isError ? (
-        <p className="text-sm text-error">We couldn't load your API keys.</p>
+        <p className="text-sm text-error">
+          Não foi possível carregar suas chaves de API.
+        </p>
       ) : apiKeys.length > 0 ? (
         <div className="overflow-x-auto rounded-lg border border-base-300">
           <table className="table table-sm">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Key</th>
-                <th>Created</th>
-                <th>Last used</th>
+                <th>Nome</th>
+                <th>Chave</th>
+                <th>Criada em</th>
+                <th>Último uso</th>
                 <th className="w-10"></th>
               </tr>
             </thead>
@@ -133,7 +143,7 @@ export function ApiKeySettings() {
               {apiKeys.map((key) => (
                 <tr key={key.id} className="hover">
                   <td className="max-w-[220px] truncate font-medium">
-                    {key.name || "Unnamed key"}
+                    {key.name || "Chave sem nome"}
                   </td>
                   <td
                     className="font-mono text-xs text-base-content/70"
@@ -142,16 +152,16 @@ export function ApiKeySettings() {
                     {key.start || "oseo_"}…
                   </td>
                   <td className="text-xs text-base-content/70">
-                    {key.createdAt.toLocaleDateString()}
+                    {key.createdAt.toLocaleDateString("pt-BR")}
                   </td>
                   <td className="text-xs text-base-content/70">
                     {key.lastRequest
-                      ? key.lastRequest.toLocaleDateString()
-                      : "Never"}
+                      ? key.lastRequest.toLocaleDateString("pt-BR")
+                      : "Nunca"}
                   </td>
                   <td>
                     <PortalMenu
-                      ariaLabel={`Actions for ${key.name || "API key"}`}
+                      ariaLabel={`Ações para ${key.name || "chave de API"}`}
                     >
                       {(close) => (
                         <li>
@@ -165,7 +175,7 @@ export function ApiKeySettings() {
                               close();
                               if (
                                 window.confirm(
-                                  `Revoke "${key.name || "Unnamed key"}"? Clients using it will stop working.`,
+                                  `Revogar "${key.name || "Chave sem nome"}"? Os clientes que usam essa chave vão parar de funcionar.`,
                                 )
                               ) {
                                 revokeMutation.mutate(key.id);
@@ -173,7 +183,7 @@ export function ApiKeySettings() {
                             }}
                           >
                             <Trash2 className="size-3.5" />
-                            Revoke key
+                            Revogar chave
                           </button>
                         </li>
                       )}
@@ -191,13 +201,15 @@ export function ApiKeySettings() {
           <div className="modal-box max-w-md">
             {createdKey ? (
               <>
-                <h3 className="text-lg font-bold">Copy your new API key</h3>
+                <h3 className="text-lg font-bold">
+                  Copie sua nova chave de API
+                </h3>
                 <p className="mt-2 text-sm text-base-content/60">
-                  It won't be shown again. Send it as{" "}
+                  Ela não será mostrada de novo. Envie-a como{" "}
                   <span className="font-mono text-xs">
                     Authorization: Bearer
                   </span>{" "}
-                  to <span className="font-mono text-xs">{mcpUrl}</span>.
+                  para <span className="font-mono text-xs">{mcpUrl}</span>.
                 </p>
                 <div className="mt-4 flex items-center gap-2">
                   <code
@@ -208,7 +220,7 @@ export function ApiKeySettings() {
                   </code>
                   <CopyButton
                     value={createdKey}
-                    successMessage="API key copied"
+                    successMessage="Chave de API copiada"
                     iconOnly
                   />
                 </div>
@@ -218,7 +230,7 @@ export function ApiKeySettings() {
                     className="btn btn-primary btn-sm"
                     onClick={closeCreateModal}
                   >
-                    Done
+                    Concluir
                   </button>
                 </div>
               </>
@@ -229,14 +241,14 @@ export function ApiKeySettings() {
                   if (name.trim()) createMutation.mutate(name.trim());
                 }}
               >
-                <h3 className="text-lg font-bold">Create API key</h3>
+                <h3 className="text-lg font-bold">Criar chave de API</h3>
                 <label className="form-control mt-4 w-full">
                   <span className="label-text pb-1 text-xs text-base-content/60">
-                    Name
+                    Nome
                   </span>
                   <input
                     className="input input-sm input-bordered w-full"
-                    placeholder="Claude Code on laptop"
+                    placeholder="Claude Code no notebook"
                     value={name}
                     maxLength={MAX_KEY_NAME_LENGTH}
                     onChange={(event) => setName(event.currentTarget.value)}
@@ -250,14 +262,14 @@ export function ApiKeySettings() {
                     className="btn btn-ghost btn-sm"
                     onClick={closeCreateModal}
                   >
-                    Cancel
+                    Cancelar
                   </button>
                   <button
                     type="submit"
                     className="btn btn-primary btn-sm"
                     disabled={createMutation.isPending || !name.trim()}
                   >
-                    {createMutation.isPending ? "Creating…" : "Create"}
+                    {createMutation.isPending ? "Criando…" : "Criar"}
                   </button>
                 </div>
               </form>

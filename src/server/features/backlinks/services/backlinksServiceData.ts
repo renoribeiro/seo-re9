@@ -227,7 +227,7 @@ export async function profileReferringDomainsPage(
   if (target.scope === "subfolder") {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Referring domains can't be broken down for a subfolder — use the Backlinks tab, or switch to Domain or Subdomains scope.",
+      "Não é possível detalhar os domínios de referência de uma subpasta — use a aba Backlinks ou mude o escopo para Domínio ou Subdomínios.",
     );
   }
 

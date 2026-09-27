@@ -31,7 +31,7 @@ export function SearchTargetingField({
   return (
     <div className="form-control">
       <label className="label">
-        <span className="label-text font-medium">Search Targeting</span>
+        <span className="label-text font-medium">Segmentação da busca</span>
       </label>
       <div className="flex gap-2">
         <label className="flex items-center gap-2 cursor-pointer">
@@ -44,7 +44,7 @@ export function SearchTargetingField({
               onLocationNameChange(undefined);
             }}
           />
-          <span className="text-sm">National</span>
+          <span className="text-sm">Nacional</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input
@@ -59,12 +59,14 @@ export function SearchTargetingField({
       <p className="text-xs text-base-content/50 mt-1.5">
         {mode === "local" ? (
           <>
-            <span className="text-success font-medium">Best for:</span> "near
-            me" queries, city/county keywords, service-area pages.
+            <span className="text-success font-medium">Ideal para:</span> buscas
+            "perto de mim", palavras-chave com cidade/região e páginas de área
+            de atendimento.
           </>
         ) : (
           <>
-            Local targeting can understate rankings for non-geo-modified terms.
+            A segmentação local pode subestimar posições de termos sem
+            referência geográfica.
           </>
         )}
       </p>
@@ -74,7 +76,7 @@ export function SearchTargetingField({
             value={locationName}
             onChange={onLocationNameChange}
             countryCode={countryCode}
-            placeholder="Search cities..."
+            placeholder="Buscar cidades…"
           />
         </div>
       )}

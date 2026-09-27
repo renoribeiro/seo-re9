@@ -19,7 +19,7 @@ function AuditIssuesPage() {
       projectId={projectId}
       resultId={resultId}
       category={category}
-      backLabel="Site Audit"
+      backLabel="Auditoria do site"
       onBack={() =>
         void navigate({
           to: "/p/$projectId/audit",

@@ -3,7 +3,7 @@ import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-const SUPPORT_EMAIL = "ben@openseo.so";
+const SUPPORT_EMAIL = "trafego@re9.online";
 const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
 const GITHUB_URL = "https://github.com/every-app/open-seo";
 
@@ -16,7 +16,7 @@ function SupportPage() {
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(SUPPORT_EMAIL);
-    toast.success("Email copied to clipboard");
+    toast.success("E-mail copiado para a área de transferência");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -25,21 +25,21 @@ function SupportPage() {
     <div className="h-full overflow-auto bg-base-100 px-4 py-8 pb-24 md:px-6 md:py-12 md:pb-8">
       <div className="mx-auto max-w-xl">
         <p className="text-sm font-medium text-base-content/40">
-          Help & Community
+          Ajuda e comunidade
         </p>
         <h1 className="mt-1 text-2xl font-bold tracking-tight">
-          We want to hear from you
+          Queremos ouvir você
         </h1>
         <p className="mt-2 text-sm text-base-content/60">
-          We want to talk to you! We're super open to feedback and want to learn
-          how you work so we can make OpenSEO better.
+          Queremos conversar com você! Estamos abertos a feedback e queremos
+          entender como você trabalha para deixar o RE9 SEO ainda melhor.
         </p>
 
         <div className="mt-8 space-y-3">
           <div className="rounded-lg border border-base-300 px-5 py-4">
-            <p className="text-sm font-semibold">Email</p>
+            <p className="text-sm font-semibold">E-mail</p>
             <p className="mt-1 text-sm text-base-content/60">
-              Send ideas, problems, questions, or feedback directly.
+              Envie ideias, problemas, dúvidas ou feedback diretamente.
             </p>
             <button
               type="button"
@@ -63,10 +63,10 @@ function SupportPage() {
           >
             <p className="text-sm font-semibold">Discord</p>
             <p className="mt-1 text-sm text-base-content/60">
-              Ask for help, share ideas and learn from the community.
+              Peça ajuda, compartilhe ideias e aprenda com a comunidade.
             </p>
             <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-base-content">
-              Join the Discord
+              Entrar no Discord
               <span aria-hidden="true">&rarr;</span>
             </span>
           </a>
@@ -79,10 +79,10 @@ function SupportPage() {
           >
             <p className="text-sm font-semibold">GitHub Issues</p>
             <p className="mt-1 text-sm text-base-content/60">
-              Report bugs or request features on GitHub.
+              Relate bugs ou peça novos recursos no GitHub.
             </p>
             <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-base-content">
-              Open an issue
+              Abrir uma issue
               <span aria-hidden="true">&rarr;</span>
             </span>
           </a>

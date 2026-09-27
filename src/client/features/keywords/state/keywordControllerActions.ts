@@ -6,6 +6,7 @@ import { captureClientEvent } from "@/client/lib/posthog";
 import type { KeywordResearchRow } from "@/types/keywords";
 import type { SaveKeywordsInput } from "@/types/schemas/keywords";
 import type { SortDir, SortField } from "@/client/features/keywords/components";
+import { INTENT_LABELS } from "@/client/features/keywords/components/IntentBadge";
 import type {
   KeywordMode,
   ResultLimit,
@@ -13,12 +14,12 @@ import type {
 import type { KeywordResearchControllerInput } from "./useKeywordResearchController";
 
 export const KEYWORD_RESEARCH_HEADERS = [
-  "Keyword",
+  "Palavra-chave",
   "Volume",
   "CPC",
-  "Competition",
-  "Score",
-  "Intent",
+  "Concorrência",
+  "KD",
+  "Intenção",
 ];
 
 export function keywordResearchExportRow(row: KeywordResearchRow): CsvValue[] {
@@ -28,7 +29,7 @@ export function keywordResearchExportRow(row: KeywordResearchRow): CsvValue[] {
     row.cpc ?? "",
     row.competition ?? "",
     row.keywordDifficulty ?? "",
-    row.intent,
+    INTENT_LABELS[row.intent] ?? row.intent,
   ];
 }
 
@@ -102,7 +103,7 @@ export function useSaveAndExportActions(params: SaveExportActionParams) {
 
   const handleSaveKeywords = () => {
     if (selectedRows.size === 0) {
-      toast.error("Select at least one keyword first");
+      toast.error("Selecione pelo menos uma palavra-chave primeiro");
       return;
     }
     setShowSaveDialog(true);
@@ -134,11 +135,13 @@ export function useSaveAndExportActions(params: SaveExportActionParams) {
             source_feature: "keyword_research",
             keyword_count: selectedRows.size,
           });
-          toast.success(`Saved ${selectedRows.size} keywords`);
+          toast.success(
+            `${selectedRows.size} ${selectedRows.size === 1 ? "palavra-chave salva" : "palavras-chave salvas"}`,
+          );
           setShowSaveDialog(false);
         },
         onError: (error: unknown) => {
-          toast.error(getStandardErrorMessage(error, "Save failed."));
+          toast.error(getStandardErrorMessage(error, "Falha ao salvar."));
         },
       },
     );
@@ -151,7 +154,7 @@ export function useSaveAndExportActions(params: SaveExportActionParams) {
 
   const exportCsv = () => {
     if (sheetsExportRows.length === 0) {
-      toast.error("No data to export");
+      toast.error("Não há dados para exportar");
       return;
     }
     downloadKeywordResearchCsv(sheetsExportRows);

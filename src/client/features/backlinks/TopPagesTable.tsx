@@ -22,8 +22,8 @@ const columns = [
     enableSorting: false,
     header: () => (
       <HeaderHelpLabel
-        label="Page"
-        helpText="Page on the target site receiving backlinks."
+        label="Página"
+        helpText="Página do site-alvo que recebe backlinks."
       />
     ),
     cell: ({ getValue }) => {
@@ -45,7 +45,7 @@ const columns = [
       <SortableHeader
         column={column}
         label="Backlinks"
-        helpText="Total backlinks pointing to this page."
+        helpText="Total de backlinks que apontam para esta página."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -56,8 +56,8 @@ const columns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Referring Domains"
-        helpText="Unique domains linking to this page."
+        label="Domínios de referência"
+        helpText="Domínios únicos que apontam para esta página."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -68,8 +68,8 @@ const columns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Rank"
-        helpText="Authority score for this target page."
+        label="Autoridade"
+        helpText="Pontuação de autoridade desta página de destino."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -80,8 +80,8 @@ const columns = [
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label="Broken Backlinks"
-        helpText="Backlinks pointing here that are currently broken."
+        label="Backlinks quebrados"
+        helpText="Backlinks que apontam para cá e estão quebrados no momento."
       />
     ),
     cell: ({ getValue }) => formatNumber(getValue()),
@@ -107,7 +107,9 @@ export function TopPagesTable({
   });
 
   if (rows.length === 0) {
-    return <EmptyTableState label="No top pages match this filter." />;
+    return (
+      <EmptyTableState label="Nenhuma página corresponde a este filtro." />
+    );
   }
 
   return (

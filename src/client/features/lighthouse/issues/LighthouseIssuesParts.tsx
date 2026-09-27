@@ -41,36 +41,36 @@ export function LighthouseIssuesHeader({
     <>
       <div className="flex items-center justify-between gap-3">
         <button className="btn btn-ghost btn-sm px-2" onClick={onBack}>
-          &larr; Back to {backLabel}
+          &larr; Voltar para {backLabel}
         </button>
         <span className="text-xs text-base-content/60">
           {scannedAt
-            ? `Scanned ${new Date(scannedAt).toLocaleString()}`
-            : "Reading latest issues..."}
+            ? `Analisado em ${new Date(scannedAt).toLocaleString("pt-BR")}`
+            : "Carregando os problemas mais recentes..."}
         </span>
       </div>
 
       <div className="card bg-base-100 border border-base-300">
         <div className="card-body py-5 gap-4">
           <div className="space-y-1">
-            <h1 className="text-2xl font-semibold">Lighthouse Issues</h1>
+            <h1 className="text-2xl font-semibold">Problemas do Lighthouse</h1>
             <p className="text-sm text-base-content/70 break-all">
-              {finalUrl ?? "Loading URL..."}
+              {finalUrl ?? "Carregando URL..."}
             </p>
           </div>
           <LighthouseIssuesSummary scores={scores} metrics={metrics} />
           <div className="flex flex-wrap gap-2 text-xs">
             <span className="badge border border-error/30 bg-error/10 text-error/80 gap-1">
               <FileWarning className="size-3" />
-              Critical {severityCounts.critical}
+              Crítico {severityCounts.critical}
             </span>
             <span className="badge border border-warning/30 bg-warning/10 text-warning/80 gap-1">
               <TriangleAlert className="size-3" />
-              Warning {severityCounts.warning}
+              Alerta {severityCounts.warning}
             </span>
             <span className="badge border border-info/30 bg-info/10 text-info/80 gap-1">
               <Info className="size-3" />
-              Info {severityCounts.info}
+              Informativo {severityCounts.info}
             </span>
           </div>
         </div>
@@ -110,8 +110,6 @@ export function LighthouseIssuesToolbar({
   const exportCurrentCategory: ExportPayload =
     category === "all" ? { mode: "issues" } : { mode: "category", category };
 
-  const categoryLabelLower = selectedCategoryLabel.toLowerCase();
-
   return (
     <div className="sticky top-0 z-[2] -mx-2 px-2 py-2 bg-base-100/95 backdrop-blur-sm border-b border-base-300/60">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -122,7 +120,7 @@ export function LighthouseIssuesToolbar({
         />
         <ExportMenu
           allIssues={allIssues}
-          categoryLabelLower={categoryLabelLower}
+          categoryLabelText={selectedCategoryLabel}
           exportCurrentCategory={exportCurrentCategory}
           isBusy={isBusy}
           onCopy={onCopy}
@@ -169,7 +167,7 @@ function CategoryTabs({
 
 function ExportMenu({
   allIssues,
-  categoryLabelLower,
+  categoryLabelText,
   exportCurrentCategory,
   isBusy,
   onCopy,
@@ -179,7 +177,7 @@ function ExportMenu({
   visibleIssues,
 }: {
   allIssues: LighthouseIssue[];
-  categoryLabelLower: string;
+  categoryLabelText: string;
   exportCurrentCategory: ExportPayload;
   isBusy: boolean;
   onCopy: (data: ExportPayload, toastMessage: string) => void;
@@ -193,12 +191,12 @@ function ExportMenu({
 }) {
   return (
     <PortalMenu
-      ariaLabel="Export Lighthouse issues"
+      ariaLabel="Exportar problemas do Lighthouse"
       triggerClassName="btn btn-sm gap-1"
       triggerContent={
         <>
           <Download className="size-4" />
-          Export
+          Exportar
           <ChevronDown className="size-3 opacity-60" />
         </>
       }
@@ -207,7 +205,7 @@ function ExportMenu({
       {(close) => (
         <>
           <li className="menu-title">
-            <span>Export to Sheets</span>
+            <span>Exportar para o Google Sheets</span>
           </li>
           <li>
             <button
@@ -218,7 +216,7 @@ function ExportMenu({
               }}
             >
               <Sheet className="size-4" />
-              Open in Sheets — {categoryLabelLower}
+              Abrir no Sheets — {categoryLabelText}
             </button>
           </li>
           <li>
@@ -230,11 +228,11 @@ function ExportMenu({
               }}
             >
               <Sheet className="size-4" />
-              Open in Sheets — all actionable
+              Abrir no Sheets — todos os acionáveis
             </button>
           </li>
           <li className="menu-title">
-            <span>Copy</span>
+            <span>Copiar</span>
           </li>
           <li>
             <button
@@ -243,12 +241,12 @@ function ExportMenu({
                 close();
                 onCopy(
                   exportCurrentCategory,
-                  `Copied ${categoryLabelLower} issues`,
+                  `Problemas copiados (${categoryLabelText})`,
                 );
               }}
             >
               <Copy className="size-4" />
-              Copy {categoryLabelLower} issues
+              Copiar problemas ({categoryLabelText})
             </button>
           </li>
           <li>
@@ -256,11 +254,14 @@ function ExportMenu({
               disabled={isBusy}
               onClick={() => {
                 close();
-                onCopy({ mode: "issues" }, "Copied all actionable issues");
+                onCopy(
+                  { mode: "issues" },
+                  "Todos os problemas acionáveis copiados",
+                );
               }}
             >
               <Copy className="size-4" />
-              Copy all actionable issues
+              Copiar todos os problemas acionáveis
             </button>
           </li>
           <li>
@@ -268,15 +269,15 @@ function ExportMenu({
               disabled={isBusy}
               onClick={() => {
                 close();
-                onCopy({ mode: "full" }, "Copied saved Lighthouse payload");
+                onCopy({ mode: "full" }, "Payload salvo do Lighthouse copiado");
               }}
             >
               <Copy className="size-4" />
-              Copy saved Lighthouse payload
+              Copiar payload salvo do Lighthouse
             </button>
           </li>
           <li className="menu-title">
-            <span>Download JSON</span>
+            <span>Baixar JSON</span>
           </li>
           <li>
             <button
@@ -286,7 +287,7 @@ function ExportMenu({
                 onExport(exportCurrentCategory);
               }}
             >
-              Download {categoryLabelLower} issues
+              Baixar problemas ({categoryLabelText})
             </button>
           </li>
           <li>
@@ -297,7 +298,7 @@ function ExportMenu({
                 onExport({ mode: "issues" });
               }}
             >
-              Download all actionable issues
+              Baixar todos os problemas acionáveis
             </button>
           </li>
           <li>
@@ -308,11 +309,11 @@ function ExportMenu({
                 onExport({ mode: "full" });
               }}
             >
-              Download saved Lighthouse payload
+              Baixar payload salvo do Lighthouse
             </button>
           </li>
           <li className="menu-title">
-            <span>Download CSV</span>
+            <span>Baixar CSV</span>
           </li>
           <li>
             <button
@@ -322,7 +323,7 @@ function ExportMenu({
                 onExportCsv(visibleIssues, "current");
               }}
             >
-              Download {categoryLabelLower} issues
+              Baixar problemas ({categoryLabelText})
             </button>
           </li>
           <li>
@@ -333,7 +334,7 @@ function ExportMenu({
                 onExportCsv(allIssues, "all");
               }}
             >
-              Download all actionable issues
+              Baixar todos os problemas acionáveis
             </button>
           </li>
         </>
@@ -352,12 +353,14 @@ export function LighthouseIssueList({
   emptyMessage?: string;
 }) {
   if (isLoading) {
-    return <p className="text-sm text-base-content/60">Loading issues...</p>;
+    return (
+      <p className="text-sm text-base-content/60">Carregando problemas...</p>
+    );
   }
   if (!issues.length) {
     return (
       <p className="text-sm text-base-content/60">
-        {emptyMessage ?? "No actionable issues for this category."}
+        {emptyMessage ?? "Nenhum problema acionável nesta categoria."}
       </p>
     );
   }
@@ -374,13 +377,13 @@ export function LighthouseIssueList({
       <thead>
         <tr className="text-xs text-base-content/50 uppercase tracking-wide border-b border-base-300">
           <th />
-          <th className="font-medium">Severity</th>
-          <th className="font-medium">Issue</th>
-          <th className="font-medium hidden sm:table-cell">Category</th>
+          <th className="font-medium">Gravidade</th>
+          <th className="font-medium">Problema</th>
+          <th className="font-medium hidden sm:table-cell">Categoria</th>
           <th className="font-medium hidden md:table-cell text-right">
-            Impact
+            Impacto
           </th>
-          <th className="font-medium text-right">Score</th>
+          <th className="font-medium text-right">Pontuação</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-base-300/60">

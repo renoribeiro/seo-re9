@@ -32,14 +32,14 @@ export const Route = createFileRoute("/verify-email")({
 function getVerificationErrorMessage(error: string | undefined) {
   switch ((error ?? "").toLowerCase()) {
     case "invalid_token":
-      return "This link is no longer valid. Request a new email to keep going.";
+      return "Este link não é mais válido. Peça um novo e-mail para continuar.";
     case "token_expired":
-      return "This link has expired. Request a new email to keep going.";
+      return "Este link expirou. Peça um novo e-mail para continuar.";
     case "user_not_found":
-      return "We couldn't find this account anymore. Try creating it again.";
+      return "Não encontramos mais esta conta. Tente criá-la novamente.";
     default:
       return error
-        ? "We couldn't confirm this email. Request a new email and try again."
+        ? "Não foi possível confirmar este e-mail. Peça um novo e-mail e tente novamente."
         : null;
   }
 }
@@ -59,29 +59,29 @@ function getVerifyEmailPageCopy({
 }) {
   if (!isHostedMode) {
     return {
-      title: "Verify email",
-      helperText: "Email confirmation isn't available right now.",
+      title: "Confirmar e-mail",
+      helperText: "A confirmação de e-mail não está disponível no momento.",
     };
   }
 
   if (errorMessage) {
     return {
-      title: "We couldn't confirm your email",
+      title: "Não foi possível confirmar seu e-mail",
       helperText: errorMessage,
     };
   }
 
   if (isRedirecting) {
     return {
-      title: "Email confirmed",
-      helperText: "You're all set. Taking you to your account now.",
+      title: "E-mail confirmado",
+      helperText: "Tudo pronto. Levando você para a sua conta.",
     };
   }
 
   if (isPending) {
     return {
-      title: "Verify email",
-      helperText: "Checking your email confirmation.",
+      title: "Confirmar e-mail",
+      helperText: "Verificando a confirmação do seu e-mail.",
     };
   }
 
@@ -90,10 +90,10 @@ function getVerifyEmailPageCopy({
   // unverified hosted user would be bounced straight back by the verification
   // gate.
   return {
-    title: "Verify your email",
+    title: "Confirme seu e-mail",
     helperText: email
-      ? `Click the link we sent to ${email} to verify your email.`
-      : "Check your inbox for the link to verify your email.",
+      ? `Clique no link que enviamos para ${email} para confirmar seu e-mail.`
+      : "Procure na sua caixa de entrada o link para confirmar seu e-mail.",
   };
 }
 
@@ -172,14 +172,16 @@ function VerifyEmailPage() {
         callbackURL: callbackURL.toString(),
       });
       if (result.error) {
-        toast.error(result.error.message || "We couldn't send another email.");
+        toast.error(
+          result.error.message || "Não foi possível enviar outro e-mail.",
+        );
         return;
       }
       captureClientEvent("auth:verification_resend");
-      toast.success("A new email is on the way.");
+      toast.success("Um novo e-mail está a caminho.");
     } catch {
       toast.error(
-        "We couldn't send another email right now. Please try again.",
+        "Não foi possível enviar outro e-mail agora. Tente novamente.",
       );
     } finally {
       setIsResending(false);
@@ -198,7 +200,7 @@ function VerifyEmailPage() {
               search={getSignInSearch(redirectTo)}
               className="text-base-content/50 hover:text-base-content transition-colors"
             >
-              Back to sign in
+              Voltar para Entrar
             </Link>
           </p>
         }
@@ -213,7 +215,7 @@ function VerifyEmailPage() {
               search={getSignInSearch(redirectTo)}
               className="btn btn-soft w-full"
             >
-              Back to sign in
+              Voltar para Entrar
             </Link>
           </div>
         ) : isPending || isRedirecting ? (
@@ -227,7 +229,7 @@ function VerifyEmailPage() {
             onClick={() => void handleResend()}
             disabled={isResending}
           >
-            {isResending ? "Sending email..." : "Resend email"}
+            {isResending ? "Enviando e-mail..." : "Reenviar e-mail"}
           </button>
         ) : null}
       </AuthPageCard>

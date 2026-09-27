@@ -14,7 +14,11 @@ import { ExternalUrlCell } from "@/client/components/table/url";
 import { DifficultyBadge } from "@/client/features/domain/components/DifficultyBadge";
 import { SortableHeader } from "@/client/features/domain/components/SortableHeader";
 import { useDomainRenderDebug } from "@/client/features/domain/domainDebug";
-import { formatNumber, formatRounded } from "@/client/features/domain/utils";
+import {
+  formatNumber,
+  formatRounded,
+  formatUsd,
+} from "@/client/features/domain/utils";
 import type {
   DomainSortMode,
   KeywordRow,
@@ -57,7 +61,7 @@ function DomainKeywordsTableComponent({
     () => [
       makeSelectionColumn<KeywordRow>(selectAnchorRef),
       keywordColumnHelper.accessor("keyword", {
-        header: () => "Keyword",
+        header: () => "Palavra-chave",
         cell: ({ getValue }) => (
           <span className="font-medium">{getValue()}</span>
         ),
@@ -65,7 +69,7 @@ function DomainKeywordsTableComponent({
       keywordColumnHelper.accessor("position", {
         header: () => (
           <SortableHeader
-            label="Rank"
+            label="Posição"
             isActive={sortMode === "rank"}
             order={currentSortOrder}
             onClick={() => onSortClick("rank")}
@@ -87,7 +91,7 @@ function DomainKeywordsTableComponent({
       keywordColumnHelper.accessor("traffic", {
         header: () => (
           <SortableHeader
-            label="Traffic"
+            label="Tráfego"
             isActive={sortMode === "traffic"}
             order={currentSortOrder}
             onClick={() => onSortClick("traffic")}
@@ -99,7 +103,7 @@ function DomainKeywordsTableComponent({
         header: () => (
           <SortableHeader
             label="CPC"
-            helpText="Cost per click in USD."
+            helpText="Custo por clique em USD."
             isActive={sortMode === "cpc"}
             order={currentSortOrder}
             onClick={() => onSortClick("cpc")}
@@ -107,7 +111,7 @@ function DomainKeywordsTableComponent({
         ),
         cell: ({ getValue }) => {
           const value = getValue();
-          return value == null ? "-" : `$${value.toFixed(2)}`;
+          return value == null ? "-" : formatUsd(value);
         },
       }),
       keywordColumnHelper.display({
@@ -127,8 +131,8 @@ function DomainKeywordsTableComponent({
       keywordColumnHelper.accessor("keywordDifficulty", {
         header: () => (
           <SortableHeader
-            label="Score"
-            helpText="Organic ranking difficulty (0-100): higher means harder to reach Google's top 10."
+            label="Dificuldade"
+            helpText="Dificuldade de ranqueamento orgânico (0-100): quanto maior, mais difícil chegar ao Top 10 do Google."
             isActive={sortMode === "score"}
             order={currentSortOrder}
             onClick={() => onSortClick("score")}
@@ -171,8 +175,8 @@ function DomainKeywordsTableComponent({
     <div className="overflow-x-auto">
       <div className="mb-2 text-xs text-base-content/60">
         {selectedKeywords.size > 0
-          ? `${selectedKeywords.size} selected`
-          : "Select keywords to save"}
+          ? `${selectedKeywords.size} ${selectedKeywords.size === 1 ? "selecionada" : "selecionadas"}`
+          : "Selecione palavras-chave para salvar"}
       </div>
       <AppDataTable
         table={table}
@@ -180,7 +184,7 @@ function DomainKeywordsTableComponent({
         wrapperClassName=""
         empty={
           <div className="py-6 text-center text-base-content/60">
-            No keywords match this search.
+            Nenhuma palavra-chave corresponde a esta busca.
           </div>
         }
       />

@@ -6,9 +6,9 @@ const THEME_OPTIONS: {
   label: string;
   icon: typeof Sun;
 }[] = [
-  { value: "system", label: "System", icon: Monitor },
-  { value: "light", label: "Light", icon: Sun },
-  { value: "dark", label: "Dark", icon: Moon },
+  { value: "system", label: "Sistema", icon: Monitor },
+  { value: "light", label: "Claro", icon: Sun },
+  { value: "dark", label: "Escuro", icon: Moon },
 ];
 
 export function ThemePreferenceMenuItems() {
@@ -17,13 +17,13 @@ export function ThemePreferenceMenuItems() {
   return (
     <>
       <li className="menu-title pt-2">
-        <span>Theme</span>
+        <span>Tema</span>
       </li>
 
       <li>
         <div
           role="radiogroup"
-          aria-label="Theme preference"
+          aria-label="Preferência de tema"
           className="flex gap-0.5 rounded-lg bg-base-200 p-0.5"
         >
           {THEME_OPTIONS.map((option) => {

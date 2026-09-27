@@ -88,8 +88,8 @@ async function createConfig(input: {
     throw new AppError(
       "VALIDATION_ERROR",
       locationName
-        ? "This domain + city combination is already being tracked"
-        : "This domain + country combination is already being tracked",
+        ? "Esta combinação de domínio + cidade já está sendo monitorada"
+        : "Esta combinação de domínio + país já está sendo monitorada",
     );
   }
 
@@ -101,7 +101,7 @@ async function createConfig(input: {
   if (allConfigs.length >= MAX_CONFIGS_PER_PROJECT) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Maximum ${MAX_CONFIGS_PER_PROJECT} tracked domains per project`,
+      `Máximo de ${MAX_CONFIGS_PER_PROJECT} domínios monitorados por projeto`,
     );
   }
 
@@ -226,7 +226,7 @@ async function triggerCheck(input: {
   if (keywords.length === 0) {
     throw new AppError(
       "INTERNAL_ERROR",
-      "No keywords to track. Add keywords to this domain first.",
+      "Não há palavras-chave para monitorar. Adicione palavras-chave a este domínio primeiro.",
     );
   }
 
@@ -361,7 +361,7 @@ async function requireRankCheckAccess(organizationId: string) {
   if (await customerHasPaidPlan(organizationId)) return;
   throw new AppError(
     "PAYMENT_REQUIRED",
-    "Upgrade to the paid plan to run rank checks",
+    "Faça upgrade para o plano pago para rodar verificações de posição",
   );
 }
 
@@ -375,7 +375,10 @@ async function getValidatedConfig(configId: string, projectId: string) {
     projectId,
   });
   if (!config) {
-    throw new AppError("NOT_FOUND", "Rank tracking config not found");
+    throw new AppError(
+      "NOT_FOUND",
+      "Configuração de monitoramento de posições não encontrada",
+    );
   }
   return config;
 }
@@ -391,7 +394,7 @@ function normalizeDomain(domain: string): string {
   // Strip www. prefix
   d = d.replace(/^www\./, "");
   if (!d) {
-    throw new AppError("INTERNAL_ERROR", "Invalid domain");
+    throw new AppError("INTERNAL_ERROR", "Domínio inválido");
   }
   return d;
 }

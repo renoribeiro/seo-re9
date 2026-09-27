@@ -42,7 +42,10 @@ async function resolveAuditLimitTier(
     customerHasPaidPlan(customer.organizationId),
   ]);
   if (!hasManagedAccess) {
-    throw new AppError("PAYMENT_REQUIRED", "Subscribe to run site audits");
+    throw new AppError(
+      "PAYMENT_REQUIRED",
+      "Assine um plano para rodar auditorias do site",
+    );
   }
   return hasPaidPlan ? "paid" : "free";
 }
@@ -139,7 +142,7 @@ async function startAudit(input: {
 async function getStatus(auditId: string, projectId: string) {
   let audit = await AuditRepository.getAuditForProject(auditId, projectId);
   if (!audit)
-    throw new AppError("NOT_FOUND", "Audit not found in this project.");
+    throw new AppError("NOT_FOUND", "Auditoria não encontrada neste projeto.");
 
   // Self-heal audits whose workflow died without reaching the mark-failed
   // step (instance terminated/errored, instance expired from retention, ...).
@@ -235,7 +238,7 @@ async function remove(auditId: string, projectId: string) {
     if (!audit.workflowInstanceId) {
       throw new AppError(
         "CONFLICT",
-        "Cannot delete a running audit without workflow context.",
+        "Não é possível excluir uma auditoria em execução sem o contexto do fluxo de trabalho.",
       );
     }
 
@@ -260,7 +263,10 @@ async function remove(auditId: string, projectId: string) {
         );
       if (stillRunning) {
         console.error(`Failed to terminate audit workflow ${audit.id}:`, error);
-        throw new AppError("CONFLICT", "Unable to stop the running audit.");
+        throw new AppError(
+          "CONFLICT",
+          "Não foi possível interromper a auditoria em execução.",
+        );
       }
     }
   }

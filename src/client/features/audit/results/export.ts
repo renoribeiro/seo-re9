@@ -4,13 +4,25 @@ import { buildCsv, type CsvValue, downloadCsv } from "@/client/lib/csv";
 import { downloadFile } from "@/client/lib/download";
 import { exportTableToSheets } from "@/client/lib/exportToSheets";
 
-const ISSUES_HEADERS = ["Severity", "Issue", "URL", "Details", "How To Fix"];
+const ISSUES_HEADERS = [
+  "Gravidade",
+  "Problema",
+  "URL",
+  "Detalhes",
+  "Como corrigir",
+];
+
+const SEVERITY_EXPORT_LABELS: Record<string, string> = {
+  critical: "Crítico",
+  warning: "Alerta",
+  info: "Informativo",
+};
 
 function issuesRows(issues: AuditResultsData["issues"]): CsvValue[][] {
   return issues.map((issue) => {
     const descriptor = getIssueDescriptor(issue.issueType);
     return [
-      issue.severity,
+      SEVERITY_EXPORT_LABELS[issue.severity] ?? issue.severity,
       descriptor?.title ?? issue.issueType,
       issue.pageUrl,
       issue.detailsJson ?? "",
@@ -60,12 +72,12 @@ export function exportIssues(
 const PAGES_HEADERS = [
   "URL",
   "Status",
-  "Title",
+  "Título",
   "H1",
-  "Words",
-  "Images",
-  "Missing Alt",
-  "Response Time (ms)",
+  "Palavras",
+  "Imagens",
+  "Sem alt",
+  "Tempo de resposta (ms)",
 ];
 
 function pagesRows(pages: AuditResultsData["pages"]): CsvValue[][] {
@@ -83,9 +95,9 @@ function pagesRows(pages: AuditResultsData["pages"]): CsvValue[][] {
 
 const PERFORMANCE_HEADERS = [
   "URL",
-  "Device",
-  "Performance",
-  "Accessibility",
+  "Dispositivo",
+  "Desempenho",
+  "Acessibilidade",
   "SEO",
   "LCP (ms)",
   "CLS",

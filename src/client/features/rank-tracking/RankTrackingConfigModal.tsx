@@ -46,7 +46,7 @@ export function RankTrackingConfigModal({
         labelledBy="rank-config-modal-title"
       >
         <h2 id="rank-config-modal-title" className="sr-only">
-          Add Domain
+          Adicionar domínio
         </h2>
         <div className="flex min-h-40 items-center justify-center">
           <Loader2 className="size-5 animate-spin text-base-content/50" />
@@ -128,16 +128,16 @@ function RankTrackingConfigModalContent({
     e.preventDefault();
     if (isPending) return;
     if (!domain.trim()) {
-      toast.error("Please enter a domain");
+      toast.error("Informe um domínio");
       return;
     }
     if (targetingMode === "local" && !locationName) {
-      toast.error("Please select a city or region for local targeting");
+      toast.error("Selecione uma cidade ou região para a segmentação local");
       return;
     }
     const parsedDomain = domainField.safeParse(domain);
     if (!parsedDomain.success) {
-      toast.error("Please enter a valid domain");
+      toast.error("Informe um domínio válido");
       return;
     }
     setDomain(parsedDomain.data);
@@ -187,7 +187,7 @@ function RankTrackingConfigModalContent({
     >
       <div className="flex items-center justify-between">
         <h2 id="rank-config-modal-title" className="text-lg font-semibold">
-          {isEdit ? "Edit Domain Config" : "Add Domain"}
+          {isEdit ? "Editar configuração do domínio" : "Adicionar domínio"}
         </h2>
         <button className="btn btn-ghost btn-sm btn-square" onClick={onClose}>
           <X className="size-4" />
@@ -197,11 +197,11 @@ function RankTrackingConfigModalContent({
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Target Domain</span>
+            <span className="label-text font-medium">Domínio-alvo</span>
           </label>
           <input
             type="text"
-            placeholder="example.com"
+            placeholder="exemplo.com.br"
             className="input input-bordered w-full"
             value={domain}
             onChange={(e) => setDomain(e.target.value)}
@@ -211,7 +211,7 @@ function RankTrackingConfigModalContent({
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Country</span>
+            <span className="label-text font-medium">País</span>
           </label>
           <LocationSelect
             value={locationCode}
@@ -234,7 +234,7 @@ function RankTrackingConfigModalContent({
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Language</span>
+            <span className="label-text font-medium">Idioma</span>
           </label>
           <select
             className="select select-bordered w-full"
@@ -248,14 +248,15 @@ function RankTrackingConfigModalContent({
             ))}
           </select>
           <div className="mt-1.5 text-xs text-base-content/50">
-            Defaults to the country's language. Any language can be tracked in
-            any country — pick the one your customers search in.
+            Por padrão, usa o idioma do país. Qualquer idioma pode ser
+            monitorado em qualquer país — escolha aquele em que seus clientes
+            buscam.
           </div>
         </div>
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Devices</span>
+            <span className="label-text font-medium">Dispositivos</span>
           </label>
           <select
             className="select select-bordered w-full"
@@ -272,18 +273,19 @@ function RankTrackingConfigModalContent({
             }}
           >
             <option value="both">Desktop + Mobile</option>
-            <option value="desktop">Desktop only</option>
-            <option value="mobile">Mobile only</option>
+            <option value="desktop">Somente Desktop</option>
+            <option value="mobile">Somente Mobile</option>
           </select>
           <div className="mt-1.5 text-xs text-base-content/50">
-            Most Google searches come from mobile, but select this based on your
-            customer.
+            A maioria das buscas no Google vem do celular, mas escolha com base
+            no seu cliente.
           </div>
           {devices === "both" && (
             <div className="mt-1.5 flex items-start gap-1.5 text-xs text-info">
               <Info className="size-3.5 shrink-0 mt-0.5" />
               <span>
-                Tracking both devices uses 2x credits per keyword check
+                Monitorar os dois dispositivos consome 2x créditos por
+                verificação de palavra-chave
               </span>
             </div>
           )}
@@ -291,7 +293,7 @@ function RankTrackingConfigModalContent({
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Schedule</span>
+            <span className="label-text font-medium">Frequência</span>
           </label>
           <select
             className="select select-bordered w-full"
@@ -308,22 +310,26 @@ function RankTrackingConfigModalContent({
               }
             }}
           >
-            <option value="daily">Daily</option>
-            <option value="weekly">Weekly</option>
-            <option value="monthly">Monthly (end of month)</option>
-            <option value="manual">Manual only</option>
+            <option value="daily">Diária</option>
+            <option value="weekly">Semanal</option>
+            <option value="monthly">Mensal (fim do mês)</option>
+            <option value="manual">Somente manual</option>
           </select>
           {schedule === "daily" && (
             <div className="mt-1.5 flex items-start gap-1.5 text-xs text-warning">
               <Info className="size-3.5 shrink-0 mt-0.5" />
-              <span>Daily checks use 7x more credits than weekly</span>
+              <span>
+                Verificações diárias consomem 7x mais créditos que as semanais
+              </span>
             </div>
           )}
         </div>
 
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-medium">Search Depth</span>
+            <span className="label-text font-medium">
+              Profundidade da busca
+            </span>
           </label>
           <select
             className="select select-bordered w-full"
@@ -332,13 +338,13 @@ function RankTrackingConfigModalContent({
           >
             {Array.from({ length: 10 }, (_, i) => i + 1).map((pages) => (
               <option key={pages} value={pages}>
-                {pages} {pages === 1 ? "page" : "pages"} (top {pages * 10}{" "}
-                results)
+                {pages} {pages === 1 ? "página" : "páginas"} (top {pages * 10}{" "}
+                resultados)
               </option>
             ))}
           </select>
           <div className="mt-1.5 text-xs text-base-content/50">
-            10 pages is ~8x more expensive than 1 page
+            10 páginas custam ~8x mais que 1 página
           </div>
         </div>
 
@@ -359,15 +365,15 @@ function RankTrackingConfigModalContent({
                 <span className="font-mono font-semibold text-base-content">
                   ~${costPerKeyword.toFixed(4)}
                 </span>{" "}
-                per keyword per check
+                por palavra-chave por verificação
               </div>
               {schedule !== "manual" && (
                 <div>
-                  50 keywords would cost{" "}
+                  50 palavras-chave custariam{" "}
                   <span className="font-mono font-semibold text-base-content">
                     ~${(costPerKeyword * 50 * checksPerMonth).toFixed(2)}
                   </span>
-                  /month
+                  /mês
                 </div>
               )}
             </div>
@@ -380,7 +386,7 @@ function RankTrackingConfigModalContent({
             className="btn btn-ghost btn-sm"
             onClick={onClose}
           >
-            Cancel
+            Cancelar
           </button>
           <button
             type="submit"
@@ -388,7 +394,7 @@ function RankTrackingConfigModalContent({
             disabled={isPending || !domain.trim()}
           >
             {isPending && <Loader2 className="size-3.5 animate-spin" />}
-            {isEdit ? "Save Changes" : "Add Domain"}
+            {isEdit ? "Salvar alterações" : "Adicionar domínio"}
           </button>
         </div>
       </form>

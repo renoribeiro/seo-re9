@@ -20,12 +20,12 @@ export function parseTerms(value: string): string[] {
 
 export function formatNumber(value: number | null | undefined): string {
   if (value == null) return "-";
-  return new Intl.NumberFormat().format(value);
+  return new Intl.NumberFormat("pt-BR").format(value);
 }
 
 export function formatCompactNumber(value: number | null | undefined): string {
   if (value == null) return "-";
-  return new Intl.NumberFormat(undefined, {
+  return new Intl.NumberFormat("pt-BR", {
     notation: "compact",
     maximumFractionDigits: 1,
   }).format(value);

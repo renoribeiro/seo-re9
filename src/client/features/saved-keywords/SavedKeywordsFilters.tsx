@@ -43,10 +43,10 @@ export function SavedKeywordsFilters({
           type="button"
           className={`btn btn-ghost btn-sm gap-1.5 ${showFilters ? "btn-active" : ""}`}
           onClick={onToggleFilters}
-          title="Toggle table filters"
+          title="Mostrar/ocultar filtros da tabela"
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}

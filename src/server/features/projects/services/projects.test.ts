@@ -262,7 +262,7 @@ describe("project service", () => {
           name: "Acme",
           domain: "999.999.999.999",
         }),
-      ).rejects.toThrow("Enter a valid domain");
+      ).rejects.toThrow("Informe um domínio válido");
       expect(mocks.updateProject).not.toHaveBeenCalled();
     });
   });

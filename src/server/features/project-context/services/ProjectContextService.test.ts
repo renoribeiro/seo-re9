@@ -272,7 +272,7 @@ describe("project context service", () => {
           "user",
         ),
       ).rejects.toThrow(
-        "updates[2] was rejected (nothing in this batch was applied)",
+        "updates[2] foi rejeitado (nada deste lote foi aplicado)",
       );
       expect(mocks.upsertSection).not.toHaveBeenCalled();
       expect(mocks.upsertCompetitors).not.toHaveBeenCalled();

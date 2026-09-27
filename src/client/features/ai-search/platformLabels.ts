@@ -68,37 +68,37 @@ export function getModelAccent(model: PromptExplorerModel): ModelAccent {
 }
 
 const COUNTRY_LABELS: Record<WebSearchCountryCode, string> = {
-  US: "United States",
-  GB: "United Kingdom",
-  CA: "Canada",
-  AU: "Australia",
-  IE: "Ireland",
-  DE: "Germany",
-  FR: "France",
-  ES: "Spain",
-  IT: "Italy",
-  NL: "Netherlands",
+  US: "Estados Unidos",
+  GB: "Reino Unido",
+  CA: "Canadá",
+  AU: "Austrália",
+  IE: "Irlanda",
+  DE: "Alemanha",
+  FR: "França",
+  ES: "Espanha",
+  IT: "Itália",
+  NL: "Países Baixos",
   PT: "Portugal",
-  PL: "Poland",
-  SE: "Sweden",
-  NO: "Norway",
-  DK: "Denmark",
-  BR: "Brazil",
-  MX: "Mexico",
-  IN: "India",
-  JP: "Japan",
-  KR: "South Korea",
-  SG: "Singapore",
+  PL: "Polônia",
+  SE: "Suécia",
+  NO: "Noruega",
+  DK: "Dinamarca",
+  BR: "Brasil",
+  MX: "México",
+  IN: "Índia",
+  JP: "Japão",
+  KR: "Coreia do Sul",
+  SG: "Singapura",
   HK: "Hong Kong",
   TW: "Taiwan",
-  ZA: "South Africa",
+  ZA: "África do Sul",
 };
 
 export function formatCountryLabel(code: WebSearchCountryCode): string {
   return COUNTRY_LABELS[code];
 }
 
-const NUMBER_FORMATTER = new Intl.NumberFormat("en-US");
+const NUMBER_FORMATTER = new Intl.NumberFormat("pt-BR");
 
 /** Render a count for display. Null/undefined renders as an em-dash. */
 export function formatCount(value: number | null | undefined): string {

@@ -33,10 +33,10 @@ export type ResearchScope = (typeof RESEARCH_SCOPES)[number];
 export const researchScopeSchema = z.enum(RESEARCH_SCOPES);
 
 export const RESEARCH_SCOPE_LABELS: Record<ResearchScope, string> = {
-  exact_url: "Exact URL",
-  subfolder: "Subfolder",
-  domain: "Domain",
-  subdomains: "Subdomains",
+  exact_url: "URL exata",
+  subfolder: "Subpasta",
+  domain: "Domínio",
+  subdomains: "Subdomínios",
 };
 
 /** Base wording for MCP `scope` params; tools append their own caveats. */
@@ -45,10 +45,10 @@ export const RESEARCH_SCOPE_PARAM_DESCRIPTION =
 
 /** One-line explanations shown in the scope dropdown. */
 export const RESEARCH_SCOPE_DESCRIPTIONS: Record<ResearchScope, string> = {
-  exact_url: "One page only",
-  subfolder: "The path and everything under it",
-  domain: "The hostname, without subdomains",
-  subdomains: "The domain plus all its subdomains",
+  exact_url: "Apenas uma página",
+  subfolder: "O caminho e tudo o que está abaixo dele",
+  domain: "O host informado, sem subdomínios",
+  subdomains: "O domínio e todos os seus subdomínios",
 };
 
 /** Wildcard-style pattern examples shown under each scope option. */
@@ -120,7 +120,7 @@ export function parseResearchTarget(
 ): ParseResearchTargetResult {
   const trimmed = input.trim();
   if (!trimmed) {
-    return { ok: false, message: "Enter a domain or URL" };
+    return { ok: false, message: "Informe um domínio ou URL" };
   }
 
   const withProtocol = /^[a-zA-Z][a-zA-Z\d+.-]*:\/\//.test(trimmed)
@@ -131,13 +131,16 @@ export function parseResearchTarget(
   try {
     parsed = new URL(withProtocol);
   } catch {
-    return { ok: false, message: "Enter a valid domain like example.com" };
+    return {
+      ok: false,
+      message: "Informe um domínio válido, como example.com",
+    };
   }
 
   if (parsed.username || parsed.password) {
     return {
       ok: false,
-      message: "URLs with embedded credentials are not supported",
+      message: "URLs com credenciais embutidas não são aceitas",
     };
   }
 
@@ -151,7 +154,10 @@ export function parseResearchTarget(
     !/^[a-z\d.-]+$/.test(hostname) ||
     !isValidDomainHost(hostname)
   ) {
-    return { ok: false, message: "Enter a valid domain like example.com" };
+    return {
+      ok: false,
+      message: "Informe um domínio válido, como example.com",
+    };
   }
 
   // Query strings and fragments never create separate research scopes.
@@ -160,7 +166,7 @@ export function parseResearchTarget(
   if (requestedScope === "subfolder" && path === "") {
     return {
       ok: false,
-      message: "Add a path to use Subfolder (e.g. example.com/blog)",
+      message: "Adicione um caminho para usar Subpasta (ex.: example.com/blog)",
     };
   }
 

@@ -46,19 +46,19 @@ export function FreePlanBanner() {
       search={{ upgrade: true }}
       className="link link-primary font-medium"
     >
-      Upgrade your plan
+      Faça upgrade do seu plano
     </Link>
   ) : (
     <Link to={BILLING_ROUTE} className="link link-primary font-medium">
-      Buy more credits
+      Compre mais créditos
     </Link>
   );
 
   if (isOutOfCredits) {
     return (
       <BannerShell variant="error">
-        You&rsquo;ve used all your credits. {creditsActionLink} to continue
-        using OpenSEO.
+        Você usou todos os seus créditos. {creditsActionLink} para continuar
+        usando o RE9 SEO.
       </BannerShell>
     );
   }
@@ -66,8 +66,8 @@ export function FreePlanBanner() {
   if (isLowCredits) {
     return (
       <BannerShell variant="warning">
-        You&rsquo;re running low on credits. {creditsActionLink} to keep using
-        OpenSEO.
+        Seus créditos estão acabando. {creditsActionLink} para continuar usando
+        o RE9 SEO.
       </BannerShell>
     );
   }
@@ -75,17 +75,17 @@ export function FreePlanBanner() {
   if (isFreePlan) {
     return (
       <BannerShell variant="info">
-        We hope you&rsquo;re enjoying OpenSEO!{" "}
+        Esperamos que você esteja gostando do RE9 SEO!{" "}
         <Link
           to={SUBSCRIBE_ROUTE}
           search={{ upgrade: true }}
           className="link link-primary font-medium"
         >
-          Upgrade anytime
+          Faça upgrade quando quiser
         </Link>{" "}
-        or{" "}
+        ou{" "}
         <Link to="/support" className="link link-primary font-medium">
-          reach out with questions
+          fale com a gente se tiver dúvidas
         </Link>
         .
       </BannerShell>

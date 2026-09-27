@@ -51,7 +51,7 @@ export function useSamAccess(projectId: string): SamAccess {
       (error
         ? getStandardErrorMessage(
             error,
-            "Could not load AI agent setup status.",
+            "Não foi possível carregar o status de configuração do agente de IA.",
           )
         : null),
     isRefetching,

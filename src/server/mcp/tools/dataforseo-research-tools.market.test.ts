@@ -154,13 +154,15 @@ describe("market resolution for Labs tools", () => {
     setProject({ locationCode: 2704, languageCode: "vi" });
     await expect(
       runRankedKeywords({ locationCode: 2276, languageCode: "fr" }),
-    ).rejects.toThrow("is not available for this location");
+    ).rejects.toThrow("não está disponível para esta localização");
   });
 
   it("rejects an explicit non-Labs country before making a paid call", async () => {
     await expect(
       runRankedKeywords({ locationCode: 2352, languageCode: "is" }),
-    ).rejects.toThrow("Domain analytics is not available for this country");
+    ).rejects.toThrow(
+      "A análise de domínio não está disponível para este país",
+    );
   });
 
   it("follows the project's default market when the market object is omitted", async () => {

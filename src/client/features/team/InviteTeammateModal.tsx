@@ -8,12 +8,12 @@ import { sendTeamInvitation } from "@/serverFunctions/organization";
 export function inviteErrorMessage(error: Error) {
   const code = getErrorCode(error);
   if (code === "RATE_LIMITED") {
-    return "Invitation limit reached for today. Try again tomorrow.";
+    return "Limite de convites de hoje atingido. Tente novamente amanhã.";
   }
   if (code === "UPSTREAM_UNAVAILABLE") {
-    return "The invitation was saved but the email couldn't be sent. Use Resend in a moment to retry.";
+    return "O convite foi salvo, mas não foi possível enviar o e-mail. Use Reenviar convite daqui a pouco para tentar de novo.";
   }
-  return "We couldn't send that invitation.";
+  return "Não foi possível enviar esse convite.";
 }
 
 export function InviteTeammateModal({
@@ -32,7 +32,7 @@ export function InviteTeammateModal({
       sendTeamInvitation({ data: { email: inviteeEmail } }),
     onSuccess: () => {
       captureClientEvent("team:invitation_send");
-      toast.success("Invitation sent");
+      toast.success("Convite enviado");
       onInvited();
       onClose();
     },
@@ -53,19 +53,19 @@ export function InviteTeammateModal({
             if (trimmed) inviteMutation.mutate(trimmed);
           }}
         >
-          <h3 className="text-lg font-bold">Invite a teammate</h3>
+          <h3 className="text-lg font-bold">Convidar para a equipe</h3>
           <p className="mt-2 text-sm text-base-content/60">
-            They&rsquo;ll join as an Admin with full access to each project
-            except for billing. The invitation link expires in 7 days.
+            A pessoa entra como Administrador, com acesso total a todos os
+            projetos, exceto à cobrança. O link do convite expira em 7 dias.
           </p>
           <label className="form-control mt-4 w-full">
             <span className="label-text pb-1 text-xs text-base-content/60">
-              Email
+              E-mail
             </span>
             <input
               type="email"
               className="input input-sm input-bordered w-full"
-              placeholder="teammate@company.com"
+              placeholder="colega@empresa.com"
               value={email}
               onChange={(event) => setEmail(event.currentTarget.value)}
               required
@@ -78,14 +78,14 @@ export function InviteTeammateModal({
               className="btn btn-ghost btn-sm"
               onClick={onClose}
             >
-              Cancel
+              Cancelar
             </button>
             <button
               type="submit"
               className="btn btn-primary btn-sm"
               disabled={inviteMutation.isPending || !email.trim()}
             >
-              {inviteMutation.isPending ? "Sending…" : "Send invite"}
+              {inviteMutation.isPending ? "Enviando…" : "Enviar convite"}
             </button>
           </div>
         </form>

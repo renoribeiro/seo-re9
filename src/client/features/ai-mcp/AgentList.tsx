@@ -26,7 +26,7 @@ export function AgentList() {
           {name}
         </li>
       ))}
-      <li className="text-xs text-base-content/45">or any MCP client</li>
+      <li className="text-xs text-base-content/45">ou qualquer cliente MCP</li>
     </ul>
   );
 }

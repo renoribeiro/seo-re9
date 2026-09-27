@@ -32,7 +32,7 @@ function getLaunchValidationErrors(
 
   return createFormValidationErrors({
     fields: {
-      url: "Please enter a URL.",
+      url: "Informe uma URL.",
     },
   });
 }
@@ -72,7 +72,7 @@ export function useLaunchController({
 
       if (effectiveMaxPages > 500) {
         const confirmed = window.confirm(
-          `You are about to crawl ${effectiveMaxPages.toLocaleString()} pages. This is okay, but it may take a while. Continue?`,
+          `Você vai rastrear ${effectiveMaxPages.toLocaleString("pt-BR")} páginas. Tudo bem, mas pode demorar um pouco. Continuar?`,
         );
         if (!confirmed) {
           return;
@@ -86,12 +86,15 @@ export function useLaunchController({
           maxPages: effectiveMaxPages,
           lighthouseStrategy: value.runLighthouse ? "auto" : "none",
         });
-        toast.success("Audit started!");
+        toast.success("Auditoria iniciada!");
         onAuditStarted(result.auditId);
       } catch (error) {
         formApi.setErrorMap({
           onSubmit: createFormValidationErrors({
-            form: getStandardErrorMessage(error, "Failed to start audit"),
+            form: getStandardErrorMessage(
+              error,
+              "Não foi possível iniciar a auditoria",
+            ),
           }),
         });
       }
@@ -128,7 +131,7 @@ function useLaunchMutations({
       deleteAudit({ data: { projectId, auditId } }),
     onSuccess: () => {
       void historyRefetch();
-      toast.success("Audit deleted");
+      toast.success("Auditoria excluída");
     },
   });
 

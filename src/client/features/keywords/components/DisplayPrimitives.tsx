@@ -87,17 +87,17 @@ export function AreaTrendChart({ trend }: { trend: MonthlySearch[] }) {
 
   const monthLabels = [
     "Jan",
-    "Feb",
+    "Fev",
     "Mar",
-    "Apr",
-    "May",
+    "Abr",
+    "Mai",
     "Jun",
     "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
+    "Ago",
+    "Set",
+    "Out",
     "Nov",
-    "Dec",
+    "Dez",
   ];
   const data = last12.map((m) => ({
     month: monthLabels[m.month - 1],
@@ -110,7 +110,7 @@ export function AreaTrendChart({ trend }: { trend: MonthlySearch[] }) {
     <div
       ref={containerRef}
       className="w-full h-[210px] min-w-0"
-      aria-label="Search trend chart"
+      aria-label="Gráfico de tendência de busca"
     >
       {chartWidth > 0 ? (
         <AreaChart
@@ -151,7 +151,7 @@ export function AreaTrendChart({ trend }: { trend: MonthlySearch[] }) {
               formatCompactNumber(Number(value))
             }
             tick={{ fill: "var(--trend-axis-color)", fontSize: 11 }}
-            width={44}
+            width={52}
             axisLine={false}
             tickLine={false}
           />
@@ -167,7 +167,7 @@ export function AreaTrendChart({ trend }: { trend: MonthlySearch[] }) {
           <Area
             type="monotone"
             dataKey="searchVolume"
-            name="Search volume"
+            name="Volume de busca"
             stroke="var(--color-primary)"
             strokeWidth={2}
             fill="url(#trendGrad)"

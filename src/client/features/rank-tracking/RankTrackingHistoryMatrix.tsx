@@ -30,7 +30,8 @@ export function RankTrackingHistoryMatrix({
   if (runs.length === 0 || keywords.length === 0) {
     return (
       <div className="rounded-xl border border-dashed border-base-300 p-10 text-center text-sm text-base-content/55">
-        No history yet. Run a check to start building the timeline.
+        Ainda não há histórico. Execute uma verificação para começar a montar a
+        linha do tempo.
       </div>
     );
   }
@@ -42,7 +43,9 @@ export function RankTrackingHistoryMatrix({
           <tr>
             {/* Unconstrained keyword column absorbs the slack when only a few
                 check columns exist, so sparse history doesn't stretch oddly. */}
-            <th className="sticky left-0 z-10 bg-base-100 w-full">Keyword</th>
+            <th className="sticky left-0 z-10 bg-base-100 w-full">
+              Palavra-chave
+            </th>
             {runs.map((r) => (
               <th
                 key={r.runId}
@@ -140,7 +143,7 @@ function buildMatrix(cells: RankPositionMatrixCell[]): {
 }
 
 function formatDate(value: string): string {
-  return new Date(value).toLocaleDateString("en-US", {
+  return new Date(value).toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
   });

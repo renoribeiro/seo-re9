@@ -14,7 +14,7 @@ export function assertLabsLocationCode(locationCode: number | undefined) {
   if (locationCode != null && getKeywordDataProvider(locationCode) !== "labs") {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Domain analytics is not available for this country. Keyword research and rank tracking work; domain-level data is limited to DataForSEO Labs locations.",
+      "A análise de domínio não está disponível para este país. A pesquisa de palavras-chave e o monitoramento de posições funcionam; os dados de domínio se limitam às localizações do DataForSEO Labs.",
     );
   }
 }
@@ -34,7 +34,7 @@ export function assertLanguageForLocation(
   if (isLanguageServedForLocation(resolvedLocation, languageCode)) return;
   throw new AppError(
     "VALIDATION_ERROR",
-    `Language '${languageCode}' is not available for this location. Available: ${getLanguageOptions(
+    `O idioma '${languageCode}' não está disponível para esta localização. Disponíveis: ${getLanguageOptions(
       resolvedLocation,
     )
       .map((option) => option.code)

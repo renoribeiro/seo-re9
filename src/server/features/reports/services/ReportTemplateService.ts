@@ -41,7 +41,7 @@ async function getReportTemplate(
 function notFound(templateId: string) {
   return new AppError(
     "NOT_FOUND",
-    `No report template ${templateId} in this project. Call list_report_templates to see what exists.`,
+    `Não há modelo de relatório ${templateId} neste projeto. Chame list_report_templates para ver o que existe.`,
   );
 }
 
@@ -71,36 +71,36 @@ export async function saveReportTemplate(params: SaveParams): Promise<{
   const instructions = params.instructions.trim();
 
   if (name.length === 0) {
-    throw new AppError("VALIDATION_ERROR", "Give the template a name.");
+    throw new AppError("VALIDATION_ERROR", "Dê um nome ao modelo.");
   }
   if (name.length > REPORT_TEMPLATE_MAX_NAME_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Name is ${formatCount(name.length)} characters; the limit is ${formatCount(REPORT_TEMPLATE_MAX_NAME_CHARS)}. Shorten it and save again.`,
+      `O nome tem ${formatCount(name.length)} caracteres; o limite é ${formatCount(REPORT_TEMPLATE_MAX_NAME_CHARS)}. Encurte-o e salve novamente.`,
     );
   }
   if (description.length === 0) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Add a one-line description saying when to use this template. It is what an agent reads to decide.",
+      "Adicione uma descrição de uma linha dizendo quando usar este modelo. É o que um agente lê para decidir.",
     );
   }
   if (description.length > REPORT_TEMPLATE_MAX_DESCRIPTION_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Description is ${formatCount(description.length)} characters; the limit is ${formatCount(REPORT_TEMPLATE_MAX_DESCRIPTION_CHARS)}. It is one line saying when to use the template — move the detail into the instructions.`,
+      `A descrição tem ${formatCount(description.length)} caracteres; o limite é ${formatCount(REPORT_TEMPLATE_MAX_DESCRIPTION_CHARS)}. Ela é uma linha dizendo quando usar o modelo — mova os detalhes para as instruções.`,
     );
   }
   if (instructions.length === 0) {
     throw new AppError(
       "VALIDATION_ERROR",
-      "Add instructions: the audience, the sections in order, the tone, and the sign-off.",
+      "Adicione instruções: o público, as seções em ordem, o tom e o encerramento.",
     );
   }
   if (instructions.length > REPORT_TEMPLATE_MAX_INSTRUCTIONS_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Instructions are ${formatCount(instructions.length)} characters; the limit is ${formatCount(REPORT_TEMPLATE_MAX_INSTRUCTIONS_CHARS)}. A template is a brief, not the report — say the audience, the sections in order, the tone and the sign-off, and cut the rest.`,
+      `As instruções têm ${formatCount(instructions.length)} caracteres; o limite é ${formatCount(REPORT_TEMPLATE_MAX_INSTRUCTIONS_CHARS)}. Um modelo é um briefing, não o relatório — diga o público, as seções em ordem, o tom e o encerramento, e corte o resto.`,
     );
   }
 
@@ -114,7 +114,7 @@ export async function saveReportTemplate(params: SaveParams): Promise<{
   if (params.templateId && !existing) {
     throw new AppError(
       "NOT_FOUND",
-      `No report template ${params.templateId} in this project. Call list_report_templates, or omit templateId to create a new one.`,
+      `Não há modelo de relatório ${params.templateId} neste projeto. Chame list_report_templates ou omita templateId para criar um novo.`,
     );
   }
 
@@ -128,7 +128,7 @@ export async function saveReportTemplate(params: SaveParams): Promise<{
   if (clash) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `A template named "${clash.name}" exists in this project (id ${clash.id}). Pass its templateId to update it, or choose another name.`,
+      `Já existe um modelo chamado "${clash.name}" neste projeto (id ${clash.id}). Passe o templateId dele para atualizá-lo ou escolha outro nome.`,
     );
   }
 
@@ -148,7 +148,7 @@ export async function saveReportTemplate(params: SaveParams): Promise<{
   if (templates.length >= REPORT_TEMPLATE_MAX_PER_PROJECT) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `This project has ${formatCount(REPORT_TEMPLATE_MAX_PER_PROJECT)} report templates, the limit. Delete one from the Templates page.`,
+      `Este projeto tem ${formatCount(REPORT_TEMPLATE_MAX_PER_PROJECT)} modelos de relatório, o limite. Exclua um na página Modelos.`,
     );
   }
 

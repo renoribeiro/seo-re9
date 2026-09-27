@@ -32,15 +32,20 @@ export function useRankCheckTrigger({
         queryKey: ["rankTrackingLatestRun", projectId, configId],
       });
       if (!result.ok) {
-        toast.info("A rank check is already running");
+        toast.info("Já existe uma verificação de posições em andamento");
         return;
       }
 
       captureClientEvent("rank_tracking:check_trigger");
-      toast.success("Rank check started");
+      toast.success("Verificação de posições iniciada");
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to start rank check"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível iniciar a verificação de posições",
+        ),
+      );
     },
   });
 

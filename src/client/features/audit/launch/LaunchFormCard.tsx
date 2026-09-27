@@ -20,7 +20,7 @@ export function LaunchFormCard({
   return (
     <div className="card bg-base-100 border border-base-300">
       <div className="card-body gap-4">
-        <h2 className="card-title text-base">Start New Audit</h2>
+        <h2 className="card-title text-base">Nova auditoria</h2>
 
         <form
           className="grid grid-cols-1 gap-3 lg:grid-cols-12 lg:items-center"
@@ -61,10 +61,10 @@ export function LaunchFormCard({
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="size-4 animate-spin" /> Starting...
+                    <Loader2 className="size-4 animate-spin" /> Iniciando...
                   </>
                 ) : (
-                  "Start Audit"
+                  "Iniciar auditoria"
                 )}
               </button>
             )}
@@ -96,10 +96,10 @@ function LaunchOptions({
   return (
     <div className="rounded-lg border border-base-300 bg-base-200/20 p-3 space-y-2">
       <label className="text-xs font-medium uppercase tracking-wide text-base-content/60">
-        Crawl limit
+        Limite de rastreamento
       </label>
       <div className="flex items-center gap-2">
-        <span className="text-sm text-base-content/70">Max pages</span>
+        <span className="text-sm text-base-content/70">Máx. de páginas</span>
         <launchForm.Field name="maxPagesInput">
           {(field) => (
             <input
@@ -122,7 +122,8 @@ function LaunchOptions({
         </launchForm.Field>
       </div>
       <p className="text-xs text-base-content/50">
-        Enter any value from {MIN_PAGES} to {maxPagesLimit.toLocaleString()}.
+        Informe um valor de {MIN_PAGES} a{" "}
+        {maxPagesLimit.toLocaleString("pt-BR")}.
         {isFreeLimited ? (
           <>
             {" "}
@@ -131,9 +132,10 @@ function LaunchOptions({
               search={{ upgrade: true }}
               className="link link-primary"
             >
-              Upgrade
+              Faça upgrade
             </Link>{" "}
-            to crawl up to {PAID_MAX_AUDIT_PAGES.toLocaleString()} pages.
+            para rastrear até {PAID_MAX_AUDIT_PAGES.toLocaleString("pt-BR")}{" "}
+            páginas.
           </>
         ) : null}
       </p>
@@ -157,9 +159,9 @@ function LighthouseOptions({ launchForm }: Pick<Props, "launchForm">) {
         </launchForm.Field>
         <span
           className="text-sm font-medium text-base-content/80"
-          title="Lighthouse measures the performance of your pages and identifies issues."
+          title="O Lighthouse mede o desempenho das suas páginas e identifica problemas."
         >
-          Include Lighthouse
+          Incluir Lighthouse
         </span>
       </label>
 
@@ -170,8 +172,8 @@ function LighthouseOptions({ launchForm }: Pick<Props, "launchForm">) {
           runLighthouse ? (
             <div className="space-y-1">
               <p className="text-xs text-base-content/60">
-                We choose a sample of 20 pages to audit, removing pages from
-                duplicate templates.
+                Escolhemos uma amostra de 20 páginas para auditar, descartando
+                páginas de modelos duplicados.
               </p>
             </div>
           ) : null

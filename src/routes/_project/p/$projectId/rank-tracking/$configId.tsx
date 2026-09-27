@@ -52,10 +52,10 @@ function RankTrackingConfigRoute() {
     return (
       <>
         <p className="text-sm text-base-content/70">
-          Domain configuration not found.
+          Configuração do domínio não encontrada.
         </p>
         <button className="btn btn-ghost btn-sm" onClick={handleBack}>
-          Back to domains
+          Voltar para domínios
         </button>
       </>
     );

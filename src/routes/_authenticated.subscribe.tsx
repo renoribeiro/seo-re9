@@ -17,13 +17,13 @@ import {
   AUTUMN_PAID_PLAN_ID,
 } from "@/shared/billing";
 
-const SUPPORT_EMAIL = "ben@openseo.so";
+const SUPPORT_EMAIL = "trafego@re9.online";
 
 const PLAN_FEATURES = [
-  "Keyword research, backlinks, rank tracking, and site audits",
-  "MCP server and agent skills for Claude, Cursor, and ChatGPT",
-  "Google Search Console Integration",
-  "Includes $10.00 of Usage Credits each month",
+  "Pesquisa de palavras-chave, backlinks, monitoramento de posições e auditorias do site",
+  "Servidor MCP e habilidades de agente para Claude, Cursor e ChatGPT",
+  "Integração com o Google Search Console",
+  "Inclui $10.00 em créditos de uso por mês",
 ];
 
 // How long the post-checkout "finalizing" screen polls Autumn before giving
@@ -136,20 +136,20 @@ function SubscribePage() {
       <div className="w-full max-w-xs space-y-4 text-center">
         <img
           src="/transparent-logo.png"
-          alt="OpenSEO"
+          alt="RE9 SEO"
           className="mx-auto size-10 rounded-lg"
         />
         <h1 className="text-xl font-semibold">
-          Finalizing your subscription&hellip;
+          Finalizando sua assinatura&hellip;
         </h1>
         <span className="loading loading-spinner loading-md" />
         <p className="text-sm text-base-content/60">
-          This usually takes a few seconds.
+          Isso costuma levar alguns segundos.
         </p>
         <p className="text-xs text-base-content/50">
-          Taking longer?{" "}
+          Está demorando?{" "}
           <a className="link" href={`mailto:${SUPPORT_EMAIL}`}>
-            Email {SUPPORT_EMAIL}
+            Envie um e-mail para {SUPPORT_EMAIL}
           </a>
           .
         </p>
@@ -163,16 +163,16 @@ function SubscribePage() {
         <div className="text-center space-y-3">
           <img
             src="/transparent-logo.png"
-            alt="OpenSEO"
+            alt="RE9 SEO"
             className="mx-auto size-10 rounded-lg"
           />
-          <h1 className="text-xl font-semibold">Billing unavailable</h1>
+          <h1 className="text-xl font-semibold">Cobrança indisponível</h1>
         </div>
 
         <p className="text-sm text-center text-base-content/70">
           {getStandardErrorMessage(
             customerQuery.error,
-            "We couldn't verify your billing status right now. Please try again.",
+            "Não foi possível verificar sua situação de cobrança agora. Tente novamente.",
           )}
         </p>
 
@@ -183,7 +183,7 @@ function SubscribePage() {
             void customerQuery.refetch();
           }}
         >
-          Try again
+          Tentar novamente
         </button>
       </div>
     );
@@ -207,7 +207,7 @@ function SubscribePage() {
       setError(
         getStandardErrorMessage(
           err,
-          "We couldn't start the checkout. Please try again.",
+          "Não foi possível iniciar o pagamento. Tente novamente.",
         ),
       );
       setIsAttaching(false);
@@ -223,25 +223,26 @@ function SubscribePage() {
       <div className="text-center space-y-3">
         <img
           src="/transparent-logo.png"
-          alt="OpenSEO"
+          alt="RE9 SEO"
           className="mx-auto size-10 rounded-lg"
         />
         <h1 className="text-xl font-semibold">
           {isUpgradeFlow
-            ? "Upgrade your plan"
+            ? "Faça upgrade do seu plano"
             : firstName
-              ? `Welcome to OpenSEO, ${firstName}!`
-              : "Welcome to OpenSEO!"}
+              ? `Boas-vindas ao RE9 SEO, ${firstName}!`
+              : "Boas-vindas ao RE9 SEO!"}
         </h1>
         <p className="text-sm text-base-content/60">
-          SEO on your terms. All your SEO tools in one place at a fair price.
+          SEO do seu jeito. Todas as suas ferramentas de SEO em um só lugar, por
+          um preço justo.
         </p>
       </div>
 
       <div className="rounded-lg border border-base-300 p-5 space-y-4">
         <div className="flex items-baseline justify-between gap-4">
-          <span className="font-semibold">Base Plan</span>
-          <span className="text-lg font-semibold tabular-nums">$10/month</span>
+          <span className="font-semibold">Plano Base</span>
+          <span className="text-lg font-semibold tabular-nums">$10/mês</span>
         </div>
 
         <ul className="space-y-2">
@@ -267,7 +268,7 @@ function SubscribePage() {
                 captureClientEvent("billing:pricing_estimator_click")
               }
             >
-              How far do usage credits go?{" "}
+              Quanto rendem os créditos de uso?{" "}
               <span aria-hidden="true">&#8599;</span>
             </a>
           </li>
@@ -281,31 +282,31 @@ function SubscribePage() {
             disabled={isAttaching}
             onClick={() => void handleSubscribe()}
           >
-            {isAttaching ? "Redirecting..." : "Subscribe"}
+            {isAttaching ? "Redirecionando..." : "Assinar"}
           </button>
         ) : (
           <p className="text-sm text-base-content/60">
-            Only the organization owner can subscribe. Ask them to upgrade this
-            organization.
+            Somente o proprietário da organização pode assinar. Peça a ele para
+            fazer upgrade desta organização.
           </p>
         )}
 
         <p className="text-center text-xs text-base-content/50">
           <span
             className="tooltip before:max-w-60 before:whitespace-normal"
-            data-tip={`Not for you yet? Email ${SUPPORT_EMAIL} within 30 days of your charge and we'll refund your subscription.`}
+            data-tip={`Ainda não é para você? Envie um e-mail para ${SUPPORT_EMAIL} em até 30 dias após a cobrança e reembolsaremos sua assinatura.`}
           >
             <span className="cursor-help underline decoration-dotted">
-              30-day money-back guarantee
+              Garantia de reembolso de 30 dias
             </span>
           </span>
-          . Cancel anytime. Powered by Stripe.
+          . Cancele quando quiser. Pagamento processado pelo Stripe.
         </p>
       </div>
 
       <div className="text-center space-y-2">
         <p className="text-sm text-base-content/60">
-          Questions? Email {SUPPORT_EMAIL}.
+          Dúvidas? Envie um e-mail para {SUPPORT_EMAIL}.
         </p>
         {isUpgradeFlow ? (
           <button
@@ -314,7 +315,7 @@ function SubscribePage() {
             onClick={() => void navigate({ to: "/", replace: true })}
           >
             <ArrowRight className="size-3.5 rotate-180" />
-            Back to app
+            Voltar para o app
           </button>
         ) : null}
       </div>
@@ -334,7 +335,7 @@ function SubscribePageAccountMenu({ email }: { email: string | undefined }) {
           type="button"
           tabIndex={0}
           className="btn btn-ghost btn-circle"
-          aria-label="Open account menu"
+          aria-label="Abrir menu da conta"
         >
           <User className="h-5 w-5" />
         </button>
@@ -350,7 +351,7 @@ function SubscribePageAccountMenu({ email }: { email: string | undefined }) {
           <li>
             <Link to="/settings" className="flex items-center gap-2">
               <Settings className="h-4 w-4" />
-              Settings
+              Configurações
             </Link>
           </li>
           <ThemePreferenceMenuItems />
@@ -360,7 +361,7 @@ function SubscribePageAccountMenu({ email }: { email: string | undefined }) {
               className="text-error"
               onClick={handleSignOut}
             >
-              Sign out
+              Sair
             </button>
           </li>
         </ul>

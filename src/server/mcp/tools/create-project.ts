@@ -60,7 +60,7 @@ async function resolveTargetOrganization(
     if (organizationId && organizationId !== auth.organizationId) {
       throw new AppError(
         "FORBIDDEN",
-        "This connection is bound to a single organization — omit organizationId.",
+        "Esta conexão está vinculada a uma única organização — omita organizationId.",
       );
     }
     return { organizationId: auth.organizationId, role: auth.role };
@@ -74,7 +74,7 @@ async function resolveTargetOrganization(
     if (!membership) {
       throw new AppError(
         "FORBIDDEN",
-        "The user is not a member of that organization.",
+        "O usuário não é membro dessa organização.",
       );
     }
     return { organizationId, role: membership.role };
@@ -94,7 +94,7 @@ async function resolveTargetOrganization(
     .join("\n");
   throw new AppError(
     "VALIDATION_ERROR",
-    `The user belongs to ${memberships.length} organizations. Ask the user which organization this project should be created in, then retry with organizationId set:\n${organizationList}`,
+    `O usuário pertence a ${memberships.length} organizações. Pergunte ao usuário em qual organização este projeto deve ser criado e tente novamente com organizationId definido:\n${organizationList}`,
   );
 }
 

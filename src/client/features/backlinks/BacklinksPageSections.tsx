@@ -34,8 +34,8 @@ const BACKLINKS_RESULTS_TABS: Array<{
   label: string;
 }> = [
   { tab: "backlinks", label: "Backlinks" },
-  { tab: "domains", label: "Referring Domains" },
-  { tab: "pages", label: "Top Pages" },
+  { tab: "domains", label: "Domínios de referência" },
+  { tab: "pages", label: "Principais páginas" },
 ];
 
 export function BacklinksResultsCard({
@@ -153,10 +153,10 @@ export function BacklinksResultsCard({
         <button
           className={`btn btn-ghost btn-sm gap-1.5 ${filters.showFilters ? "btn-active" : ""}`}
           onClick={() => filters.setShowFilters((current) => !current)}
-          title="Toggle table filters"
+          title="Mostrar/ocultar filtros da tabela"
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
@@ -166,7 +166,7 @@ export function BacklinksResultsCard({
         {activeTab === "backlinks" ? (
           <div
             role="tablist"
-            aria-label="Backlinks view"
+            aria-label="Visualização de backlinks"
             className="ml-auto tabs tabs-border tabs-xs w-fit"
           >
             <button
@@ -174,20 +174,20 @@ export function BacklinksResultsCard({
               role="tab"
               aria-selected={view !== "all"}
               className={`tab ${view !== "all" ? "tab-active" : ""}`}
-              title="Show each referring domain's strongest link; expand a row for the rest"
+              title="Mostra o link mais forte de cada domínio de referência; expanda uma linha para ver os demais"
               onClick={() => onViewChange(undefined)}
             >
-              One per domain
+              Um por domínio
             </button>
             <button
               type="button"
               role="tab"
               aria-selected={view === "all"}
               className={`tab ${view === "all" ? "tab-active" : ""}`}
-              title="List every individual backlink"
+              title="Lista cada backlink individualmente"
               onClick={() => onViewChange("all")}
             >
-              All links
+              Todos os links
             </button>
           </div>
         ) : null}
@@ -265,9 +265,9 @@ export function BacklinksResultsCard({
 }
 
 const TAB_LOADING_LABELS: Record<BacklinksTab, string> = {
-  backlinks: "Loading backlinks",
-  domains: "Loading referring domains",
-  pages: "Loading top pages",
+  backlinks: "Carregando backlinks",
+  domains: "Carregando domínios de referência",
+  pages: "Carregando principais páginas",
 };
 
 /** Unique domains the DR column keys on, from both the backlinks and referring

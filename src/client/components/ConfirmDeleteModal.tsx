@@ -29,7 +29,7 @@ export function ConfirmDeleteModal({
           className="btn btn-ghost btn-sm"
           onClick={onClose}
         >
-          Cancel
+          Cancelar
         </button>
         <button
           type="button"

@@ -46,7 +46,7 @@ export function KeywordResearchMobileResults({ controller }: Props) {
           }`}
           onClick={() => controller.setMobileTab("keywords")}
         >
-          Keywords ({filteredRows.length})
+          Palavras-chave ({filteredRows.length})
         </button>
         <button
           className={`flex-1 py-2 text-sm font-medium text-center border-b-2 transition-colors ${
@@ -56,7 +56,7 @@ export function KeywordResearchMobileResults({ controller }: Props) {
           }`}
           onClick={() => controller.setMobileTab("serp")}
         >
-          SERP Analysis
+          Análise da SERP
         </button>
       </div>
 
@@ -97,10 +97,10 @@ function MobileKeywordResults({ controller }: Props) {
 
   const keywordCountLabel =
     selectedRows.size > 0
-      ? `${selectedRows.size} selected`
+      ? `${selectedRows.size} ${selectedRows.size === 1 ? "selecionada" : "selecionadas"}`
       : activeFilterCount > 0
-        ? `Showing ${filteredRows.length} of ${rows.length}`
-        : `Showing ${filteredRows.length} keywords`;
+        ? `Mostrando ${filteredRows.length} de ${rows.length}`
+        : `Mostrando ${filteredRows.length} ${filteredRows.length === 1 ? "palavra-chave" : "palavras-chave"}`;
 
   const canExport = filteredRows.length > 0;
   const selectedExportRows = filteredRows
@@ -136,9 +136,9 @@ function MobileKeywordResults({ controller }: Props) {
           className="mx-4 mt-2 rounded-lg border border-warning/40 bg-warning/15 px-3 py-2 text-xs text-base-content"
           role="status"
         >
-          No exact match for{" "}
+          Nenhuma correspondência exata para{" "}
           <span className="font-medium">"{controller.searchedKeyword}"</span>.
-          Showing closest related keywords.
+          Mostrando as palavras-chave relacionadas mais próximas.
         </div>
       ) : null}
 
@@ -148,7 +148,7 @@ function MobileKeywordResults({ controller }: Props) {
           onClick={() => controller.setShowFilters((current) => !current)}
         >
           <SlidersHorizontal className="size-3.5" />
-          Filters
+          Filtros
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
@@ -164,7 +164,7 @@ function MobileKeywordResults({ controller }: Props) {
             tabIndex={0}
             role="button"
             className={`btn btn-ghost btn-xs gap-1 ${!canExport ? "btn-disabled" : ""}`}
-            aria-label="Export"
+            aria-label="Exportar"
           >
             <Download className="size-3.5" />
             <ChevronDown className="size-3 opacity-60" />
@@ -176,13 +176,13 @@ function MobileKeywordResults({ controller }: Props) {
             <li>
               <button onClick={handleExportToSheets} disabled={!canExport}>
                 <Sheet className="size-4" />
-                Export to Sheets
+                Exportar para o Sheets
               </button>
             </li>
             <li>
               <button onClick={controller.exportCsv} disabled={!canExport}>
                 <FileDown className="size-4" />
-                Export CSV
+                Exportar CSV
               </button>
             </li>
           </ul>
@@ -198,17 +198,17 @@ function MobileKeywordResults({ controller }: Props) {
               icon={<Save className="size-3.5" />}
               onClick={controller.handleSaveKeywords}
             >
-              Save
+              Salvar
             </TableBulkActionButton>
             <TableBulkExportMenu
               actions={[
                 {
-                  label: "Export to Sheets",
+                  label: "Exportar para o Sheets",
                   icon: <Sheet className="size-4" />,
                   onClick: handleExportSelectionToSheets,
                 },
                 {
-                  label: "Export CSV",
+                  label: "Exportar CSV",
                   icon: <FileDown className="size-4" />,
                   onClick: handleExportSelectionCsv,
                 },
@@ -252,7 +252,7 @@ function MobileFilters({ controller }: Props) {
     <div className="shrink-0 border-b border-base-300 bg-gradient-to-b from-base-100 to-base-200/30 px-4 py-3 space-y-3">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <p className="text-xs font-semibold">Refine table results</p>
+          <p className="text-xs font-semibold">Refinar resultados da tabela</p>
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
               {activeFilterCount}
@@ -265,7 +265,7 @@ function MobileFilters({ controller }: Props) {
           disabled={activeFilterCount === 0}
         >
           <RotateCcw className="size-3" />
-          Clear
+          Limpar
         </button>
       </div>
 
@@ -274,7 +274,7 @@ function MobileFilters({ controller }: Props) {
           {(field) => (
             <input
               className="input input-bordered input-sm bg-base-100"
-              placeholder="Include terms (audit, checker)"
+              placeholder="Incluir termos (auditoria, verificador)"
               value={field.state.value}
               onChange={(event) => field.handleChange(event.target.value)}
             />
@@ -284,7 +284,7 @@ function MobileFilters({ controller }: Props) {
           {(field) => (
             <input
               className="input input-bordered input-sm bg-base-100"
-              placeholder="Exclude terms (jobs, course)"
+              placeholder="Excluir termos (vagas, curso)"
               value={field.state.value}
               onChange={(event) => field.handleChange(event.target.value)}
             />
@@ -296,34 +296,34 @@ function MobileFilters({ controller }: Props) {
         <MobileRangeInput
           form={filtersForm}
           name="minVol"
-          placeholder="Min volume"
+          placeholder="Volume mín."
         />
         <MobileRangeInput
           form={filtersForm}
           name="maxVol"
-          placeholder="Max volume"
+          placeholder="Volume máx."
         />
         <MobileRangeInput
           form={filtersForm}
           name="minCpc"
-          placeholder="Min CPC"
+          placeholder="CPC mín."
           step="0.01"
         />
         <MobileRangeInput
           form={filtersForm}
           name="maxCpc"
-          placeholder="Max CPC"
+          placeholder="CPC máx."
           step="0.01"
         />
         <MobileRangeInput
           form={filtersForm}
           name="minKd"
-          placeholder="Min difficulty"
+          placeholder="Dificuldade mín."
         />
         <MobileRangeInput
           form={filtersForm}
           name="maxKd"
-          placeholder="Max difficulty"
+          placeholder="Dificuldade máx."
         />
       </div>
 

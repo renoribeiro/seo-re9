@@ -103,13 +103,13 @@ export function MoreMenu({
   return (
     <ToolbarMenu
       icon={<MoreHorizontal className="size-4" />}
-      title="More actions"
+      title="Mais ações"
     >
       {!checkDisabled && (
         <MenuItem
           icon={<Play className="size-3.5" />}
-          label={checkBusy ? "Running..." : "Check rankings"}
-          description="Fetch current Google positions"
+          label={checkBusy ? "Executando…" : "Verificar posições"}
+          description="Busca as posições atuais no Google"
           onClick={onCheckNow}
           disabled={checkBusy}
         />
@@ -120,8 +120,12 @@ export function MoreMenu({
             className={`size-3.5 ${metricsRefreshing ? "animate-spin" : ""}`}
           />
         }
-        label={metricsRefreshing ? "Refreshing..." : "Update keyword stats"}
-        description="Volume, difficulty & CPC — not rankings"
+        label={
+          metricsRefreshing
+            ? "Atualizando…"
+            : "Atualizar métricas das palavras-chave"
+        }
+        description="Volume, dificuldade e CPC — não as posições"
         onClick={onRefreshMetrics}
         disabled={metricsRefreshing || !hasData}
       />
@@ -141,22 +145,22 @@ export function ExportMenu({
   hasData: boolean;
 }) {
   return (
-    <ToolbarMenu label="Export" icon={<Download className="size-3.5" />}>
+    <ToolbarMenu label="Exportar" icon={<Download className="size-3.5" />}>
       <MenuItem
         icon={<Sheet className="size-3.5" />}
-        label="Export to Sheets"
+        label="Exportar para o Sheets"
         onClick={onExportToSheets}
         disabled={!hasData}
       />
       <MenuItem
         icon={<FileDown className="size-3.5" />}
-        label="Export CSV"
+        label="Exportar CSV"
         onClick={onExport}
         disabled={!hasData}
       />
       <MenuItem
         icon={<Copy className="size-3.5" />}
-        label="Copy keywords"
+        label="Copiar palavras-chave"
         onClick={onCopyKeywords}
         disabled={!hasData}
       />

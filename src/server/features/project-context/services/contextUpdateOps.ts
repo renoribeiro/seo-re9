@@ -22,10 +22,10 @@ function normalizeKeyPageUrl(raw: string): string {
   try {
     url = new URL(withScheme);
   } catch {
-    throw new AppError("VALIDATION_ERROR", `Not a valid page URL: ${raw}`);
+    throw new AppError("VALIDATION_ERROR", `URL de página inválida: ${raw}`);
   }
   if (url.protocol !== "https:" && url.protocol !== "http:") {
-    throw new AppError("VALIDATION_ERROR", `Not a valid page URL: ${raw}`);
+    throw new AppError("VALIDATION_ERROR", `URL de página inválida: ${raw}`);
   }
   url.protocol = "https:";
   url.hash = "";
@@ -47,7 +47,7 @@ function assertProseFits(content: string) {
   if (content.length > PROSE_MAX_CHARS) {
     throw new AppError(
       "VALIDATION_ERROR",
-      `Sections are capped at ${PROSE_MAX_CHARS} characters. Summarize instead of pasting.`,
+      `As seções têm limite de ${PROSE_MAX_CHARS} caracteres. Resuma em vez de colar.`,
     );
   }
 }
@@ -135,7 +135,7 @@ export function resolveContextUpdates(
       if (!customKeys.has(key) && customKeys.size >= MAX_CUSTOM_SECTIONS) {
         throw new AppError(
           "VALIDATION_ERROR",
-          `A project can hold ${MAX_CUSTOM_SECTIONS} custom sections. Delete one first.`,
+          `Um projeto pode ter até ${MAX_CUSTOM_SECTIONS} seções personalizadas. Exclua uma antes.`,
         );
       }
       resolved.push({
@@ -172,7 +172,7 @@ export function resolveContextUpdates(
       if (domains.size + additions > MAX_COMPETITORS) {
         throw new AppError(
           "VALIDATION_ERROR",
-          `A project can track ${MAX_COMPETITORS} competitors. Remove some first.`,
+          `Um projeto pode acompanhar até ${MAX_COMPETITORS} concorrentes. Remova alguns antes.`,
         );
       }
       resolved.push({ kind: "upsertCompetitors", rows });
@@ -204,7 +204,7 @@ export function resolveContextUpdates(
       if (urls.size + additions > MAX_KEY_PAGES) {
         throw new AppError(
           "VALIDATION_ERROR",
-          `A project can hold ${MAX_KEY_PAGES} key pages. This is a shortlist, not a page inventory.`,
+          `Um projeto pode ter até ${MAX_KEY_PAGES} páginas-chave. É uma lista curta, não um inventário de páginas.`,
         );
       }
       resolved.push({ kind: "upsertKeyPages", rows });
@@ -242,7 +242,7 @@ export function resolveContextUpdates(
       throw error instanceof AppError
         ? new AppError(
             error.code,
-            `updates[${index}] was rejected (nothing in this batch was applied): ${error.message}`,
+            `updates[${index}] foi rejeitado (nada deste lote foi aplicado): ${error.message}`,
           )
         : error;
     }

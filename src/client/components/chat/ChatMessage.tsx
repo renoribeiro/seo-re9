@@ -75,8 +75,8 @@ function CopyButton({ message }: { message: UIMessage }) {
   return (
     <button
       type="button"
-      aria-label="Copy message"
-      title="Copy"
+      aria-label="Copiar mensagem"
+      title="Copiar"
       className="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-base-content"
       onClick={() => {
         void navigator.clipboard.writeText(messageText(message));
@@ -111,8 +111,8 @@ function MessageActions({
       {onStartEdit ? (
         <button
           type="button"
-          aria-label="Edit message"
-          title="Edit and resend"
+          aria-label="Editar mensagem"
+          title="Editar e reenviar"
           className="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-base-content"
           onClick={onStartEdit}
         >
@@ -122,8 +122,8 @@ function MessageActions({
       {onUndo ? (
         <button
           type="button"
-          aria-label="Undo from this message"
-          title="Undo — remove this message and everything after it"
+          aria-label="Desfazer a partir desta mensagem"
+          title="Desfazer — remove esta mensagem e tudo o que vem depois"
           className="btn btn-ghost btn-xs btn-square text-base-content/40 hover:text-base-content"
           onClick={onUndo}
         >
@@ -163,7 +163,7 @@ function ReasoningBlock({
             className={`size-3 transition-transform ${expanded ? "rotate-90" : ""}`}
           />
         )}
-        <span>{isStreaming ? "Thinking…" : "Thought process"}</span>
+        <span>{isStreaming ? "Pensando…" : "Raciocínio"}</span>
       </button>
       {expanded ? (
         <div className="mt-1.5 whitespace-pre-wrap border-l-2 border-base-300 pl-3 text-xs text-base-content/50">
@@ -188,8 +188,8 @@ function ToolBadge({
   const labels = resolveToolLabel(part.type);
   if (!labels) return null;
   const skillName = skillNameFromPart(part);
-  const runningText = skillName ? `Activating ${skillName}` : labels.running;
-  const doneText = skillName ? `Skill: ${skillName}` : labels.done;
+  const runningText = skillName ? `Ativando ${skillName}` : labels.running;
+  const doneText = skillName ? `Habilidade: ${skillName}` : labels.done;
   const state = "state" in part ? part.state : undefined;
   const isDone = state === "output-available";
   // A "running" part in a message that is no longer being generated never
@@ -272,14 +272,14 @@ export function ChatMessage({
               className="btn btn-ghost btn-xs"
               onClick={() => setEditing(false)}
             >
-              Cancel
+              Cancelar
             </button>
             <button
               type="button"
               className="btn btn-primary btn-xs"
               onClick={submit}
             >
-              Save & resend
+              Salvar e reenviar
             </button>
           </div>
         </div>

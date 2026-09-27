@@ -139,11 +139,16 @@ export function RankTrackingTable({
         queryKey: ["rankTrackingCostEstimate", projectId, configId],
       });
       toast.success(
-        `${result.removed} keyword${result.removed !== 1 ? "s" : ""} removed`,
+        `${result.removed} ${result.removed !== 1 ? "palavras-chave removidas" : "palavra-chave removida"}`,
       );
     },
     onError: (error) => {
-      toast.error(getStandardErrorMessage(error, "Failed to remove keywords"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível remover as palavras-chave",
+        ),
+      );
     },
   });
 
@@ -159,8 +164,8 @@ export function RankTrackingTable({
     return (
       <div className="rounded-xl border border-dashed border-base-300 p-10 text-center text-sm text-base-content/55">
         {totalCount === 0
-          ? 'No rank data yet. Click "Check Now" to run your first check.'
-          : "No keywords match your search."}
+          ? 'Ainda não há dados de posição. Clique em "Verificar posições" para fazer sua primeira verificação.'
+          : "Nenhuma palavra-chave corresponde à sua busca."}
       </div>
     );
   }
@@ -177,17 +182,17 @@ export function RankTrackingTable({
               onClick={() => setShowConfirm(true)}
               variant="danger"
             >
-              Remove
+              Remover
             </TableBulkActionButton>
             <TableBulkExportMenu
               actions={[
                 {
-                  label: "Export to Sheets",
+                  label: "Exportar para o Sheets",
                   icon: <Sheet className="size-4" />,
                   onClick: exportSelectionToSheets,
                 },
                 {
-                  label: "Export CSV",
+                  label: "Exportar CSV",
                   icon: <FileDown className="size-4" />,
                   onClick: exportSelectionCsv,
                 },
@@ -204,19 +209,20 @@ export function RankTrackingTable({
           labelledBy="remove-keywords-title"
         >
           <h3 id="remove-keywords-title" className="text-lg font-semibold">
-            Remove keywords?
+            Remover palavras-chave?
           </h3>
           <p className="text-sm text-base-content/70">
-            This will stop tracking {selectedCount} keyword
-            {selectedCount !== 1 ? "s" : ""}. Historical ranking data is
-            preserved but won't appear in the table.
+            O monitoramento de {selectedCount}{" "}
+            {selectedCount !== 1 ? "palavras-chave" : "palavra-chave"} será
+            interrompido. O histórico de ranqueamento é preservado, mas não
+            aparecerá na tabela.
           </p>
           <div className="flex justify-end gap-2">
             <button
               className="btn btn-ghost btn-sm"
               onClick={() => setShowConfirm(false)}
             >
-              Cancel
+              Cancelar
             </button>
             <button
               className="btn btn-error btn-sm gap-1"
@@ -228,8 +234,8 @@ export function RankTrackingTable({
               {removeMutation.isPending && (
                 <Loader2 className="size-3 animate-spin" />
               )}
-              Remove {selectedCount} keyword
-              {selectedCount !== 1 ? "s" : ""}
+              Remover {selectedCount}{" "}
+              {selectedCount !== 1 ? "palavras-chave" : "palavra-chave"}
             </button>
           </div>
         </Modal>
@@ -250,7 +256,8 @@ export function RankTrackingTable({
 
       <AppDataTable table={table} getCellClassName={() => "align-top"} />
       <p className="text-xs text-base-content/60 pt-2">
-        {rows.length} of {totalCount} keywords
+        {rows.length} de {totalCount}{" "}
+        {totalCount !== 1 ? "palavras-chave" : "palavra-chave"}
       </p>
     </>
   );

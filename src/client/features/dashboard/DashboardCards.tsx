@@ -60,15 +60,15 @@ export function GscCard({
 
   return (
     <CardShell
-      title="Search performance"
-      stamp="Google Search Console · last 28 days"
+      title="Desempenho na busca"
+      stamp="Google Search Console · últimos 28 dias"
       action={
         <Link
           to="/p/$projectId/search-performance"
           params={{ projectId }}
           className={moreDetailsClass}
         >
-          More details
+          Mais detalhes
         </Link>
       }
     >
@@ -80,12 +80,13 @@ export function GscCard({
         </div>
       ) : reportQuery.isError ? (
         <p className="text-sm text-base-content/60">
-          Couldn&rsquo;t load Search Console data. Try again shortly.
+          Não foi possível carregar os dados do Search Console. Tente novamente
+          em breve.
         </p>
       ) : report?.connected ? (
         <div className="grid grid-cols-2 gap-3">
           <Stat
-            label="Clicks"
+            label="Cliques"
             value={formatCount(report.totals.clicks)}
             sub={
               <PercentDelta
@@ -95,7 +96,7 @@ export function GscCard({
             }
           />
           <Stat
-            label="Impressions"
+            label="Impressões"
             value={formatCount(report.totals.impressions)}
             sub={
               <PercentDelta
@@ -106,7 +107,7 @@ export function GscCard({
           />
           <Stat label="CTR" value={formatCtr(report.totals.ctr)} />
           <Stat
-            label="Avg position"
+            label="Posição média"
             value={formatPosition(report.totals.position)}
           />
         </div>
@@ -124,16 +125,16 @@ export function AuditHealthCard({
 }) {
   if (!audit) {
     return (
-      <CardShell title="Site audit">
+      <CardShell title="Auditoria do site">
         <EmptyCardBody
-          message="Crawl your site for broken links, missing tags and indexability problems."
+          message="Rastreie seu site em busca de links quebrados, tags ausentes e problemas de indexação."
           cta={
             <Link
               to="/p/$projectId/audit"
               params={{ projectId }}
               className="btn btn-primary btn-sm"
             >
-              Run an audit
+              Fazer uma auditoria
             </Link>
           }
         />
@@ -143,13 +144,13 @@ export function AuditHealthCard({
 
   return (
     <CardShell
-      title="Site audit"
-      stamp={`Site audit · ${
+      title="Auditoria do site"
+      stamp={`Auditoria do site · ${
         audit.status === "completed"
-          ? `crawled ${audit.pagesCrawled} pages · ${formatDay(audit.startedAt)}`
+          ? `${audit.pagesCrawled.toLocaleString("pt-BR")} ${audit.pagesCrawled === 1 ? "página rastreada" : "páginas rastreadas"} · ${formatDay(audit.startedAt)}`
           : audit.status === "running"
-            ? "crawl in progress"
-            : "last crawl failed"
+            ? "rastreamento em andamento"
+            : "o último rastreamento falhou"
       }`}
       action={
         <Link
@@ -157,14 +158,14 @@ export function AuditHealthCard({
           params={{ projectId }}
           className={moreDetailsClass}
         >
-          More details
+          Mais detalhes
         </Link>
       }
     >
       {audit.topIssues.length === 0 ? (
         <div className="flex items-center gap-2 text-sm text-base-content/70">
           <Check className="size-4 text-success" />
-          No issues found — your site looks healthy.
+          Nenhum problema encontrado — seu site parece saudável.
         </div>
       ) : (
         <ul className="space-y-2">
@@ -188,14 +189,17 @@ export function AuditHealthCard({
                 </span>
               </span>
               <span className="shrink-0 tabular-nums text-base-content/60">
-                {issue.count} {issue.count === 1 ? "page" : "pages"}
+                {issue.count.toLocaleString("pt-BR")}{" "}
+                {issue.count === 1 ? "página" : "páginas"}
               </span>
             </li>
           ))}
           {audit.totalIssueTypes > audit.topIssues.length ? (
             <li className="text-xs text-base-content/50">
-              + {audit.totalIssueTypes - audit.topIssues.length} more issue
-              {audit.totalIssueTypes - audit.topIssues.length === 1 ? "" : "s"}
+              + {audit.totalIssueTypes - audit.topIssues.length}{" "}
+              {audit.totalIssueTypes - audit.topIssues.length === 1
+                ? "outro problema"
+                : "outros problemas"}
             </li>
           ) : null}
         </ul>
@@ -215,7 +219,10 @@ export function BacklinkPulseCard({
 }) {
   if (!backlinks && refreshing) {
     return (
-      <CardShell title="Backlink pulse" stamp="Taking your first snapshot…">
+      <CardShell
+        title="Pulso de backlinks"
+        stamp="Capturando o primeiro registro…"
+      >
         <div className="grid grid-cols-2 gap-3" aria-busy>
           {Array.from({ length: 4 }, (_, i) => (
             <div key={i} className="skeleton h-20" />
@@ -227,9 +234,10 @@ export function BacklinkPulseCard({
 
   if (!backlinks) {
     return (
-      <CardShell title="Backlink pulse">
+      <CardShell title="Pulso de backlinks">
         <p className="text-sm text-base-content/60">
-          We&rsquo;ll snapshot who links to your domain — nothing to set up.
+          Vamos registrar quem aponta links para o seu domínio — sem nada para
+          configurar.
         </p>
       </CardShell>
     );
@@ -237,9 +245,9 @@ export function BacklinkPulseCard({
 
   return (
     <CardShell
-      title="Backlink pulse"
-      stamp={`Backlinks · snapshot ${formatDay(backlinks.capturedAt)}${
-        refreshing ? " · refreshing…" : ""
+      title="Pulso de backlinks"
+      stamp={`Backlinks · capturado em ${formatDay(backlinks.capturedAt)}${
+        refreshing ? " · atualizando…" : ""
       }`}
       action={
         <Link
@@ -248,17 +256,17 @@ export function BacklinkPulseCard({
           search={{ target: backlinks.domain, scope: "domain" }}
           className={moreDetailsClass}
         >
-          More details
+          Mais detalhes
         </Link>
       }
     >
       <div className="grid grid-cols-2 gap-3">
         <Stat
-          label="Ref. domains"
+          label="Domínios de ref."
           value={
             backlinks.referringDomains === null
               ? "—"
-              : backlinks.referringDomains.toLocaleString()
+              : backlinks.referringDomains.toLocaleString("pt-BR")
           }
         />
         <Stat
@@ -266,11 +274,11 @@ export function BacklinkPulseCard({
           value={
             backlinks.backlinks === null
               ? "—"
-              : backlinks.backlinks.toLocaleString()
+              : backlinks.backlinks.toLocaleString("pt-BR")
           }
         />
         <Stat
-          label="New links"
+          label="Links novos"
           value={`▲ ${newLost(backlinks.newBacklinks)}`}
           tone={
             backlinks.newBacklinks && backlinks.newBacklinks > 0
@@ -279,7 +287,7 @@ export function BacklinkPulseCard({
           }
         />
         <Stat
-          label="Lost links"
+          label="Links perdidos"
           value={`▼ ${newLost(backlinks.lostBacklinks)}`}
           tone={
             backlinks.lostBacklinks && backlinks.lostBacklinks > 0

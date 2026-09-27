@@ -15,8 +15,8 @@ export function ReportTemplatesList({
   if (templates.length === 0) {
     return (
       <p className="rounded-lg border border-dashed border-base-300 px-4 py-6 text-sm text-base-content/60">
-        No templates yet. A template is a reusable brief for a kind of report:
-        who it is for, which sections it has, how it sounds.
+        Nenhum modelo ainda. Um modelo é um briefing reutilizável para um tipo
+        de relatório: para quem é, quais seções tem e qual o tom.
       </p>
     );
   }
@@ -26,9 +26,9 @@ export function ReportTemplatesList({
       <table className="table table-sm">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Updated</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Atualizado</th>
             <th></th>
           </tr>
         </thead>
@@ -43,7 +43,7 @@ export function ReportTemplatesList({
                 {formatRelativeTime(template.updatedAt)}
               </td>
               <td className="w-10 text-right">
-                <PortalMenu ariaLabel={`Actions for ${template.name}`}>
+                <PortalMenu ariaLabel={`Ações para ${template.name}`}>
                   {(close) => (
                     <>
                       <li>
@@ -54,7 +54,7 @@ export function ReportTemplatesList({
                           }}
                         >
                           <Pencil className="size-3.5" />
-                          Edit
+                          Editar
                         </button>
                       </li>
                       <li>
@@ -66,7 +66,7 @@ export function ReportTemplatesList({
                           }}
                         >
                           <Trash2 className="size-3.5" />
-                          Delete
+                          Excluir
                         </button>
                       </li>
                     </>

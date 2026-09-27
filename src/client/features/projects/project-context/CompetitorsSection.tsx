@@ -54,8 +54,8 @@ export function CompetitorsSection({
   return (
     <section className="space-y-3">
       <SectionHeader
-        title="Competitors"
-        hint="The sites you measure yourself against."
+        title="Concorrentes"
+        hint="Os sites com os quais você se compara."
         action={
           <button
             type="button"
@@ -63,7 +63,7 @@ export function CompetitorsSection({
             onClick={() => setAdding(true)}
           >
             <Plus className="size-3.5" />
-            Add competitor
+            Adicionar concorrente
           </button>
         }
       />
@@ -81,8 +81,9 @@ export function CompetitorsSection({
       {competitors.length === 0 ? (
         adding ? null : (
           <EmptyState>
-            No competitors yet. Add the sites you compete with, or ask SAM to
-            find them from your rankings and save them here.
+            Nenhum concorrente ainda. Adicione os sites com que você concorre ou
+            peça ao SAM para encontrá-los a partir dos seus ranqueamentos e
+            salvá-los aqui.
           </EmptyState>
         )
       ) : (
@@ -127,13 +128,13 @@ export function CompetitorsSection({
                   <button
                     type="button"
                     className="btn btn-ghost btn-xs"
-                    aria-label={`Edit ${competitor.domain}`}
+                    aria-label={`Editar ${competitor.domain}`}
                     onClick={() => setEditingId(competitor.id)}
                   >
                     <Pencil className="size-3.5" />
                   </button>
                   <ConfirmDeleteButton
-                    label={`Remove ${competitor.domain}`}
+                    label={`Remover ${competitor.domain}`}
                     pending={update.isPending}
                     onConfirm={() =>
                       update.mutate([
@@ -187,29 +188,29 @@ function CompetitorForm({
           onChange={(event) =>
             setDraft({ ...draft, domain: event.target.value })
           }
-          placeholder="competitor.com"
+          placeholder="concorrente.com.br"
           maxLength={255}
           className="input input-bordered input-sm w-full"
-          aria-label="Competitor domain"
+          aria-label="Domínio do concorrente"
         />
         <input
           type="text"
           value={draft.name}
           onChange={(event) => setDraft({ ...draft, name: event.target.value })}
-          placeholder="Name (optional)"
+          placeholder="Nome (opcional)"
           maxLength={120}
           className="input input-bordered input-sm w-full"
-          aria-label="Competitor name"
+          aria-label="Nome do concorrente"
         />
       </div>
       <input
         type="text"
         value={draft.notes}
         onChange={(event) => setDraft({ ...draft, notes: event.target.value })}
-        placeholder="Why they matter — e.g. wins every comparison keyword (optional)"
+        placeholder="Por que ele importa — ex.: vence todas as palavras-chave de comparação (opcional)"
         maxLength={500}
         className="input input-bordered input-sm w-full"
-        aria-label="Competitor notes"
+        aria-label="Observações sobre o concorrente"
       />
       <FormActions
         pending={pending}

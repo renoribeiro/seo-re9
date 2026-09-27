@@ -39,9 +39,9 @@ import {
 } from "@/types/schemas/search-performance";
 
 const RANGE_LABELS: Record<SearchPerformanceDateRange, string> = {
-  last_7_days: "Last 7 days",
-  last_28_days: "Last 28 days",
-  last_3_months: "Last 3 months",
+  last_7_days: "Últimos 7 dias",
+  last_28_days: "Últimos 28 dias",
+  last_3_months: "Últimos 3 meses",
 };
 const RANGE_OPTIONS = SEARCH_PERFORMANCE_RANGES.map((value) => ({
   value,
@@ -184,7 +184,7 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
       });
       exportDimensionRows(dimension, data.rows, report.range, target);
     } catch (error) {
-      toast.error(getStandardErrorMessage(error, "Export failed"));
+      toast.error(getStandardErrorMessage(error, "Falha ao exportar"));
     }
   };
 
@@ -193,10 +193,10 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
       <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="text-2xl font-semibold">Search Performance</h1>
+            <h1 className="text-2xl font-semibold">Desempenho na busca</h1>
             <p className="text-sm text-base-content/70">
-              See your site&apos;s clicks, impressions, CTR, and position from
-              Google Search Console.
+              Veja os cliques, impressões, CTR e posição do seu site no Google
+              Search Console.
             </p>
           </div>
           {report?.connected ? (
@@ -205,7 +205,7 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
               params={{ projectId }}
               className="link link-hover shrink-0 self-start text-sm font-medium text-base-content/60 transition-colors hover:text-base-content sm:mt-1"
             >
-              Change property
+              Alterar propriedade
             </Link>
           ) : null}
         </div>
@@ -231,17 +231,17 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                   <TabButton
                     active={tab === "striking"}
                     onClick={() => setTab("striking")}
-                    label={`Striking distance (${report.strikingDistance.length})`}
+                    label={`Quase no topo (${report.strikingDistance.length})`}
                   />
                   <TabButton
                     active={tab === "queries"}
                     onClick={() => setTab("queries")}
-                    label="Queries"
+                    label="Consultas"
                   />
                   <TabButton
                     active={tab === "pages"}
                     onClick={() => setTab("pages")}
-                    label="Pages"
+                    label="Páginas"
                   />
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -256,9 +256,9 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                         isDevice(event.target.value) ? event.target.value : ALL,
                       );
                     }}
-                    aria-label="Device filter"
+                    aria-label="Filtro de dispositivo"
                   >
-                    <option value={ALL}>All devices</option>
+                    <option value={ALL}>Todos os dispositivos</option>
                     {DEVICE_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
                         {option.label}
@@ -269,9 +269,9 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                     className="select select-bordered select-sm w-36"
                     value={country}
                     onChange={(event) => setCountry(event.target.value)}
-                    aria-label="Country filter"
+                    aria-label="Filtro de país"
                   >
-                    <option value={ALL}>All countries</option>
+                    <option value={ALL}>Todos os países</option>
                     {report.countries.map((row) => (
                       <option key={row.key} value={row.key}>
                         {row.key.toUpperCase()}
@@ -286,7 +286,7 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                         setRange(event.target.value);
                       }
                     }}
-                    aria-label="Date range"
+                    aria-label="Período"
                   >
                     {RANGE_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -298,12 +298,12 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                     buttonClassName="btn btn-ghost btn-sm gap-1"
                     actions={[
                       {
-                        label: "Export to Sheets",
+                        label: "Exportar para o Sheets",
                         icon: <Sheet className="size-4" />,
                         onClick: () => void handleExport("sheets"),
                       },
                       {
-                        label: "Download CSV",
+                        label: "Baixar CSV",
                         icon: <Download className="size-4" />,
                         onClick: () => void handleExport("csv"),
                       },
@@ -319,7 +319,7 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                 />
               ) : tableQuery.isPending ? (
                 <div className="flex items-center gap-2 p-8 text-sm text-base-content/60">
-                  <Loader2 className="size-4 animate-spin" /> Loading…
+                  <Loader2 className="size-4 animate-spin" /> Carregando…
                 </div>
               ) : tableQuery.isError ? (
                 <div className="p-4">
@@ -334,7 +334,7 @@ export function SearchPerformancePage({ projectId }: { projectId: string }) {
                   <div className="p-4">
                     <DimensionTable
                       rows={tableRows}
-                      keyLabel={tab === "queries" ? "Query" : "Page"}
+                      keyLabel={tab === "queries" ? "Consulta" : "Página"}
                     />
                   </div>
                   <TablePagination

@@ -45,7 +45,7 @@ function getBacklinksErrorMessage(
 ): string | null {
   if (!error) return null;
   if (getErrorCode(error) === "VALIDATION_ERROR") {
-    return "Enter a valid domain or page URL.";
+    return "Digite um domínio ou URL de página válido.";
   }
 
   return getStandardErrorMessage(error, fallback);
@@ -198,7 +198,7 @@ export function useBacklinksPageData({
 
   const overviewErrorMessage = getBacklinksErrorMessage(
     overviewQuery.error,
-    "Could not load backlinks data.",
+    "Não foi possível carregar os dados de backlinks.",
   );
   const activeTabQuery =
     tab === "backlinks"
@@ -208,7 +208,7 @@ export function useBacklinksPageData({
         : topPagesQuery;
   const activeTabErrorMessage = getBacklinksErrorMessage(
     activeTabQuery.error,
-    "Could not load this tab.",
+    "Não foi possível carregar esta aba.",
   );
 
   return {

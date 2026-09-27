@@ -42,12 +42,14 @@ export function CheckConfirmModal({
     >
       <div>
         <h3 id="rank-check-confirm-title" className="text-lg font-semibold">
-          Check {keywordCount} keyword
-          {keywordCount !== 1 ? "s" : ""}
+          Verificar {keywordCount}{" "}
+          {keywordCount !== 1 ? "palavras-chave" : "palavra-chave"}
         </h3>
         <p className="text-sm text-base-content/60 mt-1">
-          {keywordCount} keywords &times; {dc} device
-          {dc !== 1 ? "s" : ""} = {totalChecks} SERP checks
+          {keywordCount}{" "}
+          {keywordCount !== 1 ? "palavras-chave" : "palavra-chave"} &times; {dc}{" "}
+          {dc !== 1 ? "dispositivos" : "dispositivo"} = {totalChecks}{" "}
+          {totalChecks !== 1 ? "verificações" : "verificação"} de SERP
         </p>
       </div>
 
@@ -60,9 +62,9 @@ export function CheckConfirmModal({
           <Zap className="size-5 text-primary" />
         </div>
         <div className="flex-1">
-          <p className="font-medium">Run Now</p>
+          <p className="font-medium">Executar agora</p>
           <p className="text-xs text-base-content/60">
-            Results in ~
+            Resultados em ~
             {liveTime < 60 ? `${liveTime}s` : `${Math.ceil(liveTime / 60)} min`}
           </p>
         </div>
@@ -73,7 +75,7 @@ export function CheckConfirmModal({
       </button>
 
       <button className="btn btn-ghost btn-sm self-center" onClick={onCancel}>
-        Cancel
+        Cancelar
       </button>
     </Modal>
   );

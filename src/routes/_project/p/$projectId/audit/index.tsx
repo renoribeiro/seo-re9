@@ -110,10 +110,13 @@ function AuditDetail({
         <div className="mx-auto max-w-3xl space-y-4">
           <div className="alert alert-error">
             <AlertCircle className="size-5" />
-            <span>We could not load this audit. It may have been deleted.</span>
+            <span>
+              Não foi possível carregar esta auditoria. Ela pode ter sido
+              excluída.
+            </span>
           </div>
           <button className="btn btn-ghost btn-sm" onClick={onBack}>
-            &larr; Back to audits
+            &larr; Voltar para auditorias
           </button>
         </div>
       </div>
@@ -136,11 +139,11 @@ function AuditDetail({
       <div className="mx-auto max-w-5xl space-y-4">
         <div className="space-y-1">
           <button className="btn btn-ghost btn-sm px-0" onClick={onBack}>
-            &larr; All audits
+            &larr; Todas as auditorias
           </button>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <h1 className="text-2xl font-semibold">
-              {status ? extractHostname(status.startUrl) : "Site Audit"}
+              {status ? extractHostname(status.startUrl) : "Auditoria do site"}
             </h1>
             {status?.status !== "running" && status && (
               <StatusBadge status={status.status} />
@@ -148,7 +151,8 @@ function AuditDetail({
           </div>
           {status && (
             <p className="text-sm text-base-content/60">
-              Site audit &middot; Started {formatStartedAt(status.startedAt)}
+              Auditoria do site &middot; Iniciada em{" "}
+              {formatStartedAt(status.startedAt)}
             </p>
           )}
         </div>
@@ -168,12 +172,13 @@ function AuditDetail({
             <AlertCircle className="size-5" />
             <div className="space-y-1">
               <p className="font-medium">
-                Site audit couldn't fully crawl this website.
+                A auditoria não conseguiu rastrear este site por completo.
               </p>
               <p>
-                Sorry! This site's bot protection blocked our crawler. We don't
-                have a workaround for this yet. Desktop crawlers run from your
-                own machine and usually get past it: try{" "}
+                Desculpe! A proteção contra bots deste site bloqueou nosso
+                rastreador. Ainda não temos uma solução para isso. Rastreadores
+                de desktop rodam no seu próprio computador e costumam passar por
+                essa proteção: experimente o{" "}
                 <a
                   className="link link-primary"
                   href="https://github.com/PhialsBasement/LibreCrawl"
@@ -182,7 +187,7 @@ function AuditDetail({
                 >
                   LibreCrawl
                 </a>{" "}
-                (free, open source) or{" "}
+                (gratuito, código aberto) ou o{" "}
                 <a
                   className="link link-primary"
                   href="https://www.screamingfrog.co.uk/seo-spider/"
@@ -191,7 +196,7 @@ function AuditDetail({
                 >
                   Screaming Frog
                 </a>{" "}
-                (free up to 500 URLs).
+                (gratuito até 500 URLs).
               </p>
             </div>
           </div>
@@ -202,19 +207,20 @@ function AuditDetail({
             <AlertCircle className="size-5" />
             <div className="space-y-1">
               <p className="font-medium">
-                This audit stopped early after {partialPageCount} page
-                {partialPageCount === 1 ? "" : "s"}.
+                Esta auditoria parou antes do fim, depois de {partialPageCount}{" "}
+                {partialPageCount === 1 ? "página" : "páginas"}.
               </p>
               <p>
-                The results below cover everything crawled before it stopped.
-                Run a new audit to try again, or email{" "}
+                Os resultados abaixo incluem tudo o que foi rastreado antes da
+                parada. Rode uma nova auditoria para tentar de novo ou envie um
+                e-mail para{" "}
                 <a
                   className="link link-primary"
                   href={`mailto:${SUPPORT_EMAIL}`}
                 >
                   {SUPPORT_EMAIL}
                 </a>{" "}
-                if this keeps happening.
+                se isso continuar acontecendo.
               </p>
             </div>
           </div>
@@ -261,14 +267,14 @@ function ProgressCard({
   const isLighthousePhase = status.currentPhase === "lighthouse";
   const phaseLabel =
     status.currentPhase === "discovery"
-      ? "Discovery"
+      ? "Descoberta"
       : status.currentPhase === "crawling"
-        ? "Crawling"
+        ? "Rastreamento"
         : status.currentPhase === "lighthouse"
           ? "Lighthouse"
           : status.currentPhase === "finalizing"
-            ? "Finalizing"
-            : (status.currentPhase ?? "Running");
+            ? "Finalizando"
+            : (status.currentPhase ?? "Em andamento");
   const progress = isLighthousePhase ? lighthouseProgress : crawlProgress;
 
   const crawlProgressQuery = useQuery({
@@ -287,8 +293,8 @@ function ProgressCard({
             <h2 className="font-medium flex items-center gap-2">
               <Loader2 className="size-4 animate-spin text-primary" />
               {isLighthousePhase
-                ? "Running Lighthouse checks"
-                : "Crawling pages"}
+                ? "Executando verificações do Lighthouse"
+                : "Rastreando páginas"}
             </h2>
             <span className="badge badge-ghost badge-sm">{phaseLabel}</span>
           </div>
@@ -302,14 +308,14 @@ function ProgressCard({
           <div className="flex items-center justify-between text-sm">
             {isLighthousePhase ? (
               <span>
-                {lighthouseDone} / {status.lighthouseTotal} checks
+                {lighthouseDone} / {status.lighthouseTotal} verificações
                 {status.lighthouseFailed > 0
-                  ? ` (${status.lighthouseFailed} failed)`
+                  ? ` (${status.lighthouseFailed} com falha)`
                   : ""}
               </span>
             ) : (
               <span>
-                {status.pagesCrawled} / {status.pagesTotal} pages
+                {status.pagesCrawled} / {status.pagesTotal} páginas
               </span>
             )}
             <span className="text-base-content/60">{progress}%</span>
@@ -321,10 +327,11 @@ function ProgressCard({
         <div className="card bg-base-100 border border-base-300">
           <div className="card-body gap-2 p-4">
             <h3 className="text-sm font-medium text-base-content/70">
-              Crawled Pages ({crawledUrls.length})
+              Páginas rastreadas ({crawledUrls.length})
             </h3>
             <p className="text-xs text-base-content/50">
-              Updated {new Date(crawledUrls[0].crawledAt).toLocaleTimeString()}
+              Atualizado às{" "}
+              {new Date(crawledUrls[0].crawledAt).toLocaleTimeString("pt-BR")}
             </p>
             <div className="max-h-[400px] overflow-y-auto -mx-1">
               {crawledUrls.map((entry, i) => (

@@ -15,16 +15,16 @@ import {
 import type { SelectionAnchor } from "@/client/components/table/tableSelection";
 
 const HEADER_TOOLTIPS: Record<string, string> = {
-  keyword: "The search term being tracked in Google",
-  volume: "Estimated monthly search volume from Google",
-  kd: "Keyword difficulty score (0-100) — higher means harder to rank",
-  cpc: "Average cost per click in Google Ads (USD)",
+  keyword: "O termo de busca monitorado no Google",
+  volume: "Volume de busca mensal estimado pelo Google",
+  kd: "Dificuldade da palavra-chave (0–100) — quanto maior, mais difícil ranquear",
+  cpc: "Custo médio por clique no Google Ads (USD)",
   desktopPosition:
-    "Current Google ranking position, showing change from the comparison period",
+    "Posição atual no Google, com a variação em relação ao período de comparação",
   mobilePosition:
-    "Current Google ranking position, showing change from the comparison period",
-  url: "The page on your site that ranks for this keyword",
-  serp: "Special result features appearing on the search results page (e.g. AI Overview, People Also Ask)",
+    "Posição atual no Google, com a variação em relação ao período de comparação",
+  url: "A página do seu site que ranqueia para esta palavra-chave",
+  serp: "Recursos especiais exibidos na página de resultados (ex.: AI Overview, People Also Ask)",
 };
 
 export function SortableHeader({
@@ -48,7 +48,7 @@ export function SortableHeader({
       className="inline-flex items-center gap-1 text-xs uppercase tracking-wide font-medium text-base-content/60 transition-colors hover:text-base-content"
       onClick={column.getToggleSortingHandler()}
       title={tooltip ?? HEADER_TOOLTIPS[id]}
-      aria-label={`Sort by ${label}`}
+      aria-label={`Ordenar por ${label}`}
       aria-pressed={!!sorted}
     >
       {label}
@@ -71,11 +71,11 @@ function makeVolumeColumn(locationLabel?: string): ColumnDef<RankTrackingRow> {
     header: ({ column }) => (
       <SortableHeader
         column={column}
-        label={locationLabel ? "Local volume" : "Volume"}
+        label={locationLabel ? "Volume local" : "Volume"}
         id="volume"
         tooltip={
           locationLabel
-            ? `Estimated monthly searches in ${locationLabel} from Google Ads`
+            ? `Buscas mensais estimadas em ${locationLabel} pelo Google Ads`
             : undefined
         }
       />
@@ -119,7 +119,7 @@ function makeKeywordColumn(
     id: "keyword",
     accessorKey: "keyword",
     header: ({ column }) => (
-      <SortableHeader column={column} label="Keyword" id="keyword" />
+      <SortableHeader column={column} label="Palavra-chave" id="keyword" />
     ),
     cell: ({ row }) => (
       <div className="flex items-center gap-1.5">
@@ -127,14 +127,14 @@ function makeKeywordColumn(
           type="button"
           className="font-medium text-left link link-hover decoration-dotted underline-offset-2"
           onClick={() => onKeywordClick(row.original)}
-          title="View position history"
+          title="Ver histórico de posições"
         >
           {row.original.keyword}
         </button>
         {row.original.matchCase && (
           <span
             className="badge badge-xs cursor-help bg-base-300 border-0 text-base-content/70"
-            title="Tracked exactly as typed, not lowercased"
+            title="Monitorada exatamente como digitada, sem converter para minúsculas"
           >
             Aa
           </span>
@@ -153,7 +153,7 @@ function makeDeviceColumn(
     id,
     accessorFn: (row) => row[device].position ?? undefined,
     header: ({ column }) => (
-      <SortableHeader column={column} label="Position" id={id} />
+      <SortableHeader column={column} label="Posição" id={id} />
     ),
     size: 120,
     maxSize: 140,
@@ -195,7 +195,7 @@ function makeSerpColumn(
         className="text-xs uppercase tracking-wide font-medium text-base-content/60 cursor-help"
         title={HEADER_TOOLTIPS.serp}
       >
-        SERP Features
+        Recursos da SERP
       </span>
     ),
     cell: ({ row }) => {

@@ -39,37 +39,39 @@ export function BacklinksOverviewPanels({
           className="btn btn-ghost btn-sm gap-2 px-0 text-base-content/70 hover:bg-transparent"
         >
           <ArrowLeft className="size-4" />
-          Recent searches
+          Pesquisas recentes
         </Link>
       </div>
       <div className="flex flex-wrap items-center gap-2 text-sm text-base-content/65">
         <span className="badge badge-outline">
           {RESEARCH_SCOPE_LABELS[data.scope]}
         </span>
-        <span>Target: {data.displayTarget}</span>
+        <span>Alvo: {data.displayTarget}</span>
         <span>-</span>
-        <span>Updated {formatRelativeTimestamp(data.fetchedAt)}</span>
+        <span>Atualizado {formatRelativeTimestamp(data.fetchedAt)}</span>
         {/* history/live can't exclude subdomains, so say so rather than imply
             the charts match the domain-scoped totals. */}
         {data.scope === "domain" ? (
-          <span>- Trends include subdomains</span>
+          <span>- As tendências incluem subdomínios</span>
         ) : null}
       </div>
       <OverviewGrid data={data} summaryStats={summaryStats} />
       {data.scope === "exact_url" ? (
         <div className="alert alert-info">
           <span>
-            Showing backlinks for this exact page. Switch the scope to Domain or
-            Subdomains for site-wide results — trend charts need one of those.
+            Mostrando backlinks desta página exata. Mude o escopo para Domínio
+            ou Subdomínios para ver resultados do site inteiro — os gráficos de
+            tendência precisam de um desses escopos.
           </span>
         </div>
       ) : null}
       {data.scope === "subfolder" ? (
         <div className="alert alert-info">
           <span>
-            Showing backlinks pointing into this subfolder. Counts come from
-            filtered backlink totals; rank, trends, and the referring-domains
-            breakdown need Domain or Subdomains scope.
+            Mostrando backlinks que apontam para esta subpasta. As contagens vêm
+            dos totais filtrados de backlinks; autoridade, tendências e o
+            detalhamento de domínios de referência precisam do escopo Domínio ou
+            Subdomínios.
           </span>
         </div>
       ) : null}
@@ -132,14 +134,14 @@ function TrendPanels({ data }: { data: BacklinksOverviewData }) {
   return (
     <>
       <TrendCard
-        title="Backlink growth"
-        description="Backlinks and referring domains over the last year"
+        title="Crescimento de backlinks"
+        description="Backlinks e domínios de referência no último ano"
       >
         <BacklinksTrendChart data={data.trends} />
       </TrendCard>
       <TrendCard
-        title="New vs lost"
-        description="Backlink acquisition and attrition"
+        title="Novos vs. perdidos"
+        description="Backlinks conquistados e perdidos"
       >
         <BacklinksNewLostChart data={data.newLostTrends} />
       </TrendCard>

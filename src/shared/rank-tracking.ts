@@ -49,7 +49,7 @@ export const rankCheckCostApprovalError = (
   costCredits: number,
   maxCostCredits: number,
 ) => {
-  return `The current rank check costs ${costCredits} credits, above the approved maximum of ${maxCostCredits}. Call estimate_rank_tracker_cost again and ask the user to approve the updated amount.`;
+  return `A verificação de posições atual custa ${costCredits} créditos, acima do máximo aprovado de ${maxCostCredits}. Chame estimate_rank_tracker_cost novamente e peça ao usuário que aprove o novo valor.`;
 };
 
 // ---------------------------------------------------------------------------
@@ -234,9 +234,9 @@ export function devicesLabel(devices: RankTrackingConfig["devices"]): string {
 export function scheduleLabel(
   interval: RankTrackingConfig["scheduleInterval"],
 ): string {
-  if (interval === "daily") return "Daily";
-  if (interval === "weekly") return "Weekly";
-  if (interval === "monthly") return "Monthly";
+  if (interval === "daily") return "Diário";
+  if (interval === "weekly") return "Semanal";
+  if (interval === "monthly") return "Mensal";
   return "Manual";
 }
 

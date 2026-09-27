@@ -15,10 +15,10 @@ export function AiSearchPaidPlanGate({ feature, description, bullets }: Props) {
         <div className="max-w-xl space-y-2">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
             <Sparkles className="size-3.5" />
-            Paid plan
+            Plano pago
           </span>
           <h2 className="text-xl font-semibold tracking-tight">
-            Unlock {feature}
+            Desbloqueie: {feature}
           </h2>
           <p className="text-sm text-base-content/70">{description}</p>
         </div>
@@ -27,7 +27,7 @@ export function AiSearchPaidPlanGate({ feature, description, bullets }: Props) {
           search={{ upgrade: true }}
           className="btn btn-primary shrink-0"
         >
-          Upgrade
+          Fazer upgrade
         </Link>
       </div>
 

@@ -56,7 +56,7 @@ const scheduleEnum = z.enum(rankTrackingConfigs.scheduleInterval.enumValues);
 const languageCodeField = z
   .string()
   .max(10)
-  .refine(isSupportedLanguageCode, "Unsupported language code");
+  .refine(isSupportedLanguageCode, "Código de idioma não suportado");
 
 export const getConfigsSchema = z.object({
   projectId: z.string().uuid(),

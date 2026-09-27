@@ -7,7 +7,7 @@ import {
 const projectNameField = z
   .string()
   .trim()
-  .min(1, "Project name is required")
+  .min(1, "Informe o nome do projeto")
   .max(120);
 
 const projectDomainField = z
@@ -23,12 +23,15 @@ const projectDomainField = z
 const projectLocationCodeField = z
   .number()
   .int()
-  .refine(isSupportedLocationCode, "Unsupported DataForSEO location code")
+  .refine(
+    isSupportedLocationCode,
+    "Código de localização da DataForSEO não suportado",
+  )
   .optional();
 
 const projectLanguageCodeField = z
   .string()
-  .refine(isSupportedLanguageCode, "Unsupported language code")
+  .refine(isSupportedLanguageCode, "Código de idioma não suportado")
   .optional();
 
 // A language on its own has no location to validate against, and would force a
@@ -40,7 +43,7 @@ const hasLocationForLanguage = (input: {
 }) => input.locationCode != null || input.languageCode == null;
 
 const marketPairMessage = {
-  message: "A language requires a location.",
+  message: "Um idioma exige uma localização.",
   path: ["languageCode"],
 };
 
@@ -69,10 +72,13 @@ export const setProjectWebsiteSchema = z.object({
   locationCode: z
     .number()
     .int()
-    .refine(isSupportedLocationCode, "Unsupported DataForSEO location code"),
+    .refine(
+      isSupportedLocationCode,
+      "Código de localização da DataForSEO não suportado",
+    ),
   languageCode: z
     .string()
-    .refine(isSupportedLanguageCode, "Unsupported language code"),
+    .refine(isSupportedLanguageCode, "Código de idioma não suportado"),
 });
 
 export const archiveProjectSchema = z.object({

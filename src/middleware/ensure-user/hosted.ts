@@ -9,7 +9,7 @@ async function requireHostedSession(headers: Headers) {
   if (!hasHostedAuthConfig()) {
     throw new AppError(
       "AUTH_CONFIG_MISSING",
-      "Missing Better Auth hosted configuration",
+      "Configuração hospedada do Better Auth ausente",
     );
   }
 

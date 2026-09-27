@@ -45,7 +45,7 @@ const customSectionSlugSchema = z
   .max(60)
   .regex(
     /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-    "Use a lowercase slug like 'launch-plan'",
+    "Use um slug em minúsculas, como 'plano-de-lancamento'",
   )
   .describe(
     "Lowercase letters and digits separated by hyphens, e.g. 'launch-plan'. No underscores or spaces. Use the same slug to edit or delete the section.",

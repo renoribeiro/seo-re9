@@ -112,7 +112,7 @@ export function SavedKeywordsTagFilter({
               selected
               onClick={() => onToggleTagFilter(tag.id)}
               trailing={<X className="size-3 opacity-70" />}
-              title="Remove filter"
+              title="Remover filtro"
             />
           ))}
           <button
@@ -120,7 +120,7 @@ export function SavedKeywordsTagFilter({
             className="text-xs text-base-content/60 underline-offset-2 hover:text-base-content hover:underline"
             onClick={onClearSelection}
           >
-            Clear
+            Limpar
           </button>
         </div>
       ) : null}
@@ -190,7 +190,7 @@ function TagFilterPopover({
             autoFocus
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
-            placeholder="Search tags…"
+            placeholder="Buscar tags…"
             className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-base-content/40"
           />
           {query ? (
@@ -198,6 +198,7 @@ function TagFilterPopover({
               type="button"
               className="text-base-content/40 hover:text-base-content"
               onClick={() => onQueryChange("")}
+              aria-label="Limpar busca"
             >
               <X className="size-3.5" />
             </button>
@@ -209,8 +210,8 @@ function TagFilterPopover({
         {filteredTags.length === 0 ? (
           <div className="px-3 py-6 text-center text-xs text-base-content/55">
             {availableTags.length === 0
-              ? "No tags yet. Add tags from a selection of keywords."
-              : "No tags match that search."}
+              ? "Nenhuma tag ainda. Adicione tags a partir de uma seleção de palavras-chave."
+              : "Nenhuma tag corresponde a essa busca."}
           </div>
         ) : null}
 
@@ -232,14 +233,15 @@ function TagFilterPopover({
       {selectedTagIds.length > 0 ? (
         <div className="flex items-center justify-between border-t border-base-300 px-2 py-1.5 text-xs">
           <span className="text-base-content/55">
-            {selectedTagIds.length} selected
+            {selectedTagIds.length}{" "}
+            {selectedTagIds.length === 1 ? "selecionada" : "selecionadas"}
           </span>
           <button
             type="button"
             className="rounded px-2 py-1 text-base-content/70 hover:bg-base-200"
             onClick={onClearSelection}
           >
-            Clear all
+            Limpar tudo
           </button>
         </div>
       ) : null}
@@ -298,7 +300,7 @@ function TagFilterRow({
             isManaging ? "bg-base-300 text-base-content" : ""
           }`}
           onClick={() => onStartManaging(isManaging ? null : tag.id)}
-          aria-label={`Manage ${tag.name}`}
+          aria-label={`Gerenciar ${tag.name}`}
         >
           <MoreHorizontal className="size-3.5" />
         </button>

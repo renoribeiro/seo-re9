@@ -54,7 +54,7 @@ async function mergeLegacyWorkspaces() {
   if (getAuthMode(env.AUTH_MODE) !== "cloudflare_access") {
     throw new AppError(
       "FORBIDDEN",
-      "Workspace merge is only available in cloudflare_access auth mode.",
+      "A mesclagem de workspaces só está disponível no modo de autenticação cloudflare_access.",
     );
   }
 

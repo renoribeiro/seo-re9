@@ -12,6 +12,29 @@ type Props = {
   placeholder?: string;
 };
 
+// DataForSEO returns location types in English; show the common ones in pt-BR.
+const LOCATION_TYPE_LABELS: Record<string, string> = {
+  Country: "País",
+  State: "Estado",
+  Region: "Região",
+  City: "Cidade",
+  County: "Condado",
+  Municipality: "Município",
+  Neighborhood: "Bairro",
+  District: "Distrito",
+  Province: "Província",
+  Territory: "Território",
+  "Postal Code": "CEP",
+  Airport: "Aeroporto",
+  University: "Universidade",
+  "DMA Region": "Região DMA",
+  "City Region": "Região metropolitana",
+};
+
+function formatLocationType(locationType: string): string {
+  return LOCATION_TYPE_LABELS[locationType] ?? locationType;
+}
+
 function useDebounce(value: string, delayMs: number): string {
   const [debounced, setDebounced] = useState(value);
   useEffect(() => {
@@ -25,7 +48,7 @@ export function SerpLocationCombobox({
   value,
   onChange,
   countryCode,
-  placeholder = "Search cities...",
+  placeholder = "Buscar cidades...",
 }: Props) {
   const [inputValue, setInputValue] = useState(
     value ? formatLocationLabel(value) : "",
@@ -180,11 +203,11 @@ export function SerpLocationCombobox({
         <div className="absolute z-30 mt-1 w-full rounded-box border border-base-300 bg-base-100 shadow-lg p-1">
           {isError ? (
             <p className="px-3 py-2 text-sm text-error">
-              Unable to load locations
+              Não foi possível carregar as localizações
             </p>
           ) : results.length === 0 ? (
             <p className="px-3 py-2 text-sm text-base-content/50">
-              No locations found for "{debouncedQuery.trim()}"
+              Nenhuma localização encontrada para "{debouncedQuery.trim()}"
             </p>
           ) : (
             <ul
@@ -208,7 +231,7 @@ export function SerpLocationCombobox({
                       {loc.displayLabel}
                     </span>
                     <span className="badge badge-xs bg-base-300 border-0 text-base-content/60 shrink-0">
-                      {loc.locationType}
+                      {formatLocationType(loc.locationType)}
                     </span>
                   </button>
                 </li>

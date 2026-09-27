@@ -50,7 +50,10 @@ async function requireConfig(configId: string, projectId: string) {
     projectId,
   });
   if (!config) {
-    throw new AppError("INTERNAL_ERROR", "Rank tracking config not found");
+    throw new AppError(
+      "INTERNAL_ERROR",
+      "Configuração de monitoramento de posições não encontrada",
+    );
   }
   return config;
 }

@@ -47,14 +47,16 @@ export function BacklinksErrorState({
           <ShieldAlert className="size-5" />
         </div>
         <div className="space-y-1">
-          <h2 className="text-lg font-semibold">Could not load backlinks</h2>
+          <h2 className="text-lg font-semibold">
+            Não foi possível carregar os backlinks
+          </h2>
           <p className="text-sm text-base-content/70">
-            {errorMessage ?? "Please try again in a moment."}
+            {errorMessage ?? "Tente novamente em instantes."}
           </p>
         </div>
       </div>
       <button className="btn btn-sm" onClick={onRetry}>
-        Retry
+        Tentar novamente
       </button>
     </section>
   );

@@ -49,8 +49,8 @@ export function BillingUsageChart() {
   return (
     <div className="rounded-lg border border-base-300 bg-base-100 p-4 space-y-3">
       <div className="flex items-baseline justify-between gap-4">
-        <span className="font-semibold">Usage</span>
-        <span className="text-xs text-base-content/50">Last 30 days</span>
+        <span className="font-semibold">Uso</span>
+        <span className="text-xs text-base-content/50">Últimos 30 dias</span>
       </div>
 
       <div className="text-2xl font-semibold tabular-nums">
@@ -61,7 +61,7 @@ export function BillingUsageChart() {
         {eventsQuery.isLoading ? null : chartData.length === 0 ? (
           <div className="flex h-full items-center justify-center">
             <span className="text-sm text-base-content/40">
-              No usage recorded yet
+              Nenhum uso registrado ainda
             </span>
           </div>
         ) : chartWidth > 0 ? (
@@ -98,7 +98,7 @@ export function BillingUsageChart() {
             />
             <Bar
               dataKey="credits"
-              fill="#7c3aed"
+              fill="#ED1C24"
               radius={[2, 2, 0, 0]}
               maxBarSize={12}
             />
@@ -123,7 +123,7 @@ function UsageTooltip({
   return (
     <div className="rounded-md border border-base-300 bg-base-100 px-3 py-2 shadow-sm">
       <p className="text-xs text-base-content/60">
-        {new Date(label).toLocaleDateString("en-US", {
+        {new Date(label).toLocaleDateString("pt-BR", {
           month: "short",
           day: "numeric",
         })}
@@ -136,7 +136,7 @@ function UsageTooltip({
 }
 
 function formatShortDate(timestamp: number) {
-  return new Date(timestamp).toLocaleDateString("en-US", {
+  return new Date(timestamp).toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
   });

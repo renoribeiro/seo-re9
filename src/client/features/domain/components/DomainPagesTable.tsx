@@ -40,7 +40,7 @@ function DomainPagesTableComponent({
     () => [
       pageColumnHelper.display({
         id: "page",
-        header: () => "Page",
+        header: () => "Página",
         cell: ({ row }) => (
           <ExternalUrlCell
             value={row.original.page}
@@ -56,7 +56,7 @@ function DomainPagesTableComponent({
       pageColumnHelper.accessor("organicTraffic", {
         header: () => (
           <SortableHeader
-            label="Organic Traffic"
+            label="Tráfego orgânico"
             isActive={toPageSortMode(sortMode) === "traffic"}
             order={currentSortOrder}
             onClick={() => onSortClick("traffic")}
@@ -67,7 +67,7 @@ function DomainPagesTableComponent({
       pageColumnHelper.accessor("keywords", {
         header: () => (
           <SortableHeader
-            label="Keywords"
+            label="Palavras-chave"
             isActive={toPageSortMode(sortMode) === "keywords"}
             order={currentSortOrder}
             onClick={() => onSortClick("volume")}
@@ -99,7 +99,7 @@ function DomainPagesTableComponent({
       className="table table-sm"
       empty={
         <div className="py-6 text-center text-base-content/60">
-          No pages match this search.
+          Nenhuma página corresponde a esta busca.
         </div>
       }
     />

@@ -16,10 +16,10 @@ export function SavedKeywordsFilterPanel({
     <div className="space-y-3 border-b border-base-300 bg-gradient-to-b from-base-100 to-base-200/30 px-4 py-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <p className="text-sm font-semibold">Refine results</p>
+          <p className="text-sm font-semibold">Refinar resultados</p>
           {activeFilterCount > 0 ? (
             <span className="badge badge-xs badge-primary border-0 text-primary-content">
-              {activeFilterCount} active
+              {activeFilterCount} {activeFilterCount === 1 ? "ativo" : "ativos"}
             </span>
           ) : null}
         </div>
@@ -30,7 +30,7 @@ export function SavedKeywordsFilterPanel({
           disabled={activeFilterCount === 0}
         >
           <RotateCcw className="size-3" />
-          Clear all
+          Limpar tudo
         </button>
       </div>
 
@@ -38,23 +38,23 @@ export function SavedKeywordsFilterPanel({
         <TermsTokenInput
           form={form}
           name="include"
-          label="Include"
+          label="Incluir"
           variant="include"
-          placeholder="Must contain… e.g. audit"
+          placeholder="Deve conter… ex.: auditoria"
         />
         <TermsTokenInput
           form={form}
           name="exclude"
-          label="Exclude"
+          label="Excluir"
           variant="exclude"
-          placeholder="Must not contain… e.g. jobs"
+          placeholder="Não deve conter… ex.: vagas"
         />
       </div>
 
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
         <FilterRangeInputs
           form={form}
-          title="Search Volume"
+          title="Volume de busca"
           minName="minVol"
           maxName="maxVol"
           min={0}
@@ -69,7 +69,7 @@ export function SavedKeywordsFilterPanel({
         />
         <FilterRangeInputs
           form={form}
-          title="Difficulty"
+          title="Dificuldade"
           minName="minKd"
           maxName="maxKd"
           min={0}
@@ -174,7 +174,7 @@ function TermsTokenInput({
                   <button
                     type="button"
                     className="opacity-70 hover:opacity-100"
-                    aria-label={`Remove ${term}`}
+                    aria-label={`Remover ${term}`}
                     onClick={() =>
                       commit(terms.filter((existing) => existing !== term))
                     }
@@ -230,7 +230,7 @@ function FilterRangeInputs({
         <CompactRangeInput
           form={form}
           name={minName}
-          placeholder="Min"
+          placeholder="Mín"
           step={step}
           min={min}
           max={max}
@@ -238,7 +238,7 @@ function FilterRangeInputs({
         <CompactRangeInput
           form={form}
           name={maxName}
-          placeholder="Max"
+          placeholder="Máx"
           step={step}
           min={min}
           max={max}

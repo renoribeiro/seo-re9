@@ -31,11 +31,13 @@ function BacklinkFlags({ row }: { row: BacklinksRow }) {
   return (
     <div className="flex flex-wrap gap-1">
       {row.isLost ? (
-        <span className="badge badge-sm badge-error badge-outline">Lost</span>
+        <span className="badge badge-sm badge-error badge-outline">
+          Perdido
+        </span>
       ) : null}
       {row.isBroken ? (
         <span className="badge badge-sm badge-warning badge-outline">
-          Broken
+          Quebrado
         </span>
       ) : null}
       {row.isDofollow === false ? (
@@ -55,15 +57,15 @@ function StatusCell({ status }: { status: "loading" | "error" | "empty" }) {
     return (
       <span className="flex items-center gap-2 pl-6 text-sm text-base-content/60">
         <span className="loading loading-spinner loading-xs" />
-        Loading links…
+        Carregando links…
       </span>
     );
   }
   return (
     <span className="pl-6 text-sm text-base-content/60">
       {status === "error"
-        ? "Couldn't load this domain's links."
-        : "No other links from this domain."}
+        ? "Não foi possível carregar os links deste domínio."
+        : "Nenhum outro link deste domínio."}
     </span>
   );
 }
@@ -99,7 +101,7 @@ function SourceCell({
         <button
           type="button"
           className="btn btn-ghost btn-xs btn-square shrink-0 -ml-1"
-          aria-label={`${expanded ? "Hide" : "Show"} all links from ${domainLabel}`}
+          aria-label={`${expanded ? "Ocultar" : "Mostrar"} todos os links de ${domainLabel}`}
           aria-expanded={expanded}
           onClick={() => onToggleDomain(row.domainFrom ?? "")}
         >
@@ -137,7 +139,10 @@ function buildBaseColumns(
       id: "source",
       enableSorting: false,
       header: () => (
-        <HeaderHelpLabel label="Source" helpText="Page linking to you" />
+        <HeaderHelpLabel
+          label="Origem"
+          helpText="Página que aponta para você"
+        />
       ),
       size: 250,
       minSize: 180,
@@ -149,7 +154,10 @@ function buildBaseColumns(
       id: "target",
       enableSorting: false,
       header: () => (
-        <HeaderHelpLabel label="Target" helpText="Destination on your site" />
+        <HeaderHelpLabel
+          label="Destino"
+          helpText="Página de destino no seu site"
+        />
       ),
       size: 220,
       minSize: 150,
@@ -167,13 +175,13 @@ function buildBaseColumns(
       id: "anchor",
       enableSorting: false,
       header: () => (
-        <HeaderHelpLabel label="Anchor" helpText="Text or format of the link" />
+        <HeaderHelpLabel label="Âncora" helpText="Texto ou formato do link" />
       ),
       size: 150,
       minSize: 100,
       cell: linkCell((row) => (
         <div className="space-y-0.5 break-words">
-          <span className="text-sm">{row.anchor || "No anchor text"}</span>
+          <span className="text-sm">{row.anchor || "Sem texto âncora"}</span>
           {row.itemType ? (
             <div className="text-xs text-base-content/55">{row.itemType}</div>
           ) : null}
@@ -185,8 +193,8 @@ function buildBaseColumns(
       enableSorting: false,
       header: () => (
         <HeaderHelpLabel
-          label="Flags"
-          helpText="Special backlink attributes, such as lost, broken, nofollow, or multiple links from the same source."
+          label="Sinalizações"
+          helpText="Atributos especiais do backlink, como perdido, quebrado, nofollow ou vários links da mesma origem."
         />
       ),
       size: 130,
@@ -201,7 +209,7 @@ function buildBaseColumns(
         <SortableHeader
           column={column}
           label="Link"
-          helpText="Authority of the linking page"
+          helpText="Autoridade da página que aponta o link"
           align="right"
         />
       ),
@@ -222,7 +230,7 @@ function buildBaseColumns(
         <SortableHeader
           column={column}
           label="DA"
-          helpText="Authority of the linking domain"
+          helpText="Autoridade do domínio que aponta o link"
           align="right"
         />
       ),
@@ -243,7 +251,7 @@ function buildBaseColumns(
         <SortableHeader
           column={column}
           label="Spam"
-          helpText="Estimated spam risk for this backlink. Higher scores are more likely to be manipulative or low quality."
+          helpText="Risco estimado de spam deste backlink. Pontuações mais altas indicam maior chance de link manipulado ou de baixa qualidade."
           align="right"
         />
       ),
@@ -266,8 +274,8 @@ function buildBaseColumns(
       header: ({ column }) => (
         <SortableHeader
           column={column}
-          label="First Seen"
-          helpText="When this link was first discovered by the crawler"
+          label="Descoberto em"
+          helpText="Quando este link foi descoberto pela primeira vez pelo rastreador"
         />
       ),
       size: 110,
@@ -278,7 +286,7 @@ function buildBaseColumns(
           <div>{formatCompactDate(row.firstSeen)}</div>
           {row.lastSeen ? (
             <div className="text-xs text-base-content/55">
-              Last {formatCompactDate(row.lastSeen)}
+              Última vez {formatCompactDate(row.lastSeen)}
             </div>
           ) : null}
         </div>
@@ -308,7 +316,7 @@ export function buildBacklinksColumns(
       <span className="flex w-full justify-end">
         <HeaderHelpLabel
           label="Ahrefs DR"
-          helpText="Ahrefs Domain Rating (0-100) for the linking domain."
+          helpText="Domain Rating da Ahrefs (0-100) do domínio que aponta o link."
         />
       </span>
     ),

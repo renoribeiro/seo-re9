@@ -97,7 +97,7 @@ describe("create_project MCP tool", () => {
     // The message must name the offending field so the calling agent can
     // retry with a supported code, not just repeat the bare error code.
     await expect(call()).rejects.toThrow(
-      "Unsupported DataForSEO location code",
+      "Código de localização da DataForSEO não suportado",
     );
     expect(mocks.createProject).not.toHaveBeenCalled();
   });
@@ -108,7 +108,7 @@ describe("create_project MCP tool", () => {
         { name: "Acme", organizationId: "org_other" },
         toolContext,
       ),
-    ).rejects.toThrow("bound to a single organization");
+    ).rejects.toThrow("vinculada a uma única organização");
     expect(mocks.createProject).not.toHaveBeenCalled();
   });
 
@@ -173,7 +173,7 @@ describe("create_project with a user-scoped credential", () => {
         { name: "Acme", organizationId: "org_stranger" },
         userScopedContext,
       ),
-    ).rejects.toThrow("not a member");
+    ).rejects.toThrow("não é membro");
     expect(mocks.createProject).not.toHaveBeenCalled();
   });
 

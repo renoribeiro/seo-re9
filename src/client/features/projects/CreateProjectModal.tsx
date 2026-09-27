@@ -38,7 +38,7 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
         queryKey: ["dashboardActivation"],
       });
       onClose();
-      toast.success("Project created");
+      toast.success("Projeto criado");
       // Continue setup through the new project’s dashboard.
       void navigate({
         to: "/p/$projectId",
@@ -46,7 +46,9 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
       });
     },
     onError: (error) =>
-      toast.error(getStandardErrorMessage(error, "Failed to create project")),
+      toast.error(
+        getStandardErrorMessage(error, "Não foi possível criar o projeto"),
+      ),
   });
 
   const isPending = createMutation.isPending;
@@ -55,7 +57,7 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
     event.preventDefault();
     if (isPending) return;
     if (!name.trim()) {
-      toast.error("Project name is required");
+      toast.error("Informe o nome do projeto");
       return;
     }
     createMutation.mutate();
@@ -69,16 +71,16 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <h2 id="create-project-title" className="text-lg font-semibold">
-          New project
+          Novo projeto
         </h2>
 
         <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium">Name</span>
+          <span className="font-medium">Nome</span>
           <input
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Acme Inc."
+            placeholder="Minha Empresa"
             maxLength={120}
             autoFocus
             className="input input-bordered w-full"
@@ -87,28 +89,28 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
 
         <label className="flex flex-col gap-1.5 text-sm">
           <span className="font-medium">
-            Domain <span className="text-base-content/50">(optional)</span>
+            Domínio <span className="text-base-content/50">(opcional)</span>
           </span>
           <input
             type="text"
             value={domain}
             onChange={(event) => setDomain(event.target.value)}
-            placeholder="example.com"
+            placeholder="exemplo.com.br"
             maxLength={255}
             className="input input-bordered w-full"
           />
           <span className="text-xs text-base-content/50">
-            You can connect Search Console and set up rank tracking after
-            creating the project.
+            Você pode conectar o Search Console e configurar o monitoramento de
+            posições depois de criar o projeto.
           </span>
         </label>
 
         <div className="flex flex-col gap-1.5">
           <ProjectMarketFields value={market} onChange={setMarket} />
           <span className="text-xs text-base-content/50">
-            Keyword, SERP, and domain data uses this country and language unless
-            a call asks for a different one. Change it later in project
-            settings.
+            Os dados de palavras-chave, SERP e domínio usam este país e idioma,
+            a menos que uma consulta peça outros. Você pode alterar isso depois
+            nas configurações do projeto.
           </span>
         </div>
 
@@ -119,14 +121,14 @@ export function CreateProjectModal({ onClose }: { onClose: () => void }) {
             onClick={onClose}
             disabled={isPending}
           >
-            Cancel
+            Cancelar
           </button>
           <button
             type="submit"
             className="btn btn-primary btn-sm"
             disabled={isPending}
           >
-            Create project
+            Criar projeto
           </button>
         </div>
       </form>

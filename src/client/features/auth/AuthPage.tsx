@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { BrandLogo } from "@/client/components/BrandLogo";
 import {
   getCurrentAuthRedirect,
   getOAuthSignedQuery,
@@ -26,7 +27,7 @@ export function useAuthPageState(redirect: string | undefined) {
 
 export function AuthMethodChooser({
   googleLabel,
-  emailLabel = "Continue with email",
+  emailLabel = "Continuar com e-mail",
   isBusy,
   disabled,
   onContinueWithGoogle,
@@ -48,7 +49,7 @@ export function AuthMethodChooser({
         disabled={disabled || isBusy}
       >
         <GoogleLogo />
-        {isBusy ? "Opening Google..." : googleLabel}
+        {isBusy ? "Abrindo o Google..." : googleLabel}
       </button>
 
       <button
@@ -100,11 +101,9 @@ export function AuthPageCard({
   return (
     <div className="w-full max-w-xs space-y-6">
       <div className="text-center space-y-3">
-        <img
-          src="/transparent-logo.png"
-          alt="OpenSEO"
-          className="mx-auto size-10 rounded-lg"
-        />
+        <div className="flex justify-center">
+          <BrandLogo className="h-14" />
+        </div>
         <div>
           <h1 className="text-xl font-semibold">{title}</h1>
           {helperText ? (

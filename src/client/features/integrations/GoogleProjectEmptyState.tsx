@@ -22,8 +22,8 @@ export function GoogleProjectEmptyState({
     <div className="space-y-4">
       <p className="text-sm text-base-content/70">
         {hasGrant
-          ? `Choose a ${name} property to finish connecting this project.`
-          : `Connect ${name} to see this project’s data.`}
+          ? `Escolha uma propriedade do ${name} para concluir a conexão deste projeto.`
+          : `Conecte o ${name} para ver os dados deste projeto.`}
       </p>
       <div className="flex flex-wrap items-center gap-1">
         {canManage || hasGrant ? (
@@ -40,12 +40,12 @@ export function GoogleProjectEmptyState({
               !hasGrant && <GoogleGlyph className="size-[18px]" />
             )}
             {disabled
-              ? "Opening Google…"
+              ? "Abrindo o Google…"
               : canManage
                 ? hasGrant
-                  ? "Choose property"
-                  : "Connect"
-                : "Manage Google accounts"}
+                  ? "Escolher propriedade"
+                  : "Conectar"
+                : "Gerenciar contas Google"}
           </button>
         ) : null}
         {children}

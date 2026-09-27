@@ -53,7 +53,7 @@ export function useSavedKeywordsExport(params: {
     try {
       const rows = await loadFilteredRows();
       if (rows.length === 0) {
-        toast.error("No keywords to export");
+        toast.error("Não há palavras-chave para exportar");
         return;
       }
       downloadKeywordCsv(rows);
@@ -62,7 +62,9 @@ export function useSavedKeywordsExport(params: {
         result_count: rows.length,
       });
     } catch (error) {
-      toast.error(getStandardErrorMessage(error, "Could not export CSV"));
+      toast.error(
+        getStandardErrorMessage(error, "Não foi possível exportar o CSV"),
+      );
     } finally {
       setExporting(null);
     }
@@ -78,7 +80,12 @@ export function useSavedKeywordsExport(params: {
         feature: "saved_keywords",
       });
     } catch (error) {
-      toast.error(getStandardErrorMessage(error, "Could not export to Sheets"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível exportar para o Sheets",
+        ),
+      );
     } finally {
       setExporting(null);
     }
@@ -109,7 +116,12 @@ export function useSavedKeywordsExport(params: {
         feature: "saved_keywords",
       });
     } catch (error) {
-      toast.error(getStandardErrorMessage(error, "Could not export to Sheets"));
+      toast.error(
+        getStandardErrorMessage(
+          error,
+          "Não foi possível exportar para o Sheets",
+        ),
+      );
     } finally {
       setExportingSelection(null);
     }

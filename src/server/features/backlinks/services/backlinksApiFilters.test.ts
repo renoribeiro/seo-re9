@@ -56,7 +56,7 @@ describe("buildBacklinksRowsApiFilters", () => {
         include: "a, b, c, d, e",
         exclude: "f, g, h, i",
       }),
-    ).toThrowError(/Too many filter conditions/);
+    ).toThrowError(/Condições de filtro demais/);
   });
 });
 

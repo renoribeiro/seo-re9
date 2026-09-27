@@ -10,39 +10,39 @@ export const setupSteps: {
 }[] = [
   {
     id: "domain",
-    label: "Add your website",
-    detail: "Set the website and country for this project.",
+    label: "Adicione seu site",
+    detail: "Defina o site e o país deste projeto.",
     icon: Globe,
   },
   {
     id: "project",
-    label: "Working on multiple websites?",
+    label: "Trabalha com vários sites?",
     detail:
-      "Create another project, or let your AI agent set up a list of sites.",
+      "Crie outro projeto ou deixe seu agente de IA configurar uma lista de sites.",
     icon: FolderPlus,
   },
   {
     id: "competitor",
-    label: "Explore a competitor",
-    detail: "Find topics and links worth learning from.",
+    label: "Explore um concorrente",
+    detail: "Encontre temas e links com os quais vale a pena aprender.",
     icon: Search,
   },
   {
     id: "mcp",
-    label: "Connect your AI agent",
-    detail: "Use OpenSEO inside Claude or your favorite agent.",
+    label: "Conecte seu agente de IA",
+    detail: "Use o RE9 SEO dentro do Claude ou do seu agente favorito.",
     icon: Bot,
   },
   {
     id: "gsc",
-    label: "Connect Search Console",
-    detail: "Bring your real clicks and queries into view.",
+    label: "Conecte o Search Console",
+    detail: "Veja seus cliques e consultas reais.",
     icon: Search,
   },
   {
     id: "team",
-    label: "Invite a teammate",
-    detail: "Share the work, or keep things solo for now.",
+    label: "Convide alguém da equipe",
+    detail: "Divida o trabalho ou siga sozinho por enquanto.",
     icon: Users,
   },
 ];
