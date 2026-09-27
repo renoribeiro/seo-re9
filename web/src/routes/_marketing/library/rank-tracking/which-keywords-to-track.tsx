@@ -11,29 +11,30 @@ const PATH = "/library/rank-tracking/which-keywords-to-track";
 
 const faqs = [
   {
-    question: "How many keywords should I track for SEO?",
+    question: "Quantas palavras-chave devo monitorar para SEO?",
     answer:
-      "Twenty to fifty for a typical small or mid-size site: the terms tied to pages that earn money, the striking-distance queries from Search Console, one or two brand terms as a control, and a couple of competitor terms. Track more only if someone will read the extra rows.",
+      "De vinte a cinquenta para um site típico de pequeno ou médio porte: os termos ligados a páginas que geram receita, as consultas quase na primeira página do Search Console, um ou dois termos de marca como controle e alguns termos de concorrentes. Monitore mais só se alguém for ler as linhas extras.",
   },
   {
-    question: "Which keywords should I track first?",
+    question: "Quais palavras-chave devo monitorar primeiro?",
     answer:
-      "The ones Search Console already shows your site for at positions 4 to 20 with real impressions. They have demand, they are within reach of page one, and a position change will show up in clicks quickly enough to learn from.",
+      "As que o Search Console já mostra para o seu site entre as posições 4 e 20, com impressões reais. Elas têm demanda, estão ao alcance da primeira página, e uma mudança de posição aparece nos cliques rápido o bastante para você aprender com ela.",
   },
   {
-    question: "Should I track keywords I already rank number one for?",
+    question:
+      "Devo monitorar palavras-chave em que já estou em primeiro lugar?",
     answer:
-      "A few. Brand terms belong in the tracker as an early-warning control, and a term where you rank near the top with a low click-through rate is worth tracking for its SERP features, since a feature above your result explains the missing clicks better than the position does.",
+      "Algumas. Termos de marca devem estar no monitoramento como controle de alerta precoce, e um termo em que você ranqueia perto do topo com uma taxa de cliques baixa vale ser monitorado pelos recursos da SERP, já que um recurso acima do seu resultado explica os cliques que faltam melhor do que a posição.",
   },
   {
-    question: "Does it cost more to track more keywords?",
+    question: "Monitorar mais palavras-chave custa mais?",
     answer:
-      "Yes, in proportion. In OpenSEO the cost of a check is the number of keywords times the number of devices times the depth of results inspected, and scheduled checks run through a cheaper queue than one-off live checks. The app shows an estimate before you add keywords or start a run. On the hosted app, rank checks need the $10/month plan, which includes $10 of credits.",
+      "Sim, proporcionalmente. No RE9 SEO, o custo de uma checagem é o número de palavras-chave vezes o número de dispositivos vezes a profundidade de resultados analisada, e as checagens agendadas rodam numa fila mais barata do que as checagens avulsas ao vivo. O app mostra uma estimativa antes de você adicionar palavras-chave ou iniciar uma execução.",
   },
   {
-    question: "How often should I re-pick the keywords?",
+    question: "Com que frequência devo reescolher as palavras-chave?",
     answer:
-      "Quarterly for the striking-distance bucket, since those queries shift as pages move. The money-page bucket changes only when the business does.",
+      "A cada trimestre para o grupo de consultas quase na primeira página, já que essas consultas mudam conforme as páginas se movem. O grupo das páginas que geram receita só muda quando o negócio muda.",
   },
 ];
 
@@ -52,17 +53,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Which Keywords to Track, and How Many",
+      title: "Quais palavras-chave monitorar, e quantas",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Which keywords to track"
+      crumb="Quais palavras-chave monitorar"
       path={PATH}
       library={RANK_TRACKING_LIBRARY}
     >

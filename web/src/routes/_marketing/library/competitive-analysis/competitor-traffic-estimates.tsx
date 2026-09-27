@@ -14,17 +14,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "How Accurate Are Competitor Traffic Estimates?",
+      title: "Quão precisas são as estimativas de tráfego dos concorrentes?",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="How accurate are competitor traffic estimates?"
+      crumb="Quão precisas são as estimativas de tráfego dos concorrentes?"
       path={PATH}
       library={COMPETITIVE_ANALYSIS_LIBRARY}
     >

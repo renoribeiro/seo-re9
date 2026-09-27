@@ -1,152 +1,139 @@
-# OpenSEO Fact Sheet
+# Ficha do produto RE9 SEO
 
-This is the factual product reference for Sam, the OpenSEO onboarding agent. If a user asks about OpenSEO and the answer is not supported here, Sam should say it is not sure and point them to support instead of inventing details.
+Esta é a referência factual do produto para o Sam, o agente de onboarding do RE9 SEO. Se alguém perguntar algo sobre o RE9 SEO e a resposta não estiver aqui, o Sam deve dizer que não tem certeza e indicar o contato `trafego@re9.online`, em vez de inventar detalhes.
 
-## What OpenSEO is
+## O que é o RE9 SEO
 
-OpenSEO is an open-source SEO platform for keyword research, domain research, backlinks, rank tracking, site audits, Google Search Console, and AI-agent SEO workflows.
+O RE9 SEO é uma plataforma de SEO da RE9 Online para pesquisa de palavras-chave, análise de domínios, backlinks, monitoramento de posições, auditoria do site, Google Search Console e fluxos de SEO com agentes de IA.
 
-OpenSEO is built for people who want useful SEO data without a bloated enterprise SEO suite. It can be used as a hosted app or self-hosted from the open-source codebase.
+O RE9 SEO foi feito para quem quer dados de SEO úteis sem uma suíte de SEO corporativa pesada e complicada. Ele pode ser usado como app hospedado ou hospedado por conta própria (self-hosting) a partir do código-fonte.
 
-OpenSEO is AI-native. It is designed to work with AI agents through MCP so users can ask an agent to run SEO research, inspect data, save findings, and continue work in the OpenSEO app.
+O RE9 SEO é nativo de IA. Ele foi projetado para funcionar com agentes de IA via MCP, para que a pessoa possa pedir a um agente que faça pesquisas de SEO, analise dados, salve descobertas e continue o trabalho no app do RE9 SEO.
 
-OpenSEO does not claim to fully automate SEO. The product positioning is that SEO still needs strategy and judgment; OpenSEO helps users and AI agents collaborate on that work with real data.
+O RE9 SEO não promete automatizar o SEO por completo. O posicionamento do produto é que SEO ainda exige estratégia e julgamento; o RE9 SEO ajuda pessoas e agentes de IA a colaborar nesse trabalho com dados reais.
 
-## How OpenSEO helps with SEO strategy
+## Como o RE9 SEO ajuda na estratégia de SEO
 
-SEO and marketing are intertwined. Getting more organic traffic starts with clear positioning: knowing who the product is for, what problem it solves, and which narrow topics the site can credibly own before trying to compete for broad, high-volume searches.
+SEO e marketing andam juntos. Conseguir mais tráfego orgânico começa com um posicionamento claro: saber para quem é o produto, que problema ele resolve e em quais temas específicos o site tem credibilidade para se destacar, antes de tentar competir por buscas amplas e de alto volume.
 
-OpenSEO helps users turn that positioning into an SEO plan. It can surface relevant keywords, competitor gaps, Search Console opportunities, backlink context, and technical issues, but the goal is not to chase every keyword. The strongest early strategy is usually to build authority around a focused topic where the site has a real angle.
+O RE9 SEO ajuda a transformar esse posicionamento em um plano de SEO. Ele pode mostrar palavras-chave relevantes, lacunas em relação aos concorrentes, oportunidades no Search Console, contexto de backlinks e problemas técnicos, mas o objetivo não é correr atrás de toda palavra-chave. A estratégia inicial mais forte costuma ser construir autoridade em um tema focado, em que o site tenha um diferencial real.
 
-As the site earns topical authority in Google and AI systems, it becomes easier to compete for broader, higher-volume searches. OpenSEO helps users see that path: start with specific, winnable topics; publish and improve useful pages; build supporting links and internal structure; track what moves; then expand into adjacent and more competitive terms.
+À medida que o site ganha autoridade temática no Google e nos sistemas de IA, fica mais fácil competir por buscas mais amplas e de maior volume. O RE9 SEO ajuda a enxergar esse caminho: começar por temas específicos e alcançáveis; publicar e melhorar páginas úteis; construir links de apoio e estrutura interna; acompanhar o que evolui; e depois expandir para termos vizinhos e mais competitivos.
 
-When explaining traffic growth, Sam should frame OpenSEO as a tool for making better SEO and marketing decisions, not as a magic traffic button. OpenSEO provides the data, workflows, and agent access; the user's positioning, content quality, distribution, and execution still matter.
+Ao explicar o crescimento de tráfego, o Sam deve apresentar o RE9 SEO como uma ferramenta para tomar melhores decisões de SEO e marketing, não como um botão mágico de tráfego. O RE9 SEO fornece os dados, os fluxos e o acesso por agentes; o posicionamento, a qualidade do conteúdo, a distribuição e a execução da pessoa continuam importando.
 
-## Hosted plan and credits
+## Planos e créditos
 
-Hosted OpenSEO is free to try. Signing up requires no credit card, and new accounts include $0.50 of trial credits to test credit-using features before subscribing.
+Os planos do RE9 SEO hospedado são sob consulta. Para saber valores, condições ou contratar, a pessoa deve falar com a equipe pelo e-mail `trafego@re9.online`.
 
-The paid managed plan costs $10/month.
+O RE9 SEO usa créditos de uso nos recursos que consultam provedores pagos de dados de SEO, principalmente o DataForSEO. Fluxos que usam créditos incluem volume de palavras-chave, dados de concorrentes, backlinks, monitoramento de posições e auditorias do site. Ver projetos, configurações e dados já buscados não consome créditos.
 
-The paid plan includes:
+Quando os créditos acabam, nunca surgem cobranças inesperadas. Os recursos que usam créditos param de funcionar até a conta ter créditos de novo.
 
-- Keyword research, backlinks, rank tracking, and site audits.
-- MCP server and agent skills for Claude, Cursor, ChatGPT-compatible clients, Codex, and other MCP clients.
-- Google Search Console integration that does not use credits.
-- $10.00 of usage credits each billing cycle.
-- A 30-day money-back guarantee for the first charge.
+O Sam não deve citar preços, valores de planos, quantidade de créditos inclusos, garantias, períodos de teste nem condições comerciais. Para qualquer dúvida sobre valores, cobrança ou situação da conta, o Sam deve indicar `trafego@re9.online`.
 
-OpenSEO uses usage credits for features that query paid SEO data providers, especially DataForSEO. Credit-using workflows include keyword volume, competitor data, backlinks, rank tracking, and site audits. Projects, settings, and data that has already been fetched do not cost credits to view.
+## Por que o RE9 SEO para consultores e agências de SEO
 
-Subscribers can purchase top-up credits if monthly credits run out. Top-up credits roll over and do not expire. Monthly included credits reset each billing cycle. Top-ups are only available on the paid plan; a free-tier user who runs out of trial credits subscribes to the paid plan to continue using credit-based features.
+O RE9 SEO é uma ótima opção para consultores, freelancers e agências que cuidam do SEO de clientes. O que você ganha:
 
-Running out of credits never creates unexpected bills. Credit-using features stop working until the user has credits again.
+- O custo acompanha o uso. A cobrança funciona com créditos de uso, então você não é empurrado para um plano corporativo caro nem paga por assento só para liberar o trabalho básico. Isso mantém os custos previsíveis quando a operação é enxuta.
+- Você pode ter um projeto para cada cliente. Crie quantos projetos precisar.
+- Você ajusta o monitoramento de posições ao seu orçamento. O monitoramento de posições é o custo que mais cresce conforme a agência cresce, porque roda de forma agendada sobre as palavras-chave de todos os clientes — mas o RE9 SEO deixa tudo configurável para você manter o controle. Você escolhe quantas palavras-chave e dispositivos monitorar, quantas páginas da SERP verificar e com que frequência rodar (semanal ou diária), e o RE9 SEO mostra uma estimativa de custo em tempo real antes de cada monitoramento rodar. As verificações agendadas passam pela fila de tarefas do DataForSEO, que é bem mais barata do que consultas ao vivo. Buscar mais fundo, adicionar o segundo tipo de dispositivo ou mudar para verificações diárias aumenta o custo proporcionalmente, e a estimativa no app sempre mostra o valor atual antes de você confirmar.
+- Suas ferramentas acompanham a evolução do mercado. O RE9 SEO funciona com MCP e agentes de IA, então, à medida que a busca migra para respostas de IA e fluxos assistidos por IA, você pode pedir a um agente que faça pesquisas, puxe dados de concorrentes e salve as descobertas no projeto certo do cliente — sem trocar de ferramentas.
 
-## Why OpenSEO for SEO consultants and agencies
+Ao responder isso, o Sam deve falar diretamente com a pessoa ("você" / "seus clientes") sobre o que ela ganha, e não descrever como o RE9 SEO está "posicionado". Comece por esses benefícios em linguagem simples e conecte-os à rotina de quem presta serviços de SEO. O Sam não deve inventar preços de concorrentes nem valores exatos de monitoramento de posições; se pedirem números exatos que ele não tem, deve dizer isso e sugerir o contato `trafego@re9.online`.
 
-OpenSEO is a strong fit for SEO consultants, freelancers, and agencies managing SEO for clients. What you get:
+## Self-hosting (hospedagem própria)
 
-- You only pay for what you use. Billing runs on usage credits, so you are not forced into an expensive enterprise tier or charged per seat just to unlock basic work — no arbitrary upsells or features locked behind a paywall. This keeps costs predictable when you are running lean.
-- You can run a project for every client. Set up as many projects as you need; you will not hit a per-project plan limit the way many SEO tools cap projects per tier.
-- You tune rank tracking to fit your budget. Rank tracking is the cost that scales fastest as an agency grows, since it runs on a schedule across every client's keywords — but OpenSEO makes it fully configurable so you stay in control. You choose how many keywords and devices to track, how many SERP pages deep to check, and how often it runs (weekly or daily), and OpenSEO shows a live cost estimate before each tracker runs. Scheduled checks run through DataForSEO's task queue, which is much cheaper than live lookups, so it stays inexpensive: as a rough guide, tracking 100 keywords on one device type, five pages deep, on the default weekly schedule costs only about $1-2/month. Searching deeper, adding the second device type, or switching to daily checks raises the cost proportionally, and the in-app estimate always shows the current number before you commit.
-- Your toolkit grows with the industry. OpenSEO works through MCP and AI agents, so as search shifts toward AI answers and AI-assisted workflows, you can have an agent run research, pull competitor data, and save findings into the right client project — without re-tooling.
+O código-fonte do RE9 SEO pode ser hospedado por conta própria.
 
-When answering this, Sam should speak directly to the user ("you" / "your clients") about what they get, not describe how OpenSEO is "positioned." Lead with these benefits in plain language and tie them to running an SEO practice. Sam should not invent specific competitor prices or exact rank-tracking rates; if asked for exact numbers it does not have, it should say so and suggest contacting `trafego@re9.online`.
+Quem faz self-hosting usa as próprias chaves de API dos provedores e paga diretamente provedores como o DataForSEO. O self-hosting é indicado para quem quer mais controle, privacidade, personalização ou cobrança direta pelos provedores.
 
-## Self-hosting
+O repositório fica em `https://github.com/renoribeiro/seo-re9`.
 
-OpenSEO is open source and can be self-hosted for free.
+## Fontes de dados
 
-Self-hosted users bring their own provider API keys and pay providers such as DataForSEO directly. Self-hosting is appropriate for users who want more control, privacy, customization, or provider-level billing.
+O RE9 SEO usa o DataForSEO como principal provedor de dados de SEO. O DataForSEO alimenta muitos fluxos de dados pagos de SEO, como métricas de palavras-chave, análise de domínios, backlinks, dados de SERP e dados relacionados ao monitoramento de posições.
 
-The open-source repository is at `https://github.com/every-app/open-seo`.
-
-## Data sources
-
-OpenSEO uses DataForSEO as its main SEO data provider. DataForSEO powers many paid SEO data workflows such as keyword metrics, domain research, backlinks, SERP data, and rank-tracking-related data.
-
-Google Search Console data comes from the user's connected Search Console property and does not use credits.
+Os dados do Google Search Console vêm da propriedade do Search Console que a pessoa conectou e não usam créditos.
 
 ## Google Search Console
 
-Hosted OpenSEO can connect to Google Search Console without requiring the user to create a Google Cloud project or OAuth client.
+O RE9 SEO hospedado pode se conectar ao Google Search Console sem exigir que a pessoa crie um projeto no Google Cloud ou um cliente OAuth.
 
-Search Console access is read-only. OpenSEO requests read-only access and cannot change the user's Search Console account.
+O acesso ao Search Console é somente leitura. O RE9 SEO pede acesso somente leitura e não consegue alterar a conta do Search Console da pessoa.
 
-Search Console features include:
+Os recursos do Search Console incluem:
 
-- Search performance data: clicks, impressions, CTR, and average position.
-- Breakdown by query, page, country, device, and date.
-- Up to 16 months of available Search Console history.
-- URL inspection data such as index status, crawl information, canonical information, mobile checks, and rich-result checks.
-- Up to 10 URLs per URL inspection call.
+- Dados de desempenho na busca: cliques, impressões, CTR e posição média.
+- Detalhamento por consulta, página, país, dispositivo e data.
+- Até 16 meses do histórico disponível no Search Console.
+- Dados de inspeção de URL, como status de indexação, informações de rastreamento, informações de canonical, verificações para mobile e verificações de resultados avançados.
+- Até 10 URLs por chamada de inspeção de URL.
 
-Search Console tools use zero OpenSEO credits because Google does not charge users to read their own Search Console data.
+As ferramentas do Search Console não usam créditos do RE9 SEO, porque o Google não cobra para a pessoa ler os próprios dados do Search Console.
 
-## OpenSEO and Claude (or other AI clients)
+## RE9 SEO e o Claude (ou outros clientes de IA)
 
-OpenSEO and Claude are not competitors — they are meant to be used together. The short version: OpenSEO is the SEO data layer, and Claude (or Cursor, Codex, ChatGPT-compatible clients, etc.) is the AI client.
+O RE9 SEO e o Claude não são concorrentes — eles foram feitos para serem usados juntos. Resumindo: o RE9 SEO é a camada de dados de SEO, e o Claude (ou Cursor, Codex, clientes compatíveis com o ChatGPT etc.) é o cliente de IA.
 
-OpenSEO exposes an MCP server, so Claude can call OpenSEO's keyword, SERP, competitor, backlink, rank-tracking, and Search Console tools directly. In practice, Claude does the talking and reasoning, and OpenSEO feeds it real SEO data through MCP. Claude on its own can reason about SEO but has no live keyword volumes, rankings, competitor data, or your Search Console numbers; OpenSEO is what gives it those.
+O RE9 SEO disponibiliza um servidor MCP, então o Claude pode chamar diretamente as ferramentas do RE9 SEO de palavras-chave, SERP, concorrentes, backlinks, monitoramento de posições e Search Console. Na prática, o Claude conversa e raciocina, e o RE9 SEO fornece a ele dados reais de SEO pelo MCP. Sozinho, o Claude consegue raciocinar sobre SEO, mas não tem volumes de palavras-chave, posições, dados de concorrentes nem os números do seu Search Console em tempo real; é o RE9 SEO que fornece isso.
 
-When a user asks to compare OpenSEO and Claude, or why they would use OpenSEO instead of Claude (or another AI chatbot), Sam should lead with this "they work together" framing and the data-layer point. Sam should not deflect, call it out of scope, or say comparing them would be a guess — connecting OpenSEO to Claude is a core, supported use case. Sam should not, however, rank or rate other AI products it does not have facts about.
+Quando alguém pedir para comparar o RE9 SEO com o Claude, ou perguntar por que usar o RE9 SEO em vez do Claude (ou de outro chatbot de IA), o Sam deve começar pela ideia de que "eles funcionam juntos" e pelo ponto da camada de dados. O Sam não deve fugir da pergunta, dizer que está fora do escopo nem dizer que a comparação seria um chute — conectar o RE9 SEO ao Claude é um caso de uso central e suportado. O Sam também não deve, porém, classificar ou avaliar outros produtos de IA sobre os quais não tem informações.
 
-## MCP and AI agents
+## MCP e agentes de IA
 
-OpenSEO exposes an MCP server so compatible AI clients can call OpenSEO tools.
+O RE9 SEO disponibiliza um servidor MCP para que clientes de IA compatíveis chamem as ferramentas do RE9 SEO.
 
-Hosted MCP endpoint:
+Endpoint MCP hospedado:
 
 ```txt
-https://app.openseo.so/mcp
+https://seo.agenciare9.com.br/mcp
 ```
 
-The first MCP connection sends the user through OpenSEO login and authorization. After authorization, the MCP client can call OpenSEO tools with the project context and account scopes the user approved.
+Na primeira conexão MCP, a pessoa passa pelo login e pela autorização do RE9 SEO. Depois da autorização, o cliente MCP pode chamar as ferramentas do RE9 SEO com o contexto de projeto e os escopos de conta que a pessoa aprovou.
 
-OpenSEO MCP works with MCP clients including Claude Code, Claude Desktop, Cursor, Codex CLI, Codex Desktop, and other clients that support remote MCP servers.
+O MCP do RE9 SEO funciona com clientes MCP como Claude Code, Claude Desktop, Cursor, Codex CLI, Codex Desktop e outros clientes que suportam servidores MCP remotos.
 
-OpenSEO MCP tools cover workflows such as:
+As ferramentas MCP do RE9 SEO cobrem fluxos como:
 
-- Keyword research with volume, difficulty, CPC, intent, and trends.
-- Live Google organic SERP inspection.
-- Domain and page ranked keyword research for any domain, including competitors.
-- SERP competitor comparisons.
-- Local business, Maps, Local Finder, and Google Business Profile Q&A research.
-- Saved keyword listing and saving.
-- Rank tracker config and latest position reads.
-- Domain organic footprint summaries for any domain, including competitors.
-- Backlink and referring-domain overview data for any domain, including competitors.
-- Google Search Console performance reads.
-- Google URL inspection reads.
+- Pesquisa de palavras-chave com volume, dificuldade, CPC, intenção e tendências.
+- Inspeção ao vivo da SERP orgânica do Google.
+- Pesquisa de palavras-chave ranqueadas de domínios e páginas de qualquer domínio, incluindo concorrentes.
+- Comparações de concorrentes na SERP.
+- Pesquisa de negócios locais, Maps, Local Finder e perguntas e respostas do Perfil da Empresa no Google.
+- Listagem e salvamento de palavras-chave salvas.
+- Leitura da configuração do monitoramento de posições e das posições mais recentes.
+- Resumos da presença orgânica de qualquer domínio, incluindo concorrentes.
+- Visão geral de backlinks e domínios de referência de qualquer domínio, incluindo concorrentes.
+- Leitura do desempenho no Google Search Console.
+- Leitura da inspeção de URL do Google.
 
-OpenSEO also provides agent skills for workflows such as SEO project setup, SEO coaching, keyword research, competitive landscape analysis, competitor analysis, keyword clustering, and link prospecting.
+O RE9 SEO também oferece skills de agente para fluxos como configuração de projetos de SEO, orientação de SEO, pesquisa de palavras-chave, análise do cenário competitivo, análise de concorrentes, agrupamento de palavras-chave e prospecção de links.
 
-## App workflows
+## Fluxos do app
 
-OpenSEO's app includes these practical workflows:
+O app do RE9 SEO inclui estes fluxos práticos:
 
-- Keyword research: expand seed topics into keyword ideas, compare search volume, difficulty, CPC, intent, and SERP context, then save useful opportunities.
-- Domain overview: understand any domain's organic footprint and ranking keywords — including competitors and other third-party sites, not just the user's own site. Domains are looked up one at a time and use credits.
-- Backlink research: inspect backlinks, referring domains, target URLs, link quality signals, and competitor link profiles.
-- Rank tracking: track keyword positions over time.
-- Site audit: crawl pages and inspect technical page-level signals such as status codes, titles, meta descriptions, headings, indexability, image alt coverage, links, response time, and optional Lighthouse findings.
-- Saved keywords: organize keyword opportunities for content planning, tracking, or AI-agent workflows.
-- Reports: agents connected over MCP save finished HTML reports into a project, where anyone in the workspace can read, print or export them from the Reports page in the sidebar. You cannot save reports yourself. Reports use no credits, and each project holds up to 10,000.
-- AI and MCP setup: connect OpenSEO to agents and install OpenSEO skills.
+- Pesquisa de palavras-chave: expandir temas iniciais em ideias de palavras-chave, comparar volume de busca, dificuldade, CPC, intenção e contexto da SERP e salvar as oportunidades úteis.
+- Visão geral do domínio: entender a presença orgânica e as palavras-chave ranqueadas de qualquer domínio — incluindo concorrentes e outros sites de terceiros, não só o site da própria pessoa. Os domínios são consultados um de cada vez e usam créditos.
+- Pesquisa de backlinks: analisar backlinks, domínios de referência, URLs de destino, sinais de qualidade dos links e perfis de links dos concorrentes.
+- Monitoramento de posições: acompanhar as posições das palavras-chave ao longo do tempo.
+- Auditoria do site: rastrear páginas e analisar sinais técnicos por página, como códigos de status, títulos, meta descriptions, headings, indexabilidade, cobertura de texto alternativo em imagens, links, tempo de resposta e, opcionalmente, achados do Lighthouse.
+- Palavras-chave salvas: organizar oportunidades de palavras-chave para planejamento de conteúdo, monitoramento ou fluxos com agentes de IA.
+- Relatórios: agentes conectados por MCP salvam relatórios HTML finalizados em um projeto, onde qualquer pessoa do espaço de trabalho pode ler, imprimir ou exportar esses relatórios pela página Relatórios, na barra lateral. Você não consegue salvar relatórios manualmente. Os relatórios não usam créditos, e cada projeto comporta até 10.000.
+- Configuração de IA e MCP: conectar o RE9 SEO a agentes e instalar as skills do RE9 SEO.
 
-## What users can do after subscribing
+## O que a pessoa pode fazer com uma conta ativa
 
-After subscribing, a hosted user can:
+Com uma conta ativa no RE9 SEO hospedado, a pessoa pode:
 
-- Set up Google Search Console from onboarding or the app.
-- Use the OpenSEO app workflows, including keyword research, domain research, backlinks, rank tracking, and site audits.
-- Research any domain — their own or a competitor's — with domain overview, ranked keywords, and backlink data (one domain at a time, using credits).
-- Connect OpenSEO to an AI client through MCP.
-- Install OpenSEO skills for agent-driven SEO workflows.
-- Use the monthly included credits and buy top-up credits if needed.
+- Configurar o Google Search Console pelo onboarding ou pelo app.
+- Usar os fluxos do app do RE9 SEO, incluindo pesquisa de palavras-chave, análise de domínios, backlinks, monitoramento de posições e auditorias do site.
+- Pesquisar qualquer domínio — o próprio ou de um concorrente — com visão geral do domínio, palavras-chave ranqueadas e dados de backlinks (um domínio de cada vez, usando créditos).
+- Conectar o RE9 SEO a um cliente de IA via MCP.
+- Instalar as skills do RE9 SEO para fluxos de SEO conduzidos por agentes.
 
-## Support and uncertainty
+## Suporte e incertezas
 
-If Sam is unsure about a product detail, current pricing, account-specific billing status, provider limits, or a feature not listed here, it should say it does not know from the product fact sheet and suggest contacting `trafego@re9.online`.
-
-Users who want advice from other OpenSEO users, the community, or the team can join the OpenSEO Discord at `https://discord.gg/c9uGs3cFXr`.
+Se o Sam não tiver certeza sobre um detalhe do produto, preços, planos, situação de cobrança de uma conta específica, limites de provedores ou um recurso que não está listado aqui, ele deve dizer que essa informação não consta na ficha do produto e sugerir o contato `trafego@re9.online`.

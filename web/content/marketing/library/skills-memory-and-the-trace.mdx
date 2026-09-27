@@ -1,153 +1,155 @@
 ---
-title: "Skills, memory and the trace: make the good run repeatable"
-description: "The perfect output you got once is worth nothing if the agent cannot do it again. Three habits from people who run SEO through agents every day: save the workflow as a skill, give the agent a memory it reads every run, and make it write down every step it took. Plus the two checks that catch the confident wrong answer."
+title: "Skills, memória e o rastro: torne repetível a execução que deu certo"
+description: "O resultado perfeito que você conseguiu uma vez não vale nada se o agente não conseguir repeti-lo. Três hábitos de quem faz SEO com agentes todos os dias: salvar o fluxo como skill, dar ao agente uma memória que ele lê a cada execução e fazê-lo registrar cada passo que deu. E as duas checagens que pegam a resposta errada dita com confiança."
 ---
 
-## Why does the agent do it differently every time?
+## Por que o agente faz diferente a cada vez?
 
-Because you asked it to. A chat box with a blank prompt is the highest-variance way to use a model. The same instruction, pasted on two days, produces two different routes to two different outputs, and the second one is not worse because the model got worse; it is different because nothing told it to be the same.
+Porque você pediu. Uma caixa de chat com um prompt em branco é o jeito de usar um modelo com a maior variação possível. A mesma instrução, colada em dois dias diferentes, gera dois caminhos diferentes até dois resultados diferentes. E o segundo não é pior porque o modelo piorou; é diferente porque nada disse a ele para ser igual.
 
-Mason McCumber, an AI automation specialist, has the sentence for it:
+Mason McCumber, especialista em automação com IA, tem a frase certa para isso:
 
-> So repeatability is scalability. And that's the number one thing people are forgetting to realize. They're doing something and they're doing it once.
+> Então repetibilidade é escalabilidade. E essa é a coisa número um que as pessoas estão esquecendo de perceber. Elas fazem uma coisa e fazem uma vez só.
 
-And the cost of not fixing it:
+E o custo de não resolver isso:
 
-> If we get the perfect output from like some sort of AI model and we can't repeat that you'll you're just kind of battling that Chasing that one high that you got that one time
+> Se a gente consegue o resultado perfeito de algum modelo de IA e não consegue repetir, você vai, você fica meio que brigando, correndo atrás daquela onda que você sentiu aquela única vez
 
-![A quote card reading: Repeatability is scalability. And that's the number one thing people are forgetting to realize. They're doing something and they're doing it once. Attributed to Mason McCumber of BuildWithMM, from The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-repeatability-is-scalability.png "Mason McCumber on repeatability")
+![Cartão de citação: “Repetibilidade é escalabilidade. E essa é a coisa número um que as pessoas estão esquecendo de perceber. Elas fazem uma coisa e fazem uma vez só.” — Mason McCumber, da BuildWithMM, no The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-repeatability-is-scalability.png "Mason McCumber sobre repetibilidade")
 
-His episode is [on the Unscripted Small Business podcast](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/). Three habits fix it. None of them is clever.
+O episódio dele está [no podcast Unscripted Small Business](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/) (em inglês). Três hábitos resolvem isso. Nenhum deles é engenhoso.
 
-## 1. Save the workflow as a skill
+## 1. Salve o fluxo como skill
 
-A skill is a file that tells the assistant how to do one job: what to pull, in what order, what to check, what the output looks like. OpenSEO ships a set of them for the SEO jobs the MCP supports, and they are the reason the same prompt produces the same shape of work on Monday and on Thursday:
+Uma skill é um arquivo que diz ao assistente como fazer uma tarefa: o que puxar, em que ordem, o que conferir, como o resultado deve ficar. O RE9 SEO traz um conjunto delas para as tarefas de SEO que o MCP suporta, e são elas que fazem o mesmo prompt produzir o mesmo formato de trabalho na segunda e na quinta-feira:
 
-![The OpenSEO agent skills listed in a terminal: competitive-landscape, competitor-analysis, keyword-clustering, keyword-research, link-prospecting, local-seo, seo-audit, seo-coach and seo-project-setup, each a SKILL.md file the assistant reads before doing that job](/library/ai-agent-seo/openseo-agent-skills-openseo.png "The OpenSEO agent skills")
+![As skills de agente do RE9 SEO listadas num terminal: competitive-landscape, competitor-analysis, keyword-clustering, keyword-research, link-prospecting, local-seo, seo-audit, seo-coach e seo-project-setup, cada uma um arquivo SKILL.md que o assistente lê antes de fazer aquela tarefa](/library/ai-agent-seo/openseo-agent-skills-openseo.png "As skills de agente do RE9 SEO")
 
-Erika Braeger, manager of organic growth strategy at Tenspeed, builds them for her team and is precise about what they are for:
+Erika Braeger, gerente de estratégia de crescimento orgânico na Tenspeed, cria skills para a equipe dela e é precisa sobre para que elas servem:
 
-> the innovation that I work on for my strategy team is clot skills that take away that pre-work so the strategist has all of that time back to focus on what really matters
+> a inovação em que eu trabalho para o meu time de estratégia são skills do Claude que eliminam esse trabalho preparatório, para que o estrategista tenha todo esse tempo de volta para focar no que realmente importa
 
-Her episode is [here](https://unscriptedseo.com/erika-braeger-tenspeed-unscripted-seo/). The skill does the fetching and arranging. The strategist does the thinking. And the skill does it the same way every time, which is the point.
+O episódio dela está [aqui](https://unscriptedseo.com/erika-braeger-tenspeed-unscripted-seo/) (em inglês). A skill busca e organiza. O estrategista pensa. E a skill faz isso do mesmo jeito toda vez, que é justamente o objetivo.
 
-Patrick Stox, formerly of Ahrefs and now consulting on his own, on where to start:
+Patrick Stox, ex-Ahrefs e hoje consultor independente, sobre por onde começar:
 
-> anything that, you know, is taking too much of your time that you're having to do repeatedly, go just try and you know, build a skill, try and improve it.
+> qualquer coisa que, sabe, esteja tomando tempo demais e que você tenha que fazer repetidamente, vai lá e tenta, sabe, montar uma skill, tenta melhorá-la.
 
-His episode is [here](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/). If you have pasted the same prompt three times, it is a skill. Write it down, name it, and stop pasting.
+O episódio dele está [aqui](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/) (em inglês). Se você colou o mesmo prompt três vezes, ele é uma skill. Escreva, dê um nome e pare de colar.
 
-## 2. Give it a memory it reads every run
+## 2. Dê ao agente uma memória que ele lê a cada execução
 
-An agent forgets between conversations, and inside a long one. Mason's fix is a plain-text store the agent reads before it starts:
+Um agente esquece de uma conversa para outra, e também no meio de uma conversa longa. A solução do Mason é um repositório em texto simples que o agente lê antes de começar:
 
-> The way that we do it is we do it with Obsidian. Obsidian is a markdown platform that manages uh all of our files. So we make logs of transcripts. We make logs of every single thing that we're working on and that we're doing.
+> O jeito que a gente faz é com o Obsidian. O Obsidian é uma plataforma de markdown que gerencia, é, todos os nossos arquivos. Então a gente faz registros de transcrições. A gente faz registros de absolutamente tudo em que estamos trabalhando e do que estamos fazendo.
 
-Markdown, because every model reads it and every editor opens it. Logs of transcripts, decisions, what the client said, what you decided last month and why. OpenSEO's version is the project context: business overview, goal, positioning, competitors, key pages, and a research log so the assistant does not re-buy research it already bought. The [project setup](/docs/skills/seo-project-setup) skill fills it once; every other skill reads it.
+Markdown, porque todo modelo lê e todo editor abre. Registros de transcrições, de decisões, do que o cliente disse, do que você decidiu no mês passado e por quê. A versão do RE9 SEO é o contexto do projeto: visão geral do negócio, objetivo, posicionamento, concorrentes, páginas principais e um registro de pesquisas, para que o assistente não pague de novo por uma pesquisa que já comprou. A skill de [configuração do projeto](/docs/skills/seo-project-setup) preenche esse contexto uma vez; todas as outras skills o leem.
 
-Holly Homer, who runs organic and AI visibility at Digistore24, describes the loop that memory makes possible:
+Holly Homer, que cuida de visibilidade orgânica e em IA na Digistore24, descreve o ciclo que a memória torna possível:
 
-> where the magic happens is when you are building things that have feedback loops. And so you're like, no, that sucked for these s five reasons. You know, go ahead and redo it now.
+> a mágica acontece quando você está construindo coisas que têm ciclos de feedback. Aí você fala: não, isso ficou ruim por esses cinco motivos. Sabe, pode refazer agora.
 
-Her episode is [here](https://unscriptedseo.com/holly-homer-on-affiliate-marketing-ai-slop-and-being-replaced-by-your-own-words/). Feedback you give once and the agent forgets is a complaint. Feedback written into the memory it reads every run is a rule.
+O episódio dela está [aqui](https://unscriptedseo.com/holly-homer-on-affiliate-marketing-ai-slop-and-being-replaced-by-your-own-words/) (em inglês). Um feedback que você dá uma vez e o agente esquece é uma reclamação. Um feedback escrito na memória que ele lê a cada execução é uma regra.
 
-## 3. Make it write down every step
+## 3. Faça o agente registrar cada passo
 
-The third habit is the one almost nobody does, and Mason is specific about why it matters:
+O terceiro hábito é o que quase ninguém pratica, e Mason é específico sobre por que ele importa:
 
-> You have to tell it to leave clear traces of everything it does. Cause AI a lot of times will just go. It just goes and then doesn't leave a good trace on how it got to the perfect destination.
+> Você tem que mandar ele deixar rastros claros de tudo o que faz. Porque a IA muitas vezes simplesmente vai. Ela simplesmente vai e não deixa um bom rastro de como chegou ao destino perfeito.
 
-A trace is a log: which tool it called, with what arguments, what came back, what it did with it. It costs a few lines per step. It buys you two things. When the output is right, the trace is the skill you should have written. When the output is wrong, the trace is where you find the step it invented.
+Um rastro é um registro: qual ferramenta o agente chamou, com quais argumentos, o que voltou e o que ele fez com isso. Custa algumas linhas por passo e te dá duas coisas. Quando o resultado está certo, o rastro é a skill que você deveria ter escrito. Quando o resultado está errado, o rastro é onde você encontra o passo que ele inventou.
 
-Bradley Benner, who builds AI operating systems for contractors, runs the same discipline before anything executes:
+Bradley Benner, que monta sistemas operacionais de IA para prestadores de serviços de construção e reforma, aplica a mesma disciplina antes de qualquer execução:
 
-> I always work in plan mode to begin with, anyways. And so it ends up a a sometimes a very lengthy discussion back and forth before we ever agree to a build plan
+> Eu sempre começo trabalhando no modo de planejamento, de qualquer forma. E aí acaba virando uma, às vezes, uma discussão bem longa, de lá para cá, antes de a gente concordar com um plano de construção
 
-His episode is [here](https://unscriptedseo.com/bradley-benner-on-relevance-over-dr/). Plan, agree, then run, with the plan written down. The trace is the same idea after the fact.
+O episódio dele está [aqui](https://unscriptedseo.com/bradley-benner-on-relevance-over-dr/) (em inglês). Planeje, concorde e só então execute, com o plano por escrito. O rastro é a mesma ideia, só que depois da execução.
 
-## The two checks the trace makes possible
+## As duas checagens que o rastro torna possíveis
 
-Knight Lancaster, an attorney and CPA in Nashville, on why the confident answer is the dangerous one:
+Knight Lancaster, advogado e contador (CPA) em Nashville, sobre por que a resposta confiante é a perigosa:
 
-> the old saying, know, often wrong but never in doubt. You get a confident response, but the second you say, hey, I don't think that's right, I mean, you don't have to push that hard.
+> o velho ditado, sabe, muitas vezes errado, mas nunca em dúvida. Você recebe uma resposta confiante, mas no segundo em que você diz: ei, acho que isso não está certo, quer dizer, você nem precisa insistir muito.
 
-His episode is [on the Unscripted Small Business podcast](https://unscriptedsmallbusiness.com/knight-lancaster-navigating-finances-marketing-law-in-tennessee/). He has watched lawyers file briefs with invented citations, and his diagnosis is not the model:
+O episódio dele está [no podcast Unscripted Small Business](https://unscriptedsmallbusiness.com/knight-lancaster-navigating-finances-marketing-law-in-tennessee/) (em inglês). Ele já viu advogados protocolarem petições com citações inventadas, e o diagnóstico dele não culpa o modelo:
 
-> I really think the fundamental issue is it's just a gap in the process.
+> Eu realmente acho que o problema fundamental é que é só uma falha no processo.
 
-The gap is the last check. Two of them, both cheap once the trace exists.
+A falha é a última checagem. São duas, e as duas são baratas quando o rastro existe.
 
-**The source check.** Every number in the output traces to a tool call in the log. If the agent says a keyword has 1,600 searches, the trace shows `get_keyword_metrics` returning 1,600. If it does not, the number came from the model's memory of the world, which is not a data source. Knight again, on why reading the first five facts is not enough:
+**A checagem de fonte.** Todo número do resultado remete a uma chamada de ferramenta no registro. Se o agente diz que uma palavra-chave tem 1.600 buscas, o rastro mostra `get_keyword_metrics` devolvendo 1.600. Se não mostra, o número veio da memória que o modelo tem do mundo, e isso não é fonte de dados. Knight de novo, sobre por que ler os cinco primeiros fatos não basta:
 
-> when somebody hands you a fact sheet that has 27 facts on them and you look at the first four or five and they look right and the rest of them sound good you know you can kind of go sleep mentally
+> quando alguém te entrega uma ficha com 27 fatos e você olha os primeiros quatro ou cinco, eles parecem certos e o resto soa bem, sabe, você meio que desliga mentalmente
 
-**The domain check.** Chris Garrett, who has been a programmer and a content marketer for thirty years, sets the boundary:
+**A checagem de domínio.** Chris Garrett, que há trinta anos é programador e profissional de marketing de conteúdo, define o limite:
 
-> AI tools are really helpful in domains that you're well versed in, but don't try to use it in a domain that you don't know very well because you don't spot the inaccuracies and the hallucinations.
+> Ferramentas de IA ajudam muito em áreas que você domina bem, mas não tente usá-las numa área que você não conhece muito bem, porque você não vai perceber as imprecisões e as alucinações.
 
-His episode is [here](https://unscriptedseo.com/chris-garrett-on-the-over-caffeinated-human-brain/). If you cannot tell whether a step in the trace is wrong, the workflow needs someone who can, or it needs to stay smaller than your expertise.
+O episódio dele está [aqui](https://unscriptedseo.com/chris-garrett-on-the-over-caffeinated-human-brain/) (em inglês). Se você não consegue dizer se um passo do rastro está errado, o fluxo precisa de alguém que consiga, ou precisa continuar menor do que a sua expertise.
 
-Erika, after building a library of skills for her team, still ends every run the same way:
+Erika, depois de montar uma biblioteca de skills para a equipe, ainda termina toda execução do mesmo jeito:
 
-> I still find even with all of my Clawed skills or Claude usage, I still need to run a thorough QA.
+> Eu ainda acho que, mesmo com todas as minhas skills do Claude ou com o uso do Claude, eu ainda preciso fazer um controle de qualidade minucioso.
 
-And a practical limit Dan Kurtz hit that no amount of memory prevents:
+E um limite prático em que Dan Kurtz esbarrou e que nenhuma memória evita:
 
-> Until you go to bulk update all of your metas and then your hosting provider shuts off that IP range.
+> Até você ir atualizar em massa todas as suas meta tags e aí o seu provedor de hospedagem bloquear aquela faixa de IPs.
 
-His episode is [here](https://unscriptedseo.com/dan-kurtz-bots-as-a-customer-segment-markdown-agentic-flywheel/). The agent can do anything to your site through an API. Your host may have opinions about how fast.
+O episódio dele está [aqui](https://unscriptedseo.com/dan-kurtz-bots-as-a-customer-segment-markdown-agentic-flywheel/) (em inglês). O agente pode fazer qualquer coisa no seu site por meio de uma API. Sua hospedagem pode ter opiniões sobre a velocidade.
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-Connect the [OpenSEO MCP](/docs/mcp) and install the [skills](/docs/skills/setup). This prompt turns a one-off run into a repeatable one and produces the trace.
+Conecte o [MCP do RE9 SEO](/docs/mcp) e instale as [skills](/docs/skills/setup). Este prompt transforma uma execução avulsa em uma execução repetível e gera o rastro.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. Call get_project_context. If the goal, positioning, competitors or
-   key pages are missing, run the seo-project-setup skill and ask me
-   for them before doing anything else.
+1. Chame get_project_context. Se faltar o objetivo, o posicionamento,
+   os concorrentes ou as páginas principais, rode a skill
+   seo-project-setup e me pergunte isso antes de fazer qualquer outra
+   coisa.
 
-2. Run the [keyword-research | seo-audit | competitor-analysis] skill
-   for [topic or domain]. As you go, keep a log: every tool called,
-   the arguments, the row count that came back, and what you did with
-   it. Print the log at the end.
+2. Rode a skill [keyword-research | seo-audit | competitor-analysis]
+   para [tema ou domínio]. Enquanto avança, mantenha um registro: cada
+   ferramenta chamada, os argumentos, a quantidade de linhas que
+   voltou e o que você fez com ela. Imprima o registro no final.
 
-3. For every number in your summary, cite the log line it came from.
-   Any number without a log line, mark as "not from data".
+3. Para cada número do seu resumo, cite a linha do registro de onde
+   ele veio. Qualquer número sem linha no registro, marque como
+   "não veio dos dados".
 
-4. Tell me which two steps you would change if you ran this again,
-   and write the whole run as a SKILL.md I can save, with the steps
-   in order and the checks at the end.
+4. Me diga quais dois passos você mudaria se rodasse isso de novo, e
+   escreva a execução inteira como um SKILL.md que eu possa salvar,
+   com os passos em ordem e as checagens no final.
 
-5. Call update_project_context to add one line to the research log:
-   what was run, when, and where the output is.
+5. Chame update_project_context para adicionar uma linha ao registro
+   de pesquisas: o que foi rodado, quando e onde está o resultado.
 ```
 
-Step 3 is the source check, automated. Step 4 is the skill you should have had. Step 5 is the memory the next run reads.
+O passo 3 é a checagem de fonte, automatizada. O passo 4 é a skill que você deveria ter tido. O passo 5 é a memória que a próxima execução lê.
 
-## The run is the asset
+## A execução é o ativo
 
-The output of an agent run is one document. The skill, the memory and the trace are the things that make the next hundred runs cheaper and the wrong ones catchable. Save all three, or you are paying for the same afternoon every week and trusting a confident voice you cannot audit. [Run SEO from your AI assistant](/library/ai-agent-seo/run-seo-from-your-ai-assistant) is where the first run starts; this is how it becomes the second.
+O resultado de uma execução do agente é um documento. A skill, a memória e o rastro são o que torna as próximas cem execuções mais baratas e as erradas, detectáveis. Salve os três, ou você vai pagar pela mesma tarde toda semana e confiar numa voz confiante que você não consegue auditar. [Faça SEO pelo seu assistente de IA](/library/ai-agent-seo/run-seo-from-your-ai-assistant) é onde começa a primeira execução; este texto mostra como ela vira a segunda.
 
-## Skills and memory FAQ
+## Perguntas frequentes sobre skills e memória
 
-### What is an agent skill?
+### O que é uma skill de agente?
 
-A file, usually SKILL.md, that tells an AI assistant how to do one job: which tools to call in what order, what to check, and what the output should look like. OpenSEO ships skills for keyword research, competitor analysis, site audit, local SEO, link prospecting, reporting and project setup, so the assistant runs each workflow the same way every time.
+Um arquivo, geralmente SKILL.md, que diz a um assistente de IA como fazer uma tarefa: quais ferramentas chamar e em que ordem, o que conferir e como o resultado deve ficar. O RE9 SEO traz skills para pesquisa de palavras-chave, análise de concorrentes, auditoria do site, SEO local, prospecção de links, relatórios e configuração do projeto, para que o assistente rode cada fluxo do mesmo jeito toda vez.
 
-### Why does ChatGPT or Claude give different answers to the same prompt?
+### Por que o ChatGPT ou o Claude dão respostas diferentes para o mesmo prompt?
 
-Because a blank chat is designed to vary; nothing constrains the route from prompt to answer. Saving the workflow as a skill, giving the assistant a memory it reads before each run, and asking it to log each step all reduce that variance. A skill in particular runs the same steps in the same order.
+Porque um chat em branco é feito para variar; nada restringe o caminho entre o prompt e a resposta. Salvar o fluxo como skill, dar ao assistente uma memória que ele lê antes de cada execução e pedir que ele registre cada passo reduzem essa variação. A skill, em especial, roda os mesmos passos na mesma ordem.
 
-### How do I give an AI agent memory?
+### Como dar memória a um agente de IA?
 
-A plain-text store it reads before it starts: markdown files of decisions, transcripts and rules, or a structured project context like OpenSEO's, which holds goal, positioning, competitors, key pages and a research log. Feedback written into that store becomes a rule; feedback given once in chat is forgotten.
+Com um repositório em texto simples que ele lê antes de começar: arquivos markdown com decisões, transcrições e regras, ou um contexto de projeto estruturado como o do RE9 SEO, que guarda objetivo, posicionamento, concorrentes, páginas principais e um registro de pesquisas. Um feedback escrito nesse repositório vira regra; um feedback dado uma vez no chat é esquecido.
 
-### How do I know if an AI SEO report is accurate?
+### Como saber se um relatório de SEO feito por IA está correto?
 
-Make the assistant log every tool call and cite the log line for every number. A figure with no tool call behind it came from the model rather than the data. Then read the whole thing, not the first five rows, and only trust it in a domain where you would spot a wrong answer yourself.
+Faça o assistente registrar cada chamada de ferramenta e citar a linha do registro para cada número. Um número sem chamada de ferramenta por trás veio do modelo, não dos dados. Depois, leia tudo, não só as cinco primeiras linhas, e só confie no relatório numa área em que você mesmo perceberia uma resposta errada.
 
-### Does OpenSEO have project memory?
+### O RE9 SEO tem memória de projeto?
 
-Yes. Each project holds a shared context: business overview, current goal, positioning, writing preferences, competitors, key pages and a research log. The MCP reads it with get_project_context and updates it with update_project_context, and the seo-project-setup skill fills it in on the first run.
+Sim. Cada projeto guarda um contexto compartilhado: visão geral do negócio, objetivo atual, posicionamento, preferências de escrita, concorrentes, páginas principais e um registro de pesquisas. O MCP lê esse contexto com get_project_context e o atualiza com update_project_context, e a skill seo-project-setup o preenche na primeira execução.

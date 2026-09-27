@@ -1,23 +1,24 @@
-# Running OpenSEO on Postgres locally
+# Rodando o RE9 SEO com Postgres localmente
 
-OpenSEO runs on **Cloudflare D1 (SQLite) by default**. Postgres is an opt-in
-backend for installs that outgrow D1's storage ceiling. The application code is
-written once against a provider-aware `db` layer (see `src/db/`), so the only
-difference at runtime is the `DATABASE_PROVIDER` flag and a connection string.
+O RE9 SEO roda no **Cloudflare D1 (SQLite) por padrão**. O Postgres é um backend
+opcional para instalações que ultrapassam o limite de armazenamento do D1. O código
+da aplicação é escrito uma única vez sobre uma camada `db` que reconhece o provedor
+(veja `src/db/`), então a única diferença em tempo de execução é a flag
+`DATABASE_PROVIDER` e uma string de conexão.
 
-This guide sets up a throwaway Postgres in Docker so you can develop and test the
-Postgres path locally. **You do not need this for normal development** — D1 is the
-default and the path most contributors should use.
+Este guia sobe um Postgres descartável no Docker para você desenvolver e testar o
+caminho do Postgres localmente. **Você não precisa disso no desenvolvimento
+normal** — o D1 é o padrão e o caminho que a maioria das pessoas deve usar.
 
-## Prerequisites
+## Pré-requisitos
 
-- Docker Desktop (or Docker Engine)
-- The normal local dev setup from [`LOCAL_DEVELOPMENT.md`](./LOCAL_DEVELOPMENT.md)
+- Docker Desktop (ou Docker Engine)
+- A configuração normal de desenvolvimento local de [`LOCAL_DEVELOPMENT.md`](./LOCAL_DEVELOPMENT.md)
 
-## 1. Start a Postgres container
+## 1. Suba um container Postgres
 
-Port `5433` is used on the host to avoid clashing with a system Postgres on the
-default `5432`.
+A porta `5433` é usada no host para evitar conflito com um Postgres do sistema na
+porta padrão `5432`.
 
 ```sh
 docker run --name openseo-postgres \
@@ -28,92 +29,93 @@ docker run --name openseo-postgres \
   -d postgres:16
 ```
 
-Wait until it accepts connections:
+Aguarde até ele aceitar conexões:
 
 ```sh
 docker exec openseo-postgres pg_isready -U openseo -d openseo
 ```
 
-The connection string is:
+A string de conexão é:
 
 ```
 postgres://openseo:openseo@localhost:5433/openseo
 ```
 
-## 2. Apply the Postgres migrations
+## 2. Aplique as migrações do Postgres
 
-The Postgres schema is hand-written (it is the one structural artifact
-`db:generate` does not regenerate) and migrations live in `drizzle-pg/`. Apply
-them with `POSTGRES_DATABASE_URL` set — `drizzle-kit` reads it from the shell
-environment:
+O schema do Postgres é escrito à mão (é o único artefato estrutural que o
+`db:generate` não regenera) e as migrações ficam em `drizzle-pg/`. Aplique-as com
+`POSTGRES_DATABASE_URL` definida — o `drizzle-kit` lê essa variável do ambiente
+do shell:
 
 ```sh
 POSTGRES_DATABASE_URL=postgres://openseo:openseo@localhost:5433/openseo \
   pnpm db:migrate:pg
 ```
 
-## 3. Point the app at Postgres
+## 3. Aponte o app para o Postgres
 
-The Cloudflare Vite runtime reads Worker vars from `.env.local`, so set the
-provider flag there (not just in your shell):
+O runtime Vite da Cloudflare lê as variáveis do Worker do `.env.local`, então
+defina a flag do provedor lá (não apenas no seu shell):
 
 ```sh
 # .env.local
 DATABASE_PROVIDER=postgres
 ```
 
-The connection string comes from the `HYPERDRIVE` binding. The `hyperdrive`
-block in `wrangler.jsonc` ships commented out, so uncomment it first. Miniflare then resolves the binding to its
-`localConnectionString`, which already points at the Docker container from
-step 1. (In deployed Workers the same binding resolves to real Hyperdrive —
-the app never connects to Postgres except through this binding.) If your local
-Postgres lives elsewhere, override without touching the config:
+A string de conexão vem do binding `HYPERDRIVE`. O bloco `hyperdrive` no
+`wrangler.jsonc` vem comentado, então descomente-o primeiro. O Miniflare então
+resolve o binding para a sua `localConnectionString`, que já aponta para o
+container Docker do passo 1. (Nos Workers implantados, o mesmo binding resolve
+para o Hyperdrive real — o app nunca se conecta ao Postgres a não ser por esse
+binding.) Se o seu Postgres local estiver em outro lugar, sobrescreva sem mexer
+na configuração:
 
 ```sh
 CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE=postgres://... pnpm dev
 ```
 
-Then start the dev server as usual:
+Depois, inicie o servidor de desenvolvimento normalmente:
 
 ```sh
 pnpm dev
 ```
 
-To switch back to D1, remove that line (or set `DATABASE_PROVIDER=d1`) and
-restart.
+Para voltar ao D1, remova essa linha (ou defina `DATABASE_PROVIDER=d1`) e
+reinicie.
 
-> `POSTGRES_DATABASE_URL` (step 2) is only read by Node-side tooling —
-> `drizzle-kit` and `scripts/migrate-d1-to-postgres.ts`. The app itself ignores
-> it.
+> `POSTGRES_DATABASE_URL` (passo 2) só é lida pelas ferramentas do lado Node —
+> `drizzle-kit` e `scripts/migrate-d1-to-postgres.ts`. O próprio app a ignora.
 
-## 4. Verify
+## 4. Verifique
 
 ```sh
-# Tables created by the migrations
+# Tabelas criadas pelas migrações
 docker exec openseo-postgres psql -U openseo -d openseo -c "\dt"
 
-# Inspect rows the app writes (e.g. after creating a project / saving keywords)
+# Inspecione as linhas que o app grava (ex.: depois de criar um projeto / salvar palavras-chave)
 docker exec openseo-postgres psql -U openseo -d openseo -c "select count(*) from projects;"
 ```
 
-## Schema changes
+## Mudanças de schema
 
-When you change a table, update **both** dialects:
+Ao alterar uma tabela, atualize **os dois** dialetos:
 
 - SQLite: `src/db/*.schema.ts` (+ `pnpm db:generate:d1`)
 - Postgres: `src/db/pg/*.schema.ts` (+ `pnpm db:generate:pg`)
 
-`src/db/schema-parity.test.ts` fails CI if the two dialects drift (mismatched
-tables, columns, nullability, primary keys, unique/partial indexes, or FK
-`onDelete`). It compares the schema definitions, **not** the generated
-migrations — so after editing the Postgres schema, always run `pnpm db:generate:pg`
-and commit the new `drizzle-pg/` migration, or a Postgres deploy will be missing
-the change even though the parity test is green.
+O `src/db/schema-parity.test.ts` falha no CI se os dois dialetos divergirem
+(tabelas, colunas, nulabilidade, chaves primárias, índices únicos/parciais ou
+`onDelete` de FK diferentes). Ele compara as definições de schema, **não** as
+migrações geradas — então, depois de editar o schema do Postgres, sempre rode
+`pnpm db:generate:pg` e faça commit da nova migração em `drizzle-pg/`, senão uma
+implantação com Postgres ficará sem a mudança mesmo com o teste de paridade verde.
 
-## Teardown
+## Remoção
 
 ```sh
 docker rm -f openseo-postgres
 ```
 
-This deletes the container and all its data. Re-run from step 1 for a clean slate.
+Isso apaga o container e todos os dados dele. Rode de novo a partir do passo 1 para
+começar do zero.

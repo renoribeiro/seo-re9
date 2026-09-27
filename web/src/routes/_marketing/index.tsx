@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing-page";
 import { buildPageSeo } from "@/lib/seo";
 
-const homeTitle = "OpenSEO - Open Source SEO Platform";
+const homeTitle = "RE9 SEO - Plataforma de SEO de código aberto";
 const homeDescription =
-  "OpenSEO is the open source alternative to Ahrefs and Semrush. Keyword research, backlinks, rank tracking, and site audits, billed by usage instead of a $100-plus monthly subscription. Self-host it free, or connect it to your AI agents over MCP.";
+  "O RE9 SEO é a plataforma de SEO de código aberto para pesquisa de palavras-chave, backlinks, monitoramento de posições e auditoria do site. Use com seus agentes de IA via MCP ou hospede na sua própria infraestrutura.";
 
 export const Route = createFileRoute("/_marketing/")({
   head: () => {
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_marketing/")({
       title: homeTitle,
       description: homeDescription,
       path: "/",
-      imageAlt: "OpenSEO keyword research dashboard preview",
+      imageAlt: "Prévia do painel de pesquisa de palavras-chave do RE9 SEO",
     });
 
     return {

@@ -11,30 +11,30 @@ const PATH = "/library/site-audit/technical-seo-audit-checklist";
 
 const faqs = [
   {
-    question: "What is included in a technical SEO audit?",
+    question: "O que inclui uma auditoria técnica de SEO?",
     answer:
-      "At minimum: crawlability and access, status codes, canonical and indexability signals, titles and meta descriptions, heading structure, internal linking including broken links and orphan pages, duplicate content, image alt coverage, and server response time. OpenSEO checks 27 issue types across those areas and can optionally run Lighthouse on a sample of up to 10 pages for performance and accessibility findings.",
+      "No mínimo: rastreabilidade e acesso, códigos de status, sinais de canonical e de indexação, títulos e meta descriptions, estrutura de cabeçalhos, links internos (incluindo links quebrados e páginas órfãs), conteúdo duplicado, cobertura de texto alternativo em imagens e tempo de resposta do servidor. O RE9 SEO verifica 27 tipos de problema nessas áreas e pode, opcionalmente, rodar o Lighthouse numa amostra de até 10 páginas para achados de desempenho e acessibilidade.",
   },
   {
-    question: "How often should you run a technical SEO audit?",
+    question: "Com que frequência fazer uma auditoria técnica de SEO?",
     answer:
-      "Run one before and after any migration, template change, or platform upgrade, because those are the events that create critical issues. Outside of that, a quarterly crawl is enough for a stable site. Auditing monthly on a site nobody is changing produces the same report every month and trains everyone to ignore it.",
+      "Faça uma antes e depois de qualquer migração, mudança de template ou atualização de plataforma, porque são esses os eventos que criam problemas críticos. Fora isso, um rastreamento por trimestre basta para um site estável. Auditar todo mês um site que ninguém está mudando gera o mesmo relatório todo mês e ensina todo mundo a ignorá-lo.",
   },
   {
     question:
-      "What is the difference between a technical SEO audit and an SEO audit?",
+      "Qual a diferença entre uma auditoria técnica de SEO e uma auditoria de SEO?",
     answer:
-      "A technical audit asks whether search engines can reach, render, and understand your pages. A broader SEO audit adds content quality, keyword coverage, and links. The technical layer comes first because a content problem on a page Google cannot fetch is not the problem you have.",
+      "Uma auditoria técnica pergunta se os buscadores conseguem acessar, renderizar e entender as suas páginas. Uma auditoria de SEO mais ampla acrescenta qualidade do conteúdo, cobertura de palavras-chave e links. A camada técnica vem primeiro, porque um problema de conteúdo numa página que o Google não consegue buscar não é o problema que você tem.",
   },
   {
-    question: "Why do SEO audits produce so many issues?",
+    question: "Por que as auditorias de SEO geram tantos problemas?",
     answer:
-      "Because most issue types are page-level and most sites are templated, so a single template fault multiplies by the number of pages using it. A report of 1,180 issues across 318 pages usually describes a dozen underlying causes. Group by issue type before you count anything.",
+      "Porque a maioria dos tipos de problema é por página e a maioria dos sites usa templates, então um único defeito de template se multiplica pelo número de páginas que o usam. Um relatório com 1.180 problemas em 318 páginas costuma descrever uma dúzia de causas de fundo. Agrupe por tipo de problema antes de contar qualquer coisa.",
   },
   {
-    question: "Is there a free technical SEO audit tool?",
+    question: "Existe ferramenta gratuita de auditoria técnica de SEO?",
     answer:
-      "Partly. Google Search Console reports coverage and indexing for your own verified property at no cost, and it is the more reliable source for anything Google-specific. A crawler adds the on-page and internal-link picture that Search Console does not give you. OpenSEO is open source and free to start, with 50-page crawls on the free plan and 10,000-page crawls on the $10/month plan.",
+      "Em parte. O Google Search Console mostra cobertura e indexação da sua propriedade verificada sem custo, e é a fonte mais confiável para tudo o que é específico do Google. Um rastreador acrescenta a visão on-page e de links internos que o Search Console não dá. O RE9 SEO é de código aberto e faz esse rastreamento.",
   },
 ];
 
@@ -53,17 +53,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "The Technical SEO Audit Checklist That Ends in Fixes",
+      title: "O checklist de auditoria técnica de SEO que termina em correções",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="The technical SEO audit checklist"
+      crumb="O checklist de auditoria técnica de SEO"
       path={PATH}
       library={SITE_AUDIT_LIBRARY}
     >

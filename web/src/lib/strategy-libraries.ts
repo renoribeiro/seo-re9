@@ -6,198 +6,206 @@ export type StrategyLibraryItem = {
 
 export const keywordResearchStrategies: StrategyLibraryItem[] = [
   {
-    title: "Seed from conversation, not a volume report",
+    title: "Parta das conversas, não de um relatório de volume",
     description:
-      "Harvest seed keywords from sales calls and support tickets using the language customers already use.",
+      "Colete palavras-chave semente em ligações de vendas e tickets de suporte, usando a linguagem que os clientes já usam.",
     href: "/library/keyword-research/seed-from-conversation",
   },
   {
-    title: "What are long-tail keywords, and how to mine them",
+    title: "O que são palavras-chave de cauda longa e como garimpá-las",
     description:
-      "Find long-tail keywords in People Also Ask, autocomplete, and Search Console queries where your pages already rank.",
+      "Encontre palavras-chave de cauda longa no People Also Ask, no preenchimento automático e nas consultas do Search Console em que suas páginas já ranqueiam.",
     href: "/library/keyword-research/long-tail-question-mining",
   },
   {
-    title: "Search-intent mapping (hot / warm / cold)",
+    title: "Mapeamento de intenção de busca (quente / morna / fria)",
     description:
-      "Sort keywords by buying temperature before you write, then build high-intent pages first.",
+      "Classifique as palavras-chave pela temperatura de compra antes de escrever e crie primeiro as páginas de alta intenção.",
     href: "/library/keyword-research/search-intent-mapping",
   },
   {
-    title: "Cluster keywords into topical hubs",
+    title: "Agrupe palavras-chave em hubs temáticos",
     description:
-      "Group keywords by intent and build topical hubs without creating competing pages.",
+      "Agrupe palavras-chave por intenção e monte hubs temáticos sem criar páginas que competem entre si.",
     href: "/library/keyword-research/cluster-topical-hubs",
   },
   {
-    title: "Programmatic discovery with Search Console",
+    title: "Descoberta programática com o Search Console",
     description:
-      "Use MCP to find Search Console queries and pages with room to gain more clicks.",
+      "Use o MCP para encontrar consultas e páginas do Search Console com espaço para ganhar mais cliques.",
     href: "/library/keyword-research/gsc-programmatic-discovery",
   },
   {
-    title: "Opportunity sizing & forecasting",
+    title: "Dimensionamento de oportunidades e projeções",
     description:
-      "Estimate a cluster's difficulty, traffic range, and payback scenarios before you invest.",
+      "Estime a dificuldade, a faixa de tráfego e os cenários de retorno de um grupo de palavras-chave antes de investir.",
     href: "/library/keyword-research/opportunity-sizing-forecasting",
   },
   {
-    title: "Intent beyond Google (Pinterest, AI, LinkedIn)",
-    description: "Research demand on Pinterest, LinkedIn, and AI assistants.",
+    title: "Intenção além do Google (Pinterest, IA, LinkedIn)",
+    description:
+      "Pesquise a demanda no Pinterest, no LinkedIn e em assistentes de IA.",
     href: "/library/keyword-research/intent-beyond-google",
   },
   {
-    title: "Map positioning to real demand",
+    title: "Ligue o posicionamento à demanda real",
     description:
-      "Check whether your category language matches the terms customers search for.",
+      "Verifique se a linguagem da sua categoria corresponde aos termos que os clientes buscam.",
     href: "/library/keyword-research/positioning-to-demand",
   },
 ];
 
 export const COMPETITIVE_ANALYSIS_LIBRARY = {
-  name: "Competitive Analysis",
+  name: "Análise de concorrentes",
   path: "/library/competitive-analysis",
 };
 
 export const competitiveAnalysisStrategies: StrategyLibraryItem[] = [
   {
-    title: "Find out who your real competitors are",
+    title: "Descubra quem são seus concorrentes de verdade",
     description:
-      "The domains sharing your SERPs are rarely the companies on your battlecard. Compare a keyword set and read the list you actually compete against.",
+      "Os domínios que dividem suas SERPs raramente são as empresas da sua lista de concorrentes. Compare um conjunto de palavras-chave e leia a lista contra quem você realmente compete.",
     href: "/library/competitive-analysis/find-your-real-competitors",
   },
   {
-    title: "Keyword gap analysis: subtract the brand terms first",
+    title:
+      "Análise de lacunas de palavras-chave: tire os termos de marca primeiro",
     description:
-      "Most ranked-keyword lists are mostly brand. Strip brand from both sides and the gap becomes a short, buildable list.",
+      "A maioria das listas de palavras-chave ranqueadas é quase toda de marca. Tire a marca dos dois lados e a lacuna vira uma lista curta e executável.",
     href: "/library/competitive-analysis/keyword-gap-analysis",
   },
   {
-    title: "How accurate are competitor traffic estimates?",
+    title: "Quão precisas são as estimativas de tráfego dos concorrentes?",
     description:
-      "Read a domain overview without being fooled by close-variant stacking or a headline traffic number from another business line.",
+      "Leia uma visão geral do domínio sem se enganar com variantes próximas somadas ou com um número de tráfego que vem de outra linha de negócio.",
     href: "/library/competitive-analysis/competitor-traffic-estimates",
   },
   {
-    title: "Read a competitor's link profile before you copy it",
+    title: "Leia o perfil de links de um concorrente antes de copiá-lo",
     description:
-      "Referring domains, spam score, and broken links tell you whether an authority advantage is real or repeated.",
+      "Domínios de referência, spam score e links quebrados mostram se uma vantagem de autoridade é real ou só repetida.",
     href: "/library/competitive-analysis/backlink-gap-analysis",
   },
 ];
 
 export const SITE_AUDIT_LIBRARY = {
-  name: "Site Audit",
+  name: "Auditoria do site",
   path: "/library/site-audit",
 };
 
 export const siteAuditStrategies: StrategyLibraryItem[] = [
   {
-    title: "The technical SEO audit checklist that ends in fixes",
+    title: "O checklist de auditoria técnica de SEO que termina em correções",
     description:
-      "One crawl returned 1,180 findings and 35 that mattered. Sort by severity, group by cause, and read the fix that ships with every issue.",
+      "Um rastreamento trouxe 1.180 achados, e 35 importavam. Ordene por gravidade, agrupe por causa e leia a correção que acompanha cada problema.",
     href: "/library/site-audit/technical-seo-audit-checklist",
   },
   {
-    title: "Write an audit report the client will actually act on",
+    title:
+      "Escreva um relatório de auditoria que o cliente vai colocar em prática",
     description:
-      "A six-section structure that ties every finding to a page, a cost, and a business number, plus what to leave out.",
+      "Uma estrutura de seis seções que liga cada achado a uma página, a um custo e a um número do negócio, e o que deixar de fora.",
     href: "/library/site-audit/seo-audit-report-template",
   },
   {
-    title: "Index bloat: when the fix is deleting pages",
+    title: "Inchaço de índice: quando a correção é apagar páginas",
     description:
-      "Five million pages came out of one site and it recovered. On a small site the same instinct usually wastes a weekend. How to tell which you have.",
+      "Cinco milhões de páginas saíram de um site e ele se recuperou. Num site pequeno, o mesmo instinto costuma desperdiçar um fim de semana. Veja como saber qual é o seu caso.",
     href: "/library/site-audit/index-bloat",
   },
 ];
 
 export const RANK_TRACKING_LIBRARY = {
-  name: "Rank Tracking",
+  name: "Monitoramento de posições",
   path: "/library/rank-tracking",
 };
 
 export const rankTrackingStrategies: StrategyLibraryItem[] = [
   {
-    title: "Which keywords to track, and how many",
+    title: "Quais palavras-chave monitorar, e quantas",
     description:
-      "Twenty to fifty terms from Search Console, tied to pages that earn money, priced before they go in. A 500-row tracker is a report nobody reads.",
+      "De vinte a cinquenta termos tirados do Search Console, ligados a páginas que geram receita, com custo estimado antes de entrarem. Um monitoramento de 500 linhas é um relatório que ninguém lê.",
     href: "/library/rank-tracking/which-keywords-to-track",
   },
   {
-    title: "Is Search Console a rank tracker? Where the free data stops",
+    title:
+      "O Search Console serve para monitorar posições? Onde os dados gratuitos param",
     description:
-      "Search Console gives an average across searchers and devices, with preliminary recent data. Enough for many sites. How to tell whether yours needs more.",
+      "O Search Console mostra uma média entre pessoas e dispositivos, com dados recentes preliminares. Basta para muitos sites. Veja como saber se o seu precisa de mais.",
     href: "/library/rank-tracking/search-console-vs-rank-tracker",
   },
   {
-    title: "Local rank tracking: position depends on where the searcher stands",
+    title:
+      "Monitoramento de posições local: a posição depende de onde a pessoa está",
     description:
-      "Nine points three kilometres apart, four different businesses at number one. Why a local business needs a grid before a tracker.",
+      "Nove pontos a três quilômetros de distância, quatro empresas diferentes em primeiro lugar. Por que um negócio local precisa de uma grade antes de um monitoramento.",
     href: "/library/rank-tracking/local-rank-tracking",
   },
   {
-    title: "The keyword ranking report your CEO will read",
+    title: "O relatório de posições que o seu CEO vai ler",
     description:
-      "Lead with the business number, group movement into four counts, explain three rows, say what happens next. One page, every month.",
+      "Comece pelo número do negócio, agrupe as variações em quatro contagens, explique três linhas e diga o que vem a seguir. Uma página, todo mês.",
     href: "/library/rank-tracking/keyword-ranking-report",
   },
 ];
 
 export const AI_AGENT_SEO_LIBRARY = {
-  name: "AI-Agent SEO",
+  name: "SEO com agentes de IA",
   path: "/library/ai-agent-seo",
 };
 
 export const aiAgentSeoStrategies: StrategyLibraryItem[] = [
   {
-    title: "Run SEO from your AI assistant: the MCP workflow",
+    title: "Faça SEO pelo seu assistente de IA: o fluxo com MCP",
     description:
-      "Connect one server and the assistant you already use can read Search Console, pull keyword data and check rankings in the same conversation. The first five prompts, and the row that shows why a human still reads the output.",
+      "Conecte um servidor e o assistente que você já usa passa a ler o Search Console, puxar dados de palavras-chave e checar posições na mesma conversa. Os cinco primeiros prompts, e a linha que mostra por que uma pessoa ainda precisa ler o resultado.",
     href: "/library/ai-agent-seo/run-seo-from-your-ai-assistant",
   },
   {
-    title: "What to automate and what to keep: the dispatcher rule",
+    title: "O que automatizar e o que manter: a regra do despachante",
     description:
-      "A scheduled rank check runs without anyone watching. A decision about which keywords go in it does not. Three layers, not two.",
+      "Uma checagem de posições agendada roda sem ninguém olhando. A decisão sobre quais palavras-chave entram nela, não. São três camadas, não duas.",
     href: "/library/ai-agent-seo/what-to-automate",
   },
   {
-    title: "Human in the loop content: the brief is the job",
+    title: "Conteúdo com pessoas no processo: o briefing é o trabalho",
     description:
-      "Most teams run the loop backwards. Humans write the brief, the model drafts, humans edit, and the two checks that catch the draft that reads like everyone else's.",
+      "A maioria das equipes faz o ciclo ao contrário. Pessoas escrevem o briefing, o modelo rascunha, pessoas editam, e as duas checagens que pegam o rascunho que soa igual a todos os outros.",
     href: "/library/ai-agent-seo/human-in-the-loop-content",
   },
   {
-    title: "Skills, memory and the trace: make the good run repeatable",
+    title: "Skills, memória e rastro: torne a boa execução repetível",
     description:
-      "Save the workflow as a skill, give the agent a memory it reads every run, make it write down every step. Plus the two checks that catch the confident wrong answer.",
+      "Salve o fluxo como uma skill, dê ao agente uma memória que ele lê a cada execução e faça-o registrar cada passo. Mais as duas checagens que pegam a resposta errada dita com confiança.",
     href: "/library/ai-agent-seo/skills-memory-and-the-trace",
   },
 ];
 
 export const LINK_BUILDING_LIBRARY = {
-  name: "Link Building",
+  name: "Link building",
   path: "/library/link-building",
 };
 
 export const linkBuildingStrategies: StrategyLibraryItem[] = [
   {
-    title: "The backlink audit: sort by first seen, then by relevance",
+    title:
+      "A auditoria de backlinks: ordene por data de descoberta, depois por relevância",
     description:
-      "The three newest links to a real site were a casino domain and two link sellers. Underneath them were the links that count. How to tell them apart in an hour.",
+      "Os três links mais novos de um site real eram um domínio de cassino e dois vendedores de links. Embaixo deles estavam os links que contam. Como separar uns dos outros em uma hora.",
     href: "/library/link-building/backlink-audit",
   },
   {
-    title: "Referring domains, not backlinks: the count that moves rankings",
+    title:
+      "Domínios de referência, não backlinks: o número que move as posições",
     description:
-      "2,393 backlinks, 308 referring domains, 872 from one site the owner also runs. Why the second number is the one to report.",
+      "2.393 backlinks, 308 domínios de referência, 872 vindos de um único site que o mesmo dono também mantém. Por que o segundo número é o que deve ir no relatório.",
     href: "/library/link-building/referring-domains",
   },
   {
-    title: "How to get backlinks: start from the pages that already earn them",
+    title:
+      "Como conseguir backlinks: comece pelas páginas que já conquistam links",
     description:
-      "A free calculator with links from 17 domains, a park-cleanup page with 270 backlinks. Neither was pitched. Four plays that earned links on tape.",
+      "Uma calculadora gratuita com links de 17 domínios, uma página de mutirão de limpeza de parque com 270 backlinks. Nenhuma foi oferecida a ninguém. Quatro táticas que conquistaram links de verdade.",
     href: "/library/link-building/how-to-get-backlinks",
   },
 ];

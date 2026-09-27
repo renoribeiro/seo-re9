@@ -1,111 +1,115 @@
-# Docker Self-Hosting
+# Self-hosting com Docker
 
-Run OpenSEO locally with Docker.
+Rode o RE9 SEO localmente com Docker.
 
-In Docker mode, OpenSEO uses `AUTH_MODE=local_noauth` (no auth checks, local admin user `admin@localhost`). Only expose it behind your own auth-protected reverse proxy, tunnel, or private network.
+No modo Docker, o RE9 SEO usa `AUTH_MODE=local_noauth` (sem verificação de autenticação, com a pessoa administradora local `admin@localhost`). Só exponha o app atrás do seu próprio proxy reverso com autenticação, túnel ou rede privada.
 
-The default `compose.yaml` uses the published GHCR image:
+O `compose.yaml` padrão usa a imagem publicada no GHCR:
 
 - `ghcr.io/every-app/open-seo:latest`
 
-## Prerequisites
+## Pré-requisitos
 
-- Docker Desktop (or Docker Engine + Docker Compose)
-- A DataForSEO API key (see [`DATAFORSEO_API_KEY.md`](./DATAFORSEO_API_KEY.md))
+- Docker Desktop (ou Docker Engine + Docker Compose)
+- Uma chave de API do DataForSEO (veja [`DATAFORSEO_API_KEY.md`](./DATAFORSEO_API_KEY.md))
 
-## Quickstart
+## Início rápido
 
 ```bash
 cp .env.example .env
 ```
 
-Set `DATAFORSEO_API_KEY` in `.env` using the [DataForSEO setup guide](./DATAFORSEO_API_KEY.md), then start OpenSEO:
+Defina `DATAFORSEO_API_KEY` no `.env` seguindo o [guia de configuração do DataForSEO](./DATAFORSEO_API_KEY.md) e, depois, inicie o RE9 SEO:
 
 ```bash
 docker compose up -d
 ```
 
-Open `http://localhost:<PORT>` (default `3001`). The first start builds the app and may take 1-2 minutes; follow progress with `docker compose logs -f`.
+Abra `http://localhost:<PORT>` (padrão `3001`). A primeira inicialização faz o build do app e pode levar de 1 a 2 minutos; acompanhe o progresso com `docker compose logs -f`.
 
-Optional env values:
+Valores opcionais de ambiente:
 
-- `PORT` (defaults to `3001`)
-- `ALLOWED_HOST` (single reverse-proxy hostname to allow in Vite preview)
-- `AUTH_MODE=local_noauth` (already set in compose)
-- `OPEN_SEO_IMAGE` (defaults to `ghcr.io/every-app/open-seo:latest`)
-- `OPENROUTER_API_KEY` (required for AI features such as SAM; see [OpenRouter](https://openrouter.ai/settings/keys))
+- `PORT` (padrão `3001`)
+- `ALLOWED_HOST` (um único hostname de proxy reverso a ser liberado no preview do Vite)
+- `AUTH_MODE=local_noauth` (já definido no compose)
+- `OPEN_SEO_IMAGE` (padrão `ghcr.io/every-app/open-seo:latest`)
+- `OPENROUTER_API_KEY` (obrigatório para recursos de IA como o SAM; veja [OpenRouter](https://openrouter.ai/settings/keys))
 
-If you are putting Docker behind a reverse proxy or a temporary tunnel, remember that Docker self-hosting runs with app auth disabled. Only expose it behind your own auth-protected reverse proxy, tunnel, or private network, and add the public hostname before restarting:
+Se você for colocar o Docker atrás de um proxy reverso ou de um túnel temporário, lembre-se de que o self-hosting com Docker roda com a autenticação do app desativada. Só exponha o app atrás do seu próprio proxy reverso com autenticação, túnel ou rede privada, e adicione o hostname público antes de reiniciar:
 
 ```bash
 ALLOWED_HOST=yourdomain.com docker compose up -d
 ```
 
-You can also persist it in `.env`.
+Você também pode deixar esse valor fixo no `.env`.
 
-## Telemetry
+## Telemetria
 
-OpenSEO collects anonymized telemetry for core usage events: heartbeats with aggregate counts (installs, users, projects, feature usage) tied to a random install ID, sent every 5 minutes during the first two hours after install, then at most once daily. Telemetry also includes failed setup check names and statuses, never values or error messages. No URLs, keywords, prompts, emails, or IP-derived location are collected, and idle installs send nothing.
+**A telemetria vem desligada no RE9 SEO.** Ela só é enviada se você definir a variável `SELF_HOST_TELEMETRY_POSTHOG_KEY` com a chave de um projeto PostHog **seu** no `.env`. Sem essa variável, nenhum dado de uso sai da sua instalação.
 
-Heartbeats are triggered by requests to the app or MCP server. Requests to `/api/health`, including Docker's automatic health checks, do not trigger telemetry.
+Quando ativada, funciona assim:
 
-To disable it, set `OPENSEO_TELEMETRY_DISABLED=1` (or `DO_NOT_TRACK=1`) in `.env`, then run `docker compose up -d --force-recreate open-seo`.
+São enviados apenas dados anonimizados de eventos básicos de uso: heartbeats com contagens agregadas (instalações, pessoas usuárias, projetos, uso de recursos) vinculadas a um ID de instalação aleatório, enviados a cada 5 minutos nas duas primeiras horas após a instalação e, depois, no máximo uma vez por dia. A telemetria também inclui os nomes e status das verificações de configuração que falharam, nunca valores ou mensagens de erro. Não são coletados URLs, palavras-chave, prompts, e-mails nem localização derivada de IP, e instalações ociosas não enviam nada.
 
-## Pin to a specific image tag
+Os heartbeats são disparados por requisições ao app ou ao servidor MCP. Requisições a `/api/health`, incluindo as verificações de saúde automáticas do Docker, não disparam telemetria.
 
-Set `OPEN_SEO_IMAGE` in `.env` and restart:
+Para desativá-la mesmo com a chave definida, defina `OPENSEO_TELEMETRY_DISABLED=1` (ou `DO_NOT_TRACK=1`) no `.env` e rode `docker compose up -d --force-recreate open-seo`.
+
+## Fixe uma tag de imagem específica
+
+Defina `OPEN_SEO_IMAGE` no `.env` e reinicie:
 
 ```bash
 OPEN_SEO_IMAGE=ghcr.io/every-app/open-seo:v1.2.3
 docker compose up -d
 ```
 
-## Build your own image locally
+## Faça o build da sua própria imagem localmente
 
-If you are testing local code changes, build and run a local tag:
+Se estiver testando mudanças locais no código, faça o build e rode uma tag local:
 
 ```bash
 docker build -f Dockerfile.selfhost -t open-seo:local .
 OPEN_SEO_IMAGE=open-seo:local docker compose up -d
 ```
 
-## Common commands
+## Comandos comuns
 
-- Restart service after env changes:
+- Reiniciar o serviço depois de mudar o ambiente:
 
 ```bash
 docker compose up -d open-seo
 ```
 
-- Pull latest published image and restart:
+- Baixar a imagem publicada mais recente e reiniciar:
 
 ```bash
 docker compose pull && docker compose up -d
 ```
 
-- Stop:
+- Parar:
 
 ```bash
 docker compose down
 ```
 
-## Health and troubleshooting
+## Saúde e solução de problemas
 
-Startup checks appear in `docker compose logs` before the build. Once running, `/api/health` reports configuration and database status, and `docker compose ps` reports container health.
+As verificações de inicialização aparecem em `docker compose logs` antes do build. Com o app rodando, `/api/health` mostra o status da configuração e do banco de dados, e `docker compose ps` mostra a saúde do container.
 
-## Troubleshooting environment variables
+## Solução de problemas com variáveis de ambiente
 
-To confirm Docker Compose is using the expected environment variables:
+Para confirmar que o Docker Compose está usando as variáveis de ambiente esperadas:
 
 ```bash
 docker compose config
 ```
 
-Check that `AUTH_MODE=local_noauth`, and that `DATAFORSEO_API_KEY` is the base64
-encoded value of your DataForSEO email and API password in this format:
+Verifique se `AUTH_MODE=local_noauth` e se `DATAFORSEO_API_KEY` é o valor em base64
+do seu e-mail e da senha de API do DataForSEO neste formato:
 `email:password`.
 
-If you changed `.env`, recreate the container so Compose reapplies it:
+Se você mudou o `.env`, recrie o container para que o Compose aplique as mudanças:
 
 ```bash
 docker compose up -d --force-recreate open-seo

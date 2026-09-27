@@ -9,54 +9,54 @@ const TOOL = freeTools["domain-age-checker"];
 export const Route = createFileRoute("/_marketing/domain-age-checker")({
   head: () =>
     buildPageSeo({
-      title: "Free Domain Age Checker: Registration Date and Age",
+      title: "Verificador de idade de domínio grátis: data de registro e idade",
       description:
-        "Check when a domain was registered, how old it is, when it expires, and who the registrar is — up to 10 domains at once. No signup, no email.",
+        "Descubra quando um domínio foi registrado, quantos anos ele tem, quando expira e qual é o registrador — até 10 domínios de uma vez. Sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free domain age checker",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Verificador de idade de domínio gratuito do RE9 SEO",
     }),
   component: DomainAgeCheckerPage,
 });
 
 const FAQS = [
   {
-    question: "Does domain age affect rankings?",
+    question: "A idade do domínio afeta o ranqueamento?",
     answer:
-      "Barely, on its own. Google has said age isn't a ranking factor. What correlates with age is everything a site accumulates over years — links, content, brand searches — and those do matter. Old and empty ranks worse than new and useful.",
+      "Quase nada, por si só. O Google já disse que idade não é fator de ranqueamento. O que se relaciona com a idade é tudo o que um site acumula ao longo dos anos — links, conteúdo, buscas pela marca — e isso, sim, importa. Um domínio antigo e vazio ranqueia pior que um novo e útil.",
   },
   {
-    question: "Where does this data come from?",
+    question: "De onde vêm esses dados?",
     answer:
-      "RDAP, the registry protocol that replaced WHOIS. The lookup goes straight to the registry that holds the domain, so there's no third-party data source and nothing to pay for.",
+      "Do RDAP, o protocolo de registro que substituiu o WHOIS. A consulta vai direto ao registro responsável pelo domínio, então não há nenhuma fonte de dados de terceiros no meio.",
   },
   {
-    question: "Why does a domain show no registration data?",
+    question: "Por que um domínio aparece sem dados de registro?",
     answer:
-      "Some country-code TLDs don't publish RDAP records, and some registries hide dates. The tool says so for that row rather than guessing, and the other domains in your list still return.",
+      "Alguns domínios de país (ccTLDs) não publicam registros RDAP, e alguns registros ocultam as datas. Nesses casos, a ferramenta avisa naquela linha em vez de chutar, e os outros domínios da lista continuam aparecendo.",
   },
   {
-    question: "Is the age the same as when the site launched?",
+    question: "A idade é a mesma da data de lançamento do site?",
     answer:
-      "No. It's when the domain was first registered. A domain can sit parked for years, or change hands and start over with new content. Check what it ranks for before drawing conclusions.",
+      "Não. É a data em que o domínio foi registrado pela primeira vez. Um domínio pode ficar parado por anos, ou mudar de dono e recomeçar com conteúdo novo. Veja em que ele ranqueia antes de tirar conclusões.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Age in years and months",
+    title: "Idade em anos e meses",
     description:
-      "Registration date, age in years and months, last update, and expiry for every domain you paste in.",
+      "Data de registro, idade em anos e meses, última atualização e expiração de cada domínio que você colar.",
   },
   {
-    title: "Registrar on record",
+    title: "Registrador informado",
     description:
-      "Who the domain is registered through, when the registry publishes it.",
+      "Por meio de qual registrador o domínio foi registrado, quando o registro publica essa informação.",
   },
   {
-    title: "Ten at a time",
+    title: "Dez de uma vez",
     description:
-      "Useful when you're sizing up a list of link prospects or expired domains and want the dates in one table.",
+      "Útil para avaliar uma lista de prospects de links ou de domínios expirados e ver as datas em uma só tabela.",
   },
 ];
 
@@ -64,14 +64,14 @@ function DomainAgeCheckerPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free Domain Age Checker"
-      subhead="See when a domain was registered, how old it is, when it expires, and which registrar it uses. Up to 10 domains at once, straight from the registry."
+      heading="Verificador de idade de domínio grátis"
+      subhead="Veja quando um domínio foi registrado, quantos anos ele tem, quando expira e qual registrador usa. Até 10 domínios de uma vez, direto do registro."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Check the domain's rankings and links",
-        body: "Look up the domain's ranking keywords and backlinks in OpenSEO. Start with free trial credits.",
-        featureLabel: "Learn about Domain Overview",
+        heading: "Confira as posições e os links do domínio",
+        body: "Consulte as palavras-chave ranqueadas e os backlinks do domínio no RE9 SEO.",
+        featureLabel: "Conheça a Visão geral do domínio",
       }}
     >
       <DomainAgeCheckerTool />

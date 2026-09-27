@@ -12,30 +12,30 @@ const PATH = "/library/rank-tracking/local-rank-tracking";
 const faqs = [
   {
     question:
-      "Why do my local rankings look different on my phone and my colleague's?",
+      "Por que minhas posições locais aparecem diferentes no meu celular e no de um colega?",
     answer:
-      "Because you are standing in different places, or Google thinks you are. Proximity is one of the strongest signals for local queries, so two searchers a few kilometres apart routinely see different map packs. A tracker that checks from one point reports one of those views.",
+      "Porque vocês estão em lugares diferentes, ou o Google acha que estão. A proximidade é um dos sinais mais fortes nas consultas locais, então duas pessoas a poucos quilômetros de distância costumam ver pacotes de mapa diferentes. Um monitoramento que checa a partir de um único ponto mostra só uma dessas visões.",
   },
   {
-    question: "What is a local rank grid?",
+    question: "O que é uma grade de posições local?",
     answer:
-      "A set of searches run from points on a grid around a location, usually 3x3 or 5x5, reporting where a business ranks at each point. It shows how far a business's visibility reaches and where competitors take over, which a single rank check cannot.",
+      "Um conjunto de buscas feitas a partir de pontos de uma grade em torno de um local, geralmente 3x3 ou 5x5, que mostra onde uma empresa ranqueia em cada ponto. Ela mostra até onde vai a visibilidade de uma empresa e onde os concorrentes assumem, algo que uma única checagem de posição não mostra.",
   },
   {
-    question: "How many points should a local rank grid have?",
+    question: "Quantos pontos uma grade de posições local deve ter?",
     answer:
-      "Nine, spaced to cover the area you serve, is enough to see the shape. Use twenty-five when you are making a location decision. Beyond that you are paying for resolution you will not act on.",
+      "Nove, espaçados para cobrir a área que você atende, bastam para ver o formato. Use vinte e cinco quando estiver tomando uma decisão sobre localização. Acima disso, você paga por uma resolução que não vai usar.",
   },
   {
     question:
-      "Should a service-area business set up a service area or an address on Google?",
+      "Uma empresa que atende na área do cliente deve cadastrar área de atendimento ou endereço no Google?",
     answer:
-      "Use the settings that match how you serve customers. An eligible storefront that also visits or delivers to customers can show both an address and a service area. If customers do not visit your address, hide it and list your service area.",
+      "Use as configurações que correspondem à forma como você atende. Uma loja física elegível que também visita ou entrega aos clientes pode mostrar tanto o endereço quanto a área de atendimento. Se os clientes não vão até o seu endereço, oculte-o e informe a área de atendimento.",
   },
   {
-    question: "Does OpenSEO do local rank tracking?",
+    question: "O RE9 SEO faz monitoramento de posições local?",
     answer:
-      "Yes. The MCP local rank grid measures Business Profile positions in Maps. Scheduled rank trackers measure organic website rankings from a chosen location. Both use credits. On the hosted app, scheduled and live rank-tracker checks require the $10/month plan, which includes $10 of credits.",
+      "Sim. A grade de posições local do MCP mede as posições do Perfil da Empresa no Maps. Os monitoramentos agendados medem as posições orgânicas do site a partir de uma localização escolhida. Os dois consomem créditos.",
   },
 ];
 
@@ -55,17 +55,17 @@ export const Route = createFileRoute(
   head: () =>
     buildPageSeo({
       title:
-        "Local Rank Tracking: Position Depends on Where the Searcher Stands",
+        "Monitoramento de posições local: a posição depende de onde a pessoa está",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Local rank tracking"
+      crumb="Monitoramento de posições local"
       path={PATH}
       library={RANK_TRACKING_LIBRARY}
     >

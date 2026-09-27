@@ -3,7 +3,7 @@ import { DocsBody } from "fumadocs-ui/page";
 import { buildBreadcrumbJsonLd } from "@/lib/seo";
 
 const KEYWORD_RESEARCH_LIBRARY = {
-  name: "Keyword Research",
+  name: "Pesquisa de palavras-chave",
   path: "/library/keyword-research",
 };
 
@@ -30,7 +30,7 @@ export function LibrarySpokePage({
   children,
 }: LibrarySpokePageProps) {
   const breadcrumbLd = buildBreadcrumbJsonLd([
-    { name: "Strategy Library", path: "/library" },
+    { name: "Biblioteca de estratégias", path: "/library" },
     { name: library.name, path: library.path },
     { name: crumb, path },
   ]);
@@ -39,14 +39,14 @@ export function LibrarySpokePage({
     <article className="mx-auto max-w-3xl text-neutral-900">
       <header className="mb-10 border-b border-[var(--color-border-subtle)] pb-8">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
           /{" "}
           <a
@@ -86,18 +86,18 @@ function LibrarySpokeCta({ library }: { library: LibraryRef }) {
   return (
     <section className="mt-14 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6">
       <p className="text-xl font-semibold tracking-tight text-neutral-950">
-        Run this strategy in OpenSEO
+        Aplique esta estratégia no RE9 SEO
       </p>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-        Run the MCP prompt in this guide with OpenSEO. OpenSEO is open source,
-        free to try, and does not require a credit card.
+        Rode o prompt de MCP deste guia com o RE9 SEO, uma plataforma de SEO de
+        código aberto. Dúvidas? Fale com a gente: trafego@re9.online.
       </p>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Start with OpenSEO
+          Começar com o RE9 SEO
           <span className="ml-2" aria-hidden="true">
             &rarr;
           </span>
@@ -106,7 +106,7 @@ function LibrarySpokeCta({ library }: { library: LibraryRef }) {
           href={library.path}
           className="inline-flex h-10 items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-white px-4 text-sm font-medium text-neutral-950 transition-colors hover:border-neutral-950"
         >
-          Back to {library.name}
+          Voltar para {library.name}
         </a>
       </div>
     </section>

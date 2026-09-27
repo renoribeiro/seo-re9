@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_marketing/open-source-seo")({
       title: openSourceSeoFrontmatter.title,
       description: openSourceSeoFrontmatter.description,
       path: "/open-source-seo",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       ogType: "article",
     }),
   component: OpenSourceSeoPage,
@@ -23,7 +23,7 @@ function OpenSourceSeoPage() {
     <article className="mx-auto max-w-4xl text-neutral-900">
       <header className="mb-10 border-b border-[var(--color-border-subtle)] pb-8">
         <p className="text-sm font-medium text-[var(--color-brand-accent)]">
-          Open Source SEO
+          SEO open source
         </p>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
           {openSourceSeoFrontmatter.title}
@@ -48,30 +48,30 @@ function OpenSourceSeoCta() {
   return (
     <section className="mt-14 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6">
       <p className="text-xl font-semibold tracking-tight text-neutral-950">
-        Try OpenSEO, or follow along on GitHub
+        Experimente o RE9 SEO ou acompanhe no GitHub
       </p>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-        Try the hosted app if you want to get started right away. Or, check it
-        out on GitHub. Make sure to give it a star!
+        Use o app hospedado se quiser começar agora mesmo. Ou confira o código
+        no GitHub e deixe sua estrela!
       </p>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Try OpenSEO
+          Experimente o RE9 SEO
           <span className="ml-2" aria-hidden="true">
             &rarr;
           </span>
         </a>
         <a
-          href="https://github.com/every-app/open-seo"
+          href="https://github.com/renoribeiro/seo-re9"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-[var(--color-border-subtle)] bg-white px-4 text-sm font-medium text-neutral-950 transition-colors hover:border-neutral-950"
         >
           <GitHubIcon />
-          Star on GitHub
+          Dar uma estrela no GitHub
         </a>
       </div>
     </section>

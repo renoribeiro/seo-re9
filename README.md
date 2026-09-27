@@ -1,86 +1,84 @@
-# OpenSEO
+# RE9 SEO
 
-> Open source alternative to Semrush and Ahrefs
+> Ferramenta de SEO completa para você e para o seu agente de IA, da RE9 Online.
 
-OpenSEO is an SEO tool for _the people_. If tools like Semrush or Ahrefs are too expensive or bloated, OpenSEO is a pay-as-you-go alternative that you actually control.
+O RE9 SEO é uma plataforma de SEO para quem quer dados de SEO úteis sem uma suíte pesada e complicada. Você pesquisa palavras-chave, acompanha posições, analisa concorrentes e backlinks e audita sites em um só lugar.
 
-> All-in-one SEO tool for you and your AI agent.
+Conecte qualquer agente de IA, como Claude Code, OpenClaw ou Hermes. Já temos skills prontas, mas você pode criar as suas para adaptar o RE9 SEO às suas necessidades.
 
-Connect with any agent like Claude Code, OpenClaw or Hermes. We have pre-built skills, but you can build your own to tailor OpenSEO to your needs.
+## Versão hospedada
 
-<img width="1385" height="794" alt="Image" src="https://github.com/user-attachments/assets/fd208249-44ea-4849-bb4b-5fc896aeab73" />
+Acesse o RE9 SEO em [seo.agenciare9.com.br](https://seo.agenciare9.com.br). Planos sob consulta: fale com a gente em [trafego@re9.online](mailto:trafego@re9.online).
 
-## Hosted Version
+## Por que usar o RE9 SEO?
 
-Try OpenSEO for free on our website. If you want to support the project, a hosted subscription is $10/month.
+- MCP e skills de IA de primeira linha.
+- Interface moderna e simples.
+  - Fluxos focados, em vez de uma suíte de SEO inchada e complexa.
+- No self-hosting, você usa sua própria chave de API do DataForSEO e paga só pelo que usar.
+- Faça um fork e personalize a ferramenta do seu jeito.
 
-[openseo.so](https://openseo.so)
+## Principais fluxos de SEO
 
-## Why use OpenSEO?
-
-- Best in class MCP and AI Skills.
-- Modern, simple UI.
-  - Focused workflows instead of a bloated, complex SEO suite.
-- No subscriptions.
-  - Bring your own DataForSEO API key and pay only for what you use.
-- Fork and vibe code your own custom tool.
-
-## Main SEO Workflows
-
-- Keyword research
-- Rank tracking
-- Competitor Insights
+- Pesquisa de palavras-chave
+- Monitoramento de posições
+- Análise de concorrentes
 - Backlinks
-- Site Audits
-- AI Visibility
+- Auditoria do site
+- Visibilidade em IA
+- Integração com Google Search Console e Google Analytics (GA4)
 
-## OpenSEO MCP & Agent Skills
+## MCP e skills de agente do RE9 SEO
 
-OpenSEO exposes an MCP server so AI agents like Claude Code, OpenClaw, and Hermes can use your SEO data directly. Agent Skills are reusable workflows that guide your agent through SEO tasks using the MCP.
+O RE9 SEO disponibiliza um servidor MCP para que agentes de IA como Claude Code, OpenClaw e Hermes usem seus dados de SEO diretamente. As skills de agente são fluxos reutilizáveis que guiam o seu agente em tarefas de SEO usando o MCP.
 
-- [Set up OpenSEO MCP](https://openseo.so/docs/mcp)
-- [Set up OpenSEO Agent Skills](https://openseo.so/docs/skills/setup)
+- [Configurar o MCP do RE9 SEO](https://seo.agenciare9.com.br/docs/mcp)
+- [Configurar as skills de agente do RE9 SEO](https://seo.agenciare9.com.br/docs/skills/setup)
 
-## Self-Hosting
+## Self-hosting (hospedagem própria)
 
-OpenSEO supports two self-hosting paths:
+O RE9 SEO tem dois caminhos de self-hosting:
 
-- **Simple: Docker (Best for testing it out)** - For personal use on your own machine. See [`docs/SELF_HOSTING_DOCKER.md`](./docs/SELF_HOSTING_DOCKER.md).
-  - Unless you already are self-hosting other apps and are confident doing so, we recommend self-hosting with Cloudflare as opposed to Railway, Coolify or Dokploy.
-  - We plan to make it simpler to host on those platforms in the next few months.
-- **Recommended: Cloudflare** - For internet-facing self-hosting across multiple devices or with your team (works on the free plan). See [`docs/SELF_HOSTING_CLOUDFLARE.md`](./docs/SELF_HOSTING_CLOUDFLARE.md).
+- **Simples: Docker (melhor para testar)** - Para uso pessoal na sua própria máquina. Veja [`docs/SELF_HOSTING_DOCKER.md`](./docs/SELF_HOSTING_DOCKER.md).
+  - A menos que você já hospede outros apps e tenha segurança nisso, recomendamos o self-hosting na Cloudflare em vez de Railway, Coolify ou Dokploy.
+- **Recomendado: Cloudflare** - Para acesso pela internet em vários dispositivos ou com a sua equipe (funciona no plano gratuito da Cloudflare). Veja [`docs/SELF_HOSTING_CLOUDFLARE.md`](./docs/SELF_HOSTING_CLOUDFLARE.md).
 
-Either way, you need a DataForSEO API key to get SEO data. See [`docs/DATAFORSEO_API_KEY.md`](./docs/DATAFORSEO_API_KEY.md).
+Nos dois casos, você precisa de uma chave de API do DataForSEO para obter os dados de SEO. Veja [`docs/DATAFORSEO_API_KEY.md`](./docs/DATAFORSEO_API_KEY.md).
 
-## Costs
+Guias complementares:
 
-OpenSEO needs a [DataForSEO](https://dataforseo.com/?aff=255379) API key so that you can get SEO data. You pay them directly when self hosting.
+- Operação na Cloudflare (MCP e telemetria): [`docs/SELF_HOSTING_CLOUDFLARE_OPERATIONS.md`](./docs/SELF_HOSTING_CLOUDFLARE_OPERATIONS.md)
+- Google Search Console: [`docs/SELF_HOSTING_GOOGLE_SEARCH_CONSOLE.md`](./docs/SELF_HOSTING_GOOGLE_SEARCH_CONSOLE.md)
+- Google Analytics: [`docs/SELF_HOSTING_GOOGLE_ANALYTICS.md`](./docs/SELF_HOSTING_GOOGLE_ANALYTICS.md)
 
-See [openseo.so/pricing](https://openseo.so/pricing)
+## Custos (self-hosting)
 
-When you self host, your costs will be slightly lower than the estimates on our website. The way the hosted service makes money is by charging 28% extra for every request we make to DataForSEO.
+O RE9 SEO precisa de uma chave de API do [DataForSEO](https://dataforseo.com/) para obter os dados de SEO. No self-hosting, você paga o DataForSEO diretamente, conforme o uso. Veja os preços do provedor em [dataforseo.com/pricing](https://dataforseo.com/pricing).
 
-## Local Development
+Contas novas no DataForSEO vêm com US$ 1 de crédito gratuito para testes, e a recarga mínima é de US$ 50.
 
-See [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md).
+## Desenvolvimento local
 
-## Contributing
+Veja [`docs/LOCAL_DEVELOPMENT.md`](./docs/LOCAL_DEVELOPMENT.md). Para rodar com Postgres em vez de D1, veja [`docs/LOCAL_POSTGRES.md`](./docs/LOCAL_POSTGRES.md).
 
-Creating clear issues is the best way to contribute.
+## Como contribuir
 
-Read more here: [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md)
+Abrir issues claras é a melhor forma de contribuir.
 
-We have this skill: `/simple-issue-description` which helps.
+Saiba mais em: [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md)
+
+A skill `/simple-issue-description` ajuda a escrever a issue:
 
 ```sh
-npx skills add every-app/open-seo --skill simple-issue-description
+npx skills add renoribeiro/seo-re9 --skill simple-issue-description
 ```
 
-## Community
+## Contato
 
-Join Discord to chat: [Discord](https://discord.gg/c9uGs3cFXr)
+Dúvidas, planos e parcerias: [trafego@re9.online](mailto:trafego@re9.online)
 
-Follow along for updates:
+Repositório: [github.com/renoribeiro/seo-re9](https://github.com/renoribeiro/seo-re9)
 
-- Follow on X: https://x.com/bensenescu
-- Sign up for the mailing list on our website: [openseo.so](https://openseo.so)
+## Créditos
+
+O RE9 SEO é baseado no [OpenSEO](https://github.com/every-app/open-seo), projeto de código aberto distribuído sob a licença MIT. O aviso de copyright e a licença originais estão preservados no arquivo [`LICENSE`](./LICENSE).

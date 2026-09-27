@@ -1,66 +1,66 @@
 ---
-title: "Install the OpenSEO plugin for Codex"
-description: "Add OpenSEO MCP and Agent Skills to Codex with one marketplace and one install command."
+title: "Instale o plugin do RE9 SEO para Codex"
+description: "Adicione o MCP e as skills de agente do RE9 SEO ao Codex com um comando de marketplace e um de instalação."
 ---
 
-The OpenSEO plugin bundles OpenSEO MCP and all ten SEO Agent Skills into one install. This is the preferred way to set up OpenSEO in Codex CLI.
+O plugin do RE9 SEO reúne o MCP do RE9 SEO e todas as dez skills de agente de SEO em uma única instalação. Esta é a forma recomendada de configurar o RE9 SEO no Codex CLI.
 
-## Install
+## Instalação
 
-Run these commands in your terminal:
+Execute estes comandos no seu terminal:
 
 ```bash
-codex plugin marketplace add every-app/open-seo
+codex plugin marketplace add renoribeiro/seo-re9
 codex plugin add openseo@openseo
 codex mcp login openseo
 ```
 
-`codex mcp login` opens a browser to approve the OpenSEO connection. If it reports that `openseo` isn't found, restart Codex first — bundled MCP servers only register after a restart, not immediately after install — then run `codex mcp login openseo` again.
+O `codex mcp login` abre o navegador para você aprovar a conexão do RE9 SEO. Se ele informar que `openseo` não foi encontrado, reinicie o Codex primeiro — servidores MCP incluídos em plugins só são registrados depois de reiniciar, não logo após a instalação — e execute `codex mcp login openseo` de novo.
 
-Codex connects OpenSEO MCP at `https://app.openseo.so/mcp` and enables ten skills:
+O Codex conecta o MCP do RE9 SEO em `https://seo.agenciare9.com.br/mcp` e ativa dez skills:
 
-- SEO Project Setup
-- SEO Coach
-- SEO Audit
-- Keyword Research
-- Keyword Clustering
-- Competitive Landscape
-- Competitor Analysis
-- Local SEO
-- Link Prospecting
-- SEO Report
+- Configuração do projeto de SEO (`seo-project-setup`)
+- SEO Coach (`seo-coach`)
+- Auditoria de SEO (`seo-audit`)
+- Pesquisa de palavras-chave (`keyword-research`)
+- Agrupamento de palavras-chave (`keyword-clustering`)
+- Panorama competitivo (`competitive-landscape`)
+- Análise de concorrentes (`competitor-analysis`)
+- SEO local (`local-seo`)
+- Prospecção de links (`link-prospecting`)
+- Relatório de SEO (`seo-report`)
 
-## Run a skill
+## Execute uma skill
 
-Type `$` in Codex to see available skills, or ask Codex to run one by name, for example "run seo-project-setup" or "run seo-audit on example.com".
+Digite `$` no Codex para ver as skills disponíveis ou peça ao Codex para executar uma pelo nome, por exemplo "execute a seo-project-setup" ou "execute a seo-audit em example.com".
 
-## Update
+## Atualização
 
 ```bash
 codex plugin marketplace upgrade openseo
 ```
 
-Reload or restart Codex if the updated skills are not available. For other installation methods, see [Agent setup and skill updates](/docs/agent-setup#update-your-skills).
+Recarregue ou reinicie o Codex se as skills atualizadas não estiverem disponíveis. Para outros métodos de instalação, veja [Configuração do agente e atualização das skills](/docs/agent-setup#update-your-skills).
 
-## Remove
+## Remoção
 
 ```bash
 codex plugin remove openseo@openseo
 ```
 
-## Troubleshooting
+## Solução de problemas
 
-If the OpenSEO MCP server doesn't appear after restart, run `/mcp` in the Codex TUI to check its status, then run `codex mcp login openseo` again.
+Se o servidor MCP do RE9 SEO não aparecer depois de reiniciar, execute `/mcp` na TUI do Codex para verificar o status e depois execute `codex mcp login openseo` de novo.
 
-If it still doesn't authenticate, log out first and retry:
+Se ainda assim a autenticação não funcionar, saia primeiro e tente de novo:
 
 ```bash
 codex mcp logout openseo
 codex mcp login openseo
 ```
 
-If a `codex plugin` command reports "unrecognized subcommand," run `codex plugin --help` to see the subcommands your installed version actually supports — they've changed across versions (for example, `add`/`remove`, not `install`/`uninstall`).
+Se um comando `codex plugin` informar "unrecognized subcommand", execute `codex plugin --help` para ver os subcomandos que a sua versão instalada realmente aceita — eles mudaram entre versões (por exemplo, `add`/`remove`, e não `install`/`uninstall`).
 
-## Other clients
+## Outros clientes
 
-This plugin is for Codex CLI. For Claude Code, use the [OpenSEO plugin for Claude Code](/docs/claude-code-plugin) instead. For Claude Desktop, Cursor, Codex Desktop, or an API key setup, see [Set up OpenSEO MCP](/docs/mcp) and [Set up OpenSEO Agent Skills](/docs/skills/setup).
+Este plugin é para o Codex CLI. No Claude Code, use o [plugin do RE9 SEO para Claude Code](/docs/claude-code-plugin). Para Claude Desktop, Cursor, Codex Desktop ou uma configuração com chave de API, veja [Configure o MCP do RE9 SEO](/docs/mcp) e [Configure as skills de agente do RE9 SEO](/docs/skills/setup).

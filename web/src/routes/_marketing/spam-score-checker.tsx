@@ -9,54 +9,54 @@ const TOOL = freeTools["spam-score-checker"];
 export const Route = createFileRoute("/_marketing/spam-score-checker")({
   head: () =>
     buildPageSeo({
-      title: "Free Backlink Spam Score Checker",
+      title: "Verificador de spam score de backlinks grátis",
       description:
-        "Check a domain's backlink spam score and see the spammiest links pointing at it. No signup, no email.",
+        "Confira o spam score dos backlinks de um domínio e veja os links mais suspeitos que apontam para ele. Sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free backlink spam score checker",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Verificador de spam score de backlinks gratuito do RE9 SEO",
     }),
   component: SpamScoreCheckerPage,
 });
 
 const FAQS = [
   {
-    question: "What does the spam score actually measure?",
+    question: "O que o spam score mede de fato?",
     answer:
-      "DataForSEO scores a link profile from 0 to 100 by looking at signals its index associates with low-quality sites — thin or duplicated content, link networks, unusual outbound link patterns. Higher means more of those signals. It is not a Google penalty score; Google publishes no such number.",
+      "A DataForSEO dá uma nota de 0 a 100 a um perfil de links analisando sinais que o índice dela associa a sites de baixa qualidade — conteúdo raso ou duplicado, redes de links, padrões incomuns de links de saída. Quanto maior, mais desses sinais. Não é uma nota de penalidade do Google; o Google não publica nenhum número assim.",
   },
   {
-    question: "Should I disavow the links you show?",
+    question: "Devo fazer disavow dos links mostrados?",
     answer:
-      "Usually not. Google ignores most low-quality links on its own, and disavowing good links does real damage. Treat a high score as a reason to look, not as a to-do list.",
+      "Normalmente, não. O Google já ignora sozinho a maioria dos links de baixa qualidade, e fazer disavow de links bons causa um estrago real. Trate uma pontuação alta como motivo para investigar, não como uma lista de tarefas.",
   },
   {
-    question: "How many links does the free check show?",
+    question: "Quantos links a verificação gratuita mostra?",
     answer:
-      "The 10 highest-spam referring domains, one link each. OpenSEO lets you filter the full backlink profile by spam score and see how much of the profile is affected.",
+      "Os 10 domínios de referência com mais sinais de spam, um link de cada. O RE9 SEO permite filtrar o perfil completo de backlinks por spam score e ver quanto dele é afetado.",
   },
   {
-    question: "Where does the data come from?",
+    question: "De onde vêm os dados?",
     answer:
-      "DataForSEO's backlink index, cached for 24 hours per domain. It's the same data OpenSEO uses for backlink research.",
+      "Do índice de backlinks da DataForSEO, com cache de 24 horas por domínio. São os mesmos dados que o RE9 SEO usa na pesquisa de backlinks.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Two spam scores",
+    title: "Dois spam scores",
     description:
-      "One for the links pointing at the domain, one for the domain itself. They answer different questions and often disagree.",
+      "Um para os links que apontam para o domínio e outro para o próprio domínio. Eles respondem a perguntas diferentes e muitas vezes discordam.",
   },
   {
-    title: "The worst offenders",
+    title: "Os piores casos",
     description:
-      "The 10 spammiest referring domains, with the linking page, anchor text, and whether the link is follow or nofollow.",
+      "Os 10 domínios de referência com mais sinais de spam, com a página de origem, o texto âncora e se o link é follow ou nofollow.",
   },
   {
-    title: "Put the score in context",
+    title: "Pontuação com contexto",
     description:
-      "See spam scores alongside referring domains and domain rank. Use a high score as a reason to review the links, not as proof of a penalty.",
+      "Veja o spam score ao lado dos domínios de referência e do Domain Rank. Use uma pontuação alta como motivo para revisar os links, não como prova de penalidade.",
   },
 ];
 
@@ -64,14 +64,14 @@ function SpamScoreCheckerPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free Backlink Spam Score Checker"
-      subhead="Check how spammy a domain's backlink profile looks, and see which referring domains are dragging the score up."
+      heading="Verificador de spam score de backlinks grátis"
+      subhead="Veja o quanto o perfil de backlinks de um domínio parece spam e quais domínios de referência estão puxando a pontuação para cima."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Review more of the backlink profile",
-        body: "Filter backlinks by spam score, rank, and follow status in OpenSEO. Start with free trial credits.",
-        featureLabel: "Learn about Backlinks",
+        heading: "Revise mais do perfil de backlinks",
+        body: "Filtre backlinks por spam score, Domain Rank e tipo de link (follow ou nofollow) no RE9 SEO.",
+        featureLabel: "Conheça o recurso de Backlinks",
       }}
     >
       <SpamScoreCheckerTool />

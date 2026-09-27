@@ -137,6 +137,7 @@ describe("maybeSendSelfHostHeartbeat", () => {
     vi.stubEnv("AUTH_MODE", "cloudflare_access");
     vi.stubEnv("OPENSEO_TELEMETRY_DISABLED", "");
     vi.stubEnv("DO_NOT_TRACK", "");
+    vi.stubEnv("SELF_HOST_TELEMETRY_POSTHOG_KEY", "phc_test");
   });
 
   afterEach(() => {
@@ -191,6 +192,16 @@ describe("maybeSendSelfHostHeartbeat", () => {
 
   it("does not send in hosted mode", async () => {
     vi.stubEnv("AUTH_MODE", "hosted");
+    const harness = createHarness();
+
+    await runHeartbeat(harness);
+
+    expect(harness.claimHeartbeat).not.toHaveBeenCalled();
+    expect(harness.sendHeartbeat).not.toHaveBeenCalled();
+  });
+
+  it("does not send when no PostHog key is configured", async () => {
+    vi.stubEnv("SELF_HOST_TELEMETRY_POSTHOG_KEY", "");
     const harness = createHarness();
 
     await runHeartbeat(harness);

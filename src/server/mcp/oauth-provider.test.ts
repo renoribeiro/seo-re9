@@ -86,7 +86,7 @@ vi.mock("@cloudflare/workers-oauth-provider", () => {
 });
 
 vi.mock("@/lib/auth", () => ({
-  getHostedBaseUrl: () => "https://app.openseo.so",
+  getHostedBaseUrl: () => "https://seo.agenciare9.com.br",
 }));
 
 vi.mock("@/middleware/ensure-user/hosted", () => ({
@@ -134,7 +134,7 @@ function tokenExchangeOptions(
         userId: "user-1",
         userEmail: "user@example.com",
         organizationId: "org-1",
-        baseUrl: "https://app.openseo.so",
+        baseUrl: "https://seo.agenciare9.com.br",
         clientId: "client-1",
         scopes: ["offline_access", "mcp"],
       },
@@ -182,11 +182,14 @@ describe("OpenSEO OAuth provider configuration", () => {
     const { createOpenSeoOAuthProvider } = await import("./oauth-provider");
     const provider = createOpenSeoOAuthProvider(() => new Response("app"));
 
-    await dispatch(provider, new Request("https://app.openseo.so/health"));
+    await dispatch(
+      provider,
+      new Request("https://seo.agenciare9.com.br/health"),
+    );
 
     expect(mocks.options).toHaveLength(1);
     expect(mocks.options[0]?.resourceMetadata).toEqual({
-      resource: "https://app.openseo.so/mcp",
+      resource: "https://seo.agenciare9.com.br/mcp",
       scopes_supported: ["mcp"],
       resource_name: "OpenSEO MCP",
     });
@@ -208,7 +211,7 @@ describe("OpenSEO OAuth provider configuration", () => {
     expect(mocks.purges).toHaveLength(1);
     // The lazily built provider still pins the hosted resource.
     expect(mocks.options[0]?.resourceMetadata).toMatchObject({
-      resource: "https://app.openseo.so/mcp",
+      resource: "https://seo.agenciare9.com.br/mcp",
     });
   });
 
@@ -217,7 +220,10 @@ describe("OpenSEO OAuth provider configuration", () => {
     const { createOpenSeoOAuthProvider } = await import("./oauth-provider");
     const provider = createOpenSeoOAuthProvider(() => new Response("app"));
 
-    await dispatch(provider, new Request("https://app.openseo.so/health"));
+    await dispatch(
+      provider,
+      new Request("https://seo.agenciare9.com.br/health"),
+    );
 
     const callback = mocks.options[0]?.tokenExchangeCallback;
     if (!callback) throw new Error("Missing token exchange callback");
@@ -230,7 +236,7 @@ describe("OpenSEO OAuth provider configuration", () => {
           userId: "user-1",
           userEmail: "user@example.com",
           organizationId: "org-1",
-          baseUrl: "https://app.openseo.so",
+          baseUrl: "https://seo.agenciare9.com.br",
           clientId: "client-1",
           scopes: ["mcp"],
         },
@@ -244,7 +250,7 @@ describe("OpenSEO OAuth provider configuration", () => {
 
     await dispatch(
       provider,
-      new Request("https://app.openseo.so/api/auth/oauth2/register", {
+      new Request("https://seo.agenciare9.com.br/api/auth/oauth2/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -262,14 +268,17 @@ describe("OpenSEO OAuth provider configuration", () => {
   it("includes the authorization-server issuer when consent is denied", async () => {
     const { createOpenSeoOAuthProvider } = await import("./oauth-provider");
     const provider = createOpenSeoOAuthProvider(() => new Response("app"));
-    await dispatch(provider, new Request("https://app.openseo.so/health"));
+    await dispatch(
+      provider,
+      new Request("https://seo.agenciare9.com.br/health"),
+    );
 
     const response = await invokeDefaultHandler(
-      new Request("https://app.openseo.so/api/oauth/consent", {
+      new Request("https://seo.agenciare9.com.br/api/oauth/consent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Origin: "https://app.openseo.so",
+          Origin: "https://seo.agenciare9.com.br",
         },
         body: JSON.stringify({ accept: false, query: "state=state-1" }),
       }),
@@ -281,7 +290,7 @@ describe("OpenSEO OAuth provider configuration", () => {
               redirectUri: "https://client.example/callback",
               scope: ["mcp"],
               state: "state-1",
-              issuer: "https://app.openseo.so",
+              issuer: "https://seo.agenciare9.com.br",
             }),
         },
       },
@@ -295,7 +304,7 @@ describe("OpenSEO OAuth provider configuration", () => {
     ).toMatchObject({
       error: "access_denied",
       state: "state-1",
-      iss: "https://app.openseo.so",
+      iss: "https://seo.agenciare9.com.br",
     });
   });
 
@@ -304,10 +313,13 @@ describe("OpenSEO OAuth provider configuration", () => {
       await import("@cloudflare/workers-oauth-provider");
     const { createOpenSeoOAuthProvider } = await import("./oauth-provider");
     const provider = createOpenSeoOAuthProvider(() => new Response("app"));
-    await dispatch(provider, new Request("https://app.openseo.so/health"));
+    await dispatch(
+      provider,
+      new Request("https://seo.agenciare9.com.br/health"),
+    );
 
     const response = await invokeDefaultHandler(
-      new Request("https://app.openseo.so/api/auth/oauth2/authorize"),
+      new Request("https://seo.agenciare9.com.br/api/auth/oauth2/authorize"),
       {
         OAUTH_PROVIDER: {
           parseAuthRequest: () =>
@@ -316,7 +328,7 @@ describe("OpenSEO OAuth provider configuration", () => {
                 description: "Unsupported scope",
                 redirectUri: "https://client.example/callback",
                 state: "state-1",
-                issuer: "https://app.openseo.so",
+                issuer: "https://seo.agenciare9.com.br",
               }),
             ),
         },
@@ -330,18 +342,21 @@ describe("OpenSEO OAuth provider configuration", () => {
       error: "invalid_scope",
       error_description: "Unsupported scope",
       state: "state-1",
-      iss: "https://app.openseo.so",
+      iss: "https://seo.agenciare9.com.br",
     });
   });
 
   it("does not expose unexpected authorization failures as client errors", async () => {
     const { createOpenSeoOAuthProvider } = await import("./oauth-provider");
     const provider = createOpenSeoOAuthProvider(() => new Response("app"));
-    await dispatch(provider, new Request("https://app.openseo.so/health"));
+    await dispatch(
+      provider,
+      new Request("https://seo.agenciare9.com.br/health"),
+    );
 
     await expect(
       invokeDefaultHandler(
-        new Request("https://app.openseo.so/api/auth/oauth2/authorize"),
+        new Request("https://seo.agenciare9.com.br/api/auth/oauth2/authorize"),
         {
           OAUTH_PROVIDER: {
             parseAuthRequest: () =>

@@ -32,12 +32,12 @@ export const Route = createFileRoute("/api/keyword-generator")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success)
           return jsonResponse(
-            { error: "Enter a valid topic and country" },
+            { error: "Digite um tema e um país válidos" },
             400,
           );
         const language = countryLanguage(parsed.data.locationCode);
         if (!language)
-          return jsonResponse({ error: "Pick a supported country" }, 400);
+          return jsonResponse({ error: "Escolha um país disponível" }, 400);
         const value = parsed.data.keyword.toLowerCase().replace(/\s+/g, " ");
         const blocked = await guardToolRequest({
           tool: TOOL,
@@ -85,7 +85,8 @@ export const Route = createFileRoute("/api/keyword-generator")({
           return cacheableJson(result, TTL);
         } catch (error) {
           console.error(`${TOOL} lookup failed:`, error);
-          const message = "We couldn't load keywords. Please try again.";
+          const message =
+            "Não foi possível carregar as palavras-chave. Tente novamente.";
           await writeCached(TOOL, key, { ok: false, error: message }, 120);
           return failureResponse(message);
         }

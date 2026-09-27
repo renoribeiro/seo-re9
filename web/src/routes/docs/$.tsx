@@ -22,10 +22,10 @@ export const Route = createFileRoute("/docs/$")({
       | { title?: string; description?: string; url?: string }
       | undefined;
     return buildPageSeo({
-      title: data?.title ?? "OpenSEO Docs",
+      title: data?.title ?? "Documentação do RE9 SEO",
       description: data?.description,
       path: data?.url ?? "/docs",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     });
   },
   component: DocsPost,
@@ -45,7 +45,7 @@ function DocsPost() {
   return (
     <DocsLayout tree={data.pageTree} {...baseOptions()}>
       <ContentPost
-        backLabel="Back to Docs"
+        backLabel="Voltar para a documentação"
         backTo="/docs"
         title={data.title}
         description={data.description}

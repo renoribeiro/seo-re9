@@ -27,3 +27,15 @@ export function LegalPage({ title, description, children }: LegalPageProps) {
     </article>
   );
 }
+
+const CONTACT_EMAIL = "trafego@re9.online";
+
+/** Aviso usado enquanto os documentos legais da RE9 estão em elaboração. */
+export function LegalPageInProgress() {
+  return (
+    <p>
+      Estamos preparando este documento. Em caso de dúvidas, fale com{" "}
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+    </p>
+  );
+}

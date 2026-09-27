@@ -52,224 +52,237 @@ export type FeaturePage = {
 export const featurePages = {
   keywordResearch: {
     slug: FEATURE_PAGE_SLUGS.keywordResearch,
-    eyebrow: "Keyword Research",
-    navDescription: "Find keyword ideas and SERPs.",
-    title: "Keyword research tool for practical SEO planning",
+    eyebrow: "Pesquisa de palavras-chave",
+    navDescription: "Encontre ideias de palavras-chave e SERPs.",
+    title:
+      "Ferramenta de pesquisa de palavras-chave para um planejamento de SEO prático",
     description:
-      "Find keyword ideas, compare search volume and difficulty, inspect SERP results, and save the opportunities worth building around.",
-    primaryKeyword: "keyword research tool",
+      "Encontre ideias de palavras-chave, compare volume de busca e dificuldade, analise os resultados da SERP e salve as oportunidades que valem o investimento.",
+    primaryKeyword: "ferramenta de pesquisa de palavras-chave",
     secondaryKeywords: [
-      "seo keyword research tool",
-      "free keyword research tool",
-      "keyword research tools",
+      "ferramenta de palavras-chave para seo",
+      "ferramenta gratuita de palavras-chave",
+      "ferramentas de pesquisa de palavras-chave",
     ],
-    imageAlt: "OpenSEO keyword research dashboard",
+    imageAlt: "Painel de pesquisa de palavras-chave do RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/d77077d0-cdf4-4523-0c41-56a7b4861300/public",
     workflows: [
       {
-        title: "Research seed topics",
+        title: "Pesquise temas-semente",
         description:
-          "Start with one or more seeds and expand them into keyword ideas with volume, difficulty, CPC, and intent signals.",
+          "Comece com um ou mais termos-semente e transforme-os em ideias de palavras-chave com volume, dificuldade, CPC e sinais de intenção.",
       },
       {
-        title: "Inspect the real SERP",
+        title: "Analise a SERP real",
         description:
-          "Open SERP results beside keyword metrics so content decisions are based on the pages ranking for that query.",
+          "Abra os resultados da SERP ao lado das métricas para decidir o conteúdo com base nas páginas que já ranqueiam para a busca.",
       },
       {
-        title: "Save and organize opportunities",
+        title: "Salve e organize oportunidades",
         description:
-          "Keep useful keywords in your workspace and tag them for content planning, rank tracking, or AI-agent workflows.",
+          "Guarde as palavras-chave úteis no seu espaço de trabalho e marque-as com tags para planejamento de conteúdo, monitoramento de posições ou fluxos com agentes de IA.",
       },
     ],
     metrics: [
-      { label: "Search volume", value: "Demand" },
-      { label: "Keyword difficulty", value: "Competition" },
-      { label: "CPC", value: "Commercial signal" },
-      { label: "SERP results", value: "Search context" },
+      { label: "Volume de busca", value: "Demanda" },
+      { label: "Dificuldade da palavra-chave (KD)", value: "Concorrência" },
+      { label: "CPC", value: "Sinal comercial" },
+      { label: "Resultados da SERP", value: "Contexto da busca" },
     ],
     showMetrics: true,
     useCases: [
-      "Build a content roadmap from real keyword data.",
-      "Find lower-competition variants before writing.",
-      "Group keywords for articles, landing pages, and rank tracking.",
+      "Monte um plano de conteúdo com dados reais de palavras-chave.",
+      "Encontre variações com menos concorrência antes de escrever.",
+      "Agrupe palavras-chave para artigos, landing pages e monitoramento de posições.",
     ],
     differentiators: [
-      "Open-source SEO workflows you can self-host or run in the managed app.",
-      "DataForSEO-backed metrics without locking the research process into a black box.",
-      "MCP access so AI agents can research and save keywords for you.",
+      "Fluxos de SEO open source que você pode hospedar por conta própria ou usar no app gerenciado.",
+      "Métricas da DataForSEO sem prender a pesquisa em uma caixa-preta.",
+      "Acesso via MCP para que agentes de IA pesquisem e salvem palavras-chave por você.",
     ],
     featuredLink: {
-      title: "Free competitor analysis tool",
+      title: "Ferramenta gratuita de análise de concorrentes",
       description:
-        "Pull a competitor's top organic keywords and the terms they rank for that you don't. No signup required.",
+        "Veja as principais palavras-chave orgânicas de um concorrente e os termos em que ele ranqueia e você não. Sem cadastro.",
       href: "/competitor-analysis",
     },
     related: [
-      { label: "Keyword Clustering", href: "/docs/skills/keyword-clustering" },
       {
-        label: "Keyword Research",
+        label: "Agrupamento de palavras-chave",
+        href: "/docs/skills/keyword-clustering",
+      },
+      {
+        label: "Pesquisa de palavras-chave",
         href: "/docs/skills/keyword-research",
       },
-      { label: "Rank Tracking", href: "/features/rank-tracking" },
+      { label: "Monitoramento de posições", href: "/features/rank-tracking" },
     ],
     faqs: [
       {
-        question: "What is OpenSEO keyword research best for?",
+        question: "Para que serve a pesquisa de palavras-chave do RE9 SEO?",
         answer:
-          "OpenSEO is best for finding SEO keyword ideas, checking demand and difficulty, and turning those ideas into saved keywords you can revisit.",
+          "Para encontrar ideias de palavras-chave para SEO, verificar demanda e dificuldade e transformar essas ideias em palavras-chave salvas que você pode revisitar.",
       },
       {
-        question: "Can I use OpenSEO as a free keyword research tool?",
+        question:
+          "Posso usar o RE9 SEO como ferramenta gratuita de pesquisa de palavras-chave?",
         answer:
-          "Not unlimited: quality keyword data costs money everywhere, which is why the big SEO suites run $100/month and up. You can start OpenSEO for free; the paid plan is $10/month with usage credits included. It's also open source, so you can self-host with your own DataForSEO account.",
+          "Não de forma ilimitada: dados de palavras-chave de qualidade têm custo em qualquer ferramenta. Como o RE9 SEO é open source, você pode hospedá-lo por conta própria com a sua conta da DataForSEO. Para o plano hospedado, fale com a gente: trafego@re9.online.",
       },
       {
-        question: "Does OpenSEO show live search results?",
+        question: "O RE9 SEO mostra resultados de busca ao vivo?",
         answer:
-          "Yes. Keyword research can be paired with SERP inspection so you can see ranking pages alongside the metrics.",
+          "Sim. A pesquisa de palavras-chave pode ser combinada com a análise da SERP para você ver as páginas que ranqueiam ao lado das métricas.",
       },
     ],
     guides: {
-      title: "The Keyword Research Strategy Library",
+      title: "Biblioteca de estratégias de pesquisa de palavras-chave",
       description:
-        "Practitioner strategies for using keyword research to discover demand. Each guide includes a full walkthrough and a copy-paste MCP prompt.",
+        "Estratégias práticas para usar a pesquisa de palavras-chave e descobrir demanda. Cada guia traz um passo a passo completo e um prompt MCP pronto para copiar.",
       items: [
         {
-          label: "Seed from conversation, not a volume report",
+          label:
+            "Tire as sementes das conversas, não de um relatório de volume",
           description:
-            "Harvest seed keywords from sales calls and support tickets.",
+            "Colete palavras-chave-semente em ligações de vendas e chamados de suporte.",
           href: "/library/keyword-research/seed-from-conversation",
         },
         {
-          label: "What are long-tail keywords, and how to mine them",
+          label: "O que são palavras-chave de cauda longa e como encontrá-las",
           description:
-            "PAA fan-out, autocomplete harvesting, and your own GSC queries.",
+            "Expansão pelo “As pessoas também perguntam”, coleta do preenchimento automático e suas próprias consultas do GSC.",
           href: "/library/keyword-research/long-tail-question-mining",
         },
         {
-          label: "Search-intent mapping (hot / warm / cold)",
-          description: "Sort keywords by buying temperature before you write.",
+          label: "Mapeamento de intenção de busca (quente / morna / fria)",
+          description:
+            "Classifique palavras-chave pela temperatura de compra antes de escrever.",
           href: "/library/keyword-research/search-intent-mapping",
         },
         {
-          label: "Cluster keywords into topical hubs",
+          label: "Agrupe palavras-chave em hubs temáticos",
           description:
-            "One page per intent, plus the keyword cannibalization fix.",
+            "Uma página por intenção, mais a correção da canibalização de palavras-chave.",
           href: "/library/keyword-research/cluster-topical-hubs",
         },
       ],
       cta: {
-        label: "Browse all keyword research strategies",
+        label: "Ver todas as estratégias de pesquisa de palavras-chave",
         href: "/library/keyword-research",
       },
     },
   },
   siteAudit: {
     slug: FEATURE_PAGE_SLUGS.siteAudit,
-    eyebrow: "Site Audit",
-    navDescription: "Audit page-level SEO signals.",
-    title: "SEO audit tool for finding technical issues fast",
+    eyebrow: "Auditoria do site",
+    navDescription: "Audite os sinais de SEO de cada página.",
+    title:
+      "Ferramenta de auditoria de SEO para encontrar problemas técnicos rápido",
     description:
-      "Crawl a site, collect page-level technical signals, and optionally run Lighthouse checks for performance, SEO, accessibility, and best-practice issues.",
-    primaryKeyword: "seo audit tool",
+      "Rastreie um site, colete sinais técnicos de cada página e, se quiser, rode verificações do Lighthouse para problemas de desempenho, SEO, acessibilidade e boas práticas.",
+    primaryKeyword: "ferramenta de auditoria de seo",
     secondaryKeywords: [
-      "seo site audit",
-      "free seo audit tool",
-      "seo audit tools",
+      "auditoria de seo do site",
+      "ferramenta gratuita de auditoria de seo",
+      "ferramentas de auditoria de seo",
     ],
-    imageAlt: "OpenSEO site audit report",
+    imageAlt: "Relatório de auditoria do site no RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/53149e87-0027-4fa8-5d13-bcaab60c7100/public",
     workflows: [
       {
-        title: "Run a site crawl",
+        title: "Rastreie o site",
         description:
-          "Inspect pages for status codes, titles, meta descriptions, headings, indexability signals, image alt coverage, links, response time, and optional Lighthouse findings.",
+          "Verifique códigos de status, títulos, meta descriptions, headings, sinais de indexação, cobertura de texto alternativo em imagens, links, tempo de resposta e, opcionalmente, os achados do Lighthouse.",
       },
       {
-        title: "Prioritize issues",
+        title: "Priorize os problemas",
         description:
-          "Review crawled pages and optional Lighthouse results so the team can focus on visible page and performance problems.",
+          "Revise as páginas rastreadas e os resultados opcionais do Lighthouse para a equipe focar nos problemas visíveis de página e de desempenho.",
       },
       {
-        title: "Drill into affected URLs",
+        title: "Aprofunde nas URLs afetadas",
         description:
-          "Move into URLs with missing titles, metadata, heading and image-alt signals, status-code issues, response-time data, or optional Lighthouse findings.",
+          "Vá direto às URLs com título ausente, metadados, headings e texto alternativo com problemas, erros de status, dados de tempo de resposta ou achados opcionais do Lighthouse.",
       },
     ],
     metrics: [
-      { label: "Crawled URLs", value: "Coverage" },
-      { label: "Page fields", value: "Checks" },
-      { label: "Affected pages", value: "Scope" },
-      { label: "Audit history", value: "Progress" },
+      { label: "URLs rastreadas", value: "Cobertura" },
+      { label: "Campos da página", value: "Verificações" },
+      { label: "Páginas afetadas", value: "Escopo" },
+      { label: "Histórico de auditorias", value: "Progresso" },
     ],
     showMetrics: true,
     useCases: [
-      "Audit a new site before publishing SEO work.",
-      "Find technical issues after a migration or redesign.",
-      "Export crawled page data and Lighthouse findings for developers and content teams.",
+      "Audite um site novo antes de começar o trabalho de SEO.",
+      "Encontre problemas técnicos depois de uma migração ou redesign.",
+      "Exporte os dados das páginas rastreadas e os achados do Lighthouse para as equipes de desenvolvimento e conteúdo.",
     ],
     differentiators: [
-      "A practical crawler built into the same workspace as keyword and domain research.",
-      "Open-source implementation for teams that want to inspect or extend the audit flow.",
-      "Simple reports that expose page-level signals and optional Lighthouse findings instead of relying only on a generic score.",
+      "Um rastreador prático no mesmo espaço de trabalho da pesquisa de palavras-chave e de domínios.",
+      "Implementação open source para equipes que querem inspecionar ou estender o fluxo de auditoria.",
+      "Relatórios simples que mostram os sinais de cada página e os achados opcionais do Lighthouse, em vez de depender só de uma nota genérica.",
     ],
     featuredLink: {
-      title: "Free SERP simulator",
+      title: "Simulador de SERP gratuito",
       description:
-        "Preview how a title and meta description render on Google, with pixel widths. No signup required.",
+        "Veja como um título e uma meta description aparecem no Google, com a largura em pixels. Sem cadastro.",
       href: "/serp-simulator",
     },
     related: [
-      { label: "Domain Overview", href: "/features/domain-overview" },
+      { label: "Visão geral do domínio", href: "/features/domain-overview" },
       { label: "Backlinks", href: "/features/backlink-checker" },
-      { label: "Keyword Research", href: "/features/keyword-research" },
+      {
+        label: "Pesquisa de palavras-chave",
+        href: "/features/keyword-research",
+      },
     ],
     faqs: [
       {
-        question: "What does the OpenSEO site audit tool check?",
+        question: "O que a auditoria do site do RE9 SEO verifica?",
         answer:
-          "Status codes, titles, meta descriptions, headings, indexability signals, image alt coverage, links, and response time for every crawled page. Enable Lighthouse and each page also gets performance, SEO, accessibility, and best-practice issues.",
+          "Códigos de status, títulos, meta descriptions, headings, sinais de indexação, cobertura de texto alternativo em imagens, links e tempo de resposta de cada página rastreada. Ative o Lighthouse e cada página também recebe problemas de desempenho, SEO, acessibilidade e boas práticas.",
       },
       {
-        question: "Is OpenSEO a free SEO audit tool?",
+        question: "O RE9 SEO é uma ferramenta gratuita de auditoria de SEO?",
         answer:
-          "For smaller sites, yes: the free plan includes site audits up to 50 pages per crawl. Larger crawls need a paid plan, starting at $10/month. OpenSEO is also open source and self-hostable.",
+          "O RE9 SEO é open source e pode ser hospedado por conta própria, e aí você arca só com os seus custos de hospedagem e de dados. Para o plano hospedado, fale com a gente: trafego@re9.online.",
       },
       {
-        question: "Who should use OpenSEO Site Audit?",
+        question: "Para quem é a auditoria do site do RE9 SEO?",
         answer:
-          "It is useful for founders, marketers, agencies, and developers who need a shared crawl report and optional Lighthouse issue export.",
+          "É útil para empreendedores, profissionais de marketing, agências e desenvolvedores que precisam de um relatório de rastreamento compartilhado e, opcionalmente, da exportação dos problemas do Lighthouse.",
       },
     ],
     guides: {
-      title: "The Site Audit Strategy Library",
+      title: "Biblioteca de estratégias de auditoria do site",
       description:
-        "Practitioner strategies for turning a crawl into scheduled work. Each guide includes a full walkthrough and a copy-paste MCP prompt.",
+        "Estratégias práticas para transformar um rastreamento em trabalho agendado. Cada guia traz um passo a passo completo e um prompt MCP pronto para copiar.",
       items: [
         {
-          label: "The technical SEO audit checklist that ends in fixes",
+          label:
+            "O checklist de auditoria técnica de SEO que termina em correções",
           description:
-            "Triage 1,180 findings down to the 35 that stop a page being seen.",
+            "Reduza 1.180 achados aos 35 que impedem uma página de ser vista.",
           href: "/library/site-audit/technical-seo-audit-checklist",
         },
         {
-          label: "Write an audit report the client will actually act on",
+          label:
+            "Escreva um relatório de auditoria que o cliente vai colocar em prática",
           description:
-            "Six sections that tie each finding to a page, a cost, and an owner.",
+            "Seis seções que ligam cada achado a uma página, a um custo e a um responsável.",
           href: "/library/site-audit/seo-audit-report-template",
         },
         {
-          label: "Index bloat: when the fix is deleting pages",
+          label: "Inchaço do índice: quando a solução é excluir páginas",
           description:
-            "Check what Google actually indexed before you remove anything.",
+            "Confira o que o Google de fato indexou antes de remover qualquer coisa.",
           href: "/library/site-audit/index-bloat",
         },
       ],
       cta: {
-        label: "Browse all site audit strategies",
+        label: "Ver todas as estratégias de auditoria do site",
         href: "/library/site-audit",
       },
     },
@@ -277,564 +290,599 @@ export const featurePages = {
   backlinks: {
     slug: FEATURE_PAGE_SLUGS.backlinks,
     eyebrow: "Backlinks",
-    navDescription: "Check links and referring domains.",
-    title: "Backlink checker for understanding a domain's link profile",
+    navDescription: "Confira links e domínios de referência.",
+    title:
+      "Verificador de backlinks para entender o perfil de links de um domínio",
     description:
-      "Analyze backlinks, referring domains, and linked pages without separating link research from the rest of your SEO workspace.",
-    primaryKeyword: "backlink analysis",
+      "Analise backlinks, domínios de referência e páginas linkadas sem separar a pesquisa de links do restante do seu espaço de trabalho de SEO.",
+    primaryKeyword: "análise de backlinks",
     secondaryKeywords: [
-      "backlink analysis tool",
-      "referring domains",
-      "link profile",
+      "ferramenta de análise de backlinks",
+      "domínios de referência",
+      "perfil de links",
     ],
-    imageAlt: "OpenSEO backlinks report",
+    imageAlt: "Relatório de backlinks do RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/d97206ed-bd64-447c-2b9e-1b9f07c5ec00/public",
     workflows: [
       {
-        title: "Check a domain's backlinks",
+        title: "Confira os backlinks de um domínio",
         description:
-          "Look up backlinks and referring-domain signals for your site, competitors, or pages you are evaluating.",
+          "Consulte backlinks e sinais de domínios de referência do seu site, de concorrentes ou de páginas que você está avaliando.",
       },
       {
-        title: "Compare link quality",
+        title: "Compare a qualidade dos links",
         description:
-          "Use backlink rows, referring-domain rows, rank, spam, broken, lost, and nofollow signals to inspect link quality.",
+          "Use as linhas de backlinks e de domínios de referência, com sinais de rank, spam, links quebrados, perdidos e nofollow, para avaliar a qualidade dos links.",
       },
       {
-        title: "Filter and export link data",
+        title: "Filtre e exporte os dados de links",
         description:
-          "Export and filter backlink, referring-domain, and top-page data for your own outreach, competitor research, or cleanup review.",
+          "Exporte e filtre dados de backlinks, domínios de referência e páginas principais para sua prospecção, pesquisa de concorrentes ou limpeza de links.",
       },
     ],
     metrics: [
       { label: "Backlinks", value: "Links" },
-      { label: "Referring domains", value: "Sources" },
-      { label: "Target URLs", value: "Distribution" },
-      { label: "Rank and spam signals", value: "Quality context" },
+      { label: "Domínios de referência", value: "Fontes" },
+      { label: "URLs de destino", value: "Distribuição" },
+      { label: "Sinais de rank e spam", value: "Contexto de qualidade" },
     ],
     showMetrics: true,
     useCases: [
-      "See who links to a competitor.",
-      "Inspect link opportunities for important pages.",
-      "Understand whether a domain has real authority before investing in content.",
+      "Veja quem linka para um concorrente.",
+      "Avalie oportunidades de links para páginas importantes.",
+      "Entenda se um domínio tem autoridade real antes de investir em conteúdo.",
     ],
     differentiators: [
-      "Backlink analysis sits beside keyword research, domain overview, and audit data.",
-      "Self-host or adapt backlink reporting for your team's workflow.",
-      "MCP support lets an AI agent pull backlink context during SEO research.",
+      "A análise de backlinks fica ao lado da pesquisa de palavras-chave, da visão geral do domínio e dos dados de auditoria.",
+      "Hospede por conta própria ou adapte os relatórios de backlinks ao fluxo da sua equipe.",
+      "O suporte a MCP permite que um agente de IA consulte o contexto de backlinks durante a pesquisa de SEO.",
     ],
     guides: {
-      title: "The Link Building Strategy Library",
+      title: "Biblioteca de estratégias de link building",
       description:
-        "Practitioner strategies for reading a backlink profile and earning links that count. Each guide includes a full walkthrough and a copy-paste MCP prompt.",
+        "Estratégias práticas para ler um perfil de backlinks e conquistar links que fazem diferença. Cada guia traz um passo a passo completo e um prompt MCP pronto para copiar.",
       items: [
         {
-          label: "The backlink audit",
+          label: "A auditoria de backlinks",
           description:
-            "Sort by first seen, bucket the junk, read the rows that matter.",
+            "Ordene pela primeira detecção, separe o lixo e leia as linhas que importam.",
           href: "/library/link-building/backlink-audit",
         },
         {
-          label: "Referring domains, not backlinks",
+          label: "Domínios de referência, não backlinks",
           description:
-            "The count to report, and what the top of the list is made of.",
+            "O número que vale reportar e do que é feito o topo da lista.",
           href: "/library/link-building/referring-domains",
         },
         {
-          label: "How to get backlinks",
+          label: "Como conseguir backlinks",
           description:
-            "Start from the pages that already earn them. Four plays from the podcast.",
+            "Comece pelas páginas que já conquistam links. Quatro estratégias práticas.",
           href: "/library/link-building/how-to-get-backlinks",
         },
       ],
       cta: {
-        label: "Browse all link building strategies",
+        label: "Ver todas as estratégias de link building",
         href: "/library/link-building",
       },
     },
     featuredLink: {
-      title: "Free backlink checker",
+      title: "Verificador de backlinks gratuito",
       description:
-        "Check any domain's backlink summary and top 15 backlinks. No signup required.",
+        "Confira o resumo de backlinks de qualquer domínio e os 15 principais backlinks. Sem cadastro.",
       href: "/backlink-checker",
     },
     related: [
       {
-        label: "Link Prospecting",
+        label: "Prospecção de links",
         href: "/docs/skills/link-prospecting",
       },
-      { label: "Domain Overview", href: "/features/domain-overview" },
+      { label: "Visão geral do domínio", href: "/features/domain-overview" },
     ],
     faqs: [
       {
-        question: "What is backlink analysis used for?",
+        question: "Para que serve a análise de backlinks?",
         answer:
-          "Backlink analysis helps you understand which sites link to a domain or page, which links have stronger rank, spam, broken, lost, or nofollow signals, and where competitors are earning authority.",
+          "A análise de backlinks mostra quais sites linkam para um domínio ou página, quais links têm sinais mais fortes de rank, spam, links quebrados, perdidos ou nofollow, e onde os concorrentes estão ganhando autoridade.",
       },
       {
-        question: "Can I check competitor backlinks in OpenSEO?",
+        question: "Posso ver os backlinks dos concorrentes no RE9 SEO?",
         answer:
-          "Yes. Enter any domain, yours or a competitor's, and pull its backlinks, referring domains, and top linked pages.",
+          "Sim. Informe qualquer domínio, o seu ou o de um concorrente, e veja os backlinks, os domínios de referência e as páginas mais linkadas.",
       },
       {
-        question: "How does backlink research connect to SEO planning?",
+        question:
+          "Como a pesquisa de backlinks se conecta ao planejamento de SEO?",
         answer:
-          "Backlinks tell you whether a page ranks on content or on authority. Check them before targeting a keyword to judge whether you can realistically outrank the incumbents, and check a competitor's profile to find sites that might link to you too.",
+          "Os backlinks mostram se uma página ranqueia pelo conteúdo ou pela autoridade. Confira-os antes de mirar uma palavra-chave para avaliar se é realista superar quem já está no topo, e analise o perfil de um concorrente para achar sites que também podem linkar para você.",
       },
     ],
   },
   domainOverview: {
     slug: FEATURE_PAGE_SLUGS.domainOverview,
-    eyebrow: "Domain Overview",
-    navDescription: "Analyze competitor visibility.",
-    title: "Domain overview: traffic, keywords, and pages for any domain",
+    eyebrow: "Visão geral do domínio",
+    navDescription: "Analise a visibilidade dos concorrentes.",
+    title:
+      "Visão geral do domínio: tráfego, palavras-chave e páginas de qualquer site",
     description:
-      "Get a domain overview of any website: estimated organic traffic, ranking keywords, and top organic pages, with one click into backlink and keyword research.",
-    primaryKeyword: "domain overview",
+      "Tenha uma visão geral de qualquer site: tráfego orgânico estimado, palavras-chave ranqueadas e principais páginas orgânicas, com um clique para a pesquisa de backlinks e de palavras-chave.",
+    primaryKeyword: "visão geral do domínio",
     secondaryKeywords: [
-      "domain analysis tool",
-      "competitor keyword analysis tool",
-      "website traffic checker",
+      "ferramenta de análise de domínio",
+      "ferramenta de análise de palavras-chave de concorrentes",
+      "verificador de tráfego de site",
     ],
-    imageAlt: "OpenSEO domain overview",
+    imageAlt: "Visão geral do domínio no RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/189e22b8-fdf8-46b4-198c-e912beef2300/public",
     workflows: [
       {
-        title: "Analyze a domain",
+        title: "Analise um domínio",
         description:
-          "Start with a domain and get an overview of estimated organic traffic, organic keyword count, top ranking keywords, and top organic pages.",
+          "Comece por um domínio e veja o tráfego orgânico estimado, a quantidade de palavras-chave orgânicas, as principais palavras-chave ranqueadas e as principais páginas orgânicas.",
       },
       {
-        title: "Find competitor keywords",
+        title: "Encontre as palavras-chave dos concorrentes",
         description:
-          "Inspect keywords a competitor already ranks for and identify topics worth building or defending.",
+          "Veja as palavras-chave em que um concorrente já ranqueia e identifique temas que valem ser construídos ou defendidos.",
       },
       {
-        title: "Move into deeper research",
+        title: "Avance para uma pesquisa mais profunda",
         description:
-          "Use domain insights to open keyword research, backlink analysis, or rank tracking without starting over.",
+          "Use os dados do domínio para abrir a pesquisa de palavras-chave, a análise de backlinks ou o monitoramento de posições sem começar do zero.",
       },
     ],
     metrics: [
-      { label: "Organic traffic", value: "Visibility" },
-      { label: "Organic keywords", value: "Topics" },
-      { label: "Top keywords", value: "Rankings" },
-      { label: "Top pages", value: "Organic reach" },
+      { label: "Tráfego orgânico", value: "Visibilidade" },
+      { label: "Palavras-chave orgânicas", value: "Temas" },
+      { label: "Principais palavras-chave", value: "Posições" },
+      { label: "Principais páginas", value: "Alcance orgânico" },
     ],
     showMetrics: true,
     useCases: [
-      "Research a competitor before writing a content plan.",
-      "Estimate a site's organic footprint.",
-      "Find keyword gaps between your site and the domains already ranking.",
+      "Pesquise um concorrente antes de escrever um plano de conteúdo.",
+      "Estime a presença orgânica de um site.",
+      "Encontre lacunas de palavras-chave entre o seu site e os domínios que já ranqueiam.",
     ],
     differentiators: [
-      "Domain research connects directly to keyword, backlink, and rank tracking workflows.",
-      "Built around ranking keywords, estimated traffic, and top pages for practical competitor research.",
-      "Open-source and self-hostable for teams that want control over their SEO stack.",
+      "A pesquisa de domínios se conecta direto aos fluxos de palavras-chave, backlinks e monitoramento de posições.",
+      "Focada em palavras-chave ranqueadas, tráfego estimado e principais páginas para uma pesquisa de concorrentes prática.",
+      "Open source e com opção de hospedagem própria para equipes que querem controlar sua stack de SEO.",
     ],
     featuredLink: {
-      title: "Free website traffic checker",
+      title: "Verificador de tráfego de sites gratuito",
       description:
-        "Estimate any domain's organic traffic, keywords, and top pages. No signup required.",
+        "Estime o tráfego orgânico, as palavras-chave e as principais páginas de qualquer domínio. Sem cadastro.",
       href: "/website-traffic-checker",
     },
     related: [
       {
-        label: "Competitor Analysis",
+        label: "Análise de concorrentes",
         href: "/docs/skills/competitor-analysis",
       },
-      { label: "Keyword Research", href: "/features/keyword-research" },
+      {
+        label: "Pesquisa de palavras-chave",
+        href: "/features/keyword-research",
+      },
       { label: "Backlinks", href: "/features/backlink-checker" },
     ],
     faqs: [
       {
-        question: "What is a domain overview?",
+        question: "O que é a visão geral do domínio?",
         answer:
-          "A domain overview is a snapshot of a website's organic search footprint: estimated organic traffic, how many keywords it ranks for, its top ranking keywords, and its top organic pages. It's usually the first step in competitor research because it shows where a site earns its visibility.",
+          "É um retrato da presença de um site na busca orgânica: tráfego orgânico estimado, em quantas palavras-chave ele ranqueia, suas principais palavras-chave e suas principais páginas orgânicas. Costuma ser o primeiro passo da pesquisa de concorrentes, porque mostra de onde vem a visibilidade do site.",
       },
       {
-        question: "How does this compare to Semrush Domain Overview?",
+        question: "Como isso se compara ao Domain Overview do Semrush?",
         answer:
-          "OpenSEO covers the core of the same report (estimated traffic, organic keywords, top keywords, and top pages) without a triple-digit monthly seat. OpenSEO is open source, so you can self-host it, and the managed app is $10/month and includes usage credits.",
+          "O RE9 SEO cobre o essencial do mesmo relatório (tráfego estimado, palavras-chave orgânicas, principais palavras-chave e principais páginas). Ele é open source, então você pode hospedá-lo por conta própria ou usar o app gerenciado.",
       },
       {
-        question: "Can OpenSEO help with competitor keyword analysis?",
+        question:
+          "O RE9 SEO ajuda na análise de palavras-chave dos concorrentes?",
         answer:
-          "Yes. Enter a competitor's domain and you get the keywords it ranks for and its top organic pages: the raw material for finding topics worth building or defending.",
+          "Sim. Informe o domínio de um concorrente e veja as palavras-chave em que ele ranqueia e suas principais páginas orgânicas: a matéria-prima para encontrar temas que valem ser construídos ou defendidos.",
       },
       {
-        question: "Is Domain Overview the same as a traffic checker?",
+        question:
+          "A visão geral do domínio é o mesmo que um verificador de tráfego?",
         answer:
-          "Not quite. It includes an estimated-traffic metric, but the value is seeing which keywords and pages produce that traffic, which a plain traffic checker doesn't show.",
+          "Não exatamente. Ela inclui uma métrica de tráfego estimado, mas o valor está em ver quais palavras-chave e páginas geram esse tráfego, algo que um verificador de tráfego simples não mostra.",
       },
     ],
     guides: {
-      title: "The Competitive Analysis Strategy Library",
+      title: "Biblioteca de estratégias de análise competitiva",
       description:
-        "Practitioner strategies for turning a domain overview into a decision. Each guide includes a full walkthrough and a copy-paste MCP prompt.",
+        "Estratégias práticas para transformar uma visão geral do domínio em uma decisão. Cada guia traz um passo a passo completo e um prompt MCP pronto para copiar.",
       items: [
         {
-          label: "Find out who your real competitors are",
+          label: "Descubra quem são seus concorrentes de verdade",
           description:
-            "Compare a keyword set and read the domains actually in your SERPs.",
+            "Compare um conjunto de palavras-chave e veja os domínios que de fato aparecem nas suas SERPs.",
           href: "/library/competitive-analysis/find-your-real-competitors",
         },
         {
-          label: "Keyword gap analysis: subtract the brand terms first",
+          label:
+            "Análise de lacunas de palavras-chave: tire os termos de marca primeiro",
           description:
-            "Strip brand from both sides and the gap becomes buildable.",
+            "Remova a marca dos dois lados e a lacuna vira algo que dá para construir.",
           href: "/library/competitive-analysis/keyword-gap-analysis",
         },
         {
-          label: "How accurate are competitor traffic estimates?",
+          label:
+            "Quão precisas são as estimativas de tráfego dos concorrentes?",
           description:
-            "Close-variant stacking, other business lines, and how to correct for both.",
+            "Variações próximas somadas, outras linhas de negócio e como corrigir as duas coisas.",
           href: "/library/competitive-analysis/competitor-traffic-estimates",
         },
         {
-          label: "Read a competitor's link profile before you copy it",
+          label: "Leia o perfil de links de um concorrente antes de copiá-lo",
           description:
-            "Referring domains, spam score, and the broken links worth chasing.",
+            "Domínios de referência, spam score e os links quebrados que valem a pena buscar.",
           href: "/library/competitive-analysis/backlink-gap-analysis",
         },
       ],
       cta: {
-        label: "Browse all competitive analysis strategies",
+        label: "Ver todas as estratégias de análise competitiva",
         href: "/library/competitive-analysis",
       },
     },
   },
   rankTracking: {
     slug: FEATURE_PAGE_SLUGS.rankTracking,
-    eyebrow: "Rank Tracking",
-    navDescription: "Monitor keyword positions.",
-    title: "Rank tracker for monitoring keyword positions",
+    eyebrow: "Monitoramento de posições",
+    navDescription: "Acompanhe as posições das palavras-chave.",
+    title: "Monitoramento de posições das suas palavras-chave",
     description:
-      "Track the keywords that matter, optionally compare desktop and mobile results, and keep ranking changes connected to your research workflow.",
-    primaryKeyword: "rank tracker",
+      "Acompanhe as palavras-chave que importam, compare, se quiser, os resultados em Desktop e Mobile e mantenha as mudanças de posição conectadas ao seu fluxo de pesquisa.",
+    primaryKeyword: "monitoramento de posições",
     secondaryKeywords: [
-      "seo rank tracking tool",
-      "keyword rank tracker",
-      "google rank tracker",
+      "ferramenta de monitoramento de posições seo",
+      "monitoramento de posições de palavras-chave",
+      "monitoramento de posições no google",
     ],
-    imageAlt: "OpenSEO rank tracking table",
+    imageAlt: "Tabela de monitoramento de posições do RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/4a0f8508-1527-46a8-c91c-086456f21c00/public",
     workflows: [
       {
-        title: "Add tracked domains",
+        title: "Adicione domínios monitorados",
         description:
-          "Create rank tracking configurations for the domains and locations you care about.",
+          "Crie configurações de monitoramento de posições para os domínios e localizações que importam para você.",
       },
       {
-        title: "Track important keywords",
+        title: "Monitore as palavras-chave importantes",
         description:
-          "Add keywords manually or from ranking suggestions and monitor positions over time.",
+          "Adicione palavras-chave manualmente ou a partir de sugestões de ranqueamento e acompanhe as posições ao longo do tempo.",
       },
       {
-        title: "Compare SERP context",
+        title: "Compare o contexto da SERP",
         description:
-          "Review the configured device results, ranking URLs, movement, and available SERP feature signals.",
+          "Revise os resultados por dispositivo configurado, as URLs que ranqueiam, as variações de posição e os sinais de recursos da SERP disponíveis.",
       },
     ],
     metrics: [
-      { label: "Desktop rank", value: "When enabled" },
-      { label: "Mobile rank", value: "When enabled" },
-      { label: "SERP features", value: "Context" },
-      { label: "Position change", value: "Movement" },
+      { label: "Posição no Desktop", value: "Quando ativado" },
+      { label: "Posição no Mobile", value: "Quando ativado" },
+      { label: "Recursos da SERP", value: "Contexto" },
+      { label: "Variação de posição", value: "Movimento" },
     ],
     showMetrics: true,
     useCases: [
-      "Monitor target keywords after publishing content.",
-      "Track launch, migration, and optimization impact.",
-      "Keep ranking checks close to the keywords your team already researched.",
+      "Monitore as palavras-chave-alvo depois de publicar conteúdo.",
+      "Acompanhe o impacto de lançamentos, migrações e otimizações.",
+      "Mantenha a verificação de posições perto das palavras-chave que sua equipe já pesquisou.",
     ],
     differentiators: [
-      "Rank tracking is part of the same workspace as discovery, audit, and competitor research.",
-      "Optional desktop and mobile tracking helps teams avoid one-dimensional rank reports.",
-      "OpenSEO can expose ranking data to AI agents through MCP.",
+      "O monitoramento de posições fica no mesmo espaço de trabalho da descoberta, da auditoria e da pesquisa de concorrentes.",
+      "O monitoramento opcional em Desktop e Mobile evita relatórios de posição unidimensionais.",
+      "O RE9 SEO pode expor os dados de posição para agentes de IA via MCP.",
     ],
     featuredLink: {
-      title: "Free competitor keyword finder",
+      title: "Localizador gratuito de palavras-chave de concorrentes",
       description:
-        "Find the keywords a competitor ranks for before choosing what to track. No signup required.",
+        "Descubra as palavras-chave em que um concorrente ranqueia antes de escolher o que monitorar. Sem cadastro.",
       href: "/competitor-keyword-finder",
     },
     related: [
-      { label: "Keyword Clustering", href: "/docs/skills/keyword-clustering" },
       {
-        label: "Competitor Analysis",
+        label: "Agrupamento de palavras-chave",
+        href: "/docs/skills/keyword-clustering",
+      },
+      {
+        label: "Análise de concorrentes",
         href: "/docs/skills/competitor-analysis",
       },
-      { label: "Keyword Research", href: "/features/keyword-research" },
+      {
+        label: "Pesquisa de palavras-chave",
+        href: "/features/keyword-research",
+      },
     ],
     faqs: [
       {
-        question: "What is a rank tracker?",
+        question: "O que é monitoramento de posições?",
         answer:
-          "A rank tracker monitors where a domain appears for selected keywords over time so you can see whether SEO work is improving visibility.",
+          "É o acompanhamento de onde um domínio aparece para palavras-chave selecionadas ao longo do tempo, para você ver se o trabalho de SEO está melhorando a visibilidade.",
       },
       {
-        question: "Does OpenSEO track mobile and desktop rankings?",
+        question: "O RE9 SEO monitora posições no Mobile e no Desktop?",
         answer:
-          "Yes: mobile, desktop, or both. Each tracked domain is configured with the devices you want, and enabling both lets you compare them side by side.",
+          "Sim: Mobile, Desktop ou os dois. Cada domínio monitorado é configurado com os dispositivos que você quiser, e ativar os dois permite compará-los lado a lado.",
       },
       {
-        question: "How should I choose keywords to track?",
+        question: "Como escolher as palavras-chave para monitorar?",
         answer:
-          "Start with keywords tied to important pages, active content work, and competitor opportunities discovered in keyword research.",
+          "Comece pelas palavras-chave ligadas a páginas importantes, ao trabalho de conteúdo em andamento e às oportunidades de concorrentes encontradas na pesquisa de palavras-chave.",
       },
     ],
     guides: {
-      title: "The Rank Tracking Strategy Library",
+      title: "Biblioteca de estratégias de monitoramento de posições",
       description:
-        "Practitioner strategies for tracking what matters and reporting it so it gets read. Each guide includes a full walkthrough and a copy-paste MCP prompt.",
+        "Estratégias práticas para monitorar o que importa e reportar de um jeito que seja lido. Cada guia traz um passo a passo completo e um prompt MCP pronto para copiar.",
       items: [
         {
-          label: "Which keywords to track, and how many",
+          label: "Quais palavras-chave monitorar, e quantas",
           description:
-            "Twenty to fifty terms from Search Console, priced before they go in.",
+            "De vinte a cinquenta termos do Search Console, com o custo avaliado antes de entrarem.",
           href: "/library/rank-tracking/which-keywords-to-track",
         },
         {
-          label: "Is Search Console a rank tracker?",
+          label: "O Search Console serve para monitorar posições?",
           description:
-            "What the free average position hides, and when it is enough.",
+            "O que a posição média gratuita esconde e quando ela é suficiente.",
           href: "/library/rank-tracking/search-console-vs-rank-tracker",
         },
         {
-          label: "Local rank tracking",
-          description: "Why a local business needs a grid before a tracker.",
+          label: "Monitoramento de posições local",
+          description:
+            "Por que um negócio local precisa de uma grade antes de um monitoramento.",
           href: "/library/rank-tracking/local-rank-tracking",
         },
         {
-          label: "The keyword ranking report your CEO will read",
+          label: "O relatório de posições que o seu CEO vai ler",
           description:
-            "Lead with the business number and use rankings to explain it.",
+            "Comece pelo número do negócio e use as posições para explicá-lo.",
           href: "/library/rank-tracking/keyword-ranking-report",
         },
       ],
       cta: {
-        label: "Browse all rank tracking strategies",
+        label: "Ver todas as estratégias de monitoramento de posições",
         href: "/library/rank-tracking",
       },
     },
   },
   savedKeywords: {
     slug: FEATURE_PAGE_SLUGS.savedKeywords,
-    eyebrow: "Saved Keywords",
-    navDescription: "Organize SEO opportunities.",
-    title: "Saved keywords for turning SEO research into a plan",
+    eyebrow: "Palavras-chave salvas",
+    navDescription: "Organize suas oportunidades de SEO.",
+    title: "Palavras-chave salvas para transformar pesquisa de SEO em plano",
     description:
-      "Keep useful keyword ideas organized so they can inform content planning, rank tracking decisions, and AI-agent workflows.",
-    primaryKeyword: "saved keywords",
+      "Mantenha as ideias de palavras-chave úteis organizadas para orientar o planejamento de conteúdo, as decisões de monitoramento de posições e os fluxos com agentes de IA.",
+    primaryKeyword: "palavras-chave salvas",
     secondaryKeywords: [
-      "seo keyword list",
-      "keyword list tool",
-      "keyword planning",
+      "lista de palavras-chave seo",
+      "ferramenta de lista de palavras-chave",
+      "planejamento de palavras-chave",
     ],
-    imageAlt: "OpenSEO saved keywords list",
+    imageAlt: "Lista de palavras-chave salvas no RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/8938a529-b443-4d4f-9869-c972f3cef900/public",
     workflows: [
       {
-        title: "Save promising keywords",
+        title: "Salve as palavras-chave promissoras",
         description:
-          "Collect useful ideas from keyword research instead of losing them after each search.",
+          "Reúna as ideias úteis da pesquisa de palavras-chave em vez de perdê-las a cada busca.",
       },
       {
-        title: "Organize by topic",
+        title: "Organize por tema",
         description:
-          "Tag keywords by page, campaign, content cluster, or priority so planning stays readable.",
+          "Marque as palavras-chave com tags por página, campanha, cluster de conteúdo ou prioridade para o planejamento continuar legível.",
       },
       {
-        title: "Reuse saved keywords across workflows",
+        title: "Reaproveite as palavras-chave salvas em outros fluxos",
         description:
-          "Use saved keywords and tags as a planning reference for rank tracking, content planning, or MCP-powered research.",
+          "Use as palavras-chave salvas e as tags como referência para o monitoramento de posições, o planejamento de conteúdo ou a pesquisa via MCP.",
       },
     ],
     metrics: [
-      { label: "Saved ideas", value: "Pipeline" },
-      { label: "Tags", value: "Organization" },
-      { label: "Volume", value: "Demand" },
-      { label: "Difficulty", value: "Priority" },
+      { label: "Ideias salvas", value: "Pipeline" },
+      { label: "Tags", value: "Organização" },
+      { label: "Volume", value: "Demanda" },
+      { label: "Dificuldade", value: "Prioridade" },
     ],
     useCases: [
-      "Tag keyword ideas into topic or page groups from keyword research.",
-      "Prepare candidate keywords to add to rank tracking.",
-      "Keep human and AI-agent research in the same workspace.",
+      "Separe ideias de palavras-chave em grupos por tema ou página usando tags.",
+      "Prepare palavras-chave candidatas para o monitoramento de posições.",
+      "Mantenha a pesquisa humana e a dos agentes de IA no mesmo espaço de trabalho.",
     ],
     differentiators: [
-      "Saved keywords bridge research, tracking, and AI workflows.",
-      "Saved keywords preserve available metrics like volume, CPC, difficulty, intent, and tags.",
-      "The workflow stays simple enough for repeated planning sessions.",
+      "As palavras-chave salvas ligam pesquisa, monitoramento e fluxos com IA.",
+      "As palavras-chave salvas mantêm as métricas disponíveis, como volume, CPC, dificuldade, intenção e tags.",
+      "O fluxo é simples o bastante para sessões de planejamento recorrentes.",
     ],
     related: [
-      { label: "Keyword Research", href: "/features/keyword-research" },
-      { label: "Rank Tracking", href: "/features/rank-tracking" },
-      { label: "OpenSEO MCP", href: "/features/mcp" },
+      {
+        label: "Pesquisa de palavras-chave",
+        href: "/features/keyword-research",
+      },
+      { label: "Monitoramento de posições", href: "/features/rank-tracking" },
+      { label: "MCP do RE9 SEO", href: "/features/mcp" },
     ],
     faqs: [
       {
-        question: "Why save keywords in an SEO tool?",
+        question: "Por que salvar palavras-chave em uma ferramenta de SEO?",
         answer:
-          "Saved keywords keep research organized so teams can return to the ideas that are worth writing, optimizing, or tracking.",
+          "As palavras-chave salvas mantêm a pesquisa organizada para a equipe voltar às ideias que valem ser escritas, otimizadas ou monitoradas.",
       },
       {
-        question: "Can saved keywords be used with rank tracking?",
+        question:
+          "As palavras-chave salvas podem ser usadas no monitoramento de posições?",
         answer:
-          "Yes. Saved keywords are a natural source for deciding which terms should be monitored over time.",
+          "Sim. Elas são a fonte natural para decidir quais termos devem ser acompanhados ao longo do tempo.",
       },
       {
-        question: "How do saved keywords fit into SEO planning?",
+        question:
+          "Como as palavras-chave salvas entram no planejamento de SEO?",
         answer:
-          "Research fills the list, tags group it into pages and campaigns, and the shortlist feeds rank tracking. Saved keywords are the bridge between finding an opportunity and acting on it.",
+          "A pesquisa alimenta a lista, as tags agrupam os termos por páginas e campanhas, e a lista final alimenta o monitoramento de posições. As palavras-chave salvas são a ponte entre encontrar uma oportunidade e agir sobre ela.",
       },
     ],
   },
   aiBrandVisibility: {
     slug: FEATURE_PAGE_SLUGS.aiBrandVisibility,
-    eyebrow: "AI Visibility",
-    navDescription: "Look up brand mentions in AI search.",
-    title: "Brand lookup for ChatGPT and Google AI Overview visibility",
+    eyebrow: "Visibilidade em IA",
+    navDescription: "Consulte menções da marca na busca com IA.",
+    title:
+      "Consulta de marca para visibilidade no ChatGPT e no Google AI Overview",
     description:
-      "Look up a brand or domain and review ChatGPT and Google AI Overview mentions, cited pages, and related prompts.",
-    primaryKeyword: "ai visibility tool",
+      "Consulte uma marca ou domínio e veja as menções no ChatGPT e no Google AI Overview, as páginas citadas e os prompts relacionados.",
+    primaryKeyword: "ferramenta de visibilidade em ia",
     secondaryKeywords: [
-      "brand visibility ai search",
-      "ai search visibility",
-      "answer engine optimization",
+      "visibilidade da marca na busca com ia",
+      "visibilidade na busca com ia",
+      "otimização para mecanismos de resposta",
     ],
-    imageAlt: "OpenSEO AI brand visibility report",
+    imageAlt: "Relatório de visibilidade da marca em IA no RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/cde3e4f8-079f-4890-cb17-371087107400/public",
     workflows: [
       {
-        title: "Look up a brand",
+        title: "Consulte uma marca",
         description:
-          "Search for a brand or domain and inspect how ChatGPT and Google AI Overview mention or cite it in available results.",
+          "Busque uma marca ou domínio e veja como o ChatGPT e o Google AI Overview a mencionam ou citam nos resultados disponíveis.",
       },
       {
-        title: "Review citations and platforms",
+        title: "Revise citações e plataformas",
         description:
-          "Review the URLs, domains, and platforms contributing to brand mentions.",
+          "Veja as URLs, os domínios e as plataformas que contribuem para as menções da marca.",
       },
       {
-        title: "Find visibility gaps",
+        title: "Encontre lacunas de visibilidade",
         description:
-          "Use cited pages and related prompts as clues for content, reputation, or comparison coverage to investigate.",
+          "Use as páginas citadas e os prompts relacionados como pistas para investigar lacunas de conteúdo, de reputação ou de comparativos.",
       },
     ],
     metrics: [
-      { label: "Mentions", value: "Presence" },
-      { label: "Citations", value: "Sources" },
-      { label: "Platforms", value: "Surfaces" },
-      { label: "Cited domains", value: "Sources" },
+      { label: "Menções", value: "Presença" },
+      { label: "Citações", value: "Fontes" },
+      { label: "Plataformas", value: "Superfícies" },
+      { label: "Domínios citados", value: "Origens" },
     ],
     useCases: [
-      "See whether ChatGPT and Google AI Overview data mention or cite your brand or domain.",
-      "Find pages and domains cited alongside brand mentions.",
-      "Use cited sources and prompts to plan content experiments for answer-engine visibility.",
+      "Veja se os dados do ChatGPT e do Google AI Overview mencionam ou citam sua marca ou domínio.",
+      "Encontre as páginas e os domínios citados junto com as menções da marca.",
+      "Use as fontes citadas e os prompts para planejar testes de conteúdo voltados à visibilidade em mecanismos de resposta.",
     ],
     differentiators: [
-      "AI visibility sits beside classic SEO research instead of replacing it.",
-      "The workflow focuses on concrete sources and mentions, not vague AI hype.",
-      "OpenSEO helps teams connect AI mention and citation research to concrete SEO planning.",
+      "A visibilidade em IA fica ao lado da pesquisa de SEO clássica, sem substituí-la.",
+      "O fluxo foca em fontes e menções concretas, não em promessas vagas sobre IA.",
+      "O RE9 SEO ajuda equipes a ligar a pesquisa de menções e citações em IA a um planejamento de SEO concreto.",
     ],
     related: [
-      { label: "AI Search Prompts", href: "/features/ai-search-prompts" },
-      { label: "Domain Overview", href: "/features/domain-overview" },
-      { label: "OpenSEO MCP", href: "/features/mcp" },
+      {
+        label: "Prompts de busca com IA",
+        href: "/features/ai-search-prompts",
+      },
+      { label: "Visão geral do domínio", href: "/features/domain-overview" },
+      { label: "MCP do RE9 SEO", href: "/features/mcp" },
     ],
     faqs: [
       {
-        question: "What is AI brand visibility?",
+        question: "O que é visibilidade da marca em IA?",
         answer:
-          "AI brand visibility is how often your brand or domain appears in available ChatGPT and Google AI Overview mention and citation data.",
+          "É a frequência com que sua marca ou domínio aparece nos dados disponíveis de menções e citações do ChatGPT e do Google AI Overview.",
       },
       {
-        question: "How is AI visibility different from traditional SEO?",
+        question:
+          "Qual a diferença entre visibilidade em IA e SEO tradicional?",
         answer:
-          "Traditional SEO focuses on rankings and pages. OpenSEO's AI visibility workflow looks at mentions, cited pages, related prompts, and platform-level metrics from supported AI-search sources.",
+          "O SEO tradicional foca em posições e páginas. O fluxo de visibilidade em IA do RE9 SEO olha para menções, páginas citadas, prompts relacionados e métricas por plataforma das fontes de busca com IA suportadas.",
       },
       {
-        question: "Should AI visibility replace keyword research?",
+        question:
+          "A visibilidade em IA deve substituir a pesquisa de palavras-chave?",
         answer:
-          "No. It should sit beside keyword, domain, backlink, and audit data so teams can understand both search rankings and answer coverage.",
+          "Não. Ela deve ficar ao lado dos dados de palavras-chave, domínios, backlinks e auditoria para a equipe entender tanto as posições na busca quanto a presença nas respostas.",
       },
     ],
   },
   aiSearchPrompts: {
     slug: FEATURE_PAGE_SLUGS.aiSearchPrompts,
-    eyebrow: "Prompt Explorer",
-    navDescription: "Compare answers across supported models.",
-    title: "AI search prompt explorer for visibility research",
+    eyebrow: "Explorador de prompts",
+    navDescription: "Compare respostas entre os modelos suportados.",
+    title:
+      "Explorador de prompts de busca com IA para pesquisa de visibilidade",
     description:
-      "Run the same prompt across supported AI models, compare the answers, and review citations when they are returned.",
-    primaryKeyword: "ai search visibility",
+      "Rode o mesmo prompt em vários modelos de IA suportados, compare as respostas e revise as citações quando elas forem retornadas.",
+    primaryKeyword: "visibilidade na busca com ia",
     secondaryKeywords: [
-      "chatgpt search visibility",
-      "ai search prompts",
-      "answer engine optimization tool",
+      "visibilidade na busca do chatgpt",
+      "prompts de busca com ia",
+      "ferramenta de otimização para mecanismos de resposta",
     ],
-    imageAlt: "OpenSEO prompt explorer",
+    imageAlt: "Explorador de prompts do RE9 SEO",
     imageSrc:
       "https://imagedelivery.net/ysLOa6bzFaM49Jxok-TAlw/9f3d38f2-aa97-417c-ca74-ae378654d700/public",
     workflows: [
       {
-        title: "Test category prompts",
+        title: "Teste prompts da sua categoria",
         description:
-          "Compare answers to the questions your customers might ask AI tools.",
+          "Compare as respostas às perguntas que seus clientes podem fazer às ferramentas de IA.",
       },
       {
-        title: "Inspect web-backed answers",
+        title: "Analise respostas baseadas na web",
         description:
-          "When web search is enabled, inspect the pages and domains cited by model responses.",
+          "Com a busca na web ativada, veja as páginas e os domínios citados nas respostas dos modelos.",
       },
       {
-        title: "Check brand mentions",
+        title: "Verifique menções da marca",
         description:
-          "Highlight a brand and see whether each model mentions it in the answer or cited sources.",
+          "Destaque uma marca e veja se cada modelo a menciona na resposta ou nas fontes citadas.",
       },
     ],
     metrics: [
-      { label: "Prompts", value: "Questions" },
-      { label: "Web context", value: "Sources" },
-      { label: "Web search country", value: "Regional context" },
-      { label: "Brand mentions", value: "Presence" },
+      { label: "Prompts", value: "Perguntas" },
+      { label: "Contexto da web", value: "Fontes" },
+      { label: "País da busca na web", value: "Contexto regional" },
+      { label: "Menções da marca", value: "Presença" },
     ],
     useCases: [
-      "Compare how supported AI models answer the same prompt.",
-      "Review which pages and domains appear in cited sources.",
-      "Check whether a brand appears in AI answers and citations.",
+      "Compare como os modelos de IA suportados respondem ao mesmo prompt.",
+      "Veja quais páginas e domínios aparecem nas fontes citadas.",
+      "Verifique se uma marca aparece nas respostas e citações das IAs.",
     ],
     differentiators: [
-      "Prompt research lives in the same workspace as domain, keyword, and brand visibility workflows.",
-      "OpenSEO treats AI search as a research layer, not a replacement for SEO fundamentals.",
-      "OpenSEO MCP exposes keyword, SERP, domain, backlink, saved keyword, and rank-tracking tools to AI agents.",
+      "A pesquisa de prompts fica no mesmo espaço de trabalho dos fluxos de domínio, palavras-chave e visibilidade da marca.",
+      "O RE9 SEO trata a busca com IA como uma camada de pesquisa, não como substituta dos fundamentos de SEO.",
+      "O MCP do RE9 SEO expõe ferramentas de palavras-chave, SERP, domínio, backlinks, palavras-chave salvas e monitoramento de posições para agentes de IA.",
     ],
     related: [
-      { label: "AI Brand Visibility", href: "/features/ai-brand-visibility" },
-      { label: "Keyword Research", href: "/features/keyword-research" },
-      { label: "OpenSEO MCP", href: "/features/mcp" },
+      {
+        label: "Visibilidade da marca em IA",
+        href: "/features/ai-brand-visibility",
+      },
+      {
+        label: "Pesquisa de palavras-chave",
+        href: "/features/keyword-research",
+      },
+      { label: "MCP do RE9 SEO", href: "/features/mcp" },
     ],
     faqs: [
       {
-        question: "What is an AI search prompt explorer?",
+        question: "O que é um explorador de prompts de busca com IA?",
         answer:
-          "It lets teams run the same prompt across supported AI models, compare answers, and inspect citation URLs returned with supported model responses.",
+          "É uma ferramenta que permite rodar o mesmo prompt em vários modelos de IA suportados, comparar as respostas e analisar as URLs citadas que vêm junto com as respostas dos modelos compatíveis.",
       },
       {
-        question: "Why does prompt research matter for SEO?",
+        question: "Por que a pesquisa de prompts importa para o SEO?",
         answer:
-          "Prompts are the new queries: they show the comparison, problem, and buying questions your customers now ask AI tools. The cited sources show which pages and domains those answers are built on, so you can see where your coverage is missing.",
+          "Os prompts são as novas buscas: mostram as perguntas de comparação, de problema e de compra que seus clientes agora fazem às ferramentas de IA. As fontes citadas mostram em quais páginas e domínios essas respostas se apoiam, para você ver onde falta cobertura.",
       },
       {
-        question: "Can this help with answer engine optimization?",
+        question: "Isso ajuda na otimização para mecanismos de resposta?",
         answer:
-          "Yes. Prompt Explorer is a starting point for mapping prompt responses and returned citations back to source pages and possible SEO follow-up work.",
+          "Sim. O explorador de prompts é um ponto de partida para relacionar as respostas e as citações retornadas às páginas de origem e a possíveis ações de SEO.",
       },
     ],
   },
@@ -842,8 +890,9 @@ export const featurePages = {
 
 export const featureGroups = [
   {
-    label: "Keyword workflows",
-    description: "Find, organize, and monitor the keywords that matter.",
+    label: "Fluxos de palavras-chave",
+    description:
+      "Encontre, organize e monitore as palavras-chave que importam.",
     pages: [
       featurePages.keywordResearch,
       featurePages.savedKeywords,
@@ -851,8 +900,8 @@ export const featureGroups = [
     ],
   },
   {
-    label: "Domain research",
-    description: "Understand competitors, backlinks, and technical health.",
+    label: "Pesquisa de domínios",
+    description: "Entenda concorrentes, backlinks e saúde técnica.",
     pages: [
       featurePages.domainOverview,
       featurePages.backlinks,
@@ -860,8 +909,9 @@ export const featureGroups = [
     ],
   },
   {
-    label: "AI visibility",
-    description: "Research AI search prompts, citations, and brand visibility.",
+    label: "Visibilidade em IA",
+    description:
+      "Pesquise prompts de busca com IA, citações e visibilidade da marca.",
     pages: [featurePages.aiBrandVisibility, featurePages.aiSearchPrompts],
   },
 ] as const;

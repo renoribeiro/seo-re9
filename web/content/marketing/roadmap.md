@@ -1,51 +1,51 @@
 ---
 title: Roadmap
-description: Features we plan to add to OpenSEO over the next three months.
+description: Recursos que planejamos adicionar ao RE9 SEO. As prioridades podem mudar.
 ---
 
-Have a feature request that belongs here? [Tell us on Discord](https://discord.gg/c9uGs3cFXr).
+Tem uma sugestão de recurso que deveria estar aqui? Fale com a gente: [trafego@re9.online](mailto:trafego@re9.online).
 
-## Evergreen
+## Sempre
 
-- Fix bugs
-- Improve onboarding
-  - Easy whether your new to SEO or a Pro
-- Improve the UX
+- Corrigir bugs
+- Melhorar os primeiros passos
+  - Fácil para quem está começando em SEO ou para quem já é profissional
+- Melhorar a experiência de uso
 
-## Highest Priority
+## Prioridade máxima
 
-- Add teammates to an account
-- Community skill library
-  - "Advanced" features available in other tools make the tools less approachable to people new to SEO.
-  - We'll make a community library for these more advanced workflows.
-- Web Bot Auth for bot-protected sites for Audit
-- Improve In App Agent
-- Consistent design across OpenSEO, built on a shared component library
-- IndexNow support
+- Adicionar membros da equipe a uma conta
+- Biblioteca de skills da comunidade
+  - Recursos "avançados" de outras ferramentas deixam essas ferramentas menos acessíveis para quem está começando em SEO.
+  - Vamos criar uma biblioteca da comunidade para esses fluxos mais avançados.
+- Web Bot Auth para auditar sites protegidos contra bots
+- Melhorar o agente dentro do app
+- Design consistente em todo o RE9 SEO, com uma biblioteca de componentes compartilhada
+- Suporte a IndexNow
 
-## Soon
+## Na sequência
 
-- Prompt tracking for AI search visibility
-- Google Business Profile integration
-- Google Maps geo-grid rank tracking
-- Support multi-user for Docker self hosting
-  - Guides for popular platforms like Coolify and Railway.
-- Configurable daily and weekly email reports
-  - Scheduled Site Audits
-  - GSC Reports
-  - Rank Tracking Alerts
-- Custom reports
-  - We'll expose a Claude Skill so that you can customize to your company or clients.
-- Share reports with clients
-- Content writing workflows for Agents
-- Agent readiness checks in site audits
-- Bing Webmaster Tools integration
+- Monitoramento de prompts para visibilidade na busca com IA
+- Integração com o Perfil da Empresa no Google
+- Monitoramento de posições em grade geográfica no Google Maps
+- Suporte a vários usuários na hospedagem própria com Docker
+  - Guias para plataformas populares como Coolify e Railway.
+- Relatórios diários e semanais por e-mail configuráveis
+  - Auditorias do site agendadas
+  - Relatórios do GSC
+  - Alertas de monitoramento de posições
+- Relatórios personalizados
+  - Vamos disponibilizar uma skill do Claude para você personalizar os relatórios para a sua empresa ou seus clientes.
+- Compartilhar relatórios com clientes
+- Fluxos de produção de conteúdo para agentes
+- Verificações de preparo para agentes na auditoria do site
+- Integração com o Bing Webmaster Tools
 
-## Not planned
+## Fora dos planos
 
-- Content Optimization features like "Keyword Density"
-- Advanced Site Audit Features like JS Rendering
-- Keyword Gap Analysis Page
-  - We will support this as a skill. You can ask Claude to turn it into a report.
+- Recursos de otimização de conteúdo como "densidade de palavras-chave"
+- Recursos avançados de auditoria do site, como renderização de JavaScript
+- Página de análise de lacunas de palavras-chave
+  - Vamos oferecer isso como uma skill. Você pode pedir ao Claude para transformar o resultado em um relatório.
 
-Have a feature request that belongs here? [Tell us on Discord](https://discord.gg/c9uGs3cFXr).
+Tem uma sugestão de recurso que deveria estar aqui? Fale com a gente: [trafego@re9.online](mailto:trafego@re9.online).

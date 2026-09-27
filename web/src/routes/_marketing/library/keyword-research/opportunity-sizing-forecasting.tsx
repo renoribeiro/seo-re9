@@ -10,24 +10,24 @@ const PATH = "/library/keyword-research/opportunity-sizing-forecasting";
 
 const faqs = [
   {
-    question: "How accurate is SEO forecasting?",
+    question: "Quão precisa é uma projeção de SEO?",
     answer:
-      "Directionally useful and precisely wrong, which is why the output should be a range. Volume figures are estimates, CTR curves are averages across wildly different SERPs, and ranking timelines depend on competitors who are also working. Forecast to compare opportunities against each other, not to promise a number.",
+      "Útil como direção e errada nos detalhes, e é por isso que o resultado deve ser uma faixa. Os volumes são estimativas, as curvas de CTR são médias de SERPs muito diferentes e o tempo para ranquear depende de concorrentes que também estão trabalhando. Faça projeções para comparar oportunidades entre si, não para prometer um número.",
   },
   {
-    question: "What is a good SEO ROI?",
+    question: "Qual é um bom ROI de SEO?",
     answer:
-      "It depends on conversion value and payback window rather than a benchmark. The useful calculation is cost of the content and links against forecast revenue over 12 months, and whether that beats what the same budget would return in paid. SEO usually loses that comparison in month one and wins it by month nine, so the timeline matters as much as the multiple.",
+      "Depende do valor da conversão e do prazo de retorno, não de uma referência de mercado. A conta útil é o custo do conteúdo e dos links contra a receita projetada em 12 meses, e se isso supera o que a mesma verba renderia em mídia paga. O SEO costuma perder essa comparação no primeiro mês e ganhar até o nono, então o prazo importa tanto quanto o múltiplo.",
   },
   {
-    question: "Which SEO KPIs matter?",
+    question: "Quais KPIs de SEO importam?",
     answer:
-      "Leads and revenue are the two numbers a business treats as exact. Everything else, including rankings, sessions and impressions, is diagnostic: useful for explaining why the exact numbers moved, weak as a target in its own right.",
+      "Leads e receita são os dois números que uma empresa trata como exatos. Todo o resto, incluindo posições, sessões e impressões, é diagnóstico: útil para explicar por que os números exatos mudaram, fraco como meta em si.",
   },
   {
-    question: "How do you calculate potential traffic from keywords?",
+    question: "Como calcular o tráfego potencial de palavras-chave?",
     answer:
-      "Combined cluster volume, times the CTR for your expected position, gives estimated sessions. Multiply by conversion rate and conversion value for revenue. Run it three times at three positions so you finish with a range rather than a single figure nobody should trust.",
+      "O volume somado do grupo, multiplicado pelo CTR da posição esperada, dá as sessões estimadas. Multiplique pela taxa de conversão e pelo valor da conversão para chegar à receita. Faça a conta três vezes, com três posições, para terminar com uma faixa em vez de um número único em que ninguém deveria confiar.",
   },
 ];
 
@@ -46,10 +46,11 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "SEO Forecasting: Size a Keyword Opportunity Before You Build",
+      title:
+        "Projeção de SEO: dimensione uma oportunidade de palavra-chave antes de construir",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -57,7 +58,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Opportunity sizing & forecasting"
+        crumb="Dimensionamento de oportunidades e projeções"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

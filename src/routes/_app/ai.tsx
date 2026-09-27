@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ShieldAlert } from "lucide-react";
+import { ShieldAlert } from "lucide-react";
 import { getAuthMode } from "@/lib/auth-mode";
 import { captureClientEvent } from "@/client/lib/posthog";
 import {
@@ -10,8 +10,6 @@ import {
 import { CopyButton } from "@/client/features/ai-mcp/SetupControls";
 import { AgentList } from "@/client/features/ai-mcp/AgentList";
 
-const DOCS_URL = "https://openseo.so/docs/agent-setup";
-const COACH_DOCS_URL = "https://openseo.so/docs/skills/seo-coach";
 const SKILLS = [
   ["seo-coach", "Explica onde você está e escolhe seu próximo passo."],
   [
@@ -56,7 +54,7 @@ export const Route = createFileRoute("/_app/ai")({
 function AiPage() {
   const origin =
     typeof window === "undefined"
-      ? "https://app.openseo.so"
+      ? "https://seo.agenciare9.com.br"
       : window.location.origin;
   const mcpUrl = `${origin}/mcp`;
   const prompt = getAgentSetupPrompt(origin);
@@ -114,27 +112,11 @@ function AiPage() {
                     successMessage="Prompt de configuração copiado"
                     onCopy={() => captureClientEvent("mcp:setup_prompt_copy")}
                   />
-                  <a
-                    href={`${DOCS_URL}#set-up-your-agent`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-base-content/60 underline decoration-base-content/25 underline-offset-4 hover:text-base-content"
-                  >
-                    Instruções de configuração
-                    <ArrowUpRight className="size-3.5" />
-                  </a>
                 </div>
                 <p className="mt-5 border-t border-base-300 pt-4 text-sm leading-relaxed text-base-content/60">
                   Depois de conectar, peça ao seu agente para usar o{" "}
-                  <a
-                    href={COACH_DOCS_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-base-content underline decoration-base-content/25 underline-offset-4 hover:decoration-base-content"
-                  >
-                    SEO Coach
-                  </a>{" "}
-                  para ajudar você a escolher o que fazer em seguida.
+                  <strong className="text-base-content">SEO Coach</strong> para
+                  ajudar você a escolher o que fazer em seguida.
                 </p>
               </section>
 
@@ -155,15 +137,6 @@ function AiPage() {
                     successMessage="Prompt de atualização copiado"
                     onCopy={() => captureClientEvent("mcp:update_prompt_copy")}
                   />
-                  <a
-                    href={`${DOCS_URL}#update-your-skills`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-base-content/60 underline decoration-base-content/25 underline-offset-4 hover:text-base-content"
-                  >
-                    Instruções de atualização
-                    <ArrowUpRight className="size-3.5" />
-                  </a>
                 </div>
               </section>
             </div>
@@ -174,15 +147,7 @@ function AiPage() {
                 <span>
                   Esta instância está protegida pelo Cloudflare Access. Os
                   clientes MCP só conseguem se conectar depois que o Managed
-                  OAuth for ativado no seu aplicativo do Access.{" "}
-                  <a
-                    href="https://openseo.so/docs/self-hosting/cloudflare#connect-the-mcp-server-through-cloudflare-access"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="link font-medium"
-                  >
-                    Guia de configuração
-                  </a>
+                  OAuth for ativado no seu aplicativo do Access.
                 </span>
               </div>
             ) : null}
@@ -212,14 +177,9 @@ function AiPage() {
                   key={name}
                   className="flex flex-col gap-0.5 sm:flex-row sm:gap-3"
                 >
-                  <a
-                    href={`https://openseo.so/docs/skills/${name}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="shrink-0 font-mono text-[13px] text-base-content underline decoration-base-content/25 underline-offset-4 hover:decoration-base-content sm:w-48"
-                  >
+                  <span className="shrink-0 font-mono text-[13px] text-base-content sm:w-48">
                     /{name}
-                  </a>
+                  </span>
                   <span className="text-base-content/60">{blurb}</span>
                 </li>
               ))}

@@ -1,125 +1,127 @@
 ---
-title: "How accurate are competitor traffic estimates?"
-description: "A domain overview reports an estimate, not a measurement. What inflates the headline number, how close-variant stacking works, and how to read a competitor's footprint without being fooled by its size."
+title: "Qual a precisão das estimativas de tráfego dos concorrentes?"
+description: "A visão geral do domínio traz uma estimativa, não uma medição. O que infla o número principal, como funciona o empilhamento de variantes próximas e como ler a presença de um concorrente sem se deixar enganar pelo tamanho dele."
 ---
 
-## What a domain overview actually measures
+## O que a visão geral do domínio realmente mede
 
-Every competitor traffic number you have ever seen is modelled. Nobody outside a company can see its analytics. What a tool does instead is find the keywords a domain ranks for, look up each keyword's estimated search volume, apply an assumed click-through rate for the position held, and add it all up.
+Todo número de tráfego de concorrente que você já viu é modelado. Ninguém de fora de uma empresa enxerga o analytics dela. O que a ferramenta faz é encontrar as palavras-chave para as quais um domínio ranqueia, buscar o volume de busca estimado de cada uma, aplicar uma taxa de cliques presumida para a posição ocupada e somar tudo.
 
-That method is genuinely useful and it is wrong in specific, knowable directions. If you understand the directions, the estimate becomes a good instrument. If you treat it as a measurement, it will lead you into fights you cannot win and away from ones you can.
+O método é útil de verdade e erra em direções específicas e conhecidas. Se você entende essas direções, a estimativa vira um bom instrumento. Se você a trata como medição, ela vai empurrar você para brigas que não dá para ganhar e afastar você das que dá.
 
-Melissa Popp of the agency Rickety Roo points at the largest blind spot, which no volume model can see at all:
+Melissa Popp, da agência Rickety Roo, aponta o maior ponto cego, que nenhum modelo de volume consegue enxergar:
 
-> And then you look at where traffic is actually coming from from competitors, and it's not going to their website. You know, people are starting on Instagram and TikTok.
+> E aí você vai ver de onde o tráfego dos concorrentes está vindo de fato, e ele não está indo para o site deles. Sabe, as pessoas estão começando no Instagram e no TikTok.
 
-An organic traffic estimate covers Google organic. A competitor's real demand may be arriving somewhere the estimate has no visibility into, which cuts both ways: the number can overstate their search position and understate their business.
+Uma estimativa de tráfego orgânico cobre o orgânico do Google. A demanda real de um concorrente pode estar chegando por um canal que a estimativa não enxerga, e isso vale para os dois lados: o número pode superestimar a posição dele na busca e subestimar o negócio dele.
 
-## Read the headline number, then read what produced it
+## Leia o número principal e depois o que o produziu
 
-Here is a real domain overview for a national brand in the property restoration category.
+Veja a visão geral real do domínio de uma marca nacional do setor de restauração de imóveis (limpeza e recuperação após danos por água, fogo e mofo).
 
-![A domain overview showing 3,023,467 estimated organic traffic and 49,475 organic keywords, with a top-keywords table where the highest-traffic term is a carpet cleaning query](/library/competitive-analysis/competitor-domain-overview-openseo.png)
+![Visão geral do domínio mostrando 3.023.467 de tráfego orgânico estimado e 49.475 palavras-chave orgânicas, com uma tabela de principais palavras-chave em que o termo de maior tráfego é uma consulta sobre limpeza de carpetes](/library/competitive-analysis/competitor-domain-overview-openseo.png)
 
-Three million estimated visits a month, across just under fifty thousand keywords. If you run a restoration company, that is a terrifying number.
+Três milhões de visitas estimadas por mês, em pouco menos de cinquenta mil palavras-chave. Se você tem uma empresa de restauração, é um número assustador.
 
-Now read the table under it. The single highest-traffic term is a carpet cleaning query. Second is a commercial cleaning query. Work down the list and a very large share of the estimated traffic sits on carpet cleaning, general house cleaning, air duct cleaning, and dryer vent cleaning.
+Agora leia a tabela logo abaixo. O termo de maior tráfego é uma consulta sobre limpeza de carpetes. O segundo, sobre limpeza comercial. Descendo a lista, uma fatia muito grande do tráfego estimado está em limpeza de carpetes, faxina residencial, limpeza de dutos de ar e limpeza de dutos de secadora.
 
-That company is not beating you at restoration by three million visits a month. It also runs a cleaning services business, and the cleaning business is where a great deal of the traffic lives. The comparable number, restoration terms only, is a fraction of the headline.
+Essa empresa não está ganhando de você em restauração por três milhões de visitas por mês. Ela também tem um negócio de serviços de limpeza, e é nele que mora boa parte do tráfego. O número comparável, só com termos de restauração, é uma fração do número principal.
 
-This is the first and most important correction: **a domain-level traffic estimate aggregates every business line a domain operates.** Before you benchmark against it, filter it down to the business you are actually in.
+Essa é a primeira e mais importante correção: **a estimativa de tráfego no nível do domínio soma todas as linhas de negócio que aquele domínio opera.** Antes de se comparar com ela, filtre até sobrar só o negócio em que você realmente atua.
 
-## Close-variant stacking, and why keyword counts inflate
+## Empilhamento de variantes próximas e por que a contagem de palavras-chave infla
 
-The second correction is subtler and it inflates almost every competitor estimate you will ever read.
+A segunda correção é mais sutil e infla quase toda estimativa de concorrente que você vai ler.
 
-![A ranked-keyword table where five different mold-related keywords all show identical search volume of 74,000 and identical estimated traffic of 22,496, all pointing at the same single URL](/library/competitive-analysis/close-variant-keyword-inflation-openseo.png)
+![Tabela de palavras-chave ranqueadas em que cinco palavras-chave diferentes sobre mofo mostram o mesmo volume de busca de 74.000 e o mesmo tráfego estimado de 22.496, todas apontando para a mesma URL](/library/competitive-analysis/close-variant-keyword-inflation-openseo.png)
 
-Look at the block in the middle. Five keywords, all reported at 74,000 monthly searches, all reported at 22,496 estimated traffic, nearly all pointing at the same URL. Above it, three more terms share an identical 165,000 and 26,730, again on one URL.
+Olhe o bloco do meio. Cinco palavras-chave, todas com 74.000 buscas mensais, todas com 22.496 de tráfego estimado, quase todas apontando para a mesma URL. Logo acima, outros três termos repetem exatamente 165.000 e 26.730, de novo numa única URL.
 
-Those are not five keywords and three keywords. Search volume data derives from Google Ads, which groups close variants together and reports the group's volume against every member. So one real pool of demand gets reported five times, and if the model then adds up per-keyword traffic estimates, that pool gets counted five times too.
+Na prática, não são cinco palavras-chave, nem três. Os dados de volume de busca vêm do Google Ads, que agrupa variantes próximas e atribui o volume do grupo a cada um dos membros. Assim, um único bloco real de demanda aparece cinco vezes, e se o modelo depois soma as estimativas de tráfego por palavra-chave, esse bloco também é contado cinco vezes.
 
-The practical consequences:
+As consequências práticas:
 
-- **Organic keyword counts are inflated.** "Ranks for 49,475 keywords" includes large families of near-duplicates.
-- **Estimated traffic is inflated wherever stacking is heavy**, which tends to be in commercial service categories where buyers phrase the same request many ways.
-- **Two tools will disagree** because they de-duplicate differently and assume different click curves.
+- **A contagem de palavras-chave orgânicas é inflada.** "Ranqueia para 49.475 palavras-chave" inclui famílias inteiras de quase duplicatas.
+- **O tráfego estimado é inflado onde o empilhamento é forte**, o que costuma acontecer em categorias de serviços comerciais, nas quais o comprador formula o mesmo pedido de várias maneiras.
+- **Duas ferramentas vão discordar**, porque removem duplicatas de formas diferentes e presumem curvas de clique diferentes.
 
-Gert Mellak of Solicom AI Consulting treats that disagreement as information rather than a problem:
+Gert Mellak, da Solicom AI Consulting, trata essa discordância como informação, não como problema:
 
-> The narrower the focus, the better you can use the data, because then you can start cross connecting data from different data points. Do Semrush and Ahrefs actually agree? Very often they might not.
+> Quanto mais estreito o foco, melhor você consegue usar os dados, porque aí dá para começar a cruzar informações de fontes diferentes. O Semrush e o Ahrefs concordam de fato? Muitas vezes, não.
 
-Where two estimates disagree wildly, the honest reading is that the true figure is uncertain, not that one tool is right.
+Quando duas estimativas discordam muito, a leitura honesta é que o número verdadeiro é incerto, e não que uma das ferramentas está certa.
 
-## Read pages, not keywords
+## Leia páginas, não palavras-chave
 
-The fix for both problems is the same. Stop reading the keyword tab and read the pages tab.
+A solução para os dois problemas é a mesma. Pare de ler a aba de palavras-chave e leia a aba de páginas.
 
-A page count cannot be inflated by close variants, because the five stacked mold terms resolve to one URL. Pages also map to work: you cannot build a keyword, but you can build a page. And grouping by page reveals the shape of a competitor's advantage, which is usually the actual finding.
+A contagem de páginas não é inflada por variantes próximas, porque os cinco termos empilhados sobre mofo levam a uma única URL. Páginas também se traduzem em trabalho: você não constrói uma palavra-chave, mas constrói uma página. E agrupar por página revela o formato da vantagem do concorrente, que normalmente é a descoberta que importa.
 
-Ask three questions of the page list:
+Faça três perguntas à lista de páginas:
 
-1. **How concentrated is it?** If the top ten pages hold most of the estimated traffic, their moat is ten pages deep and you can see all of it.
-2. **How many of those pages are in my business?** The restoration example collapses considerably under this question.
-3. **How old and how good are they?** A dated page holding position three on a term you care about is an invitation.
+1. **Quão concentrada ela é?** Se as dez principais páginas concentram a maior parte do tráfego estimado, o fosso competitivo deles tem dez páginas de profundidade e você consegue ver tudo.
+2. **Quantas dessas páginas são do meu negócio?** O exemplo da restauração encolhe bastante diante dessa pergunta.
+3. **Quão antigas e quão boas elas são?** Uma página desatualizada na posição três de um termo que importa para você é um convite.
 
-Brittany Trafis of Soarion Digital has watched the size advantage matter less than it used to:
+Brittany Trafis, da Soarion Digital, tem visto a vantagem do tamanho pesar menos do que antes:
 
-> We are working with brands who have a quarter of the budget of their big competitors in paid advertising, but now within AI search, they're starting to show up and have a higher presence than their larger brands.
+> Trabalhamos com marcas que têm um quarto do orçamento de mídia paga dos grandes concorrentes, mas agora, na busca com IA, elas estão começando a aparecer e a ter mais presença do que as marcas maiores.
 
-Budget and traffic estimates measure the same thing, which is how much a company has already spent. Neither measures whether a specific page can be beaten.
+Orçamento e estimativa de tráfego medem a mesma coisa: quanto uma empresa já gastou. Nenhum dos dois mede se uma página específica pode ser superada.
 
-## Do it with OpenSEO
+## Como fazer no RE9 SEO
 
-The [domain overview tool](/features/domain-overview) returns the footprint, and the ranked-keyword rows behind it are what let you check the estimate rather than trust it. Connect the [OpenSEO MCP](/docs/mcp) and run the whole correction in one pass.
+A [ferramenta de visão geral do domínio](/features/domain-overview) traz a presença do concorrente, e as linhas de palavras-chave ranqueadas por trás dela são o que permite conferir a estimativa em vez de confiar nela. Conecte o [MCP do RE9 SEO](/docs/mcp) e faça toda a correção de uma vez.
 
 ```text
-Using the OpenSEO MCP, give me an honest read on [competitor.com].
+Usando o MCP do RE9 SEO, me dê uma leitura honesta de
+[concorrente.com].
 
-1. Pull the domain overview: estimated organic traffic and
-   organic keyword count. Report these as the headline figures.
+1. Puxe a visão geral do domínio: tráfego orgânico estimado e
+   contagem de palavras-chave orgânicas. Apresente esses números
+   como os números principais.
 
-2. Pull their ranked keywords sorted by traffic. Find rows that
-   share an identical search volume and identical traffic
-   estimate and resolve to the same URL. Report roughly how much
-   of the headline traffic sits in those stacked groups.
+2. Puxe as palavras-chave ranqueadas, ordenadas por tráfego.
+   Encontre as linhas com volume de busca idêntico, estimativa de
+   tráfego idêntica e a mesma URL. Informe mais ou menos quanto do
+   tráfego principal está nesses grupos empilhados.
 
-3. Group the keywords by ranking URL. Give me their top 20 pages
-   by estimated traffic.
+3. Agrupe as palavras-chave pela URL que ranqueia. Traga as 20
+   principais páginas por tráfego estimado.
 
-4. Split those pages into "in my business" and "other business
-   line", where my business is [describe what you actually sell].
-   Total each side.
+4. Divida essas páginas entre "no meu negócio" e "outra linha de
+   negócio", sendo que o meu negócio é [descreva o que você de
+   fato vende]. Some cada lado.
 
-Finish with two numbers: the headline estimate, and your best
-estimate for the part of it that competes with me. Say how
-confident you are and why.
+Termine com dois números: a estimativa principal e a sua melhor
+estimativa da parte dela que concorre comigo. Diga qual é o seu
+grau de confiança e por quê.
 ```
 
-That final instruction matters. An estimate presented without a confidence statement invites the reader to treat it as a measurement, which is the failure this whole page exists to prevent.
+Essa última instrução importa. Uma estimativa apresentada sem grau de confiança convida quem lê a tratá-la como medição, que é justamente a falha que esta página existe para evitar.
 
-## What to do first
+## Por onde começar
 
-Take the competitor whose traffic number most intimidates you and run step four only. Split their footprint into your business and everything else. In most markets the number that comes back is between a third and a tenth of the headline, and the gap you were planning around was never the gap.
+Pegue o concorrente cujo número de tráfego mais intimida você e rode apenas o passo quatro. Divida a presença dele entre o seu negócio e todo o resto. Na maioria dos mercados, o número que volta fica entre um terço e um décimo do número principal, e a distância que você estava usando no planejamento nunca foi a distância real.
 
-If you want the headline number in front of you before you start splitting it, the [free website traffic checker](/website-traffic-checker) returns it for any domain without an account.
+Se quiser ver o número principal antes de começar a dividi-lo, o [verificador de tráfego de sites gratuito](/website-traffic-checker) mostra esse dado para qualquer domínio, sem precisar de conta.
 
-Then take the terms that survive into [keyword gap analysis](/library/competitive-analysis/keyword-gap-analysis), and check whether the domains you are comparing against are even [the right competitors](/library/competitive-analysis/find-your-real-competitors) before you commit a quarter to catching them.
+Depois, leve os termos que sobrarem para a [análise de lacuna de palavras-chave](/library/competitive-analysis/keyword-gap-analysis) e confira se os domínios com que você está se comparando são mesmo [os concorrentes certos](/library/competitive-analysis/find-your-real-competitors) antes de dedicar um trimestre inteiro a alcançá-los.
 
-## Competitor traffic estimate FAQ
+## Perguntas frequentes sobre estimativas de tráfego de concorrentes
 
-### How accurate are competitor traffic estimates?
+### Qual a precisão das estimativas de tráfego dos concorrentes?
 
-They are directionally useful and numerically unreliable. They are modelled from ranked keywords, estimated search volumes, and assumed click-through rates, so they inherit every error in all three. Treat an estimate as an order of magnitude and a trend, never as a figure to plan revenue against.
+Elas são úteis para indicar direção e pouco confiáveis como número. São modeladas a partir de palavras-chave ranqueadas, volumes de busca estimados e taxas de cliques presumidas, então herdam todos os erros dessas três fontes. Trate a estimativa como ordem de grandeza e tendência, nunca como um número para planejar receita.
 
-### Why do different SEO tools show different traffic for the same site?
+### Por que ferramentas de SEO diferentes mostram tráfegos diferentes para o mesmo site?
 
-Because each one uses a different keyword index, a different volume source, a different way of de-duplicating close variants, and a different click curve. Disagreement between tools is normal and tells you the true figure is uncertain.
+Porque cada uma usa um índice de palavras-chave diferente, uma fonte de volume diferente, um jeito diferente de remover variantes próximas duplicadas e uma curva de cliques diferente. Discordância entre ferramentas é normal e indica que o número verdadeiro é incerto.
 
-### Why do several keywords show exactly the same search volume?
+### Por que várias palavras-chave mostram exatamente o mesmo volume de busca?
 
-Google Ads groups close variants such as plurals, word order changes, and near-synonyms, then reports the grouped volume for every term in the group. Tools that source volume from Google Ads inherit that grouping, which is why five phrasings of one request can all report an identical number.
+O Google Ads agrupa variantes próximas, como plurais, mudanças na ordem das palavras e quase sinônimos, e atribui o volume do grupo a cada termo dele. Ferramentas que buscam o volume no Google Ads herdam esse agrupamento, e é por isso que cinco formas de fazer o mesmo pedido podem mostrar exatamente o mesmo número.
 
-### Is estimated organic traffic the same as a website traffic checker?
+### Tráfego orgânico estimado é a mesma coisa que um verificador de tráfego de sites?
 
-No. A traffic checker tries to estimate all visits from every source. An organic traffic estimate covers Google organic search only, and says nothing about direct, email, paid, social, or referral traffic, which for many businesses is the majority.
+Não. Um verificador de tráfego tenta estimar todas as visitas, de todas as fontes. Uma estimativa de tráfego orgânico cobre só a busca orgânica do Google e não diz nada sobre tráfego direto, de e-mail, pago, de redes sociais ou de referência, que em muitos negócios é a maior parte.

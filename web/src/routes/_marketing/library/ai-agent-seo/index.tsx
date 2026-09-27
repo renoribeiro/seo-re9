@@ -6,39 +6,39 @@ const PATH = "/library/ai-agent-seo";
 
 const faqs = [
   {
-    question: "What is AI-agent SEO?",
+    question: "O que é SEO com agentes de IA?",
     answer:
-      "Doing SEO through an AI assistant that can call tools: reading Search Console, pulling keyword and SERP data, checking rankings, running a crawl, and drafting from the results, inside one conversation. It is a way of working, not a way of being found; how AI assistants decide to mention your brand is a separate subject covered by AI brand visibility.",
+      "É fazer SEO por meio de um assistente de IA capaz de chamar ferramentas: ler o Search Console, puxar dados de palavras-chave e da SERP, checar posições, rodar um rastreamento e rascunhar a partir dos resultados, tudo dentro de uma conversa. É um jeito de trabalhar, não um jeito de ser encontrado; como os assistentes de IA decidem mencionar sua marca é outro assunto, tratado em visibilidade da marca em IA.",
   },
   {
-    question: "Can AI do SEO for me?",
+    question: "A IA pode fazer SEO por mim?",
     answer:
-      "It can fetch, filter, sort and draft faster than a person. It cannot tell a bot query from a human one, decide which keywords are worth the budget, or know what a client will act on. The workflows here put an agent on the fetching and drafting and keep a person at the decisions and the final check.",
+      "Ela busca, filtra, ordena e rascunha mais rápido que uma pessoa. Mas não consegue distinguir uma consulta de robô de uma humana, decidir quais palavras-chave valem a verba nem saber o que um cliente vai colocar em prática. Os fluxos daqui colocam um agente para buscar e rascunhar e mantêm uma pessoa nas decisões e na checagem final.",
   },
   {
-    question: "What is MCP and do I need it for SEO?",
+    question: "O que é MCP e eu preciso dele para SEO?",
     answer:
-      "The Model Context Protocol lets an AI assistant call external tools and receive data. Without it the assistant knows only what it was trained on and what you paste in. With an SEO MCP server connected, it reads first-party and research data directly. OpenSEO's connects to Claude Code, Claude Desktop, Codex and Cursor.",
+      "O Model Context Protocol permite que um assistente de IA chame ferramentas externas e receba dados. Sem ele, o assistente só sabe o que aprendeu no treinamento e o que você cola na conversa. Com um servidor MCP de SEO conectado, ele lê dados próprios e de pesquisa diretamente. O do RE9 SEO se conecta ao Claude Code, ao Claude Desktop, ao Codex e ao Cursor.",
   },
   {
-    question: "Which SEO tasks should be automated and which should not?",
+    question: "Quais tarefas de SEO devem ser automatizadas e quais não?",
     answer:
-      "Automate anything with a fixed input and output and no judgement: scheduled rank checks, Search Console pulls, exports. Let an agent do variable-input work that a person reads: summaries, bucketing, drafts. Keep decisions with a person: what to track, what to build, what to say to the client, and any process you cannot yet write down.",
+      "Automatize tudo que tem entrada e saída fixas e não exige julgamento: checagens de posições agendadas, extrações do Search Console, exportações. Deixe um agente fazer o trabalho de entrada variável que uma pessoa vai ler: resumos, classificações, rascunhos. Mantenha as decisões com uma pessoa: o que monitorar, o que construir, o que dizer ao cliente e qualquer processo que você ainda não consegue descrever por escrito.",
   },
   {
-    question: "Should AI write my SEO content?",
+    question: "A IA deve escrever meu conteúdo de SEO?",
     answer:
-      "It should write the draft, from a brief a person wrote that carries the reader, the data and verbatim quotes. It should not write the brief, and a person should edit the result with a fact pass and a pass for machine-writing phrases. Teams that run the loop the other way round produce polished pages with nothing in them.",
+      "Ela deve escrever o rascunho, a partir de um briefing escrito por uma pessoa com o leitor, os dados e citações literais. Não deve escrever o briefing, e uma pessoa deve editar o resultado com uma revisão de fatos e outra de frases com cara de texto de máquina. Equipes que fazem o ciclo ao contrário produzem páginas bem acabadas e sem nada dentro.",
   },
   {
-    question: "How do I make an AI agent's SEO work repeatable?",
+    question: "Como tornar repetível o trabalho de SEO de um agente de IA?",
     answer:
-      "Three habits: save the workflow as a skill file the assistant reads, give it a memory such as a project context it loads before each run, and have it log every tool call so each number in its output traces to a data source. A blank chat is the highest-variance way to use a model; these remove most of the variance.",
+      "Três hábitos: salve o fluxo como um arquivo de skill que o assistente lê, dê a ele uma memória, como um contexto do projeto carregado antes de cada execução, e faça-o registrar cada chamada de ferramenta, para que cada número do resultado aponte para uma fonte de dados. Um chat em branco é o jeito de usar um modelo com mais variação; esses hábitos eliminam a maior parte dela.",
   },
   {
-    question: "What does the OpenSEO MCP give an agent?",
+    question: "O que o MCP do RE9 SEO entrega a um agente?",
     answer:
-      "Search Console performance and URL inspection at no credit cost, keyword metrics and research, live SERP results, domain and backlink data, rank tracking with cost estimates, site audits, local rank grids, and the project's shared context. Agent skills for keyword research, competitor analysis, site audit, local SEO, link prospecting, reporting and project setup install alongside it.",
+      "Desempenho na busca e inspeção de URL do Search Console sem consumir créditos, métricas e pesquisa de palavras-chave, resultados da SERP ao vivo, dados de domínio e de backlinks, monitoramento de posições com estimativa de custo, auditorias do site, grades de posições locais e o contexto compartilhado do projeto. Skills de agente para pesquisa de palavras-chave, análise de concorrentes, auditoria do site, SEO local, prospecção de links, relatórios e configuração de projeto são instaladas junto.",
   },
 ];
 
@@ -53,18 +53,18 @@ const faqLd = {
 };
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Strategy Library", path: "/library" },
-  { name: "AI-Agent SEO", path: PATH },
+  { name: "Biblioteca de estratégias", path: "/library" },
+  { name: "SEO com agentes de IA", path: PATH },
 ]);
 
 export const Route = createFileRoute("/_marketing/library/ai-agent-seo/")({
   head: () =>
     buildPageSeo({
-      title: "AI-Agent SEO: The Strategy Library",
+      title: "SEO com agentes de IA: a biblioteca de estratégias",
       description:
-        "Four strategies for running SEO through an AI assistant: connect the MCP and run the first five prompts, decide what a schedule does and what stays with a person, keep the brief human, and make a good run repeatable with skills, memory and a trace. Each includes a workflow and an OpenSEO MCP prompt.",
+        "Quatro estratégias para fazer SEO por um assistente de IA: conecte o MCP e rode os cinco primeiros prompts, decida o que fica com um agendamento e o que fica com uma pessoa, mantenha o briefing humano e torne a boa execução repetível com skills, memória e rastro. Cada uma traz um fluxo de trabalho e um prompt de MCP do RE9 SEO.",
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: AiAgentSeoLibraryPage,
 });
@@ -74,37 +74,37 @@ function AiAgentSeoLibraryPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
-          / <span>AI-Agent SEO</span>
+          / <span>SEO com agentes de IA</span>
         </nav>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          The AI-Agent SEO Strategy Library
+          Biblioteca de estratégias de SEO com agentes de IA
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Four strategies for the person who already has Claude, Codex or Cursor
-          open and wants the SEO work to happen there: what to connect and the
-          first five prompts, what a schedule does and what stays with a person,
-          why the brief is the human&rsquo;s job, and how to make a good run
-          happen again. Every one is built on real runs through the OpenSEO MCP
-          and ends with a copy-paste prompt.
+          Quatro estratégias para quem já tem o Claude, o Codex ou o Cursor
+          aberto e quer que o trabalho de SEO aconteça ali: o que conectar e os
+          cinco primeiros prompts, o que fica com um agendamento e o que fica
+          com uma pessoa, por que o briefing é trabalho humano e como fazer uma
+          boa execução acontecer de novo. Todas partem de execuções reais pelo
+          MCP do RE9 SEO e terminam com um prompt pronto para copiar e colar.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How do you run SEO through an AI agent without losing the plot?
+          Como fazer SEO com um agente de IA sem perder o rumo?
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Give the agent the data, keep the decisions, write the brief yourself,
-          and make every run leave a trace.
+          Dê os dados ao agente, fique com as decisões, escreva você mesmo o
+          briefing e faça cada execução deixar um rastro.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {aiAgentSeoStrategies.map((strategy, index) => {
@@ -138,75 +138,77 @@ function AiAgentSeoLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Why this is a different library from AI visibility
+          Por que esta biblioteca é diferente de visibilidade em IA
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Two things get called &ldquo;AI SEO&rdquo; and they point in opposite
-          directions. One is you using an AI assistant to do the work: pull the
-          data, run the audit, draft the page. The other is an AI assistant
-          mentioning your brand when someone asks it a question. This library is
-          the first. It never tells you how to be read by a model; it tells you
-          how to get the work done through one, and where the person stays.
-          Being cited is the subject of{" "}
+          Duas coisas diferentes são chamadas de &ldquo;SEO com IA&rdquo;, e
+          elas apontam para direções opostas. Uma é você usar um assistente de
+          IA para fazer o trabalho: puxar os dados, rodar a auditoria, rascunhar
+          a página. A outra é um assistente de IA mencionar sua marca quando
+          alguém faz uma pergunta. Esta biblioteca trata da primeira. Ela nunca
+          ensina como ser lido por um modelo; ensina como fazer o trabalho por
+          meio de um, e onde a pessoa continua. Ser citado é assunto da{" "}
           <a
             href="/features/ai-brand-visibility"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            AI brand visibility
+            visibilidade da marca em IA
           </a>
           .
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          The practitioners in these four pages run SEO through agents every
-          day, for clients and on their own sites, and they agree on more than
-          you would expect: the agent is a fast driver with a short attention
-          span, the person is the dispatcher, the brief is where the knowledge
-          lives, and the run that cannot be repeated was not worth the tokens.
-          Every strategy is built on a real call through the OpenSEO MCP,
-          including the one where the data came back with an AI agent&rsquo;s
-          own prompt in it.
+          Os profissionais destas quatro páginas fazem SEO com agentes todos os
+          dias, para clientes e nos próprios sites, e concordam em mais coisas
+          do que se imagina: o agente é um motorista rápido com pouca atenção, a
+          pessoa é o despachante, o briefing é onde o conhecimento mora, e a
+          execução que não pode ser repetida não valeu os tokens. Toda
+          estratégia parte de uma chamada real pelo MCP do RE9 SEO, inclusive
+          aquela em que os dados voltaram com o próprio prompt de um agente de
+          IA dentro.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What the OpenSEO MCP gives an agent
+          O que o MCP do RE9 SEO entrega a um agente
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          One server, connected to Claude Code, Claude Desktop, Codex or Cursor.
-          Through it the assistant reads Search Console performance and URL
-          inspection for a connected property at no credit cost, pulls keyword
-          metrics and research, fetches live SERP results, reads domain and
-          backlink data, creates and runs rank trackers with a cost estimate
-          first, starts and reads site audits, runs local rank grids, and reads
-          and updates the project&rsquo;s shared context. Research calls that
-          hit a data provider use credits and say so before they run.
+          Um servidor, conectado ao Claude Code, ao Claude Desktop, ao Codex ou
+          ao Cursor. Por ele, o assistente lê o desempenho na busca e a inspeção
+          de URL do Search Console de uma propriedade conectada sem consumir
+          créditos, puxa métricas e pesquisa de palavras-chave, busca resultados
+          da SERP ao vivo, lê dados de domínio e de backlinks, cria e roda
+          monitoramentos de posições com estimativa de custo antes, inicia e lê
+          auditorias do site, roda grades de posições locais e lê e atualiza o
+          contexto compartilhado do projeto. Chamadas de pesquisa que acessam um
+          provedor de dados consomem créditos e avisam antes de rodar.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Alongside it, the{" "}
+          Junto com ele, as{" "}
           <a
             href="/docs/skills"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            agent skills
+            skills de agente
           </a>{" "}
-          are SKILL.md files that tell the assistant how to use those tools for
-          one job each: keyword research, competitor analysis, site audit, local
-          SEO, link prospecting, reporting, and project setup, with an SEO coach
-          that picks the workflow if you are not sure. The{" "}
+          são arquivos SKILL.md que ensinam o assistente a usar essas
+          ferramentas, cada uma para um trabalho: pesquisa de palavras-chave,
+          análise de concorrentes, auditoria do site, SEO local, prospecção de
+          links, relatórios e configuração de projeto, com um coach de SEO que
+          escolhe o fluxo se você estiver em dúvida. O{" "}
           <a
             href="/google-search-console-mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            Search Console MCP
+            MCP do Search Console
           </a>{" "}
-          needs no Google Cloud project or OAuth setup of your own. Setup for
-          each client is in the{" "}
+          não exige projeto no Google Cloud nem configuração de OAuth própria. A
+          configuração de cada cliente está na{" "}
           <a
             href="/docs/mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            MCP docs
+            documentação do MCP
           </a>
           .
         </p>
@@ -214,59 +216,61 @@ function AiAgentSeoLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Where this library ends
+          Onde esta biblioteca termina
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Three things an agent workflow cannot give you, and where to get them.
+          Três coisas que um fluxo com agente não consegue dar, e onde
+          encontrá-las.
         </p>
         <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700">
           <li>
-            Whether an AI assistant recommends you. That is the other direction
-            of the arrow, measured by{" "}
+            Se um assistente de IA recomenda você. Essa é a outra direção da
+            seta, medida pela{" "}
             <a
               href="/features/ai-brand-visibility"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              AI brand visibility
+              visibilidade da marca em IA
             </a>{" "}
-            and{" "}
+            e pelos{" "}
             <a
               href="/features/ai-search-prompts"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              AI search prompts
+              prompts de busca com IA
             </a>
-            , and driven by the same things that drive Google: relevant links,
-            mentions and a site that answers the question.
+            , e movida pelas mesmas coisas que movem o Google: links relevantes,
+            menções e um site que responde à pergunta.
           </li>
           <li>
-            The judgement about which keyword is worth it. An agent can list
-            every query at positions 4 to 20 in seconds;{" "}
+            O julgamento sobre qual palavra-chave vale a pena. Um agente lista
+            em segundos todas as consultas entre as posições 4 e 20; o{" "}
             <a
               href="/library/keyword-research/search-intent-mapping"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              search-intent mapping
+              mapeamento de intenção de busca
             </a>{" "}
-            is how a person decides which of them to want.
+            é como uma pessoa decide quais delas quer.
           </li>
           <li>
-            The number the business reads. An agent drafts the report from the{" "}
+            O número que o negócio lê. Um agente rascunha o relatório a partir
+            do{" "}
             <a
               href="/features/rank-tracking"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              rank tracker
+              monitoramento de posições
             </a>{" "}
-            and Search Console; the shape that gets read is one a person gives
-            it.
+            e do Search Console; o formato que é lido é o que uma pessoa dá a
+            ele.
           </li>
         </ul>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          AI-agent SEO FAQ
+          Perguntas frequentes sobre SEO com agentes de IA
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -285,18 +289,19 @@ function AiAgentSeoLibraryPage() {
       <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 sm:flex-row sm:items-center md:p-8">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            Connect the MCP and run the first prompt
+            Conecte o MCP e rode o primeiro prompt
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-            Each strategy ends with a copy-paste MCP prompt. OpenSEO is open
-            source, free to start, and does not require a credit card.
+            Cada estratégia termina com um prompt de MCP pronto para copiar e
+            colar. O RE9 SEO é de código aberto. Fale com a gente:
+            trafego@re9.online.
           </p>
         </div>
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Start with OpenSEO
+          Começar com o RE9 SEO
           <span aria-hidden="true" className="ml-2">
             &rarr;
           </span>

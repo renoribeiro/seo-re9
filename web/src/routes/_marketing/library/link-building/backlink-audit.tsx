@@ -11,24 +11,24 @@ const PATH = "/library/link-building/backlink-audit";
 
 const faqs = [
   {
-    question: "How do I do a backlink audit?",
+    question: "Como fazer uma auditoria de backlinks?",
     answer:
-      "Start with a page of backlink rows, one per referring domain, sorted by first seen, with spam filtering off. Sort them into suspected junk, broken targets, nofollow, and worth reading. Check broken pages before restoring them or choosing a relevant redirect. Read the remaining rows and decide whether a person on the source page would have a reason to click through.",
+      "Comece com uma página de linhas de backlinks, uma por domínio de referência, ordenada pela data de descoberta e com o filtro de spam desligado. Separe em lixo suspeito, destinos quebrados, nofollow e vale a pena ler. Confira as páginas quebradas antes de restaurá-las ou escolher um redirecionamento relevante. Leia as linhas restantes e decida se uma pessoa na página de origem teria motivo para clicar.",
   },
   {
-    question: "What is a toxic backlink?",
+    question: "O que é um backlink tóxico?",
     answer:
-      "A link from a page that exists only to sell or host links: link seller listings, PBN adverts, casino and pharmacy domains, and pages with hundreds of unrelated outbound links. They tend to have high spam scores and anchor text that reads like an advert. Google generally ignores them.",
+      "Um link vindo de uma página que existe só para vender ou hospedar links: listas de vendedores de links, anúncios de PBN, domínios de cassino e de farmácia e páginas com centenas de links externos sem relação entre si. Eles costumam ter spam score alto e texto âncora com cara de anúncio. O Google geralmente os ignora.",
   },
   {
-    question: "Is domain rank or DA a good measure of a backlink?",
+    question: "Domain rank ou DA é uma boa medida de um backlink?",
     answer:
-      "It is a sorting aid, not a verdict. A spam domain can carry a higher rank than a relevant small site. Use the score to order the list, then judge each link on whether the linking page is about the same thing as yours and whether a real site published it.",
+      "É uma ajuda para ordenar, não um veredito. Um domínio de spam pode ter uma nota maior do que um site pequeno e relevante. Use a nota para ordenar a lista e depois julgue cada link pelo critério de a página que aponta tratar do mesmo assunto que a sua e de ter sido publicada por um site real.",
   },
   {
-    question: "Does OpenSEO show broken backlinks?",
+    question: "O RE9 SEO mostra backlinks quebrados?",
     answer:
-      "The overview reports broken backlinks and broken target pages. Profile rows include broken status, dofollow or nofollow, domain rank, spam score and first-seen date. The profile request used here returns live backlinks, so it cannot list lost links. The free backlink checker shows the summary and top 15 links without an account.",
+      "A visão geral mostra backlinks quebrados e páginas de destino quebradas. As linhas do perfil incluem status de quebrado, dofollow ou nofollow, domain rank, spam score e data da primeira descoberta. A consulta de perfil usada aqui retorna backlinks ativos, então não consegue listar links perdidos. O verificador de backlinks gratuito mostra o resumo e os 15 principais links sem precisar de conta.",
   },
 ];
 
@@ -47,17 +47,18 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "The Backlink Audit: Sort by First Seen, Then by Relevance",
+      title:
+        "A auditoria de backlinks: ordene por data de descoberta, depois por relevância",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Backlink audit"
+      crumb="Auditoria de backlinks"
       path={PATH}
       library={LINK_BUILDING_LIBRARY}
     >

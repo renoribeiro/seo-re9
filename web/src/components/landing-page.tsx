@@ -2,65 +2,17 @@
  * Canonical marketing landing page.
  *
  * The page uses a soft cream canvas, restrained hairline surfaces, charcoal
- * type, and a single orange emphasis moment around the MCP section.
+ * type, and a single red emphasis moment around the MCP section.
  */
 
 import { type ReactNode, type SVGProps } from "react";
-import { NewsletterSignup } from "@/components/newsletter-signup";
-import { ProductHuntLaurel } from "@/components/product-hunt-laurel";
 import { SiteFooter } from "@/components/site-footer";
 import { featurePages } from "@/lib/feature-pages";
 import { freeTools } from "@/lib/free-tools/tool-pages";
 import "./landing-page.css";
 
-const SIGNUP_URL = "https://app.openseo.so/sign-up";
-const PRODUCT_HUNT_URL =
-  "https://www.producthunt.com/products/openseo?launch=openseo";
-const GITHUB_URL = "https://github.com/every-app/open-seo";
-const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
-
-type Testimonial = {
-  quote: string;
-  name: string;
-  initial: string;
-  handle: string;
-  href: string;
-  network: "x" | "linkedin" | "web";
-  avatarSrc?: string;
-};
-
-const TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      "All of the value, none of the bloat. OpenSEO is a no-brainer compared to the expensive alternatives!",
-    name: "Fed",
-    initial: "F",
-    handle: "@foliofed",
-    href: "https://x.com/foliofed",
-    network: "x",
-    avatarSrc: "/avatars/fed-avatar.jpg",
-  },
-  {
-    quote:
-      "I've been using OpenSEO for the past 3 months, Ben keeps launching features to make it the best. I use it every day to find where my competitors are ranking.",
-    name: "Samik",
-    initial: "S",
-    handle: "Subclip",
-    href: "https://www.subclip.app/",
-    network: "web",
-    avatarSrc: "/avatars/samik-avatar.jpg",
-  },
-  {
-    quote:
-      "It's so straightforward and incredibly easy to get started. OpenSEO gives you the complete setup, stripped of all the fluff that you get elsewhere.",
-    name: "Tom Raine",
-    initial: "T",
-    handle: "LinkedIn",
-    href: "https://www.linkedin.com/in/tom-raine-hk/",
-    network: "linkedin",
-    avatarSrc: "/avatars/tom-avatar.jpeg",
-  },
-];
+const SIGNUP_URL = "https://seo.agenciare9.com.br/sign-up";
+const GITHUB_URL = "https://github.com/renoribeiro/seo-re9";
 
 // ─── Icons (inline SVG only, per project convention) ─────────────────
 
@@ -105,60 +57,6 @@ function IconGithub({ size = 16, className }: IconProps) {
   );
 }
 
-function IconX({ size = 14, className }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-function IconLinkedIn({ size = 14, className }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-    </svg>
-  );
-}
-
-function IconLink({ size = 14, className }: IconProps) {
-  return (
-    <svg {...strokeProps(size, className)}>
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-    </svg>
-  );
-}
-
-function IconDiscord({ size = 18, className }: IconProps) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
-    </svg>
-  );
-}
-
 // ─── Shared bits ─────────────────────────────────────────────────────
 
 function Container({
@@ -174,7 +72,7 @@ function Container({
 function ArrowCta({
   href = SIGNUP_URL,
   className = "itc-btn itc-btn-primary",
-  children = "Start enjoying SEO",
+  children = "Comece agora",
   size = "md",
 }: {
   href?: string;
@@ -199,94 +97,22 @@ function Hero() {
   return (
     <section className="itc-hero">
       <Container>
-        <a
-          href={PRODUCT_HUNT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="itc-hero-ph-laurel"
-          aria-label="Number 1 Product of the Day on Product Hunt"
-        >
-          <ProductHuntLaurel />
-        </a>
         <h1
           className="itc-display-xl itc-hero-title"
           style={{ maxWidth: 1180, margin: "0 auto" }}
         >
-          The modern, open source SEO platform.
+          A plataforma de SEO moderna e de código aberto.
         </h1>
         <p
           className="itc-subhead itc-muted itc-hero-subtitle"
           style={{ maxWidth: 640, margin: "24px auto 0" }}
         >
-          Without quality data, AI gives generic advice. OpenSEO is built for
-          you and your AI agent to work together on SEO strategy + content
-          tailored to your business.
+          Sem dados de qualidade, a IA dá conselhos genéricos. O RE9 SEO foi
+          feito para você e seu agente de IA trabalharem juntos em estratégia de
+          SEO e conteúdo sob medida para o seu negócio.
         </p>
         <div className="itc-hero-ctas">
-          <div className="itc-hero-cta-group">
-            <ArrowCta size="lg" />
-            <p className="itc-hero-cta-note">No credit card required</p>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-// ─── Testimonial (true-black inverse strip) ──────────────────────────
-
-function Testimonial() {
-  return (
-    <section className="itc-inverse">
-      <Container>
-        <div className="itc-testimonials">
-          <h2
-            className="itc-display-md itc-testimonials-title"
-            style={{ margin: "0 auto 32px" }}
-          >
-            Trusted by hundreds of customers worldwide
-          </h2>
-          <div className="itc-quote-grid">
-            {TESTIMONIALS.map((t) => (
-              <figure className="itc-quote-card" key={t.name}>
-                <div className="itc-quote-mark" aria-hidden="true">
-                  &ldquo;
-                </div>
-                <blockquote className="itc-quote-text">{t.quote}</blockquote>
-                <figcaption className="itc-quote-attr">
-                  <span className="itc-quote-avatar" aria-hidden="true">
-                    {t.avatarSrc ? (
-                      <img
-                        src={t.avatarSrc}
-                        alt=""
-                        className="itc-quote-avatar-img"
-                      />
-                    ) : (
-                      t.initial
-                    )}
-                  </span>
-                  <span className="itc-quote-meta">
-                    <span className="itc-quote-name">{t.name}</span>
-                    <a
-                      href={t.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="itc-quote-handle"
-                    >
-                      {t.network === "x" ? (
-                        <IconX size={11} />
-                      ) : t.network === "linkedin" ? (
-                        <IconLinkedIn size={12} />
-                      ) : (
-                        <IconLink size={12} />
-                      )}
-                      {t.handle}
-                    </a>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <ArrowCta size="lg" />
         </div>
       </Container>
     </section>
@@ -298,64 +124,37 @@ function Testimonial() {
 const FEATURE_CARDS = [
   {
     page: featurePages.keywordResearch,
-    blurb: "Find ideas, demand, difficulty, intent, and live SERPs.",
+    blurb: "Encontre ideias, demanda, dificuldade, intenção e SERPs ao vivo.",
   },
   {
     page: featurePages.domainOverview,
-    blurb: "Estimate organic traffic and ranking keywords.",
+    blurb: "Estime o tráfego orgânico e as palavras-chave ranqueadas.",
   },
   {
     page: featurePages.backlinks,
-    blurb: "Inspect backlinks, referring domains, and link quality.",
+    blurb: "Analise backlinks, domínios de referência e qualidade dos links.",
   },
   {
     page: featurePages.rankTracking,
-    blurb: "Track keyword positions over time.",
+    blurb: "Acompanhe a posição das palavras-chave ao longo do tempo.",
   },
   {
     page: featurePages.siteAudit,
-    blurb: "Crawl pages and surface technical issues.",
+    blurb: "Rastreie páginas e encontre problemas técnicos.",
   },
   {
     page: featurePages.aiBrandVisibility,
-    blurb: "Review AI mentions, citations, and prompts.",
+    blurb: "Veja menções, citações e prompts em buscas com IA.",
   },
   {
     page: featurePages.aiSearchPrompts,
-    blurb: "Compare prompts across supported AI models.",
+    blurb: "Compare prompts entre os modelos de IA suportados.",
   },
   {
     page: featurePages.savedKeywords,
-    blurb: "Organize ideas for content and tracking.",
+    blurb: "Organize ideias para conteúdo e monitoramento.",
   },
 ];
-
-function DemoVideo() {
-  return (
-    <video
-      style={{ width: "100%" }}
-      width={1280}
-      height={966}
-      poster="/demo-poster.webp"
-      muted
-      loop
-      autoPlay
-      playsInline
-      preload="metadata"
-      aria-label="OpenSEO product demo: running keyword research"
-    >
-      <source src="/demo.mp4" type="video/mp4" />
-      <img
-        src="/demo-poster.webp"
-        alt="OpenSEO keyword research dashboard"
-        width={1280}
-        height={966}
-        loading="lazy"
-        decoding="async"
-      />
-    </video>
-  );
-}
 
 // One restrained row on the home page; the hub at /tools has the rest.
 const FREE_TOOL_LINKS = [
@@ -370,18 +169,12 @@ function ProductSection() {
     <section className="itc-section itc-section-demo">
       <Container>
         <div className="itc-narrow">
-          <h2 className="itc-display-lg">See OpenSEO in action</h2>
+          <h2 className="itc-display-lg">Tudo o que o RE9 SEO faz</h2>
           <p className="itc-subhead itc-muted" style={{ margin: "20px 0 0" }}>
-            Keyword research, competitor analysis, backlinks, rank tracking,
-            technical audits, and AI-search visibility, all on real DataForSEO
-            data and connected to each other.
+            Pesquisa de palavras-chave, análise de concorrentes, backlinks,
+            monitoramento de posições, auditoria técnica e visibilidade em IA,
+            tudo com dados reais da DataForSEO e conectado entre si.
           </p>
-        </div>
-
-        <div className="itc-mockup" style={{ marginTop: 48 }}>
-          <div className="itc-mockup-media" style={{ aspectRatio: "1280/966" }}>
-            <DemoVideo />
-          </div>
         </div>
 
         <div className="itc-feature-list-grid">
@@ -406,12 +199,15 @@ function ProductSection() {
 
         <div className="itc-feature-more-header">
           <a href="/features" className="itc-textlink">
-            All features <IconArrowRight size={15} className="itc-arrow" />
+            Todas as funcionalidades{" "}
+            <IconArrowRight size={15} className="itc-arrow" />
           </a>
         </div>
 
         <div className="itc-free-tools-row">
-          <p className="itc-body-sm itc-free-tools-label">Try a free tool</p>
+          <p className="itc-body-sm itc-free-tools-label">
+            Experimente uma ferramenta gratuita
+          </p>
           {FREE_TOOL_LINKS.map((tool) => (
             <a key={tool.slug} href={tool.path} className="itc-textlink">
               {tool.name} <IconArrowRight size={15} className="itc-arrow" />
@@ -423,7 +219,7 @@ function ProductSection() {
   );
 }
 
-// ─── MCP: the page's one Fin Orange moment ───────────────────────────
+// ─── MCP: the page's one accent-color moment ───────────────────────────
 
 type McpClient = {
   name: string;
@@ -444,14 +240,15 @@ function McpSection() {
       <Container>
         <div className="itc-mcp-grid">
           <div>
-            <p className="itc-eyebrow" style={{ color: "#ff5600" }}>
+            <p className="itc-eyebrow" style={{ color: "#ED1C24" }}>
               Model Context Protocol
             </p>
-            <h2 className="itc-display-lg">Get superpowers with the MCP</h2>
+            <h2 className="itc-display-lg">Ganhe superpoderes com o MCP</h2>
             <p className="itc-body-lg itc-muted" style={{ margin: "20px 0 0" }}>
-              Give your agent real SEO data instead of guesses. It can research
-              keywords, competitors, backlinks, and Google Search Console
-              performance, then you can review the work in OpenSEO.
+              Dê ao seu agente dados reais de SEO em vez de palpites. Ele pode
+              pesquisar palavras-chave, concorrentes, backlinks e o desempenho
+              no Google Search Console, e depois você revisa o trabalho no RE9
+              SEO.
             </p>
             <div className="itc-agent-icons">
               {MCP_CLIENTS.map(({ name, Icon }) => (
@@ -475,7 +272,7 @@ function McpSection() {
             </div>
             <div style={{ marginTop: 32 }}>
               <a href="/features/mcp" className="itc-btn itc-btn-fin">
-                Learn about MCP tools
+                Conheça as ferramentas MCP
                 <IconArrowRight size={16} className="itc-arrow" />
               </a>
             </div>
@@ -488,29 +285,30 @@ function McpSection() {
                 <span className="itc-terminal-dot" />
                 <span className="itc-terminal-dot" />
               </span>
-              <span className="itc-terminal-label">claude · openseo mcp</span>
+              <span className="itc-terminal-label">claude · re9 seo mcp</span>
             </div>
             <pre>
               <code>
-                <span className="t-orange">›</span> find and cluster keywords
-                for <span className="t-bright">openseo.so</span>
+                <span className="t-orange">›</span> encontre e agrupe
+                palavras-chave para{" "}
+                <span className="t-bright">seo.agenciare9.com.br</span>
                 {"\n\n"}
                 <span className="t-dim">
-                  ⏺ openseo.keyword_research(seed: &quot;open source seo&quot;)
+                  ⏺ re9-seo.keyword_research(seed: &quot;seo open source&quot;)
                 </span>
                 {"\n"}
-                {"  "}keyword{"                      "}volume{"     "}kd{"\n"}
-                {"  "}open source seo{"              "}
-                <span className="t-bright">1,300</span>
+                {"  "}palavra-chave{"                "}volume{"     "}kd{"\n"}
+                {"  "}seo open source{"              "}
+                <span className="t-bright">1.300</span>
                 {"      "}
                 <span className="t-dim">12</span>
                 {"\n"}
-                {"  "}open source seo tools{"        "}
+                {"  "}ferramentas de seo{"           "}
                 <span className="t-bright">720</span>
                 {"        "}
                 <span className="t-dim">9</span>
                 {"\n"}
-                {"  "}self-hosted seo platform{"     "}
+                {"  "}seo auto-hospedado{"           "}
                 <span className="t-bright">210</span>
                 {"        "}
                 <span className="t-dim">4</span>
@@ -518,12 +316,12 @@ function McpSection() {
                 <span className="t-orange">✓</span>
                 <span className="t-dim">
                   {" "}
-                  Saved 3 keywords to your workspace.
+                  3 palavras-chave salvas no seu espaço de trabalho.
                 </span>
                 {"\n"}
                 <span className="t-orange">↳</span>
-                <span className="t-dim"> View data in app: </span>
-                <span className="t-bright">app.openseo.so/keywords</span>
+                <span className="t-dim"> Ver os dados no app: </span>
+                <span className="t-bright">seo.agenciare9.com.br/keywords</span>
               </code>
             </pre>
           </div>
@@ -820,11 +618,11 @@ function OpenSourceSection() {
     <section className="itc-section itc-section-open-source">
       <Container>
         <div className="itc-narrow">
-          <h2 className="itc-display-lg">100% open source</h2>
+          <h2 className="itc-display-lg">100% código aberto</h2>
           <p className="itc-subhead itc-muted" style={{ margin: "20px 0 0" }}>
-            People should have the option to self-host and customize their
-            tools. If you ever hear someone talking about building their own
-            tool from scratch, tell them to build on top of OpenSEO.
+            Você deve ter a opção de hospedar e personalizar as suas próprias
+            ferramentas. Se alguém pensa em construir uma ferramenta de SEO do
+            zero, vale a pena partir do RE9 SEO.
           </p>
         </div>
 
@@ -844,10 +642,11 @@ function OpenSourceSection() {
             className="itc-btn itc-btn-secondary"
           >
             <IconGithub size={16} />
-            Star on GitHub
+            Ver no GitHub
           </a>
           <a href="/open-source-seo" className="itc-textlink">
-            Why Open Source? <IconArrowRight size={15} className="itc-arrow" />
+            Por que código aberto?{" "}
+            <IconArrowRight size={15} className="itc-arrow" />
           </a>
         </div>
       </Container>
@@ -861,36 +660,7 @@ function Footer() {
   return (
     <footer className="itc-footer">
       <Container>
-        <div
-          style={{
-            paddingTop: 64,
-            paddingBottom: 40,
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 32,
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            borderBottom: "1px solid #ebe7e1",
-          }}
-        >
-          <div style={{ maxWidth: 420 }}>
-            <p style={{ margin: 0, fontSize: 15, fontWeight: 500 }}>
-              Stay in the loop
-            </p>
-            <p className="itc-body-sm itc-muted" style={{ margin: "6px 0 0" }}>
-              Product updates, new features, and the occasional
-              behind-the-scenes.
-            </p>
-          </div>
-          <div
-            className="itc-newsletter"
-            style={{ width: "100%", maxWidth: 384 }}
-          >
-            <NewsletterSignup />
-          </div>
-        </div>
-
-        <div className="itc-sitefooter" style={{ paddingTop: 40 }}>
+        <div className="itc-sitefooter" style={{ paddingTop: 64 }}>
           <SiteFooter />
         </div>
 
@@ -898,7 +668,7 @@ function Footer() {
           className="itc-caption itc-subtle"
           style={{ margin: 0, padding: "40px 0 32px" }}
         >
-          © 2026 Every App, Inc.
+          © 2026 RE9 Online
         </p>
       </Container>
     </footer>
@@ -912,20 +682,9 @@ export function LandingPage() {
     <div className="itc">
       <Hero />
       <McpSection />
-      <Testimonial />
       <OpenSourceSection />
       <ProductSection />
       <Footer />
-      <a
-        href={DISCORD_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="itc-discord"
-        aria-label="Join the OpenSEO Discord"
-      >
-        <IconDiscord size={18} />
-        <span>Discord</span>
-      </a>
     </div>
   );
 }

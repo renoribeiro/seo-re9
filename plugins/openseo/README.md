@@ -1,51 +1,51 @@
-# OpenSEO for Cursor
+# RE9 SEO para o Cursor
 
-SEO made simple.
+SEO sem complicação.
 
-OpenSEO gives your agent real SEO data and guided workflows, so its advice is grounded in your website instead of generic recommendations.
+O RE9 SEO dá ao seu agente dados reais de SEO e fluxos de trabalho guiados, para que as recomendações se baseiem no seu site, e não em conselhos genéricos.
 
-## What you can do
+## O que você pode fazer
 
-- Find and evaluate keywords
-- Research competitors and content gaps
-- Audit a website and prioritize fixes
-- Analyze backlinks and find link prospects
-- Track organic and Google Maps rankings
-- Work with Google Search Console and Analytics data
+- Encontrar e avaliar palavras-chave
+- Pesquisar concorrentes e lacunas de conteúdo
+- Auditar um site e priorizar correções
+- Analisar backlinks e encontrar oportunidades de links
+- Monitorar posições orgânicas e no Google Maps
+- Trabalhar com dados do Google Search Console e do Google Analytics
 
-The plugin includes ten skills that guide Cursor through complete SEO workflows, plus the hosted OpenSEO MCP server for live data and project management.
+O plugin inclui dez skills que guiam o Cursor por fluxos completos de SEO, além do servidor MCP hospedado do RE9 SEO para dados ao vivo e gestão de projetos.
 
-## Connect
+## Conectar
 
-Install the OpenSEO plugin from the Cursor Marketplace. The first time Cursor uses an OpenSEO tool, follow the OAuth prompt to sign in and approve the connection.
+Instale o plugin do RE9 SEO pelo Cursor Marketplace. Na primeira vez que o Cursor usar uma ferramenta do RE9 SEO, siga o aviso de OAuth para entrar e aprovar a conexão.
 
-You need an OpenSEO account. The plugin package is free and open source. Hosted OpenSEO plans and usage credits are described at [openseo.so/pricing](https://openseo.so/pricing), and OpenSEO can also be [self-hosted](https://github.com/every-app/open-seo#self-hosting).
+Você precisa de uma conta no RE9 SEO. O pacote do plugin é gratuito e de código aberto. Para conhecer os planos hospedados, fale com a gente em [trafego@re9.online](mailto:trafego@re9.online). O RE9 SEO também pode ser [hospedado por conta própria](https://github.com/renoribeiro/seo-re9#self-hosting-hospedagem-própria).
 
-## Try it
+## Experimente
 
-- "Research keywords for my website and shortlist the best opportunities."
-- "Audit my website and tell me what to fix first."
-- "What does competitor.com rank for that I don't?"
-- "Which pages are close to ranking in Google Search Console?"
-- "Track my rankings for these keywords and summarize what changed."
+- "Pesquise palavras-chave para o meu site e selecione as melhores oportunidades."
+- "Audite o meu site e diga o que corrigir primeiro."
+- "Para quais termos o concorrente.com.br ranqueia e eu não?"
+- "Quais páginas estão perto de ranquear no Google Search Console?"
+- "Monitore minhas posições para estas palavras-chave e resuma o que mudou."
 
-## Included skills
+## Skills incluídas
 
-- Competitive landscape
-- Competitor analysis
-- Keyword clustering
-- Keyword research
-- Link prospecting
-- Local SEO
-- SEO audit
+- Panorama competitivo
+- Análise de concorrentes
+- Agrupamento de palavras-chave
+- Pesquisa de palavras-chave
+- Prospecção de links
+- SEO local
+- Auditoria de SEO
 - SEO coach
-- SEO project setup
-- SEO report
+- Configuração de projeto de SEO
+- Relatório de SEO
 
 ## Links
 
-- [OpenSEO](https://openseo.so)
-- [MCP documentation](https://openseo.so/docs/mcp)
-- [Privacy policy](https://openseo.so/privacy)
-- [Terms](https://openseo.so/terms-and-conditions)
-- [Support](https://openseo.so/support)
+- [RE9 SEO](https://seo.agenciare9.com.br)
+- [Documentação do MCP](https://seo.agenciare9.com.br/docs/mcp)
+- [Política de privacidade](https://seo.agenciare9.com.br/privacy)
+- [Termos de uso](https://seo.agenciare9.com.br/terms-and-conditions)
+- [Suporte](https://seo.agenciare9.com.br/support)

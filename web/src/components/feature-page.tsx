@@ -19,10 +19,10 @@ export function FeaturePageTemplate({ page }: FeaturePageProps) {
         </p>
         <div className="mt-5">
           <a
-            href="https://app.openseo.so/sign-up"
+            href="https://seo.agenciare9.com.br/sign-up"
             className="inline-flex h-11 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Try OpenSEO
+            Experimente o RE9 SEO
             <span aria-hidden="true" className="ml-2">
               &rarr;
             </span>
@@ -50,7 +50,7 @@ export function FeaturePageTemplate({ page }: FeaturePageProps) {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What you can do
+          O que você pode fazer
         </h2>
         <ol className="mt-5 grid gap-4 md:grid-cols-3">
           {page.workflows.map((workflow, index) => (
@@ -75,15 +75,15 @@ export function FeaturePageTemplate({ page }: FeaturePageProps) {
       {page.showMetrics ? <MetricsSection page={page} /> : null}
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">
-        <ListSection title="Use cases" items={page.useCases} />
-        <ListSection title="Why OpenSEO" items={page.differentiators} />
+        <ListSection title="Casos de uso" items={page.useCases} />
+        <ListSection title="Por que o RE9 SEO" items={page.differentiators} />
       </div>
 
       {page.guides ? <GuidesSection guides={page.guides} /> : null}
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Related features
+          Recursos relacionados
         </h2>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
           {page.related.map((item) => (
@@ -106,7 +106,7 @@ export function FeaturePageTemplate({ page }: FeaturePageProps) {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          FAQ
+          Perguntas frequentes
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {page.faqs.map((faq) => (
@@ -124,17 +124,18 @@ export function FeaturePageTemplate({ page }: FeaturePageProps) {
 
       <section className="mt-12 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 md:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Try OpenSEO
+          Experimente o RE9 SEO
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          The open source alternative to bloated, expensive, legacy SEO tools.
+          A alternativa open source às ferramentas de SEO antigas, pesadas e
+          caras.
         </p>
         <div className="mt-4">
           <a
-            href="https://app.openseo.so/sign-up"
+            href="https://seo.agenciare9.com.br/sign-up"
             className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Try OpenSEO
+            Experimente o RE9 SEO
             <span aria-hidden="true" className="ml-2">
               &rarr;
             </span>
@@ -158,7 +159,7 @@ function FeatureImage({ page }: FeaturePageProps) {
         className="aspect-[16/10] w-full rounded-lg border border-[#ebe4da] object-cover object-top"
       />
       <figcaption className="px-1 pt-2 text-[11px] text-[var(--color-brand-muted)]">
-        {page.eyebrow} in OpenSEO.
+        {page.eyebrow} no RE9 SEO.
       </figcaption>
     </figure>
   );
@@ -168,7 +169,7 @@ function MetricsSection({ page }: FeaturePageProps) {
   return (
     <section className="mt-12">
       <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-        Data you can act on
+        Dados para você agir
       </h2>
       <dl className="mt-5 grid overflow-hidden rounded-lg border border-[var(--color-border-subtle)] bg-white sm:grid-cols-2 md:grid-cols-4">
         {page.metrics.map((metric, index) => (

@@ -7,10 +7,10 @@ const DESKTOP_TITLE_WIDTH = 600;
 const TITLE_FONT = "20px Arial, sans-serif";
 
 const EXAMPLE = {
-  title: "Free SERP Simulator: Preview Your Google Snippet | OpenSEO",
+  title: "Simulador de SERP grátis: veja a prévia do seu snippet | RE9 SEO",
   description:
-    "Preview your title and meta description on desktop and mobile. Check how your text fits before publishing. Free, no signup.",
-  url: "https://openseo.so/serp-simulator",
+    "Veja a prévia do título e da meta description no desktop e no mobile. Confira se o texto cabe antes de publicar. Grátis e sem cadastro.",
+  url: "https://seo.agenciare9.com.br/serp-simulator",
 };
 
 export function SerpSimulatorTool() {
@@ -40,7 +40,7 @@ export function SerpSimulatorTool() {
 
   const displayUrl = url.replace(/^https?:\/\//, "").replace(/\/+$/, "");
   const [host, ...segments] = displayUrl.split("/");
-  const today = new Date().toLocaleDateString("en-US", {
+  const today = new Date().toLocaleDateString("pt-BR", {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -53,7 +53,7 @@ export function SerpSimulatorTool() {
       <div className="rounded-xl border border-[var(--color-border-subtle)] bg-white p-4 md:p-5">
         <div className="grid gap-3">
           <div>
-            <FieldLabel htmlFor="serp-title">Page title</FieldLabel>
+            <FieldLabel htmlFor="serp-title">Título da página</FieldLabel>
             <input
               id="serp-title"
               type="text"
@@ -68,11 +68,11 @@ export function SerpSimulatorTool() {
             <p
               className={`mt-1.5 text-xs ${overDesktop ? "text-amber-800" : "text-[var(--color-brand-muted)]"}`}
             >
-              {title.length} characters &middot;{" "}
-              {titleWidth === null ? "Measuring width…" : `${titleWidth}px`}
+              {title.length} caracteres &middot;{" "}
+              {titleWidth === null ? "Medindo a largura…" : `${titleWidth}px`}
               {overDesktop
-                ? " · Exceeds the 600px desktop preview"
-                : " · Desktop guide: 600px"}
+                ? " · Passa dos 600px da prévia no desktop"
+                : " · Referência no desktop: 600px"}
             </p>
           </div>
 
@@ -90,8 +90,8 @@ export function SerpSimulatorTool() {
               className={`mt-1 ${FIELD_CLASS} h-auto py-2.5`}
             />
             <p className="mt-1.5 text-xs text-[var(--color-brand-muted)]">
-              {description.length} characters &middot; Check how the text wraps
-              in each preview.
+              {description.length} caracteres &middot; Veja como o texto quebra
+              em cada prévia.
             </p>
           </div>
 
@@ -118,23 +118,23 @@ export function SerpSimulatorTool() {
                 onChange={(e) => setShowDate(e.target.checked)}
                 className="h-4 w-4 rounded border-[var(--color-border-subtle)]"
               />
-              Show date
+              Mostrar data
             </label>
           </div>
         </div>
         <p className="mt-2.5 text-xs text-[var(--color-brand-muted)]">
-          Free &middot; No signup &middot; Your text stays in your browser
+          Grátis &middot; Sem cadastro &middot; Seu texto fica no seu navegador
         </p>
       </div>
 
-      <section className="mt-6" aria-label="Search result preview">
+      <section className="mt-6" aria-label="Prévia do resultado de busca">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-lg font-semibold text-neutral-950">
-            Search preview
+            Prévia da busca
           </h2>
           <div
             role="group"
-            aria-label="Preview device"
+            aria-label="Dispositivo da prévia"
             className="inline-flex rounded-lg border border-[var(--color-border-subtle)] bg-white p-1"
           >
             {(["desktop", "mobile"] as const).map((option) => (
@@ -152,18 +152,18 @@ export function SerpSimulatorTool() {
         </div>
         <p className="mt-2 text-xs text-[var(--color-brand-muted)]">
           {desktop
-            ? "Desktop preview at 600px text width."
-            : "Mobile preview at 328px text width."}{" "}
-          Layout and truncation are approximate.
+            ? "Prévia no desktop com 600px de largura de texto."
+            : "Prévia no mobile com 328px de largura de texto."}{" "}
+          O layout e os cortes são aproximados.
         </p>
         <p
           className={`mt-2 text-xs text-[var(--color-brand-muted)] ${desktop ? "min-[700px]:hidden" : "min-[420px]:hidden"}`}
         >
-          Scroll sideways to see the full preview.
+          Role para o lado para ver a prévia completa.
         </p>
         <div
           role="region"
-          aria-label={`${device} search preview`}
+          aria-label={`Prévia da busca no ${device}`}
           tabIndex={0}
           className="mt-3 overflow-x-auto rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
         >
@@ -199,8 +199,8 @@ export function SerpSimulatorTool() {
       </section>
 
       <p className="mt-3 text-xs text-[var(--color-brand-muted)]">
-        Google may rewrite your title or description for a search query. Actual
-        results also vary by screen size and layout.
+        O Google pode reescrever seu título ou sua descrição para uma busca. Os
+        resultados reais também variam conforme o tamanho da tela e o layout.
       </p>
     </div>
   );

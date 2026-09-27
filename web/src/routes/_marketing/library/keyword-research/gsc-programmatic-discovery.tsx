@@ -10,24 +10,27 @@ const PATH = "/library/keyword-research/gsc-programmatic-discovery";
 
 const faqs = [
   {
-    question: "Can you use Google Search Console for keyword research?",
+    question:
+      "Dá para usar o Google Search Console para pesquisa de palavras-chave?",
     answer:
-      "Yes, and it is the most reliable source you have, because it reports queries that reached your site rather than estimating a market. Its limits are that it only shows terms you already rank for, and it hides queries below a privacy threshold. Use it for expansion and validation, and use a keyword tool for the demand you have not captured yet.",
+      "Sim, e ele é a fonte mais confiável que você tem, porque informa consultas que chegaram ao seu site em vez de estimar um mercado. Os limites são que ele só mostra termos em que você já ranqueia e esconde consultas abaixo de um limite de privacidade. Use-o para expandir e validar, e use uma ferramenta de palavras-chave para a demanda que você ainda não capturou.",
   },
   {
-    question: "What are striking-distance keywords?",
+    question:
+      "O que são palavras-chave quase na primeira página (striking distance)?",
     answer:
-      "Queries where you rank roughly between positions 11 and 30. They sit on page two, earn few clicks, and demonstrate that Google already treats your page as a plausible answer. They are the cheapest rankings to improve on most sites.",
+      "São consultas em que você ranqueia mais ou menos entre as posições 11 e 30. Elas ficam na segunda página, trazem poucos cliques e mostram que o Google já trata a sua página como uma resposta plausível. Na maioria dos sites, são as posições mais baratas de melhorar.",
   },
   {
-    question: "How far back does Google Search Console data go?",
+    question: "Até quanto tempo atrás vão os dados do Google Search Console?",
     answer:
-      "Sixteen months. Most exports default to a far shorter window, so pulling the full range surfaces seasonal queries and historical rankings that a 90-day view hides.",
+      "Dezesseis meses. A maioria das exportações usa por padrão um período bem menor, então puxar o intervalo completo revela consultas sazonais e posições históricas que uma visão de 90 dias esconde.",
   },
   {
-    question: "Why don't the clicks in the query table add up to the total?",
+    question:
+      "Por que os cliques da tabela de consultas não batem com o total?",
     answer:
-      "Google anonymizes queries that too few people searched, so they never appear by name while their clicks still count in the total. The shortfall runs from a small fraction to most of the total depending on the size of the site. Reading the same pages at page level rather than query level recovers much of the count.",
+      "O Google anonimiza consultas feitas por poucas pessoas, então elas nunca aparecem pelo nome, mas os cliques continuam contando no total. A diferença vai de uma pequena fração até a maior parte do total, dependendo do tamanho do site. Ler as mesmas páginas no nível de página, e não de consulta, recupera boa parte dessa contagem.",
   },
 ];
 
@@ -46,10 +49,11 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Search Console Keyword Research: Striking-Distance Queries",
+      title:
+        "Pesquisa de palavras-chave com o Search Console: consultas quase na primeira página",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -57,7 +61,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Programmatic discovery with Search Console"
+        crumb="Descoberta programática com o Search Console"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

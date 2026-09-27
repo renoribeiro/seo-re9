@@ -153,10 +153,10 @@ export function createOpenSeoMcpServer(authProps: McpProps) {
       version: "0.0.12",
       description:
         "SEO research tools for AI agents: keyword research and metrics, SERP and local SERP results, domain and backlink analysis, rank tracking, and Google Search Console performance.",
-      websiteUrl: "https://openseo.so",
+      websiteUrl: "https://seo.agenciare9.com.br",
       icons: [
         {
-          src: "https://openseo.so/android-chrome-512x512.png",
+          src: "https://seo.agenciare9.com.br/android-chrome-512x512.png",
           mimeType: "image/png",
           sizes: ["512x512"],
         },

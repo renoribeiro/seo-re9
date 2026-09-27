@@ -1,41 +1,41 @@
 ---
-title: "Install the OpenSEO plugin for Claude Code"
-description: "Add OpenSEO MCP and Agent Skills to Claude Code with one marketplace and one install command."
+title: "Instale o plugin do RE9 SEO para Claude Code"
+description: "Adicione o MCP e as skills de agente do RE9 SEO ao Claude Code com um comando de marketplace e um de instalação."
 ---
 
-The OpenSEO plugin bundles OpenSEO MCP and all ten SEO Agent Skills into one install. This is the preferred way to set up OpenSEO in Claude Code.
+O plugin do RE9 SEO reúne o MCP do RE9 SEO e todas as dez skills de agente de SEO em uma única instalação. Esta é a forma recomendada de configurar o RE9 SEO no Claude Code.
 
-## Install
+## Instalação
 
-Run these two commands in Claude Code:
+Execute estes dois comandos no Claude Code:
 
 ```bash
-/plugin marketplace add every-app/open-seo
+/plugin marketplace add renoribeiro/seo-re9
 /plugin install openseo@openseo
 ```
 
-If the install summary says `Run /reload-plugins to activate.`, run that command.
+Se o resumo da instalação disser `Run /reload-plugins to activate.`, execute esse comando.
 
-Claude Code connects OpenSEO MCP at `https://app.openseo.so/mcp` and enables ten skills:
+O Claude Code conecta o MCP do RE9 SEO em `https://seo.agenciare9.com.br/mcp` e ativa dez skills:
 
-- SEO Project Setup
-- SEO Coach
-- SEO Audit
-- Keyword Research
-- Keyword Clustering
-- Competitive Landscape
-- Competitor Analysis
-- Local SEO
-- Link Prospecting
-- SEO Report
+- Configuração do projeto de SEO (`seo-project-setup`)
+- SEO Coach (`seo-coach`)
+- Auditoria de SEO (`seo-audit`)
+- Pesquisa de palavras-chave (`keyword-research`)
+- Agrupamento de palavras-chave (`keyword-clustering`)
+- Panorama competitivo (`competitive-landscape`)
+- Análise de concorrentes (`competitor-analysis`)
+- SEO local (`local-seo`)
+- Prospecção de links (`link-prospecting`)
+- Relatório de SEO (`seo-report`)
 
-## Finish the login
+## Conclua o login
 
-Claude Code should prompt you to log in to OpenSEO right after install. If it doesn't, run `/mcp` and approve the OpenSEO connection from there.
+O Claude Code deve pedir que você entre no RE9 SEO logo após a instalação. Se isso não acontecer, execute `/mcp` e aprove a conexão do RE9 SEO por lá.
 
-## Run a skill
+## Execute uma skill
 
-Plugin skills are namespaced by the plugin name:
+As skills do plugin usam o nome do plugin como prefixo:
 
 ```
 /openseo:seo-project-setup
@@ -51,11 +51,11 @@ Plugin skills are namespaced by the plugin name:
 
 ## Claude Desktop
 
-Claude Desktop doesn't support this plugin format — plugins are a Claude Code feature. For Claude Desktop, [add OpenSEO as an MCP connector](/docs/mcp#claude-desktop) instead.
+O Claude Desktop não é compatível com este formato de plugin — plugins são um recurso do Claude Code. No Claude Desktop, [adicione o RE9 SEO como um conector MCP](/docs/mcp#claude-desktop).
 
-## Update
+## Atualização
 
-Run inside Claude Code:
+Execute dentro do Claude Code:
 
 ```text
 /plugin marketplace update openseo
@@ -63,28 +63,28 @@ Run inside Claude Code:
 /reload-plugins
 ```
 
-Updates land in the cache immediately, but the running session keeps the old version until you run `/reload-plugins` or restart Claude Code.
+As atualizações chegam ao cache imediatamente, mas a sessão em andamento mantém a versão antiga até você executar `/reload-plugins` ou reiniciar o Claude Code.
 
-For other installation methods, see [Agent setup and skill updates](/docs/agent-setup#update-your-skills).
+Para outros métodos de instalação, veja [Configuração do agente e atualização das skills](/docs/agent-setup#update-your-skills).
 
-## Remove
+## Remoção
 
 ```text
 /plugin uninstall openseo@openseo
 ```
 
-## Troubleshooting
+## Solução de problemas
 
-To check what's actually installed, run `/plugin list` rather than bare `/plugin` — `/plugin` alone opens an interactive panel that doesn't show plain text.
+Para conferir o que está realmente instalado, execute `/plugin list` em vez de só `/plugin` — `/plugin` sozinho abre um painel interativo que não mostra texto simples.
 
-If `/reload-plugins` reports `0 skills`, that's normal, not a failure — its summary only counts a plugin's `commands/` directory, not `skills/`. Confirm the skills loaded by running one directly, for example `/openseo:seo-audit`.
+Se `/reload-plugins` informar `0 skills`, isso é normal, não uma falha — o resumo só conta a pasta `commands/` do plugin, não a `skills/`. Confirme que as skills foram carregadas executando uma delas diretamente, por exemplo `/openseo:seo-audit`.
 
-If `/plugin uninstall openseo@openseo` reports "not installed in this project," you likely installed to a different scope than the one being checked (User, Project, or Local). Run `/plugin list` to see the actual scope, or sidestep the picker entirely with the shell form: `claude plugin uninstall openseo@openseo --scope user`.
+Se `/plugin uninstall openseo@openseo` informar "not installed in this project", provavelmente você instalou em um escopo diferente do que está sendo verificado (User, Project ou Local). Execute `/plugin list` para ver o escopo real ou evite o seletor usando o comando no shell: `claude plugin uninstall openseo@openseo --scope user`.
 
-If plugin skills don't appear, clear the plugin cache with `rm -rf ~/.claude/plugins/cache` — this clears every installed plugin's cache, not just OpenSEO's, so reinstall anything else you have after — then restart Claude Code and reinstall the plugin.
+Se as skills do plugin não aparecerem, limpe o cache de plugins com `rm -rf ~/.claude/plugins/cache` — isso limpa o cache de todos os plugins instalados, não só o do RE9 SEO, então reinstale os outros depois — reinicie o Claude Code e reinstale o plugin.
 
-If the OpenSEO connection doesn't show as authenticated, run `/mcp`, select OpenSEO, and complete the login.
+Se a conexão do RE9 SEO não aparecer como autenticada, execute `/mcp`, selecione o RE9 SEO e conclua o login.
 
-## Other clients
+## Outros clientes
 
-This plugin is for Claude Code. For Codex CLI, use the [OpenSEO plugin for Codex](/docs/codex-plugin) instead. For Cursor, Codex Desktop, Claude Desktop, or an API key setup, see [Set up OpenSEO MCP](/docs/mcp) and [Set up OpenSEO Agent Skills](/docs/skills/setup).
+Este plugin é para o Claude Code. No Codex CLI, use o [plugin do RE9 SEO para Codex](/docs/codex-plugin). Para Cursor, Codex Desktop, Claude Desktop ou uma configuração com chave de API, veja [Configure o MCP do RE9 SEO](/docs/mcp) e [Configure as skills de agente do RE9 SEO](/docs/skills/setup).

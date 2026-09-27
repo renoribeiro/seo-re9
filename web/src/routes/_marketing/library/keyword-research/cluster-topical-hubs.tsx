@@ -10,19 +10,19 @@ const PATH = "/library/keyword-research/cluster-topical-hubs";
 
 const faqs = [
   {
-    question: "What's the best keyword clustering tool?",
+    question: "Qual é a melhor ferramenta de agrupamento de palavras-chave?",
     answer:
-      "For SERP-overlap clustering at scale, paid tools exist, but for most sites, OpenSEO's research + an intent-grouping pass (the MCP prompt above) covers it. Judge tools by whether they cluster on SERP overlap; word-similarity clustering is a toy.",
+      "Para agrupar por sobreposição de SERP em escala existem ferramentas pagas, mas, para a maioria dos sites, a pesquisa do RE9 SEO somada a uma etapa de agrupamento por intenção (o prompt de MCP acima) resolve. Avalie as ferramentas pelo critério de agrupar por sobreposição de SERP; agrupar por semelhança de palavras é brincadeira.",
   },
   {
-    question: "Is there a free keyword clustering tool?",
+    question: "Existe ferramenta gratuita de agrupamento de palavras-chave?",
     answer:
-      "Not an unlimited one. The grouping step itself is free (the MCP prompt above does it), but it runs on researched keywords, and quality keyword data is the part that costs money everywhere. OpenSEO includes the clustering pass with research, so there's no separate clustering tool to buy; you can start for free, and paid plans start at $10/month.",
+      "Não uma ilimitada. A etapa de agrupamento em si é gratuita (o prompt de MCP acima faz isso), mas ela roda sobre palavras-chave pesquisadas, e dados de palavras-chave de qualidade são a parte que custa dinheiro em qualquer lugar. O RE9 SEO inclui a etapa de agrupamento junto com a pesquisa, então não há uma ferramenta de agrupamento separada para comprar.",
   },
   {
-    question: "What is a keyword mapping template?",
+    question: "O que é um modelo de mapa de palavras-chave?",
     answer:
-      "A sheet with one row per cluster: primary keyword, supporting keywords, intent, target URL, status. The keyword map above is the working example; copy the structure. Add a forecast column and it becomes a build order: size each cluster before you commit the quarter.",
+      "Uma planilha com uma linha por grupo: palavra-chave principal, palavras-chave de apoio, intenção, URL de destino e status. O mapa de palavras-chave acima é o exemplo prático; copie a estrutura. Acrescente uma coluna de projeção e ele vira uma ordem de construção: dimensione cada grupo antes de comprometer o trimestre.",
   },
 ];
 
@@ -42,10 +42,10 @@ export const Route = createFileRoute(
   head: () =>
     buildPageSeo({
       title:
-        "Keyword Clustering: Turn a Keyword List into Topical Hubs (and Fix Cannibalization)",
+        "Agrupamento de palavras-chave: transforme uma lista em hubs temáticos (e corrija a canibalização)",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -53,7 +53,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Cluster keywords into topical hubs"
+        crumb="Agrupe palavras-chave em hubs temáticos"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

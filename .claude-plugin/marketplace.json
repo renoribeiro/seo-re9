@@ -1,15 +1,15 @@
 {
   "name": "openseo",
   "owner": {
-    "name": "OpenSEO",
-    "url": "https://openseo.so"
+    "name": "RE9 SEO",
+    "url": "https://seo.agenciare9.com.br"
   },
-  "description": "OpenSEO's official Claude Code plugin marketplace.",
+  "description": "Marketplace oficial de plugins do RE9 SEO para Claude Code.",
   "plugins": [
     {
       "name": "openseo",
       "source": "./plugins/openseo",
-      "description": "Without good data, your agent gives generic advice. Keyword research, competitor research, backlinks, and site audits. All for $10/month.",
+      "description": "Sem dados de qualidade, seu agente dá conselhos genéricos. Pesquisa de palavras-chave, concorrentes, backlinks e auditoria de sites com o RE9 SEO.",
       "category": "SEO"
     }
   ]

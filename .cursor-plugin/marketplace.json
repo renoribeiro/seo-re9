@@ -2,16 +2,16 @@
   "name": "openseo",
   "owner": {
     "name": "Every App, Inc",
-    "email": "support@openseo.so"
+    "email": "trafego@re9.online"
   },
   "metadata": {
-    "description": "OpenSEO's official Cursor plugin marketplace."
+    "description": "Marketplace oficial de plugins do RE9 SEO para Cursor."
   },
   "plugins": [
     {
       "name": "openseo",
       "source": "plugins/openseo",
-      "description": "SEO made simple. Research keywords and competitors, audit sites, track rankings, and use Search Console data from your agent."
+      "description": "SEO sem complicação. Pesquise palavras-chave e concorrentes, audite sites, monitore posições e use dados do Search Console pelo seu agente."
     }
   ]
 }

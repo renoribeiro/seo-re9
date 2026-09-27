@@ -12,64 +12,64 @@ type Column = {
 };
 
 const COLUMNS: Column[] = [
-  { name: "OpenSEO", highlight: true },
-  { name: "DIY open-source repos" },
-  { name: "Data-pipeline tools" },
+  { name: "RE9 SEO", highlight: true },
+  { name: "Repositórios open source (faça você mesmo)" },
+  { name: "Ferramentas de pipeline de dados" },
 ];
 
 const ROWS: { label: string; cells: Cell[] }[] = [
   {
-    label: "Setup",
+    label: "Configuração",
     cells: [
-      { text: "Simple, guided onboarding", tone: "positive" },
-      { text: "~30 min in the Google Cloud console" },
-      { text: "Account + connector setup" },
+      { text: "Simples, com passo a passo guiado", tone: "positive" },
+      { text: "~30 min no console do Google Cloud" },
+      { text: "Conta + configuração de conector" },
     ],
   },
   {
-    label: "Google Cloud project",
+    label: "Projeto no Google Cloud",
     cells: [
-      { text: "Not needed", tone: "positive" },
-      { text: "Required", tone: "negative" },
-      { text: "Usually not needed", tone: "positive" },
+      { text: "Não é necessário", tone: "positive" },
+      { text: "Obrigatório", tone: "negative" },
+      { text: "Geralmente não é necessário", tone: "positive" },
     ],
   },
   {
-    label: "Cost to run",
+    label: "Custo de uso",
     cells: [
       {
-        text: "Included in the $10/mo plan, zero credits (free to self-host)",
+        text: "Não consome créditos; plano hospedado sob consulta (ou hospede por conta própria)",
         tone: "positive",
       },
-      { text: "Free (your time + your own quota)" },
-      { text: "Paid or limited free tier", tone: "negative" },
+      { text: "Gratuito (seu tempo + sua própria cota)" },
+      { text: "Pago ou com plano gratuito limitado", tone: "negative" },
     ],
   },
   {
-    label: "Read-only and safe",
+    label: "Somente leitura e seguro",
     cells: [
       { text: "webmasters.readonly", tone: "positive", code: true },
-      { text: "Depends on the scopes you grant" },
-      { text: "Varies" },
+      { text: "Depende dos escopos que você concede" },
+      { text: "Varia" },
     ],
   },
   {
-    label: "Built for SEO",
+    label: "Feito para SEO",
     cells: [
       {
-        text: "Also does keyword, rank, and backlink research",
+        text: "Também faz pesquisa de palavras-chave, posições e backlinks",
         tone: "positive",
       },
-      { text: "Search Console only", tone: "negative" },
-      { text: "Reporting and analytics focus" },
+      { text: "Só Search Console", tone: "negative" },
+      { text: "Foco em relatórios e análises" },
     ],
   },
   {
-    label: "Self-host option",
+    label: "Hospedagem própria",
     cells: [
-      { text: "Yes", tone: "positive" },
-      { text: "Yes", tone: "positive" },
-      { text: "No", tone: "negative" },
+      { text: "Sim", tone: "positive" },
+      { text: "Sim", tone: "positive" },
+      { text: "Não", tone: "negative" },
     ],
   },
 ];

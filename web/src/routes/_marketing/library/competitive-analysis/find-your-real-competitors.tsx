@@ -14,17 +14,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "How to Find Your Real SEO Competitors",
+      title: "Como descobrir seus concorrentes reais de SEO",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Find out who your real competitors are"
+      crumb="Descubra quem são seus concorrentes de verdade"
       path={PATH}
       library={COMPETITIVE_ANALYSIS_LIBRARY}
     >

@@ -10,54 +10,54 @@ export const Route = createFileRoute("/_marketing/website-traffic-checker")({
   head: () =>
     buildPageSeo({
       title:
-        "Free Website Traffic Checker: Estimate Any Site's Organic Traffic",
+        "Verificador de tráfego de sites grátis: estime o tráfego orgânico de qualquer site",
       description:
-        "Estimate any website's organic traffic, keyword count, and traffic value, with its top keywords and pages. Compare two domains. No signup, no email.",
+        "Estime o tráfego orgânico, o número de palavras-chave e o valor do tráfego de qualquer site, com as principais palavras-chave e páginas. Compare dois domínios. Sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free website traffic checker",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Verificador de tráfego de sites gratuito do RE9 SEO",
     }),
   component: WebsiteTrafficCheckerPage,
 });
 
 const FAQS = [
   {
-    question: "How accurate are these traffic numbers?",
+    question: "Esses números de tráfego são precisos?",
     answer:
-      "DataForSEO estimates organic traffic from rankings and search volume. Use these estimates to compare domains; they do not measure actual visits.",
+      "A DataForSEO estima o tráfego orgânico a partir das posições e do volume de busca. Use essas estimativas para comparar domínios; elas não medem visitas reais.",
   },
   {
-    question: "Why does this differ from Google Analytics?",
+    question: "Por que o resultado é diferente do Google Analytics?",
     answer:
-      "Analytics counts the visits that actually happened, across every channel. This estimates organic search visits only, for one country, from ranking data. Differences are expected.",
+      "O Analytics conta as visitas que realmente aconteceram, em todos os canais. Esta ferramenta estima apenas as visitas da busca orgânica, para um país, com base em dados de posição. Diferenças são esperadas.",
   },
   {
-    question: "How much do I get for free?",
+    question: "Quanto eu recebo de graça?",
     answer:
-      "The summary metrics plus the top 5 keywords and top 5 pages per domain, for one country at a time. OpenSEO lets you browse more keywords and pages, filter the results, and save keywords for rank tracking.",
+      "As métricas de resumo, mais as 5 principais palavras-chave e as 5 principais páginas de cada domínio, para um país por vez. No RE9 SEO, você vê mais palavras-chave e páginas, filtra os resultados e salva palavras-chave para o monitoramento de posições.",
   },
   {
-    question: "Where does the data come from?",
+    question: "De onde vêm os dados?",
     answer:
-      "DataForSEO's Labs index — the same source behind OpenSEO's domain overview. Results are cached for 24 hours per domain and country.",
+      "Do índice Labs da DataForSEO — a mesma fonte usada na visão geral do domínio do RE9 SEO. Os resultados ficam em cache por 24 horas por domínio e país.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Organic traffic estimate",
+    title: "Estimativa de tráfego orgânico",
     description:
-      "Estimated monthly organic visits, how many keywords the domain ranks for, and what that traffic would cost to buy.",
+      "Visitas orgânicas mensais estimadas, em quantas palavras-chave o domínio ranqueia e quanto custaria comprar esse tráfego.",
   },
   {
-    title: "Top keywords and pages",
+    title: "Principais palavras-chave e páginas",
     description:
-      "The five keywords driving the most traffic and the five pages earning it, with volume, position, and ranking URL.",
+      "As cinco palavras-chave que mais trazem tráfego e as cinco páginas que mais o recebem, com volume, posição e URL ranqueada.",
   },
   {
-    title: "Compare two domains",
+    title: "Compare dois domínios",
     description:
-      "Add a second domain to compare traffic and keyword counts, then explore the top keywords and pages for each site.",
+      "Adicione um segundo domínio para comparar tráfego e número de palavras-chave e depois explore as principais palavras-chave e páginas de cada site.",
   },
 ];
 
@@ -65,14 +65,14 @@ function WebsiteTrafficCheckerPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free Website Traffic Checker"
-      subhead="Estimate how much organic search traffic any website gets, which keywords bring it, and which pages earn it. Add a second domain to compare."
+      heading="Verificador de tráfego de sites grátis"
+      subhead="Estime quanto tráfego da busca orgânica qualquer site recebe, quais palavras-chave o trazem e quais páginas o recebem. Adicione um segundo domínio para comparar."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Explore more keywords and pages",
-        body: "Explore domain reports, save promising keywords, and track their rankings in OpenSEO. Start with free trial credits.",
-        featureLabel: "Learn about Domain Overview",
+        heading: "Explore mais palavras-chave e páginas",
+        body: "Explore relatórios de domínio, salve palavras-chave promissoras e monitore as posições delas no RE9 SEO.",
+        featureLabel: "Conheça a Visão geral do domínio",
       }}
     >
       <WebsiteTrafficCheckerTool />

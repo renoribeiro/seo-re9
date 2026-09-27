@@ -1,14 +1,14 @@
 {
   "name": "openseo",
-  "displayName": "OpenSEO",
+  "displayName": "RE9 SEO",
   "version": "1.0.0",
-  "description": "Without good data, your agent gives generic advice. Keyword research, competitor research, backlinks, and site audits. All for $10/month.",
+  "description": "Sem dados de qualidade, seu agente dá conselhos genéricos. Pesquisa de palavras-chave, concorrentes, backlinks e auditoria de sites com o RE9 SEO.",
   "author": {
-    "name": "OpenSEO",
-    "url": "https://openseo.so"
+    "name": "RE9 SEO",
+    "url": "https://seo.agenciare9.com.br"
   },
-  "homepage": "https://openseo.so",
-  "repository": "https://github.com/every-app/open-seo",
+  "homepage": "https://seo.agenciare9.com.br",
+  "repository": "https://github.com/renoribeiro/seo-re9",
   "license": "MIT",
   "keywords": [
     "seo",
@@ -23,7 +23,7 @@
   "mcpServers": {
     "openseo": {
       "type": "http",
-      "url": "https://app.openseo.so/mcp"
+      "url": "https://seo.agenciare9.com.br/mcp"
     }
   }
 }

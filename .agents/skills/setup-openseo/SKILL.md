@@ -16,8 +16,8 @@ Set up OpenSEO in this agent. Do what you can; guide me through anything that ne
 
 The official plugin bundles MCP + SEO skills, with OpenSEO namespacing and shared updates.
 
-- **Codex:** follow the [plugin guide](https://openseo.so/docs/codex-plugin).
-- **Claude Code:** follow the [plugin guide](https://openseo.so/docs/claude-code-plugin).
+- **Codex:** follow the [plugin guide](https://seo.agenciare9.com.br/docs/codex-plugin).
+- **Claude Code:** follow the [plugin guide](https://seo.agenciare9.com.br/docs/claude-code-plugin).
 - **Other agents:** verify plugin compatibility in their current documentation.
 - Check the installed client's help before running commands.
 
@@ -25,8 +25,8 @@ The official plugin bundles MCP + SEO skills, with OpenSEO namespacing and share
 
 If the plugin is unsupported:
 
-- Add `https://app.openseo.so/mcp` using the [MCP guide](https://openseo.so/docs/mcp).
-- Install the [public SEO skills](https://openseo.so/docs/skills/setup) for this agent only.
+- Add `https://seo.agenciare9.com.br/mcp` using the [MCP guide](https://seo.agenciare9.com.br/docs/mcp).
+- Install the [public SEO skills](https://seo.agenciare9.com.br/docs/skills/setup) for this agent only.
 - Do not copy internal repository skills or duplicate bundled skills.
 - If skills are unsupported, use MCP alone and link to the workflow guides.
 
@@ -35,7 +35,7 @@ For self-hosted OpenSEO, use its endpoint directly; the official plugin targets 
 ## 4. Sign in
 
 - **Prefer OAuth.** Start login; let me approve it in my browser.
-- **No OAuth?** Send me to `https://app.openseo.so/settings` → API keys. Have me enter the key in the client's secret settings or environment, never chat or a repository.
+- **No OAuth?** Send me to `https://seo.agenciare9.com.br/settings` → API keys. Have me enter the key in the client's secret settings or environment, never chat or a repository.
 - **Manual setup needed?** Use this agent’s current documentation and give only the steps I need to do myself.
 
 ## 5. Reload and verify

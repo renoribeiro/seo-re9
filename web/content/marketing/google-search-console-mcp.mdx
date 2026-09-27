@@ -1,44 +1,44 @@
 ---
-title: "Google Search Console MCP Server: No Google Cloud Setup"
-description: Connect Google Search Console to Claude, Cursor, or any MCP client — no Google Cloud project needed. Query clicks, impressions, CTR, position, and indexing.
+title: "Servidor MCP do Google Search Console sem configurar o Google Cloud"
+description: Conecte o Google Search Console ao Claude, ao Cursor ou a qualquer cliente MCP, sem precisar de um projeto no Google Cloud. Consulte cliques, impressões, CTR, posição e indexação.
 ---
 
-Most Google Search Console (GSC) MCP servers are open source, but they take a lot of effort to set up. You need to create a Google Cloud project, enable an API, build an OAuth client, download a `credentials.json`, then keep a local server running. OpenSEO handles the Google connection for you. You sign up, connect your property, and start asking.
+A maioria dos servidores MCP do Google Search Console (GSC) é open source, mas dá bastante trabalho configurar. Você precisa criar um projeto no Google Cloud, ativar uma API, criar um cliente OAuth, baixar um `credentials.json` e manter um servidor local rodando. O RE9 SEO cuida da conexão com o Google para você. Você cria sua conta, conecta sua propriedade e começa a perguntar.
 
-## Setup: no Google Cloud project
+## Configuração: sem projeto no Google Cloud
 
-1. Sign up for OpenSEO ($10/month).
-2. Go through the onboarding. When prompted, click **Connect Search Console** and pick your property.
-3. Add the OpenSEO MCP endpoint to your client (steps below) and approve the OpenSEO login when prompted.
+1. Crie sua conta no RE9 SEO.
+2. Siga os primeiros passos. Quando for solicitado, clique na opção para conectar o Search Console e escolha sua propriedade.
+3. Adicione o endpoint MCP do RE9 SEO ao seu cliente (passos abaixo) e aprove o login do RE9 SEO quando for solicitado.
 
-The hosted MCP server URL is:
+A URL do servidor MCP hospedado é:
 
 ```txt
-https://app.openseo.so/mcp
+https://seo.agenciare9.com.br/mcp
 ```
 
 ### Claude Code
 
 ```bash
-claude mcp add --transport http --scope user openseo https://app.openseo.so/mcp
+claude mcp add --transport http --scope user openseo https://seo.agenciare9.com.br/mcp
 ```
 
 ### Claude Desktop
 
-1. Open Customize → Connectors.
-2. Click **Add** (or **+**), then choose **Add custom connector**.
-3. Paste `https://app.openseo.so/mcp`.
+1. Abra Customize → Connectors.
+2. Clique em **Add** (ou **+**) e escolha **Add custom connector**.
+3. Cole `https://seo.agenciare9.com.br/mcp`.
 
 ### Cursor
 
-1. Open Cursor Settings → Tools & Integrations → MCP Tools.
-2. Click **New MCP Server** (this opens `mcp.json`) and add:
+1. Abra Cursor Settings → Tools & Integrations → MCP Tools.
+2. Clique em **New MCP Server** (isso abre o `mcp.json`) e adicione:
 
 ```json
 {
   "mcpServers": {
     "openseo": {
-      "url": "https://app.openseo.so/mcp"
+      "url": "https://seo.agenciare9.com.br/mcp"
     }
   }
 }
@@ -47,64 +47,64 @@ claude mcp add --transport http --scope user openseo https://app.openseo.so/mcp
 ### Codex CLI
 
 ```bash
-codex mcp add openseo --url https://app.openseo.so/mcp
+codex mcp add openseo --url https://seo.agenciare9.com.br/mcp
 ```
 
-Any other MCP client works the same way: add `https://app.openseo.so/mcp` as a remote server and sign in. Full setup and troubleshooting live in the [MCP docs](/docs/mcp).
+Qualquer outro cliente MCP funciona do mesmo jeito: adicione `https://seo.agenciare9.com.br/mcp` como servidor remoto e faça login. A configuração completa e a solução de problemas estão na [documentação do MCP](/docs/mcp).
 
-### The DIY way (every other GSC MCP)
+### O jeito "faça você mesmo" (todos os outros MCPs do GSC)
 
-1. Create a Google Cloud project
-2. Enable the Search Console API
-3. Configure the OAuth consent screen
-4. Create OAuth client credentials
-5. Download `credentials.json`
-6. Install and run a local MCP server
+1. Criar um projeto no Google Cloud
+2. Ativar a Search Console API
+3. Configurar a tela de consentimento OAuth
+4. Criar as credenciais do cliente OAuth
+5. Baixar o `credentials.json`
+6. Instalar e rodar um servidor MCP local
 
-## Things to actually ask it
+## O que perguntar de verdade
 
-- "Which queries am I ranking on page two for that I'm close to pushing onto page one?"
-- "Show me pages where impressions went up but clicks stayed flat — probably a title or meta problem."
-- "Are any of my blog posts competing with each other for the same query?"
-- "Is `/pricing` indexed? If not, what's blocking it?"
-- "Which queries lost the most clicks over the last 28 days?"
+- "Para quais consultas estou na página dois e perto de chegar à página um?"
+- "Mostre as páginas em que as impressões subiram, mas os cliques ficaram estáveis. Provavelmente é um problema de título ou meta description."
+- "Algum post do meu blog está competindo com outro pela mesma consulta?"
+- "A página `/precos` está indexada? Se não, o que está bloqueando?"
+- "Quais consultas mais perderam cliques nos últimos 28 dias?"
 
-## What your agent can read
+## O que o seu agente pode ler
 
-Two read-only tools over the property you connect. Both pull Google's own numbers, and neither uses credits.
+São duas ferramentas somente leitura sobre a propriedade que você conectar. As duas trazem os números do próprio Google, e nenhuma consome créditos.
 
-**Search performance.** Clicks, impressions, CTR, and average position for your site, sliced by query, page, country, device, and date. Pull up to 16 months of history in a single question.
+**Desempenho na busca.** Cliques, impressões, CTR e posição média do seu site, com recortes por consulta, página, país, dispositivo e data. Consulte até 16 meses de histórico em uma única pergunta.
 
-**URL inspection.** Whether a page is indexed and, if not, why: coverage status, last crawl, the canonical Google chose versus the one you declared, plus mobile and rich-result checks. Up to 10 URLs at a time.
+**Inspeção de URL.** Se uma página está indexada e, se não estiver, por quê: status de cobertura, último rastreamento, a canônica escolhida pelo Google em comparação com a que você declarou, além das verificações de Mobile e de resultados avançados. Até 10 URLs por vez.
 
-The agent can read and inspect. It cannot change anything in your account.
+O agente pode ler e inspecionar. Ele não pode alterar nada na sua conta.
 
-## What it costs
+## Créditos e custos
 
-The Search Console tools use zero credits — Google doesn't charge you to read your own data, so reading it through OpenSEO never burns usage. They're included with the OpenSEO plan ($10/month, which includes monthly usage credits for the research tools), alongside the credit-based tools (keyword research, rank tracking, backlinks) that run through the same MCP endpoint. If you'd rather not pay at all, OpenSEO is open source and free to self-host — see the FAQ below.
+As ferramentas do Search Console não consomem créditos: o Google não cobra para você ler os seus próprios dados, então lê-los pelo RE9 SEO nunca gasta uso. Elas fazem parte do plano do RE9 SEO, junto com as ferramentas baseadas em créditos (pesquisa de palavras-chave, monitoramento de posições, backlinks), que funcionam pelo mesmo endpoint MCP. Para conhecer o plano hospedado, fale com a gente: [trafego@re9.online](mailto:trafego@re9.online). O RE9 SEO também é open source e pode ser hospedado por conta própria; veja as perguntas frequentes abaixo.
 
-## OpenSEO vs. the alternatives
+## RE9 SEO vs. alternativas
 
 <ComparisonTable />
 
-## FAQ
+## Perguntas frequentes
 
-### What does it cost?
+### Quanto custa?
 
-The Search Console MCP tools are included with the $10/month OpenSEO plan (which comes with a 30-day money-back guarantee) and use zero credits. OpenSEO's other tools (keyword research, rank tracking, backlinks) use the usage credits included with the plan, through the same endpoint. Self-hosting is free.
+As ferramentas MCP do Search Console fazem parte do plano do RE9 SEO e não consomem créditos. As outras ferramentas do RE9 SEO (pesquisa de palavras-chave, monitoramento de posições, backlinks) usam os créditos de uso do plano, pelo mesmo endpoint. Para condições do plano hospedado, fale com a gente: [trafego@re9.online](mailto:trafego@re9.online). Hospedar por conta própria não tem custo de licença.
 
-### Is it open source?
+### É open source?
 
-Yes. OpenSEO is open source, so you can self-host the whole thing for free, including the Search Console MCP. The one-click connection here uses OpenSEO's hosted Google app. If you self-host, you bring your own Google OAuth client, the same Cloud-console step the hosted version saves you. Hosted means no setup; self-hosted means full control.
+Sim. O RE9 SEO é open source, então você pode hospedar tudo por conta própria, incluindo o MCP do Search Console. A conexão com um clique usa o app Google hospedado do RE9 SEO. Se você hospedar por conta própria, vai usar seu próprio cliente OAuth do Google, justamente a etapa no console do Cloud que a versão hospedada evita. Hospedado significa zero configuração; hospedagem própria significa controle total.
 
-### Is it read-only?
+### É somente leitura?
 
-Yes. OpenSEO requests read-only access (`webmasters.readonly`). Your agent can read performance data and inspect URLs, but it can't change your account.
+Sim. O RE9 SEO solicita acesso somente leitura (`webmasters.readonly`). Seu agente pode ler dados de desempenho e inspecionar URLs, mas não pode alterar sua conta.
 
-### Which AI clients work?
+### Quais clientes de IA funcionam?
 
-Any MCP client, including Claude Code, Claude Desktop, Cursor, Codex, and OpenClaw. Add the OpenSEO MCP endpoint and sign in.
+Qualquer cliente MCP, incluindo Claude Code, Claude Desktop, Cursor, Codex e OpenClaw. Adicione o endpoint MCP do RE9 SEO e faça login.
 
-### How fresh is the data?
+### Quão atualizados são os dados?
 
-It's Google's own data, so the most recent few days can be incomplete. History runs back 16 months, the same as the Search Console interface.
+São os dados do próprio Google, então os dias mais recentes podem estar incompletos. O histórico vai até 16 meses atrás, igual à interface do Search Console.

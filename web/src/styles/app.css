@@ -4,11 +4,11 @@
 
 @theme {
   --color-brand: #111111;
-  --color-brand-muted: #66625e;
-  --color-brand-accent: #ff5600;
-  --color-surface: #f5f1ec;
+  --color-brand-muted: #5f5f63;
+  --color-brand-accent: #ed1c24;
+  --color-surface: #f4f4f5;
   --color-surface-raised: #ffffff;
-  --color-border-subtle: #d8d1c8;
+  --color-border-subtle: #d4d4d8;
 }
 
 /* Marketing and blog pages are light-only, but RootProvider still toggles `.dark`
@@ -57,4 +57,22 @@ body {
     "Segoe UI",
     sans-serif;
   overflow-x: clip;
+}
+
+/* RE9 logo: dark artwork on light surfaces, light artwork under `.dark`. */
+.re9-logo-dark {
+  display: none;
+}
+.dark .re9-logo-light {
+  display: none;
+}
+.dark .re9-logo-dark {
+  display: inline-block;
+}
+/* Marketing pages are pinned light even when <html> carries `.dark`. */
+.dark .fd-light .re9-logo-light {
+  display: inline-block;
+}
+.dark .fd-light .re9-logo-dark {
+  display: none;
 }

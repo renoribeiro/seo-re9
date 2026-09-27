@@ -1,128 +1,131 @@
 ---
-title: "What to automate and what to keep: the dispatcher rule"
-description: "A scheduled rank check runs without anyone watching. A decision about which keywords go in it does not. How to split SEO work into what a schedule does, what an agent does, and what stays with a person, with a rule from someone who builds these systems for a living."
+title: "O que automatizar e o que manter: a regra do despachante"
+description: "Uma checagem de posições agendada roda sem ninguém olhando. A decisão sobre quais palavras-chave entram nela, não. Como dividir o trabalho de SEO entre o que um agendamento faz, o que um agente faz e o que fica com uma pessoa, com uma regra de quem constrói esses sistemas profissionalmente."
 ---
 
-## Which SEO tasks should be automated?
+## Quais tarefas de SEO devem ser automatizadas?
 
-The ones with a fixed input, a fixed output and no judgement in between. Everything else needs either an agent with a person reading its work, or a person.
+As que têm entrada fixa, saída fixa e nenhum julgamento no meio. Todo o resto precisa de um agente com uma pessoa revisando o trabalho dele, ou de uma pessoa.
 
-That sounds obvious and it is where most SEO automation goes wrong, because the temptation is to automate the interesting part. Mason McCumber, an AI automation specialist, describes the agent as a truck driver and you as the dispatcher, and the failure mode in one line:
+Parece óbvio, e é justamente aí que a maior parte da automação de SEO dá errado, porque a tentação é automatizar a parte interessante. Mason McCumber, especialista em automação com IA, descreve o agente como um caminhoneiro e você como o despachante, e resume o modo de falha em uma frase:
 
-> The driver's up so high in the truck and it just drove over someone's grass, but it doesn't know it just drove over someone's grass.
+> O motorista está tão alto lá na cabine que acabou de passar por cima da grama de alguém, mas não sabe que acabou de passar por cima da grama de alguém.
 
-His episode is [on the Unscripted Small Business podcast](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/). You are the dispatcher. The agent drives. You tell it where to go and you tell it when it went over the grass, and the second part is not optional, because the agent has a hard time noticing on its own.
+O episódio dele está [no podcast Unscripted Small Business](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/) (em inglês). Você é o despachante. O agente dirige. Você diz para onde ele deve ir e avisa quando ele passou por cima da grama, e a segunda parte não é opcional, porque o agente tem dificuldade de perceber isso sozinho.
 
-## Three layers, not two
+## Três camadas, não duas
 
-Most advice splits work into "automate" and "do by hand". The useful split has three layers.
+A maioria dos conselhos divide o trabalho entre “automatizar” e “fazer à mão”. A divisão útil tem três camadas.
 
-**Schedules.** Fixed input, fixed output, no model involved. A rank tracker checking 25 keywords every Monday. A Search Console property that syncs on its own. A monthly audit you start with one call. These run without an agent and without a person, and they are the cheapest thing in SEO. The only decision is what goes in, and that decision is made once.
+**Agendamentos.** Entrada fixa, saída fixa, nenhum modelo envolvido. Um monitor de posições checando 25 palavras-chave toda segunda-feira. Uma propriedade do Search Console que sincroniza sozinha. Uma auditoria mensal que você dispara com uma chamada. Isso roda sem agente e sem pessoa, e é o que há de mais barato em SEO. A única decisão é o que entra, e essa decisão é tomada uma vez só.
 
-**Agents.** Variable input, structured output, a person reads it. Summarise what moved in this week's tracker check. Bucket the audit's 1,180 findings by cause. Draft the report from the numbers. The agent does in a minute what took an afternoon, and the person reads the result the way an editor reads a draft.
+**Agentes.** Entrada variável, saída estruturada, uma pessoa lê o resultado. Resumir o que mudou na checagem do monitor desta semana. Separar os 1.180 achados da auditoria por causa. Rascunhar o relatório a partir dos números. O agente faz em um minuto o que levava uma tarde, e a pessoa lê o resultado como um editor lê um rascunho.
 
-**People.** Deciding what to track, what to build, what to say to the client, what to ignore. Anything where being wrong costs more than being slow.
+**Pessoas.** Decidir o que monitorar, o que construir, o que dizer ao cliente, o que ignorar. Tudo em que errar custa mais caro do que demorar.
 
-Mason is blunt about the first layer, and it is the opposite of what the market is selling:
+Mason é direto sobre a primeira camada, e o que ele diz é o oposto do que o mercado está vendendo:
 
-> if there's a repeated task that you have to keep doing, it doesn't have to be AI. Everyone's putting AI in everything. AI is not for everything.
+> se tem uma tarefa repetitiva que você precisa ficar fazendo, ela não precisa ser IA. Todo mundo está colocando IA em tudo. IA não é para tudo.
 
-Patrick Stox, formerly of Ahrefs, on where the second layer starts:
+Patrick Stox, ex-Ahrefs, sobre onde começa a segunda camada:
 
-> anything that, you know, is taking too much of your time that you're having to do repeatedly, go just try and you know, build a skill, try and improve it.
+> qualquer coisa que, sabe, esteja tomando tempo demais e que você tenha que fazer repetidamente, vai lá e tenta, sabe, criar uma skill, tenta melhorar.
 
-His episode is [here](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/).
+O episódio dele está [aqui](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/) (em inglês).
 
-Here is the first layer on a real tracker. Twenty-five keywords, mobile, checking the top 40 results, weekly. The estimate before it runs, from the app:
+Veja a primeira camada num monitor de posições real. Vinte e cinco palavras-chave, no celular, checando os 40 primeiros resultados, toda semana. A estimativa antes de rodar, direto do app:
 
-![OpenSEO rank tracker cost estimate through the MCP for the seoarcade.com tracker: 25 keywords on mobile at depth 40, a live check and the queued weekly check priced separately, with the monthly recurring cost](/library/ai-agent-seo/mcp-rank-tracker-estimate-openseo.png "Rank tracker cost estimate through the OpenSEO MCP")
+![Estimativa de custo do monitor de posições do seoarcade.com pelo MCP do RE9 SEO: 25 palavras-chave no celular com profundidade 40, com a checagem ao vivo e a checagem semanal na fila calculadas separadamente, além do custo mensal recorrente](/library/ai-agent-seo/mcp-rank-tracker-estimate-openseo.png "Estimativa de custo do monitor de posições pelo MCP do RE9 SEO")
 
-That is a schedule. Nobody prompts it. It runs on Monday and the results wait. The agent's job is Tuesday: read what changed and say so. The person's job was two weeks ago, choosing the 25. Choosing them is that decision; reading the [rank tracker](/features/rank-tracking) and writing three sentences is the agent's Tuesday.
+Isso é um agendamento. Ninguém precisa pedir. Ele roda na segunda-feira e os resultados ficam esperando. O trabalho do agente é na terça: ler o que mudou e dizer. O trabalho da pessoa foi duas semanas antes: escolher as 25. Escolhê-las é a decisão tomada uma vez só; ler o [monitor de posições](/features/rank-tracking) e escrever três frases é a terça-feira do agente.
 
-## What not to automate
+## O que não automatizar
 
-Two things, and they are the two most people try first.
+Duas coisas, e são justamente as duas que a maioria das pessoas tenta primeiro.
 
-**A process that is not written down.** Bradley Benner, who runs a link building service, on why automation fails in businesses that are not ready for it:
+**Um processo que não está documentado.** Bradley Benner, que comanda um serviço de link building, sobre por que a automação fracassa em empresas que não estão prontas para ela:
 
-> If if they don't have clear processes in their own business, you can't automate it because then you're just automating a sloppy process
+> Se, se elas não têm processos claros no próprio negócio, não dá pra automatizar, porque aí você só está automatizando um processo desleixado
 
-His episode is [here](https://unscriptedseo.com/bradley-benner-on-relevance-over-dr/). If you cannot write the steps down for a new hire, you cannot hand them to an agent. The agent will do something, confidently, and you will not know which step it invented.
+O episódio dele está [aqui](https://unscriptedseo.com/bradley-benner-on-relevance-over-dr/) (em inglês). Se você não consegue escrever os passos para um funcionário novo, não consegue entregá-los a um agente. O agente vai fazer alguma coisa, com toda a confiança, e você não vai saber qual passo ele inventou.
 
-**The decision itself.** Kate Hendrickson of The Strategy Lane, on where the human sits:
+**A decisão em si.** Kate Hendrickson, da The Strategy Lane, sobre onde fica o ser humano:
 
-> AIs can't be like a Waymo. Like we can't just let it drive itself. We still have to be the driver of a lot of that.
+> As IAs não podem ser como um Waymo. Tipo, a gente não pode simplesmente deixar a IA dirigir sozinha. A gente ainda tem que ser o motorista de boa parte disso.
 
-![A quote card reading: AIs can't be like a Waymo. We can't just let it drive itself. We still have to be the driver of a lot of that. Attributed to Kate Hendrickson of The Strategy Lane, from The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-cant-be-a-waymo.png "Kate Hendrickson on staying the driver")
+![Cartão de citação: “As IAs não podem ser como um Waymo. A gente não pode simplesmente deixar a IA dirigir sozinha. A gente ainda tem que ser o motorista de boa parte disso.” — Kate Hendrickson, da The Strategy Lane, no The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-cant-be-a-waymo.png "Kate Hendrickson sobre continuar no volante")
 
-Her episode is [on the Unscripted Small Business podcast](https://unscriptedsmallbusiness.com/kate-hendrickson-markets-through-conversations/). She and Mason disagree on the metaphor and agree on the point. Whether you call yourself the driver or the dispatcher, there is a person in the loop at the moment a choice is made, and the systems that skip that person produce work that is fast and wrong.
+O episódio dela está [no podcast Unscripted Small Business](https://unscriptedsmallbusiness.com/kate-hendrickson-markets-through-conversations/) (em inglês). Ela e Mason discordam na metáfora e concordam no ponto. Quer você se chame de motorista ou de despachante, existe uma pessoa no circuito no momento em que uma escolha é feita, e os sistemas que pulam essa pessoa produzem um trabalho rápido e errado.
 
-One more thing to know about the market: a lot of what is sold as an "SEO agent" is a schedule and a prompt in a wrapper. That is fine, as long as you know that is what you bought and a person still reads the output.
+Mais uma coisa que vale saber sobre o mercado: boa parte do que é vendido como “agente de SEO” é um agendamento e um prompt dentro de uma embalagem. Não tem problema, desde que você saiba que foi isso que comprou e que uma pessoa continue lendo o resultado.
 
-## Putting the three layers on OpenSEO
+## As três camadas no RE9 SEO
 
-Map the product to the layers and the plan writes itself.
+Encaixe o produto nas camadas e o plano se escreve sozinho.
 
-| Layer    | In OpenSEO                                                                                                    | Who acts                             |
-| -------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| Schedule | Rank tracker (daily, weekly, monthly), the connected Search Console property                                  | Nobody. It runs.                     |
-| Agent    | The MCP tools: read the tracker, read Search Console, bucket audit issues, pull competitors, draft the report | The assistant, with a person reading |
-| Person   | Which keywords, which pages, which competitors, what to build, what to tell the client                        | You                                  |
+| Camada      | No RE9 SEO                                                                                                                               | Quem age                           |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Agendamento | Monitor de posições (diário, semanal, mensal), a propriedade do Search Console conectada                                                 | Ninguém. Ele roda.                 |
+| Agente      | As ferramentas do MCP: ler o monitor, ler o Search Console, separar os problemas da auditoria, puxar concorrentes, rascunhar o relatório | O assistente, com uma pessoa lendo |
+| Pessoa      | Quais palavras-chave, quais páginas, quais concorrentes, o que construir, o que dizer ao cliente                                         | Você                               |
 
-The schedule layer costs credits per check and the app shows the price before you commit. The agent layer costs nothing for reads (Search Console, tracker results, audit results) and credits for research. The person layer costs the most, which is the reason to keep it small and to give it good inputs.
+A camada de agendamento consome créditos a cada checagem, e o app mostra o custo antes de você confirmar. A camada de agente não consome nada nas leituras (Search Console, resultados do monitor, resultados da auditoria) e consome créditos na pesquisa. A camada da pessoa é a mais cara de todas, e é por isso que vale mantê-la pequena e dar a ela boas informações de entrada.
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-Connect the [OpenSEO MCP](/docs/mcp). This prompt sets up the schedule layer once and defines the agent's weekly job; the person's job is answering the questions in step 1.
+Conecte o [MCP do RE9 SEO](/docs/mcp). Este prompt configura a camada de agendamento uma única vez e define o trabalho semanal do agente; o trabalho da pessoa é responder às perguntas do passo 1.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. Ask me three questions and wait: which 20 to 40 keywords to
-   track, which device, and what day of the week I read reports.
+1. Me faça três perguntas e espere: quais 20 a 40 palavras-chave
+   monitorar, qual dispositivo e em que dia da semana eu leio os
+   relatórios.
 
-2. Call get_rank_tracker. If a tracker exists for my domain, add the
-   keywords to it; otherwise create one: weekly, the device I named,
-   depth 40. Call estimate_rank_tracker_cost first and show me the
-   monthly figure before adding anything.
+2. Chame get_rank_tracker. Se já existir um monitor para o meu
+   domínio, adicione as palavras-chave a ele; se não, crie um: semanal,
+   no dispositivo que eu indiquei, profundidade 40. Chame
+   estimate_rank_tracker_cost antes e me mostre o valor mensal antes
+   de adicionar qualquer coisa.
 
-3. Call run_site_audit if the last audit is older than 30 days, and
-   tell me when it will finish.
+3. Chame run_site_audit se a última auditoria tiver mais de 30 dias e
+   me diga quando ela vai terminar.
 
-4. Write down, as a saved prompt I can paste every week: pull the
-   tracker results, bucket the movement (entered top 3, entered page
-   1, left page 1, unchanged), pull Search Console clicks for the
-   tracked pages this week versus last, and write three sentences.
+4. Registre, como um prompt salvo que eu possa colar toda semana:
+   puxar os resultados do monitor, separar as variações (entrou no
+   top 3, entrou na página 1, saiu da página 1, sem mudança), puxar os
+   cliques do Search Console nas páginas monitoradas nesta semana em
+   comparação com a anterior e escrever três frases.
 
-5. Tell me which of the things you just did will run again without
-   me, which need me to paste the weekly prompt, and which need me to
-   decide something.
+5. Me diga quais das coisas que você acabou de fazer vão rodar de
+   novo sem mim, quais precisam que eu cole o prompt semanal e quais
+   precisam que eu decida alguma coisa.
 ```
 
-Step 5 is the three layers, said back to you by the agent. If it puts a decision in the "runs without me" list, that is the grass.
+O passo 5 são as três camadas, repetidas para você pelo agente. Se ele colocar uma decisão na lista do que “roda sem mim”, isso é passar por cima da grama.
 
-## Automate the schedule, read the agent, keep the decision
+## Automatize o agendamento, leia o agente, mantenha a decisão
 
-The tracker runs. The audit runs when asked. The agent reads them and writes the draft. You choose the keywords, read the draft and decide. The work that used to fill the week now fills an hour, and the hour is the part that was always worth paying for. [Human in the loop content](/library/ai-agent-seo/human-in-the-loop-content) applies the same split to writing.
+O monitor roda. A auditoria roda quando é chamada. O agente lê os dois e escreve o rascunho. Você escolhe as palavras-chave, lê o rascunho e decide. O trabalho que antes ocupava a semana agora ocupa uma hora, e essa hora é a parte que sempre valeu a pena pagar. [Conteúdo com humano no circuito](/library/ai-agent-seo/human-in-the-loop-content) aplica a mesma divisão à escrita.
 
-## SEO automation FAQ
+## Perguntas frequentes sobre automação de SEO
 
-### What SEO tasks can be automated?
+### Quais tarefas de SEO dá para automatizar?
 
-Anything with a fixed input and output and no judgement: scheduled rank checks, Search Console pulls, site audits started on a fixed day, data exports. An agent can add a second layer, summarising and drafting from that data, as long as a person reads the result. Choosing what to track, what to build and what to tell a client stays with a person.
+Tudo o que tem entrada e saída fixas e nenhum julgamento: checagens de posições agendadas, extrações do Search Console, auditorias do site disparadas num dia fixo, exportações de dados. Um agente pode acrescentar uma segunda camada, resumindo e rascunhando a partir desses dados, desde que uma pessoa leia o resultado. Escolher o que monitorar, o que construir e o que dizer ao cliente continua com uma pessoa.
 
-### What is the difference between SEO automation and an AI SEO agent?
+### Qual a diferença entre automação de SEO e um agente de SEO com IA?
 
-Automation runs the same job on a schedule with no model involved, like a weekly rank check. An agent takes variable input and produces structured output using a language model, like reading the check and writing the summary. Many products sold as agents are a schedule plus a prompt; that is useful, but it still needs a reader.
+A automação roda a mesma tarefa num agendamento, sem nenhum modelo envolvido, como uma checagem semanal de posições. Um agente recebe uma entrada variável e produz uma saída estruturada usando um modelo de linguagem, como ler a checagem e escrever o resumo. Muitos produtos vendidos como agentes são um agendamento mais um prompt; isso é útil, mas continua precisando de alguém que leia.
 
-### Can I automate SEO reporting?
+### Dá para automatizar relatórios de SEO?
 
-The data collection, yes: the tracker and Search Console pulls run on their own and use no credits to read. The draft, yes, with an agent and a saved prompt. The sentence that says what it means for the business should still be written or at least read by a person before it goes out.
+A coleta de dados, sim: o monitor e as extrações do Search Console rodam sozinhos e não consomem créditos na leitura. O rascunho também, com um agente e um prompt salvo. A frase que diz o que aquilo significa para o negócio ainda deve ser escrita, ou pelo menos lida, por uma pessoa antes de ser enviada.
 
-### How much does scheduled rank tracking cost in OpenSEO?
+### Quanto custa o monitoramento de posições agendado no RE9 SEO?
 
-The app estimates before anything runs. As a reference, 25 keywords on mobile checking the top 40 results weekly comes to about $0.25 a month in credits; 100 keywords about a dollar. Scheduled checks go through a queue that is cheaper than one-off live checks. Rank checks on the hosted app need the $10/month plan.
+O app mostra o custo estimado antes de rodar qualquer coisa. O custo cresce na proporção de palavras-chave × dispositivos × profundidade. Checagens agendadas passam por uma fila mais barata que as checagens ao vivo avulsas. Fale com a gente: trafego@re9.online
 
-### Should I automate content production?
+### Devo automatizar a produção de conteúdo?
 
-Not end to end. The strategy on [human in the loop content](/library/ai-agent-seo/human-in-the-loop-content) covers the split that works: a person writes the brief, the agent drafts, a person edits. Automating the brief or the edit produces content that reads like every other automated site.
+Não de ponta a ponta. A estratégia de [conteúdo com humano no circuito](/library/ai-agent-seo/human-in-the-loop-content) explica a divisão que funciona: uma pessoa escreve o briefing, o agente rascunha, uma pessoa edita. Automatizar o briefing ou a edição produz um conteúdo que parece o de qualquer outro site automatizado.

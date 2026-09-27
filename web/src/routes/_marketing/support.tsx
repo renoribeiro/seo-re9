@@ -2,18 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { buildPageSeo } from "@/lib/seo";
 
-const SUPPORT_EMAIL = "ben@openseo.so";
-const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
-const GITHUB_ISSUES_URL = "https://github.com/every-app/open-seo/issues";
+const SUPPORT_EMAIL = "trafego@re9.online";
+const GITHUB_ISSUES_URL = "https://github.com/renoribeiro/seo-re9/issues";
 
 export const Route = createFileRoute("/_marketing/support")({
   head: () =>
     buildPageSeo({
-      title: "Support",
+      title: "Suporte",
       description:
-        "Get help with OpenSEO, share feedback, or report an issue by email, Discord, or GitHub.",
+        "Tire dúvidas sobre o RE9 SEO, envie sugestões ou relate um problema por e-mail ou pelo GitHub.",
       path: "/support",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: SupportPage,
 });
@@ -31,27 +30,27 @@ function SupportPage() {
     <article className="mx-auto max-w-4xl">
       <header className="max-w-3xl">
         <p className="text-sm font-medium text-[var(--color-brand-accent)]">
-          Help &amp; Community
+          Ajuda e suporte
         </p>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          We want to hear from you
+          Queremos ouvir você
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--color-brand-muted)]">
-          We want to talk to you! We&apos;re super open to feedback and want to
-          learn how you work so we can make OpenSEO better.
+          Fale com a gente! Estamos abertos a sugestões e queremos entender como
+          você trabalha para deixar o RE9 SEO cada vez melhor.
         </p>
       </header>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
+      <div className="mt-12 grid gap-4 md:grid-cols-2">
         <section className="flex min-h-64 flex-col rounded-xl border border-[var(--color-border-subtle)] bg-white p-6">
           <p className="font-mono text-xs text-[var(--color-brand-accent)]">
             01
           </p>
           <h2 className="mt-6 text-xl font-semibold tracking-tight text-neutral-950">
-            Email
+            E-mail
           </h2>
           <p className="mt-2 text-sm leading-6 text-[var(--color-brand-muted)]">
-            Send ideas, problems, questions, or feedback directly.
+            Mande ideias, problemas, dúvidas ou sugestões diretamente.
           </p>
           <button
             type="button"
@@ -61,24 +60,18 @@ function SupportPage() {
           >
             <span className="font-mono text-xs">{SUPPORT_EMAIL}</span>
             {copied ? <CheckIcon /> : <CopyIcon />}
-            <span className="sr-only">{copied ? "Copied" : "Copy email"}</span>
+            <span className="sr-only">
+              {copied ? "Copiado" : "Copiar e-mail"}
+            </span>
           </button>
         </section>
 
         <SupportCard
           number="02"
-          title="Discord"
-          description="Ask for help, share ideas and learn from the community."
-          href={DISCORD_URL}
-          linkText="Join the Discord"
-        />
-
-        <SupportCard
-          number="03"
           title="GitHub Issues"
-          description="Report bugs or request features on GitHub."
+          description="Relate bugs ou peça novas funcionalidades no GitHub."
           href={GITHUB_ISSUES_URL}
-          linkText="Open an issue"
+          linkText="Abrir uma issue"
         />
       </div>
     </article>

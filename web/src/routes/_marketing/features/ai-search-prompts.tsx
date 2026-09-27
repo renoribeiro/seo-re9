@@ -8,10 +8,10 @@ const page = featurePages.aiSearchPrompts;
 export const Route = createFileRoute("/_marketing/features/ai-search-prompts")({
   head: () =>
     buildPageSeo({
-      title: "AI Search Prompt Explorer",
+      title: "Explorador de prompts de busca com IA",
       description: page.description,
       path: "/features/ai-search-prompts",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       imageAlt: page.imageAlt,
     }),
   component: () => <FeaturePageTemplate page={page} />,

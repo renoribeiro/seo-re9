@@ -1,59 +1,59 @@
 ---
-title: "OpenSEO Agent Skills"
-description: "Add OpenSEO Agent Skills to Claude Code, Codex, or another AI agent so it can run repeatable SEO workflows with live OpenSEO data."
+title: "Skills de agente do RE9 SEO"
+description: "Adicione as skills de agente do RE9 SEO ao Claude Code, ao Codex ou a outro agente de IA para executar fluxos de SEO repetíveis com dados do RE9 SEO em tempo real."
 ---
 
-OpenSEO Agent Skills let you hand repeatable SEO workflows to your AI agent.
+As skills de agente do RE9 SEO permitem que você entregue fluxos de SEO repetíveis ao seu agente de IA.
 
-Run a slash command when you need keyword research, clustering, competitor analysis, link prospecting, or project setup. The skill gives your agent the workflow instructions.
+Execute um comando de barra (slash command) quando precisar de pesquisa de palavras-chave, agrupamento, análise de concorrentes, prospecção de links ou configuração do projeto. A skill dá ao agente as instruções do fluxo de trabalho.
 
-You stay in charge of strategy. Your agent uses OpenSEO data and the skill instructions to research the answer, then saves the result as a report in your project.
+Você continua no comando da estratégia. O agente usa os dados do RE9 SEO e as instruções da skill para pesquisar a resposta e depois salva o resultado como um relatório no seu projeto.
 
-No account yet? Try the [free SEO tools](/tools).
+Ainda não tem conta? Experimente as [ferramentas de SEO gratuitas](/tools).
 
-## Set up OpenSEO Agent Skills
+## Configure as skills de agente do RE9 SEO
 
-On Claude Code, the [OpenSEO plugin](/docs/claude-code-plugin) installs MCP and every skill below in one step. On Codex CLI, the [OpenSEO plugin](/docs/codex-plugin) does the same. Use the manual steps here for other agents, or if you want to pick individual skills.
+No Claude Code, o [plugin do RE9 SEO](/docs/claude-code-plugin) instala o MCP e todas as skills abaixo em um só passo. No Codex CLI, o [plugin do RE9 SEO](/docs/codex-plugin) faz o mesmo. Use os passos manuais daqui para outros agentes ou se quiser escolher skills individualmente.
 
-1. [Set up OpenSEO MCP](/docs/mcp).
-2. [Set up OpenSEO Agent Skills](/docs/skills/setup).
+1. [Configure o MCP do RE9 SEO](/docs/mcp).
+2. [Configure as skills de agente do RE9 SEO](/docs/skills/setup).
 
-MCP connects your agent to OpenSEO data. Skills tell your agent which SEO workflow to run.
+O MCP conecta seu agente aos dados do RE9 SEO. As skills dizem ao agente qual fluxo de SEO executar.
 
-## Start here
+## Comece aqui
 
-- [SEO Project Setup](/docs/skills/seo-project-setup): save your goals, positioning, competitors, and key pages to your project context, so every other skill reuses them.
-- [SEO Coach](/docs/skills/seo-coach): choose the next workflow when you are new to SEO or unsure what to run first.
+- [Configuração do projeto de SEO](/docs/skills/seo-project-setup): salve seus objetivos, posicionamento, concorrentes e páginas principais no contexto do projeto, para que todas as outras skills reaproveitem essas informações.
+- [SEO Coach](/docs/skills/seo-coach): escolha o próximo fluxo de trabalho quando estiver começando em SEO ou não souber o que executar primeiro.
 
-## Audit workflows
+## Fluxos de auditoria
 
-- [SEO Audit](/docs/skills/seo-audit): audit a site and understand its important problems, worthwhile improvements, and likely effects on traffic and the business.
+- [Auditoria de SEO](/docs/skills/seo-audit): audite um site e entenda os problemas importantes, as melhorias que valem a pena e os efeitos prováveis no tráfego e no negócio.
 
-## Research workflows
+## Fluxos de pesquisa
 
-- [Keyword Research](/docs/skills/keyword-research): find keywords worth targeting and explain why they fit.
-- [Keyword Clustering](/docs/skills/keyword-clustering): turn keyword lists into page groups, content priorities, and cannibalization checks.
-- [Competitive Landscape](/docs/skills/competitive-landscape): map who is winning across a market and where your openings are.
-- [Competitor Analysis](/docs/skills/competitor-analysis): analyze one competitor and turn the research into strategic takeaways.
-- [Local SEO](/docs/skills/local-seo): audit a Google Business Profile, compare it to local competitors, and map Maps visibility around a location.
+- [Pesquisa de palavras-chave](/docs/skills/keyword-research): encontre palavras-chave que valem a pena e entenda por que elas se encaixam.
+- [Agrupamento de palavras-chave](/docs/skills/keyword-clustering): transforme listas de palavras-chave em grupos de páginas, prioridades de conteúdo e verificações de canibalização.
+- [Panorama competitivo](/docs/skills/competitive-landscape): mapeie quem está ganhando em um mercado e onde estão as suas oportunidades.
+- [Análise de concorrentes](/docs/skills/competitor-analysis): analise um concorrente e transforme a pesquisa em conclusões estratégicas.
+- [SEO local](/docs/skills/local-seo): audite um Perfil da Empresa no Google, compare-o com concorrentes locais e mapeie a visibilidade no Maps ao redor de um local.
 
-## Promotion workflows
+## Fluxos de divulgação
 
-- [Link Prospecting](/docs/skills/link-prospecting): find qualified outreach prospects and the angle that makes each one relevant.
+- [Prospecção de links](/docs/skills/link-prospecting): encontre sites qualificados para outreach e o ângulo que torna cada um relevante.
 
-## How the results reach you
+## Como os resultados chegam até você
 
-- [SEO Report](/docs/skills/seo-report): the shared report-writing skill every workflow above delivers through. Your agent writes one self-contained HTML page and saves it to your project's Reports page, where anyone can read or print it.
+- [Relatório de SEO](/docs/skills/seo-report): a skill compartilhada de escrita de relatórios usada por todos os fluxos acima. O agente escreve uma página HTML autocontida e a salva na página Relatórios do seu projeto, onde qualquer pessoa pode ler ou imprimir.
 
-## Learn more about skills
+## Saiba mais sobre skills
 
-OpenSEO uses the same `SKILL.md` pattern supported by modern AI agents. To learn how skills work in your agent, read:
+O RE9 SEO usa o mesmo padrão `SKILL.md` aceito pelos agentes de IA modernos. Para entender como as skills funcionam no seu agente, leia:
 
-- [Claude Code skills documentation](https://docs.claude.com/en/docs/claude-code/skills)
-- [OpenAI Skills documentation](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
+- [Documentação de skills do Claude Code](https://docs.claude.com/en/docs/claude-code/skills)
+- [Documentação de Skills da OpenAI](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
 
-## Read the actual skills
+## Leia as skills originais
 
-These pages explain what each skill is for. The source instructions live in GitHub:
+Estas páginas explicam para que serve cada skill. As instruções originais ficam no GitHub:
 
-- [OpenSEO Agent Skills on GitHub](https://github.com/every-app/open-seo/tree/main/.agents/skills)
+- [Skills de agente do RE9 SEO no GitHub](https://github.com/renoribeiro/seo-re9/tree/main/.agents/skills)

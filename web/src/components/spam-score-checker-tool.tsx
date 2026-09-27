@@ -41,7 +41,7 @@ export function SpamScoreCheckerTool() {
       >
         <div className="flex flex-col gap-2 sm:flex-row">
           <label htmlFor="spam-target" className="sr-only">
-            Domain to check
+            Domínio para verificar
           </label>
           <input
             id="spam-target"
@@ -53,18 +53,18 @@ export function SpamScoreCheckerTool() {
             required
             value={target}
             onChange={(e) => setTarget(e.target.value)}
-            placeholder="example.com"
+            placeholder="exemplo.com.br"
             disabled={status === "loading"}
             className={FIELD_CLASS}
           />
-          <SubmitButton status={status} idleLabel="Check spam score" />
+          <SubmitButton status={status} idleLabel="Verificar spam score" />
         </div>
       </ToolForm>
 
       {status === "done" && result ? (
         <div className="mt-6">
           <h2 className="text-lg font-semibold tracking-tight text-neutral-950">
-            Spam signals for{" "}
+            Sinais de spam de{" "}
             <span className="text-[var(--color-brand-accent)]">
               {result.target}
             </span>
@@ -74,41 +74,44 @@ export function SpamScoreCheckerTool() {
             <MetricGrid
               metrics={[
                 {
-                  label: "Backlink spam score",
+                  label: "Spam score dos backlinks",
                   value: formatCount(result.spamScore),
-                  tip: "DataForSEO's 0-100 estimate of how spammy the links pointing at this domain look, based on signals like the linking sites' own profiles. Higher is worse.",
+                  tip: "Estimativa (de 0 a 100) da DataForSEO do quanto os links que apontam para este domínio parecem spam, com base em sinais como o perfil dos próprios sites que fazem o link. Quanto maior, pior.",
                 },
                 {
-                  label: "Domain spam score",
+                  label: "Spam score do domínio",
                   value: formatCount(result.targetSpamScore),
-                  tip: "The same 0-100 scale applied to this domain itself rather than to the links pointing at it.",
+                  tip: "A mesma escala de 0 a 100 aplicada ao próprio domínio, e não aos links que apontam para ele.",
                 },
                 {
-                  label: "Referring domains",
+                  label: "Domínios de referência",
                   value: formatCount(result.referringDomains),
-                  tip: "Unique websites linking to this domain at least once.",
+                  tip: "Sites únicos que linkam para este domínio pelo menos uma vez.",
                 },
                 {
-                  label: "Domain rank",
+                  label: "Domain Rank",
                   value: formatCount(result.rank),
-                  tip: "DataForSEO's 0-100 link-profile strength score for this domain.",
+                  tip: "Pontuação de 0 a 100 da DataForSEO para a força do perfil de links deste domínio.",
                 },
               ]}
             />
           </div>
 
           <h3 className="mt-6 text-base font-semibold text-neutral-950">
-            The spammiest links pointing here
+            Os links mais suspeitos que apontam para cá
           </h3>
           {result.worstBacklinks.length > 0 ? (
-            <ToolTable label="Spam Score Checker results" className="mt-3">
+            <ToolTable
+              label="Resultados do verificador de spam score"
+              className="mt-3"
+            >
               <table className="w-full min-w-[640px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
                     <th className="px-4 py-3 font-medium">Spam score</th>
-                    <th className="px-4 py-3 font-medium">Linking page</th>
-                    <th className="px-4 py-3 font-medium">Anchor</th>
-                    <th className="px-4 py-3 font-medium">Type</th>
+                    <th className="px-4 py-3 font-medium">Página de origem</th>
+                    <th className="px-4 py-3 font-medium">Âncora</th>
+                    <th className="px-4 py-3 font-medium">Tipo</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -140,19 +143,19 @@ export function SpamScoreCheckerTool() {
             </ToolTable>
           ) : (
             <p className="mt-3 rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-              No live backlinks found for this domain in the index yet.
+              Ainda não há backlinks ativos para este domínio no índice.
             </p>
           )}
           <p className="mt-2 text-xs text-[var(--color-brand-muted)]">
-            Spammy links are normal. A handful of scraper sites is not a
-            problem; a profile where most referring domains score high is worth
-            a closer look.
+            Ter alguns links de spam é normal. Um punhado de sites copiadores
+            não é problema; já um perfil em que a maioria dos domínios de
+            referência tem pontuação alta merece um olhar mais atento.
           </p>
 
-          <UpsellCard tool={TOOL} cta="Audit the whole profile">
-            The free check lists the 10 spammiest referring domains. OpenSEO
-            filters the full backlink profile by spam score so you can see how
-            much of it is junk.
+          <UpsellCard tool={TOOL} cta="Auditar o perfil inteiro">
+            A verificação gratuita lista os 10 domínios de referência com mais
+            sinais de spam. O RE9 SEO filtra o perfil completo de backlinks por
+            spam score para você ver quanto dele é lixo.
           </UpsellCard>
         </div>
       ) : null}

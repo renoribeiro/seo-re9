@@ -5,16 +5,16 @@
  * so an unknown code is rejected rather than passed through.
  */
 export const TOOL_COUNTRIES = [
-  { code: 2840, label: "United States", language: "en" },
-  { code: 2826, label: "United Kingdom", language: "en" },
-  { code: 2124, label: "Canada", language: "en" },
-  { code: 2036, label: "Australia", language: "en" },
-  { code: 2276, label: "Germany", language: "de" },
-  { code: 2250, label: "France", language: "fr" },
-  { code: 2724, label: "Spain", language: "es" },
-  { code: 2356, label: "India", language: "en" },
-  { code: 2528, label: "Netherlands", language: "nl" },
-  { code: 2076, label: "Brazil", language: "pt" },
+  { code: 2840, label: "Estados Unidos", language: "en" },
+  { code: 2826, label: "Reino Unido", language: "en" },
+  { code: 2124, label: "Canadá", language: "en" },
+  { code: 2036, label: "Austrália", language: "en" },
+  { code: 2276, label: "Alemanha", language: "de" },
+  { code: 2250, label: "França", language: "fr" },
+  { code: 2724, label: "Espanha", language: "es" },
+  { code: 2356, label: "Índia", language: "en" },
+  { code: 2528, label: "Países Baixos", language: "nl" },
+  { code: 2076, label: "Brasil", language: "pt" },
 ] as const;
 
 export const DEFAULT_COUNTRY_CODE = 2840;
@@ -27,6 +27,7 @@ export function countryLanguage(code: number): string | null {
 
 export function countryLabel(code: number): string {
   return (
-    TOOL_COUNTRIES.find((country) => country.code === code)?.label ?? "Unknown"
+    TOOL_COUNTRIES.find((country) => country.code === code)?.label ??
+    "Desconhecido"
   );
 }

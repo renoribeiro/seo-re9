@@ -10,11 +10,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const DIST_DIR = join(__dirname, "../dist/client");
-const BLOG_CONTENT_DIR = join(__dirname, "../content/blogs");
 const DOCS_CONTENT_DIR = join(__dirname, "../content/docs");
 const LIBRARY_ROUTES_DIR = join(__dirname, "../src/routes/_marketing/library");
 
-const DEFAULT_SITE_URL = "https://openseo.so";
+const DEFAULT_SITE_URL = "https://seo.agenciare9.com.br";
 const SITE_URL = (process.env.SITE_URL ?? DEFAULT_SITE_URL).replace(/\/+$/, "");
 
 const STATIC_PATHS = [
@@ -22,13 +21,11 @@ const STATIC_PATHS = [
   "/pricing",
   "/privacy",
   "/terms-and-conditions",
-  "/blogs",
   "/docs",
   "/features",
   "/features/mcp",
   "/tools",
   "/open-source-seo",
-  "/about",
   "/why-openseo",
   "/google-search-console-mcp",
   "/roadmap",
@@ -126,10 +123,7 @@ function main() {
   for (const path of [...STATIC_PATHS, ...getLibraryPaths()]) {
     entries.set(path, { path, lastmod: null });
   }
-  for (const entry of [
-    ...getContentEntries(BLOG_CONTENT_DIR, "/blogs"),
-    ...getContentEntries(DOCS_CONTENT_DIR, "/docs"),
-  ]) {
+  for (const entry of [...getContentEntries(DOCS_CONTENT_DIR, "/docs")]) {
     entries.set(entry.path, entry);
   }
 

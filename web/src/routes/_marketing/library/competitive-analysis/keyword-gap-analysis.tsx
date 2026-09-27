@@ -14,17 +14,18 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Keyword Gap Analysis: How to Run One That Works",
+      title:
+        "Análise de lacunas de palavras-chave: como fazer uma que funcione",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Keyword gap analysis: subtract the brand terms first"
+      crumb="Análise de lacunas de palavras-chave: tire os termos de marca primeiro"
       path={PATH}
       library={COMPETITIVE_ANALYSIS_LIBRARY}
     >

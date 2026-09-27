@@ -69,7 +69,7 @@ Good starting points once I know the project:
 Example of a follow-up once context is loaded:
 
 ```text
-Where openseo.so stands:
+Where seo.agenciare9.com.br stands:
 - **Technically healthy.** Two audits found zero critical issues. Nothing to fix under the hood.
 - **Ranks for your own turf.** Brand terms and "open source SEO tools" sit at the top.
 - **Growth blocker is content.** "ai seo tool" gets 2,400/mo (people searching it each month), KD 26 (easy to rank), and you have no page for it.

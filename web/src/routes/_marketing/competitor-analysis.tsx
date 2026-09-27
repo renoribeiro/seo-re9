@@ -9,54 +9,54 @@ const TOOL = freeTools["competitor-analysis"];
 export const Route = createFileRoute("/_marketing/competitor-analysis")({
   head: () =>
     buildPageSeo({
-      title: "Free SEO Competitor Analysis Tool",
+      title: "Ferramenta gratuita de análise de concorrentes em SEO",
       description:
-        "See a competitor's top organic keywords and pages, compare their traffic to yours, and find the keywords they rank for that you don't. No signup, no email.",
+        "Veja as principais palavras-chave orgânicas e páginas de um concorrente, compare o tráfego dele com o seu e descubra as palavras-chave em que ele ranqueia e você não. Sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free SEO competitor analysis tool",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Ferramenta gratuita de análise de concorrentes do RE9 SEO",
     }),
   component: CompetitorAnalysisPage,
 });
 
 const FAQS = [
   {
-    question: "How many keywords does the free tool show?",
+    question: "Quantas palavras-chave a ferramenta gratuita mostra?",
     answer:
-      "The competitor's top 20 organic keywords by estimated traffic, their top 10 pages, and up to 20 keywords they rank for that you don't. The report tells you how many keywords are in the index in total.",
+      "As 20 principais palavras-chave orgânicas do concorrente por tráfego estimado, as 10 principais páginas e até 20 palavras-chave em que ele ranqueia e você não. O relatório também informa quantas palavras-chave existem no índice no total.",
   },
   {
-    question: "Do I have to enter my own domain?",
+    question: "Preciso informar meu próprio domínio?",
     answer:
-      "No. Without it you get the competitor's keywords and pages. Add your domain and you also get a side-by-side traffic comparison and the keyword gap between you.",
+      "Não. Sem ele, você recebe as palavras-chave e as páginas do concorrente. Com o seu domínio, você também vê uma comparação de tráfego lado a lado e a lacuna de palavras-chave entre vocês.",
   },
   {
-    question: "Where does the data come from?",
+    question: "De onde vêm os dados?",
     answer:
-      "DataForSEO's Labs index, the same source behind OpenSEO's competitor research. Traffic figures are modelled estimates, not the competitor's analytics.",
+      "Do índice Labs da DataForSEO, a mesma fonte usada na pesquisa de concorrentes do RE9 SEO. Os números de tráfego são estimativas de um modelo, não o analytics do concorrente.",
   },
   {
-    question: "Which competitor should I check?",
+    question: "Qual concorrente devo verificar?",
     answer:
-      "Choose a site that ranks for keywords relevant to your business. It may differ from the competitors you encounter in sales.",
+      "Escolha um site que ranqueia para palavras-chave relevantes para o seu negócio. Ele pode ser diferente dos concorrentes que você encontra nas vendas.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Their best keywords",
+    title: "As melhores palavras-chave dele",
     description:
-      "The top 20 keywords a competitor ranks for, with search volume, difficulty, position, and the URL that ranks.",
+      "As 20 principais palavras-chave em que o concorrente ranqueia, com volume de busca, dificuldade, posição e a URL ranqueada.",
   },
   {
-    title: "Their best pages",
+    title: "As melhores páginas dele",
     description:
-      "The 10 pages with the highest estimated organic traffic, so you can see which content brings visitors.",
+      "As 10 páginas com maior tráfego orgânico estimado, para você ver qual conteúdo traz visitantes.",
   },
   {
-    title: "The gap against you",
+    title: "A lacuna em relação a você",
     description:
-      "Add your domain to see estimated traffic side by side and the keywords they rank for that you don't show up for at all.",
+      "Adicione seu domínio para ver o tráfego estimado lado a lado e as palavras-chave em que ele ranqueia e você nem aparece.",
   },
 ];
 
@@ -64,27 +64,27 @@ function CompetitorAnalysisPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free SEO Competitor Analysis Tool"
-      subhead="Look up any competitor's organic keywords and top pages, compare their search traffic to yours, and find keywords they rank for that you don't."
+      heading="Ferramenta gratuita de análise de concorrentes"
+      subhead="Consulte as palavras-chave orgânicas e as principais páginas de qualquer concorrente, compare o tráfego de busca dele com o seu e descubra as palavras-chave em que ele ranqueia e você não."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Turn the gap into a plan",
-        body: "Browse more competitor keywords in OpenSEO, save the relevant ones, and add them to rank tracking. Start with free trial credits.",
-        featureLabel: "Learn about Domain Overview",
+        heading: "Transforme a lacuna em um plano",
+        body: "Veja mais palavras-chave do concorrente no RE9 SEO, salve as relevantes e adicione-as ao monitoramento de posições.",
+        featureLabel: "Conheça a Visão geral do domínio",
       }}
     >
       <CompetitorAnalysisTool />
       <p className="mt-4 text-sm leading-6 text-[var(--color-brand-muted)]">
-        New to this? The{" "}
+        Está começando agora? A{" "}
         <a
           href="/library/competitive-analysis/find-your-real-competitors"
           className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
         >
-          competitive analysis library
+          biblioteca de análise competitiva
         </a>{" "}
-        covers how to pick the right competitors before you start pulling their
-        keywords.
+        explica como escolher os concorrentes certos antes de começar a puxar as
+        palavras-chave deles.
       </p>
     </ToolFrame>
   );

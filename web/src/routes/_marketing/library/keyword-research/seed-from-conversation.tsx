@@ -10,19 +10,19 @@ const PATH = "/library/keyword-research/seed-from-conversation";
 
 const faqs = [
   {
-    question: "How do I do keyword research for free?",
+    question: "Como fazer pesquisa de palavras-chave de graça?",
     answer:
-      "Conversations for seeds (this page), Google autocomplete + People Also Ask for expansion, Search Console for validation. OpenSEO validates and expands what those surface; you can start for free, and paid plans start at $10/month.",
+      "Conversas para as sementes (esta página), preenchimento automático do Google e People Also Ask para expandir, Search Console para validar. O RE9 SEO valida e expande o que essas fontes trazem.",
   },
   {
-    question: "How do I find LSI keywords?",
+    question: "Como encontrar palavras-chave LSI?",
     answer:
-      '"LSI keywords" is tool-industry vocabulary for related phrasings. The fastest free sources are the People Also Ask box and the "related searches" footer. Better still: your customers\' own synonyms, which is exactly what conversation seeding harvests.',
+      '"Palavras-chave LSI" é um jargão do mercado de ferramentas para formas relacionadas de dizer a mesma coisa. As fontes gratuitas mais rápidas são a caixa People Also Ask e o rodapé de "pesquisas relacionadas". Melhor ainda: os sinônimos dos seus próprios clientes, que é exatamente o que a coleta a partir de conversas captura.',
   },
   {
-    question: "How many seed keywords do I need?",
+    question: "De quantas palavras-chave semente eu preciso?",
     answer:
-      "5–15 strong seeds per topic. Past that you're expanding, not seeding. Feed them into the long-tail mining strategy next. The same customer vocabulary is worth pointing at your own positioning: see whether anyone searches for what you call yourself.",
+      "De 5 a 15 sementes fortes por tema. Passando disso, você está expandindo, não semeando. Em seguida, leve-as para a estratégia de garimpo de cauda longa. Vale também confrontar esse mesmo vocabulário dos clientes com o seu posicionamento: veja se alguém busca pelo nome que você usa para se descrever.",
   },
 ];
 
@@ -42,10 +42,10 @@ export const Route = createFileRoute(
   head: () =>
     buildPageSeo({
       title:
-        "Seed Keywords from Customer Conversations (Keyword Research Without a Paid Tool)",
+        "Palavras-chave semente a partir de conversas com clientes (pesquisa de palavras-chave sem ferramenta paga)",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -53,7 +53,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Seed from conversation"
+        crumb="Parta das conversas"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

@@ -7,83 +7,83 @@ const TOOL = freeTools["competitor-keyword-finder"];
 export const Route = createFileRoute("/_marketing/competitor-keyword-finder")({
   head: () =>
     buildPageSeo({
-      title: "Free Competitor Keyword Finder",
+      title: "Localizador gratuito de palavras-chave de concorrentes",
       description:
-        "Find the keywords a competitor ranks for on Google, with search volumes, ranking positions, and the pages that rank. Enter a domain to get started.",
+        "Descubra as palavras-chave em que um concorrente ranqueia no Google, com volume de busca, posições e as páginas ranqueadas. Digite um domínio para começar.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "Free Competitor Keyword Finder",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Localizador gratuito de palavras-chave de concorrentes",
     }),
   component: Page,
 });
 const HIGHLIGHTS = [
   {
-    title: "Their top keywords",
+    title: "As principais palavras-chave dele",
     description:
-      "See up to 20 organic keywords, starting with those estimated to bring the most Google traffic.",
+      "Veja até 20 palavras-chave orgânicas, começando pelas que devem trazer mais tráfego do Google.",
   },
   {
-    title: "Search demand and difficulty",
+    title: "Demanda de busca e dificuldade",
     description:
-      "Compare estimated monthly search volume and difficulty where available before choosing what to target.",
+      "Compare o volume de busca mensal estimado e a dificuldade, quando disponíveis, antes de escolher o que priorizar.",
   },
   {
-    title: "The pages that rank",
+    title: "As páginas que ranqueiam",
     description:
-      "Open the ranking URL for each keyword to see the content you would compete with.",
+      "Abra a URL ranqueada de cada palavra-chave para ver o conteúdo com o qual você vai competir.",
   },
 ];
 const FAQS = [
   {
-    question: "Can I check my own website?",
+    question: "Posso verificar meu próprio site?",
     answer:
-      "Yes. Enter your domain or a competitor’s domain. You don’t need to know any of its keywords beforehand.",
+      "Sim. Digite o seu domínio ou o de um concorrente. Você não precisa conhecer nenhuma palavra-chave dele antes.",
   },
   {
-    question: "How is this different from a rank checker?",
+    question: "Qual a diferença para um verificador de posições?",
     answer:
-      "A rank checker checks the position of a keyword you already know. This tool discovers keywords a domain ranks for, so you can find ideas you haven’t considered.",
+      "Um verificador de posições confere a posição de uma palavra-chave que você já conhece. Esta ferramenta descobre as palavras-chave em que um domínio ranqueia, para você encontrar ideias que ainda não tinha considerado.",
   },
   {
-    question: "Where does the data come from?",
+    question: "De onde vêm os dados?",
     answer:
-      "Results come from DataForSEO’s Google keyword database for the selected country. They are a sample of known rankings, not a live Google search or a complete list. Results may be cached for 24 hours.",
+      "Os resultados vêm do banco de palavras-chave do Google da DataForSEO para o país selecionado. São uma amostra de posições conhecidas, não uma busca ao vivo no Google nem uma lista completa. Os resultados podem ficar em cache por 24 horas.",
   },
   {
-    question: "Can I see their top pages or compare two sites?",
+    question: "Posso ver as principais páginas dele ou comparar dois sites?",
     answer:
-      "Use our Competitor Analysis tool for top pages and an optional keyword comparison with your own domain.",
+      "Use nossa ferramenta de Análise de concorrentes para ver as principais páginas e, se quiser, comparar as palavras-chave com o seu próprio domínio.",
   },
   {
-    question: "Is this free?",
+    question: "É grátis?",
     answer:
-      "Yes. This tool returns up to 20 keywords without signup. Usage limits apply. The full OpenSEO workspace uses paid credits; free trial credits are available to get started.",
+      "Sim. Esta ferramenta retorna até 20 palavras-chave sem cadastro. Há limites de uso.",
   },
 ];
 function Page() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading={"Free Competitor Keyword Finder"}
+      heading={"Localizador gratuito de palavras-chave de concorrentes"}
       subhead={
-        "Find the keywords a competitor ranks for on Google, with search volumes, ranking positions, and the pages that rank. Enter a domain to get started."
+        "Descubra as palavras-chave em que um concorrente ranqueia no Google, com volume de busca, posições e as páginas ranqueadas. Digite um domínio para começar."
       }
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Choose your next content topic",
-        body: "Continue your research in OpenSEO and save keywords to your project. Start with free trial credits.",
-        featureLabel: "Explore Domain Overview",
+        heading: "Escolha seu próximo tema de conteúdo",
+        body: "Continue a pesquisa no RE9 SEO e salve palavras-chave no seu projeto.",
+        featureLabel: "Conheça a Visão geral do domínio",
       }}
     >
       <KeywordDiscoveryTool tool={"competitor-keyword-finder"} />
       <p className="mt-4 text-sm leading-6 text-[var(--color-brand-muted)]">
-        Want their top pages and a comparison with your site?{" "}
+        Quer as principais páginas dele e uma comparação com o seu site?{" "}
         <a
           className="font-medium text-neutral-950 underline underline-offset-4"
           href="/competitor-analysis"
         >
-          Try Competitor Analysis &rarr;
+          Experimente a Análise de concorrentes &rarr;
         </a>
       </p>
     </ToolFrame>

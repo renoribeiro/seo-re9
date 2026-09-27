@@ -1,53 +1,53 @@
 ---
-title: "SEO Report Agent Skill"
-description: "The report-writing skill every OpenSEO workflow delivers through: one self-contained HTML page, saved to your project, readable and printable by anyone."
+title: "Skill de relatório de SEO"
+description: "A skill de escrita de relatórios usada por todos os fluxos do RE9 SEO: uma página HTML autocontida, salva no seu projeto, que qualquer pessoa pode ler e imprimir."
 ---
 
-The SEO Report Agent Skill is how the other OpenSEO workflows hand you their finished work.
+A skill de relatório de SEO (`seo-report`) é a forma como os outros fluxos do RE9 SEO entregam a você o trabalho pronto.
 
-You do not run it on its own. When your agent finishes an audit, a keyword study, or a competitor analysis, this skill tells it how to write the result as one self-contained HTML page and save it to your project. The page shows up on the project's Reports page in OpenSEO, where anyone on your team can open it, read it on a phone, and print it to PDF.
+Você não a executa sozinha. Quando o agente termina uma auditoria, um estudo de palavras-chave ou uma análise de concorrentes, esta skill diz a ele como escrever o resultado em uma página HTML autocontida e salvá-la no seu projeto. A página aparece na página Relatórios do projeto no RE9 SEO, onde qualquer pessoa da sua equipe pode abri-la, lê-la no celular e imprimi-la em PDF.
 
-## What this skill helps your agent do
+## O que esta skill ajuda seu agente a fazer
 
-- Write one HTML page instead of a wall of chat text, using a shared starter template so every report looks the same.
-- Save it to the project with `save_report`, so it is tied to the site it is about and findable tomorrow.
-- Check `list_reports` first and update the existing report when it is correcting its own run, instead of leaving you with three near-identical copies.
-- Keep the report self-contained: all the styling is inside the file, nothing is fetched from the web, and it prints correctly with no network at all.
-- Write a short summary alongside the page, so the agent, or the next agent, can pick the work back up without re-reading the whole report.
-- Explain the expected benefit beside each recommendation, distinguishing measured outcomes from estimates and hypotheses.
-- Reply in chat with the link, the verdict, and the leading recommendation with its expected benefit, if supported.
+- Escrever uma página HTML em vez de um paredão de texto no chat, usando um modelo inicial compartilhado para que todos os relatórios tenham a mesma aparência.
+- Salvá-la no projeto com `save_report`, para que fique vinculada ao site analisado e seja fácil de encontrar depois.
+- Consultar `list_reports` primeiro e atualizar o relatório existente quando estiver corrigindo a própria execução, em vez de deixar você com três cópias quase idênticas.
+- Manter o relatório autocontido: todo o estilo fica dentro do arquivo, nada é buscado na web e ele imprime corretamente mesmo sem conexão.
+- Escrever um resumo curto junto com a página, para que o agente, ou o próximo agente, possa retomar o trabalho sem reler o relatório inteiro.
+- Explicar o benefício esperado ao lado de cada recomendação, diferenciando resultados medidos de estimativas e hipóteses.
+- Responder no chat com o link, o veredito e a recomendação principal com o benefício esperado, quando houver base para isso.
 
-## What you get back
+## O que você recebe
 
-A report page in your project with a title like "Competitive Landscape — Sep 17, 2026". Titles include the full report date and omit the project's website. A report about another website includes that domain to keep the subject clear; so does a report in a project with no website set. Open it from the Reports page in the sidebar. The menu beside it exports a PDF, opens the report full screen, or opens it in its own tab.
+Uma página de relatório no seu projeto com um título como "Panorama competitivo — 17 de set. de 2026". Os títulos incluem a data completa do relatório e omitem o site do projeto. Um relatório sobre outro site inclui esse domínio para deixar claro o assunto; o mesmo vale para um relatório em um projeto sem site definido. Abra-o pela página Relatórios na barra lateral. O menu ao lado dele exporta um PDF, abre o relatório em tela cheia ou em uma aba separada.
 
-Reports are free. They do not spend credits, and there is no practical limit on how many a project holds. The Reports page shows the 100 most recent.
+Relatórios não consomem créditos, e não há um limite prático de quantos um projeto pode ter. A página Relatórios mostra os 100 mais recentes.
 
-## Sharing a report
+## Compartilhar um relatório
 
-On openseo.so, open a report, click Share and turn on Public link. Send the link to a client or a teammate; they do not need an OpenSEO account. It always shows the latest saved version, and it is not indexed by search engines. Turn the toggle off and the link stops working, stopping new visitors within a minute.
+Em seo.agenciare9.com.br, abra um relatório, clique em Compartilhar e ative o Link público. Envie o link para um cliente ou colega de equipe; a pessoa não precisa de uma conta no RE9 SEO. O link sempre mostra a versão salva mais recente e não é indexado por mecanismos de busca. Desative a opção e o link deixa de funcionar, bloqueando novos visitantes em até um minuto.
 
-## How to get the best result
+## Como obter o melhor resultado
 
-- Ask for a workflow, not for a report: "audit badseo.dev" produces one on its own.
-- If you want the report corrected rather than duplicated, say so, and the agent will update the same page.
-- Say who the report is for. The agent puts it in the byline and pitches the language to match.
-- Reports have no version history and no undo, so a correction overwrites what was there.
+- Peça um fluxo de trabalho, não um relatório: "audite badseo.dev" já gera um relatório por conta própria.
+- Se quiser que o relatório seja corrigido em vez de duplicado, diga isso, e o agente vai atualizar a mesma página.
+- Diga para quem é o relatório. O agente coloca essa informação na assinatura e ajusta a linguagem ao público.
+- Relatórios não têm histórico de versões nem opção de desfazer, então uma correção sobrescreve o que havia antes.
 
-## Report templates
+## Modelos de relatório
 
-A template is a reusable brief for a kind of report: who it is for, which sections it has and in what order, how it should sound, and how to sign off. Create one on the Templates page, reached from the Reports page in your project. Templates belong to a project; to reuse one somewhere else, ask your agent to list it in the first project and save a copy in the second.
+Um modelo é um briefing reutilizável para um tipo de relatório: para quem ele é, quais seções tem e em que ordem, qual deve ser o tom e como deve ser a assinatura. Crie um na página Modelos, acessada pela página Relatórios do seu projeto. Os modelos pertencem a um projeto; para reutilizar um modelo em outro lugar, peça ao agente para listá-lo no primeiro projeto e salvar uma cópia no segundo.
 
-Your agent sees a project's templates and follows one when you name it, or when you ask for the kind of report it describes ("write the client-ready audit summary for badseo.dev"). A plain "audit this site" still uses the skill's own format. The template replaces the sections and the tone; it never changes how the page is built, so the report still prints and still opens on a phone.
+O agente vê os modelos de um projeto e segue um deles quando você o menciona pelo nome ou quando pede o tipo de relatório que ele descreve ("escreva o resumo de auditoria para cliente de badseo.dev"). Um simples "audite este site" continua usando o formato próprio da skill. O modelo substitui as seções e o tom; ele nunca muda a forma como a página é construída, então o relatório continua imprimindo e abrindo no celular.
 
-## Read the actual skill
+## Leia a skill original
 
-The source `SKILL.md`, including the starter template, lives on GitHub:
+O `SKILL.md` original, incluindo o modelo inicial, fica no GitHub:
 
-- [SEO Report skill](https://github.com/every-app/open-seo/tree/main/.agents/skills/seo-report)
+- [Skill de relatório de SEO](https://github.com/renoribeiro/seo-re9/tree/main/.agents/skills/seo-report)
 
-## Related skills
+## Skills relacionadas
 
-- [SEO Audit](/docs/skills/seo-audit), the workflow most people meet this skill through.
-- [Competitor Analysis](/docs/skills/competitor-analysis) and [Keyword Research](/docs/skills/keyword-research), which deliver the same way.
-- [SEO Coach](/docs/skills/seo-coach) if you are not sure which workflow to run first.
+- [Auditoria de SEO](/docs/skills/seo-audit), o fluxo pelo qual a maioria das pessoas conhece esta skill.
+- [Análise de concorrentes](/docs/skills/competitor-analysis) e [Pesquisa de palavras-chave](/docs/skills/keyword-research), que entregam os resultados da mesma forma.
+- [SEO Coach](/docs/skills/seo-coach), se você não sabe qual fluxo executar primeiro.

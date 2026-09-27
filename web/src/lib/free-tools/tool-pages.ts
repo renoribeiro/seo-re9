@@ -19,18 +19,18 @@ export const freeTools = {
   "backlink-checker": {
     slug: "backlink-checker",
     path: FREE_TOOL_PATHS["backlink-checker"],
-    name: "Backlink Checker",
+    name: "Verificador de backlinks",
     shortDescription:
-      "Domain rank, referring domains, and the top backlinks pointing at any site.",
+      "Domain Rank, domínios de referência e os principais backlinks que apontam para qualquer site.",
     featureHref: "/features/backlink-checker",
     related: ["spam-score-checker", "website-traffic-checker"],
   },
   "competitor-keyword-finder": {
     slug: "competitor-keyword-finder",
     path: FREE_TOOL_PATHS["competitor-keyword-finder"],
-    name: "Competitor Keyword Finder",
+    name: "Localizador de palavras-chave de concorrentes",
     shortDescription:
-      "Find a competitor's top organic keywords, search volumes, positions, and ranking pages.",
+      "Descubra as principais palavras-chave orgânicas de um concorrente, com volume de busca, posições e páginas ranqueadas.",
     featureHref: "/features/domain-overview",
     related: [
       "keyword-generator",
@@ -41,9 +41,9 @@ export const freeTools = {
   "keyword-generator": {
     slug: "keyword-generator",
     path: FREE_TOOL_PATHS["keyword-generator"],
-    name: "Keyword Generator",
+    name: "Gerador de palavras-chave",
     shortDescription:
-      "Turn a topic into keyword ideas with search volume and difficulty estimates.",
+      "Transforme um tema em ideias de palavras-chave com estimativas de volume de busca e dificuldade.",
     featureHref: "/features/keyword-research",
     related: [
       "competitor-keyword-finder",
@@ -54,9 +54,9 @@ export const freeTools = {
   "website-traffic-checker": {
     slug: "website-traffic-checker",
     path: FREE_TOOL_PATHS["website-traffic-checker"],
-    name: "Website Traffic Checker",
+    name: "Verificador de tráfego de sites",
     shortDescription:
-      "Estimated organic traffic, keyword count, top keywords, and top pages for any domain.",
+      "Tráfego orgânico estimado, número de palavras-chave, principais palavras-chave e principais páginas de qualquer domínio.",
     featureHref: "/features/domain-overview",
     related: [
       "competitor-analysis",
@@ -67,9 +67,9 @@ export const freeTools = {
   "competitor-analysis": {
     slug: "competitor-analysis",
     path: FREE_TOOL_PATHS["competitor-analysis"],
-    name: "Competitor Analysis",
+    name: "Análise de concorrentes",
     shortDescription:
-      "A competitor's top keywords and pages, and the keywords they rank for that you don't.",
+      "As principais palavras-chave e páginas de um concorrente e as palavras-chave em que ele ranqueia e você não.",
     featureHref: "/features/domain-overview",
     related: [
       "website-traffic-checker",
@@ -80,27 +80,27 @@ export const freeTools = {
   "spam-score-checker": {
     slug: "spam-score-checker",
     path: FREE_TOOL_PATHS["spam-score-checker"],
-    name: "Spam Score Checker",
+    name: "Verificador de spam score",
     shortDescription:
-      "A domain's backlink spam score and the spammiest links pointing at it.",
+      "O spam score dos backlinks de um domínio e os links mais suspeitos que apontam para ele.",
     featureHref: "/features/backlink-checker",
     related: ["backlink-checker", "domain-age-checker"],
   },
   "domain-age-checker": {
     slug: "domain-age-checker",
     path: FREE_TOOL_PATHS["domain-age-checker"],
-    name: "Domain Age Checker",
+    name: "Verificador de idade de domínio",
     shortDescription:
-      "Find when a domain was registered, when it expires, and which registrar it uses.",
+      "Descubra quando um domínio foi registrado, quando expira e qual registrador ele usa.",
     featureHref: "/features/domain-overview",
     related: ["backlink-checker", "website-traffic-checker"],
   },
   "serp-simulator": {
     slug: "serp-simulator",
     path: FREE_TOOL_PATHS["serp-simulator"],
-    name: "SERP Simulator",
+    name: "Simulador de SERP",
     shortDescription:
-      "Preview your title and description in desktop and mobile search results.",
+      "Veja como seu título e sua descrição aparecem nos resultados de busca no desktop e no mobile.",
     featureHref: "/features/site-audit",
     related: [
       "competitor-keyword-finder",

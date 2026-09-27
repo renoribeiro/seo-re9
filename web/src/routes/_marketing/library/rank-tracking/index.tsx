@@ -6,39 +6,39 @@ const PATH = "/library/rank-tracking";
 
 const faqs = [
   {
-    question: "What is rank tracking?",
+    question: "O que é monitoramento de posições?",
     answer:
-      "Checking where a website appears in Google's results for a chosen set of keywords, from a chosen location and device, on a schedule, and recording the position each time so you can see movement. It answers a narrower question than Search Console, which reports an average position across every searcher, and a more precise one.",
+      "É verificar, de forma agendada, onde um site aparece nos resultados do Google para um conjunto escolhido de palavras-chave, a partir de uma localização e de um dispositivo escolhidos, registrando a posição a cada vez para ver a variação. Ele responde a uma pergunta mais estreita e mais precisa do que o Search Console, que informa uma posição média entre todas as pessoas que buscaram.",
   },
   {
-    question: "How many keywords should I track?",
+    question: "Quantas palavras-chave devo monitorar?",
     answer:
-      "Twenty to fifty for most sites. Take them from Search Console, where you can see which queries already show your site at positions 4 to 20 with real impressions, tie each one to a page that produces leads or revenue, and add one or two brand terms as a control. A tracker with 500 rows is a report nobody reads.",
+      "De vinte a cinquenta para a maioria dos sites. Tire-as do Search Console, onde dá para ver quais consultas já mostram seu site entre as posições 4 e 20 com impressões reais, ligue cada uma a uma página que gera leads ou receita e acrescente um ou dois termos de marca como controle. Um monitoramento com 500 linhas é um relatório que ninguém lê.",
   },
   {
-    question: "How often should rankings be checked?",
+    question: "Com que frequência devo checar as posições?",
     answer:
-      "Weekly is the useful default. Positions move day to day for reasons that have nothing to do with your work, and a daily check mostly records that noise at about seven times the cost. Check daily during a migration or a launch, then go back to weekly.",
+      "Semanalmente é o padrão útil. As posições mudam de um dia para o outro por motivos que não têm nada a ver com o seu trabalho, e uma checagem diária registra principalmente esse ruído, por cerca de sete vezes o custo. Cheque diariamente durante uma migração ou um lançamento e depois volte ao semanal.",
   },
   {
-    question: "Should I track mobile or desktop rankings?",
+    question: "Devo monitorar posições no Mobile ou no Desktop?",
     answer:
-      "Mobile, unless you know your customers search from desktops. Most queries are mobile-first now and the two result pages differ. OpenSEO defaults to mobile and can track both, which doubles the cost of each check.",
+      "Mobile, a menos que você saiba que seus clientes buscam pelo computador. A maioria das consultas hoje é mobile-first, e as duas páginas de resultados são diferentes. O RE9 SEO usa Mobile por padrão e pode monitorar os dois, o que dobra o custo de cada checagem.",
   },
   {
-    question: "Is Google Search Console a rank tracker?",
+    question: "O Google Search Console serve para monitorar posições?",
     answer:
-      "Not quite. It reports an average position per query blended across devices, countries, and dates, for your own site only. Its 24-hour view shows recent preliminary data; finalized reports arrive later. That is enough for a single-location site that wants direction. A tracker adds a precise position per keyword and device, the ranking URL, SERP features, and competitors, and costs money for each check.",
+      "Não exatamente. Ele informa uma posição média por consulta, misturando dispositivos, países e datas, e só do seu próprio site. A visão de 24 horas mostra dados recentes preliminares; os relatórios finais chegam depois. Isso basta para um site com uma única localização que quer uma direção. Um monitoramento acrescenta a posição exata por palavra-chave e dispositivo, a URL que ranqueia, os recursos da SERP e os concorrentes, e cada checagem tem custo.",
   },
   {
-    question: "How much does rank tracking cost in OpenSEO?",
+    question: "Quanto custa o monitoramento de posições no RE9 SEO?",
     answer:
-      "It depends on keywords, devices, depth, and schedule, and the app shows the estimate before anything runs. As a reference point, 100 keywords on mobile, checking the top 40 results weekly, comes to about a dollar a month in credits. Rank checks on the hosted app need the $10/month plan, which includes $10 of credits; self-hosted deployments pay their data provider directly.",
+      "Depende das palavras-chave, dos dispositivos, da profundidade e do agendamento, e o app mostra a estimativa antes de rodar qualquer coisa. Instalações auto-hospedadas pagam o provedor de dados diretamente. Para saber mais, fale com a gente: trafego@re9.online.",
   },
   {
-    question: "Can I track local rankings for a specific city?",
+    question: "Posso monitorar posições locais em uma cidade específica?",
     answer:
-      "Yes. Each rank tracker measures organic website rankings from a chosen location, so you can track the same keywords from several towns. For Business Profile positions in Maps, use the separate MCP local rank grid, which searches from each point of a 3x3 or 5x5 grid.",
+      "Sim. Cada monitoramento mede as posições orgânicas do site a partir de uma localização escolhida, então você pode acompanhar as mesmas palavras-chave em várias cidades. Para posições do Perfil da Empresa no Maps, use a grade de posições local do MCP, que busca a partir de cada ponto de uma grade 3x3 ou 5x5.",
   },
 ];
 
@@ -53,18 +53,18 @@ const faqLd = {
 };
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Strategy Library", path: "/library" },
-  { name: "Rank Tracking", path: PATH },
+  { name: "Biblioteca de estratégias", path: "/library" },
+  { name: "Monitoramento de posições", path: PATH },
 ]);
 
 export const Route = createFileRoute("/_marketing/library/rank-tracking/")({
   head: () =>
     buildPageSeo({
-      title: "Rank Tracking: The Strategy Library",
+      title: "Monitoramento de posições: a biblioteca de estratégias",
       description:
-        "Four rank tracking strategies for people who report SEO upward without an SEO budget: pick the keywords, know where Search Console stops, track local positions properly, and write the report that gets read. Each includes a workflow and an OpenSEO MCP prompt.",
+        "Quatro estratégias de monitoramento de posições para quem presta contas de SEO sem ter verba de SEO: escolha as palavras-chave, saiba onde o Search Console para, monitore posições locais do jeito certo e escreva o relatório que é lido. Cada uma traz um fluxo de trabalho e um prompt de MCP do RE9 SEO.",
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: RankTrackingLibraryPage,
 });
@@ -74,39 +74,39 @@ function RankTrackingLibraryPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
-          / <span>Rank Tracking</span>
+          / <span>Monitoramento de posições</span>
         </nav>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          The Rank Tracking Strategy Library
+          Biblioteca de estratégias de monitoramento de posições
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Four strategies for the person who has to show someone a number every
-          month: which keywords to track and how many, where Search
-          Console&rsquo;s free data stops, how to track a local business from
-          where its customers stand, and how to write the ranking report that
-          gets read. Each one includes a workflow and a copy-paste OpenSEO MCP
-          prompt.
+          Quatro estratégias para quem precisa mostrar um número a alguém todo
+          mês: quais palavras-chave monitorar e quantas, onde param os dados
+          gratuitos do Search Console, como monitorar um negócio local a partir
+          de onde os clientes estão e como escrever o relatório de posições que
+          é lido. Cada uma traz um fluxo de trabalho e um prompt de MCP do RE9
+          SEO pronto para copiar e colar.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How do you track keyword rankings without wasting the budget?
+          Como monitorar posições de palavras-chave sem desperdiçar a verba?
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Start from what Search Console already shows, track only what someone
-          will read, measure local positions from where customers stand, and
-          report movement as an explanation for the business number rather than
-          a table.
+          Parta do que o Search Console já mostra, monitore só o que alguém vai
+          ler, meça posições locais a partir de onde os clientes estão e
+          apresente as variações como explicação para o número do negócio, não
+          como uma tabela.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {rankTrackingStrategies.map((strategy, index) => {
@@ -140,129 +140,124 @@ function RankTrackingLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Why rank tracking gets bought and then ignored
+          Por que o monitoramento de posições é contratado e depois ignorado
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          A rank tracker is the easiest SEO tool to justify and the easiest to
-          stop reading. It gets bought because positions are the number everyone
-          understands. It gets ignored because a table of 300 keywords with
-          green and red arrows does not tell the person paying for it whether
-          anything happened that matters, and after a couple of months they stop
-          opening it.
+          O monitoramento de posições é a ferramenta de SEO mais fácil de
+          justificar e a mais fácil de parar de ler. É contratado porque posição
+          é o número que todo mundo entende. É ignorado porque uma tabela com
+          300 palavras-chave e setas verdes e vermelhas não diz a quem paga se
+          aconteceu algo que importa, e depois de uns dois meses a pessoa para
+          de abrir.
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          The fix is upstream of the tool. Track a short list chosen from Search
-          Console, so every row is a query Google already shows your site for
-          and a page that earns something. Then report positions as the
-          explanation for what clicks did, not as the headline. The four
-          strategies above are that sequence: choose, measure, measure locally
-          if you are local, report.
+          A solução vem antes da ferramenta. Monitore uma lista curta escolhida
+          no Search Console, para que cada linha seja uma consulta em que o
+          Google já mostra seu site e uma página que gera algum resultado.
+          Depois, apresente as posições como explicação para o que aconteceu com
+          os cliques, não como manchete. As quatro estratégias acima seguem essa
+          sequência: escolher, medir, medir localmente se o negócio for local,
+          reportar.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What OpenSEO rank tracking checks
+          O que o monitoramento de posições do RE9 SEO verifica
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          A tracker is a domain, a location, and a language. You choose the
-          devices (mobile, desktop, or both; mobile by default), how deep to
-          look (the top 10 to 100 results, 40 by default), and a schedule
-          (manual, daily, weekly, or monthly). Each check records, per keyword
-          and device, the position, the previous position, the URL that ranked,
-          and the SERP features on the page. A tracker holds up to 1,000
-          keywords, and a project can hold up to 500 trackers, which is how you
-          track several locations for one business.
+          Um monitoramento é um domínio, uma localização e um idioma. Você
+          escolhe os dispositivos (Mobile, Desktop ou ambos; Mobile por padrão),
+          a profundidade (do Top 10 aos 100 primeiros resultados, 40 por padrão)
+          e o agendamento (manual, diário, semanal ou mensal). Cada checagem
+          registra, por palavra-chave e dispositivo, a posição, a posição
+          anterior, a URL que ranqueou e os recursos da SERP na página. Um
+          monitoramento comporta até 1.000 palavras-chave, e um projeto comporta
+          até 500 monitoramentos, e é assim que você acompanha várias
+          localizações de um mesmo negócio.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Creating a tracker and adding keywords cost nothing. Checks cost
-          credits, and the app shows an estimate before every scheduled add and
-          every live run. Scheduled checks go through a queue that is much
-          cheaper per keyword than a one-off live check. The keyword count,
-          devices, depth, and schedule multiply, so 100 keywords on mobile at
-          depth 40, weekly, is about a dollar a month; both devices doubles it
-          and daily checks multiply it by about seven.
+          Criar um monitoramento e adicionar palavras-chave não tem custo. As
+          checagens consomem créditos, e o app mostra uma estimativa antes de
+          cada inclusão agendada e de cada execução ao vivo. Checagens agendadas
+          passam por uma fila bem mais barata por palavra-chave do que uma
+          checagem avulsa ao vivo. Quantidade de palavras-chave, dispositivos,
+          profundidade e agendamento se multiplicam: usar os dois dispositivos
+          dobra o custo, e checagens diárias o multiplicam por cerca de sete.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          On the hosted app, rank checks need the $10/month plan, which includes
-          $10 of credits each month; a free account can build a tracker but its
-          checks will not run. Self-hosted deployments are not gated and pay
-          their data provider directly. Search Console reads, which the
-          strategies here lean on, use no credits on either.
+          Instalações auto-hospedadas pagam o provedor de dados diretamente. As
+          leituras do Search Console, que as estratégias daqui usam bastante,
+          não consomem créditos.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          You can run all of it from the{" "}
+          Você pode rodar tudo isso pela página de{" "}
           <a
             href="/features/rank-tracking"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            rank tracking
+            monitoramento de posições
           </a>{" "}
-          page, or through the{" "}
+          ou pelo{" "}
           <a
             href="/docs/mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            OpenSEO MCP
+            MCP do RE9 SEO
           </a>
-          , which exposes the tracker to an AI assistant: create it, estimate
-          the cost, add and remove keywords, run a check, and read the latest
-          positions, alongside Search Console and the local rank grid in the
-          same conversation.
+          , que expõe o monitoramento a um assistente de IA: criar, estimar o
+          custo, adicionar e remover palavras-chave, rodar uma checagem e ler as
+          posições mais recentes, junto com o Search Console e a grade de
+          posições local, na mesma conversa.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Where rank tracking ends
+          Onde o monitoramento de posições termina
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Three things a tracker cannot tell you, and where to get them.
+          Três coisas que um monitoramento não consegue dizer, e onde
+          encontrá-las.
         </p>
         <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700">
           <li>
-            Whether anyone clicked. Positions describe a results page; clicks
-            describe what people did on it. Search Console is the record, and{" "}
+            Se alguém clicou. Posições descrevem uma página de resultados;
+            cliques descrevem o que as pessoas fizeram nela. O Search Console é
+            o registro, e a{" "}
             <a
               href="/library/keyword-research/gsc-programmatic-discovery"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              programmatic discovery with Search Console
+              descoberta programática com o Search Console
             </a>{" "}
-            is how to read it at scale. It is an incomplete record: a share of
-            clicks arrive on queries Search Console never reports, which{" "}
-            <a
-              href="/blogs/dark-queries"
-              className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
-            >
-              The Dark Query Problem
-            </a>{" "}
-            explains and works around.
+            é o jeito de lê-lo em escala. É um registro incompleto: parte dos
+            cliques chega por consultas que o Search Console nunca informa.
           </li>
           <li>
-            Whether the keyword was worth it. A term can move from 14 to 4 and
-            change nothing, because the demand was never there or the intent was
-            wrong.{" "}
+            Se a palavra-chave valia a pena. Um termo pode ir da posição 14 para
+            a 4 e não mudar nada, porque a demanda nunca existiu ou a intenção
+            estava errada. O{" "}
             <a
               href="/library/keyword-research/search-intent-mapping"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              Search-intent mapping
+              mapeamento de intenção de busca
             </a>{" "}
-            comes before the tracker, not after.
+            vem antes do monitoramento, não depois.
           </li>
           <li>
-            Whether an AI assistant recommends you. Tools that monitor that are
-            directional; answers are personalised and there is no first-party
-            report behind them. Report it as a signal, next to the tracker,
-            never as the same kind of number.
+            Se um assistente de IA recomenda você. As ferramentas que monitoram
+            isso dão só uma direção; as respostas são personalizadas e não há
+            relatório oficial por trás delas. Reporte isso como um sinal, ao
+            lado do monitoramento, nunca como o mesmo tipo de número.
           </li>
         </ul>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Rank tracking FAQ
+          Perguntas frequentes sobre monitoramento de posições
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -281,18 +276,19 @@ function RankTrackingLibraryPage() {
       <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 sm:flex-row sm:items-center md:p-8">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            Track rankings with your own agent
+            Monitore posições com o seu próprio agente
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-            Each strategy ends with a copy-paste MCP prompt. OpenSEO is open
-            source, free to start, and does not require a credit card.
+            Cada estratégia termina com um prompt de MCP pronto para copiar e
+            colar. O RE9 SEO é de código aberto. Fale com a gente:
+            trafego@re9.online.
           </p>
         </div>
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Start with OpenSEO
+          Começar com o RE9 SEO
           <span aria-hidden="true" className="ml-2">
             &rarr;
           </span>

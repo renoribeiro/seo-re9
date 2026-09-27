@@ -9,7 +9,7 @@ import { buildPageSeo } from "@/lib/seo";
 export const Route = createFileRoute("/_marketing/why-openseo")({
   head: () =>
     buildPageSeo({
-      title: "Why OpenSEO? SEO for You and Your AI Agent",
+      title: "Por que o RE9 SEO? SEO para você e seu agente de IA",
       description: frontmatter.description,
       path: "/why-openseo",
     }),
@@ -24,7 +24,7 @@ function WhyOpenSeoPage() {
           {frontmatter.title}
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Make SEO simple. Put AI to work for your business.
+          SEO simples. IA trabalhando pelo seu negócio.
         </p>
       </header>
 
@@ -34,16 +34,16 @@ function WhyOpenSeoPage() {
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-11 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Get started
+          Começar agora
         </a>
         <a
           href="/docs/agent-setup"
           className="inline-flex h-11 items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-white px-5 text-sm font-medium text-neutral-950 transition-colors hover:border-neutral-950"
         >
-          Connect your AI agent
+          Conectar seu agente de IA
         </a>
       </div>
     </article>

@@ -10,54 +10,54 @@ export const Route = createFileRoute("/_marketing/serp-simulator")({
   head: () =>
     buildPageSeo({
       title:
-        "Free SERP Simulator: Preview Your Google Title and Meta Description",
+        "Simulador de SERP grátis: veja a prévia do título e da meta description no Google",
       description:
-        "Preview your title and meta description in desktop and mobile search results, with pixel measurements and approximate truncation. No signup, no email.",
+        "Veja a prévia do título e da meta description nos resultados de busca no desktop e no mobile, com medição em pixels e cortes aproximados. Sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free SERP snippet simulator",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Simulador de snippet de SERP gratuito do RE9 SEO",
     }),
   component: SerpSimulatorPage,
 });
 
 const FAQS = [
   {
-    question: "How long should a title tag be?",
+    question: "Qual deve ser o tamanho da tag title?",
     answer:
-      "Keep the main topic near the start. This preview uses a 600-pixel desktop title and a two-line mobile title as guides. Letter widths vary, so character count alone does not tell you whether a title will fit.",
+      "Coloque o tema principal no começo. Esta prévia usa como referência um título de 600 pixels no desktop e de duas linhas no mobile. A largura das letras varia, então só a contagem de caracteres não diz se um título vai caber.",
   },
   {
-    question: "How long should a meta description be?",
+    question: "Qual deve ser o tamanho da meta description?",
     answer:
-      "Put the most useful information first. This preview allows two lines on desktop and three on mobile, including the optional date. Actual snippets vary by query and screen size.",
+      "Coloque a informação mais útil primeiro. Esta prévia permite duas linhas no desktop e três no mobile, incluindo a data opcional. Os snippets reais variam conforme a busca e o tamanho da tela.",
   },
   {
-    question: "Does this guarantee what Google will show?",
+    question: "Isso garante o que o Google vai mostrar?",
     answer:
-      "No. Google rewrites titles and descriptions regularly, especially when they don't match the query. This is an approximation; Google may choose different text, fonts, or layout.",
+      "Não. O Google reescreve títulos e descrições com frequência, principalmente quando eles não combinam com a busca. Isto é uma aproximação; o Google pode escolher outro texto, outras fontes ou outro layout.",
   },
   {
-    question: "Does this tool send my text anywhere?",
+    question: "Esta ferramenta envia meu texto para algum lugar?",
     answer:
-      "No. Your title, description, and URL stay in your browser. The preview updates as you type.",
+      "Não. Seu título, sua descrição e sua URL ficam no seu navegador. A prévia é atualizada enquanto você digita.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Measure title width",
+    title: "Meça a largura do título",
     description:
-      "See the width of your title in the preview font, alongside its character count.",
+      "Veja a largura do título na fonte da prévia, junto com a contagem de caracteres.",
   },
   {
-    title: "Desktop and mobile",
+    title: "Desktop e mobile",
     description:
-      "Switch between desktop and mobile previews to check how your text wraps.",
+      "Alterne entre as prévias de desktop e mobile para ver como o texto quebra.",
   },
   {
-    title: "Nothing leaves the page",
+    title: "Nada sai da página",
     description:
-      "Your title and description stay in your browser. No account is needed.",
+      "Seu título e sua descrição ficam no seu navegador. Não é preciso ter conta.",
   },
 ];
 
@@ -65,14 +65,14 @@ function SerpSimulatorPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free SERP Simulator"
-      subhead="Preview your Google title and meta description on desktop and mobile. Check the length and wording before you publish."
+      heading="Simulador de SERP grátis"
+      subhead="Veja a prévia do título e da meta description no Google, no desktop e no mobile. Confira o tamanho e o texto antes de publicar."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Find every page that needs this",
-        body: "Find missing, duplicate, and long titles and descriptions with an OpenSEO site audit. Start with free trial credits.",
-        featureLabel: "Learn about Site Audit",
+        heading: "Encontre todas as páginas que precisam disso",
+        body: "Encontre títulos e descrições ausentes, duplicados ou longos demais com uma auditoria do site no RE9 SEO.",
+        featureLabel: "Conheça a Auditoria do site",
       }}
     >
       <SerpSimulatorTool />

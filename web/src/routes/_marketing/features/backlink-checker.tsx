@@ -8,10 +8,10 @@ const page = featurePages.backlinks;
 export const Route = createFileRoute("/_marketing/features/backlink-checker")({
   head: () =>
     buildPageSeo({
-      title: "Backlink Checker",
+      title: "Verificador de backlinks",
       description: page.description,
       path: "/features/backlink-checker",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       imageAlt: page.imageAlt,
     }),
   component: () => <FeaturePageTemplate page={page} />,

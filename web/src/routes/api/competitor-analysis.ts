@@ -35,8 +35,12 @@ const PAGE_LIMIT = 10;
 const GAP_LIMIT = 20;
 
 const requestSchema = z.object({
-  competitor: z.string().trim().min(1, "Enter a competitor domain").max(300),
-  yourDomain: z.string().trim().max(300).optional(),
+  competitor: z
+    .string()
+    .trim()
+    .min(1, "Digite o domínio do concorrente")
+    .max(300, "Domínio longo demais"),
+  yourDomain: z.string().trim().max(300, "Domínio longo demais").optional(),
   locationCode: z.number().int(),
   turnstileToken: z.string().max(4096).optional(),
 });
@@ -104,20 +108,23 @@ export const Route = createFileRoute("/api/competitor-analysis")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success) {
           return jsonResponse(
-            { error: parsed.error.issues[0]?.message ?? "Invalid request" },
+            { error: parsed.error.issues[0]?.message ?? "Requisição inválida" },
             400,
           );
         }
 
         const language = countryLanguage(parsed.data.locationCode);
         if (!language) {
-          return jsonResponse({ error: "Pick a supported country" }, 400);
+          return jsonResponse({ error: "Escolha um país disponível" }, 400);
         }
 
         const competitor = normalizeDomain(parsed.data.competitor);
         if (!competitor) {
           return jsonResponse(
-            { error: "Enter a valid competitor domain, like example.com" },
+            {
+              error:
+                "Digite um domínio de concorrente válido, como concorrente.com.br",
+            },
             400,
           );
         }
@@ -126,13 +133,13 @@ export const Route = createFileRoute("/api/competitor-analysis")({
         const yourDomain = yourInput ? normalizeDomain(yourInput) : null;
         if (yourInput && !yourDomain) {
           return jsonResponse(
-            { error: "Enter a valid domain of your own, like example.com" },
+            { error: "Digite um domínio seu válido, como exemplo.com.br" },
             400,
           );
         }
         if (yourDomain && yourDomain === competitor) {
           return jsonResponse(
-            { error: "Enter two different domains to compare" },
+            { error: "Digite dois domínios diferentes para comparar" },
             400,
           );
         }
@@ -255,7 +262,7 @@ export const Route = createFileRoute("/api/competitor-analysis")({
           return cacheableJson(result, ttl);
         } catch (err) {
           console.error("Competitor analysis error:", err);
-          const message = "Competitor analysis failed. Please try again.";
+          const message = "A análise de concorrentes falhou. Tente novamente.";
           await writeCached(
             TOOL.slug,
             cacheKey,

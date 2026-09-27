@@ -1,62 +1,64 @@
-# Maintainers
+# Mantenedores
 
-This document covers maintainer-only workflow notes that do not belong in the public project README.
+Este documento reúne notas de fluxo de trabalho exclusivas de quem mantém o projeto e que não cabem no README público.
 
-## Release updates
+Repositório: [github.com/renoribeiro/seo-re9](https://github.com/renoribeiro/seo-re9) · Contato: [trafego@re9.online](mailto:trafego@re9.online)
 
-GitHub Releases are the main user-facing update channel for OpenSEO.
+## Comunicação de atualizações
 
-- Ask interested users to watch the repo and enable release notifications.
-- Do not treat stars as a contact list; GitHub does not expose a way to message stargazers directly.
+As GitHub Releases são o principal canal de atualizações do RE9 SEO para quem usa o produto.
 
-## Release notes workflow
+- Peça a quem tiver interesse que acompanhe o repositório ("Watch") e ative as notificações de releases.
+- Não trate estrelas como lista de contatos; o GitHub não oferece uma forma de enviar mensagens diretamente para quem deu estrela.
 
-Generate notes from commits since the latest semver tag:
+## Fluxo de notas de release
+
+Gere as notas a partir dos commits desde a última tag semver:
 
 ```sh
 pnpm release:notes
 ```
 
-Useful variants:
+Variações úteis:
 
 ```sh
 pnpm release:notes -- --from v0.0.1 --to HEAD
 pnpm release:notes -- --draft v0.0.2
 ```
 
-Supported inputs:
+Parâmetros aceitos:
 
-- `--from <tag>`: start changelog generation from a specific tag
-- `--to <ref>`: end at a specific ref, default is `HEAD`
-- `--draft <tag>`: create a GitHub draft release for that tag using the generated notes
-- `--repo <owner/repo>`: override the GitHub repo
-- `--help`: show help
+- `--from <tag>`: começa a geração do changelog a partir de uma tag específica
+- `--to <ref>`: termina em uma ref específica; o padrão é `HEAD`
+- `--draft <tag>`: cria um rascunho de release no GitHub para essa tag com as notas geradas
+- `--repo <owner/repo>`: sobrescreve o repositório do GitHub (ex.: `renoribeiro/seo-re9`)
+- `--help`: mostra a ajuda
 
-The generator:
+O gerador:
 
-- uses commits since the latest semver tag by default
-- filters out maintenance-only commits like `chore:`, `ci:`, `test:`, `build:`, and `release:`
-- groups the remaining changes into short user-facing sections
-- can create a draft GitHub release when `--draft` is provided
+- usa, por padrão, os commits desde a última tag semver
+- filtra commits apenas de manutenção, como `chore:`, `ci:`, `test:`, `build:` e `release:`
+- agrupa as mudanças restantes em seções curtas voltadas a quem usa o produto
+- pode criar um rascunho de release no GitHub quando `--draft` é informado
 
-Store finalized notes in `release-notes/` as versioned Markdown files such as `release-notes/v0.0.2.md`.
+Guarde as notas finais em `release-notes/` como arquivos Markdown versionados, por exemplo `release-notes/v0.0.2.md`.
 
-Recommended release flow:
+Fluxo de release recomendado:
 
 ```sh
 pnpm -s release:notes
-# edit and save the final copy in release-notes/v0.0.2.md
+# edite e salve a versão final em release-notes/v0.0.2.md
 gh release create v0.0.2 --target main --title v0.0.2 --notes-file release-notes/v0.0.2.md
 ```
 
-For now, prefer patch releases while the project is still in rapid early development unless there is a clear reason to cut a minor or major release.
+Por enquanto, prefira releases de patch enquanto o projeto ainda está em desenvolvimento rápido, a menos que haja um motivo claro para uma release minor ou major.
 
-## OpenCode slash command
+## Slash command do OpenCode
 
-For convenience inside OpenCode, use:
+Para facilitar dentro do OpenCode, use:
 
 ```text
 /release-notes
 ```
 
-The command definition lives at `.opencode/command/release-notes.md` and forwards any extra arguments to the same generator script.
+A definição do comando fica em `.opencode/command/release-notes.md` e repassa quaisquer argumentos extras para o mesmo script gerador.

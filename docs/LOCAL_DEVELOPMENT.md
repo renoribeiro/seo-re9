@@ -1,130 +1,133 @@
-# Local Development
+# Desenvolvimento local
 
-## Prerequisites
+## Pré-requisitos
 
 - Node.js 20+
-- [Corepack](https://nodejs.org/api/corepack.html) (bundled through Node.js 24; install it separately on Node.js 25+)
-- A DataForSEO account/API credentials
+- [Corepack](https://nodejs.org/api/corepack.html) (incluído no Node.js até a versão 24; instale separadamente no Node.js 25+)
+- Uma conta/credenciais de API do DataForSEO
 
-## Local Development Workflow
+## Fluxo de desenvolvimento local
 
 ```sh
-# Activates the exact pnpm version declared in package.json.
+# Ativa a versão exata do pnpm declarada no package.json.
 corepack enable
 pnpm install --frozen-lockfile
 
-# Run once per fresh local DB
+# Rode uma vez para cada banco local novo
 pnpm run db:migrate:local
 ```
 
-Verify that `pnpm --version` reports the version declared by the
-`packageManager` field in `package.json`. An older global pnpm may reject
-the repository's lockfile as incompatible.
+Confira se `pnpm --version` mostra a versão declarada no campo
+`packageManager` do `package.json`. Um pnpm global mais antigo pode rejeitar
+o lockfile do repositório como incompatível.
 
-Configure `.env.local`:
+Configure o `.env.local`:
 
 1. `cp .env.example .env.local`
-2. Add `DATAFORSEO_API_KEY` as a base64-encoded `login:password` value:
+2. Adicione `DATAFORSEO_API_KEY` como um valor `login:password` codificado em base64:
 
    `printf '%s' 'YOUR_LOGIN:YOUR_PASSWORD' | base64`
 
-3. Set `AUTH_MODE=local_noauth` for normal local development.
+3. Defina `AUTH_MODE=local_noauth` para o desenvolvimento local normal.
 
-Run locally:
+Rode localmente:
 
 ```sh
-# Option 1
+# Opção 1
 pnpm run dev
 
-# Option 2 (Recommended)
-# This log file makes it easier for your coding agent to debug.
+# Opção 2 (recomendada)
+# Este arquivo de log facilita a depuração pelo seu agente de código.
 mkdir .logs
 touch .logs/dev-server.log
 
-# This command uses portless, which is great for worktrees. It also pipes logs to that fixed file, which is helpful for agent debugging output.
+# Este comando usa o portless, ótimo para worktrees. Ele também envia os logs para esse arquivo fixo, o que ajuda o agente a depurar.
 pnpm dev:agents
 ```
 
-`pnpm dev:agents` runs through [portless](https://github.com/vercel-labs/portless) at `http://open-seo.localhost:1355` by default.
+Por padrão, `pnpm dev:agents` roda pelo [portless](https://github.com/vercel-labs/portless) em `http://open-seo.localhost:1355`.
 
-When using a git worktree, [portless](https://github.com/vercel-labs/portless) prefixes the branch name, for example `http://feature-name.open-seo.localhost:1355`.
+Ao usar um git worktree, o [portless](https://github.com/vercel-labs/portless) adiciona o nome da branch como prefixo, por exemplo `http://feature-name.open-seo.localhost:1355`.
 
-## Report share images
+## Imagens de compartilhamento de relatórios
 
-To test a real report end to end, run the app with `AUTH_MODE=hosted`, share a
-local report, and open its `/s/<token>/og.png` URL. Inspect the share page's
-initial HTML for `og:image` and `twitter:image`, then revoke the share and check
-that the image returns 404. Report saves and changes to the displayed project
-hostname update the image URL's version. If rendering fails for a valid share,
-the image route redirects to the existing OpenSEO marketing card.
-Social platforms may retain their own previews; our image responses are
-`no-store` and check access on each request. An actual social crawler needs a
-publicly reachable page and image; the Access-protected preview environment
-supports manual inspection but cannot be fetched by those crawlers.
+Para testar um relatório real de ponta a ponta, rode o app com `AUTH_MODE=hosted`,
+compartilhe um relatório local e abra a URL `/s/<token>/og.png` dele. Inspecione o
+HTML inicial da página compartilhada em busca de `og:image` e `twitter:image`,
+depois revogue o compartilhamento e confira se a imagem retorna 404. Salvar o
+relatório ou mudar o hostname do projeto exibido atualiza a versão da URL da
+imagem. Se a renderização falhar para um compartilhamento válido, a rota da
+imagem redireciona para o cartão de divulgação padrão do RE9 SEO.
+As redes sociais podem manter suas próprias prévias; nossas respostas de imagem
+usam `no-store` e verificam o acesso a cada requisição. Um crawler de rede social
+de verdade precisa de uma página e de uma imagem acessíveis publicamente; o
+ambiente de preview protegido pelo Access permite inspeção manual, mas não pode
+ser acessado por esses crawlers.
 
-## Website and BadSEO
+## Site e BadSEO
 
-The marketing website (`web/`) and audit test site (`badseo/`) are separate
-pnpm projects with their own lockfiles. The root install does not install their
-dependencies. From the repository root, install the project you plan to work on:
+O site de divulgação (`web/`) e o site de teste de auditoria (`badseo/`) são
+projetos pnpm separados, com lockfiles próprios. A instalação na raiz não instala
+as dependências deles. Na raiz do repositório, instale o projeto em que você vai
+trabalhar:
 
 ```sh
-# Marketing website
+# Site de divulgação
 pnpm --dir web install --frozen-lockfile
 pnpm --dir web run dev
-# Validate website changes
+# Validar mudanças no site
 pnpm --dir web run types:check
 pnpm --dir web run build
 
-# Audit test site (keep the root dependencies installed for its audit harness)
+# Site de teste de auditoria (mantenha as dependências da raiz instaladas para o harness de auditoria)
 pnpm --dir badseo install --frozen-lockfile
 pnpm --dir badseo run dev
-# Validate BadSEO changes
+# Validar mudanças no BadSEO
 pnpm --dir badseo run build
 ```
 
-Run BadSEO's audit harness from another terminal while its dev server is running:
+Rode o harness de auditoria do BadSEO em outro terminal enquanto o servidor de desenvolvimento dele estiver rodando:
 
 ```sh
 pnpm --dir badseo run audit http://localhost:8787
 ```
 
-Use the root formatter for BadSEO; the website has its own formatter:
+Use o formatador da raiz para o BadSEO; o site tem um formatador próprio:
 
 ```sh
-# From the repository root
+# Na raiz do repositório
 pnpm exec prettier --write "badseo/**/*.{ts,tsx,json,jsonc,md}"
 pnpm --dir web run format:write
 ```
 
-See [BadSEO's README](../badseo/README.md) for fixture and audit instructions.
+Veja o [README do BadSEO](../badseo/README.md) para instruções de fixtures e auditoria.
 
-## Database Commands
+## Comandos de banco de dados
 
-Generate migration:
+Gerar migração:
 
 ```sh
 pnpm run db:generate
 ```
 
-Migrate local DB:
+Migrar o banco local:
 
 ```sh
 pnpm run db:migrate:local
 ```
 
-## Postgres backend (optional)
+## Backend Postgres (opcional)
 
-D1 (SQLite) is the default. To run against Postgres locally instead — the opt-in
-backend for installs that outgrow D1 — see
+O D1 (SQLite) é o padrão. Para rodar localmente com Postgres — o backend opcional
+para instalações que ultrapassam o D1 — veja
 [`LOCAL_POSTGRES.md`](./LOCAL_POSTGRES.md).
 
-## Auth Modes
+## Modos de autenticação
 
-- `AUTH_MODE=cloudflare_access` (default): validates Cloudflare Access JWTs (`cf-access-jwt-assertion`) using `TEAM_DOMAIN` + `POLICY_AUD`.
-- `AUTH_MODE=local_noauth`: local trusted mode, no auth check, injects `admin@localhost`.
-- `AUTH_MODE=hosted`: Better Auth-backed email/password mode. Requires Better Auth schema generation plus `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL`.
+- `AUTH_MODE=cloudflare_access` (padrão): valida JWTs do Cloudflare Access (`cf-access-jwt-assertion`) usando `TEAM_DOMAIN` + `POLICY_AUD`.
+- `AUTH_MODE=local_noauth`: modo local confiável, sem verificação de autenticação; injeta `admin@localhost`.
+- `AUTH_MODE=hosted`: modo de e-mail/senha com Better Auth. Exige a geração do schema do Better Auth, além de `BETTER_AUTH_SECRET` e `BETTER_AUTH_URL`.
 
-Dev scripts do not set `AUTH_MODE`, so you can test another mode by changing it in `.env.local`.
+Os scripts de desenvolvimento não definem `AUTH_MODE`, então você pode testar outro modo mudando o valor no `.env.local`.
 
-For Cloudflare deployments, ensure Cloudflare Access is enabled on your Worker route/domain and provide `TEAM_DOMAIN` + `POLICY_AUD` in environment variables.
+Em implantações na Cloudflare, confirme que o Cloudflare Access está ativado na rota/domínio do seu Worker e informe `TEAM_DOMAIN` + `POLICY_AUD` nas variáveis de ambiente.

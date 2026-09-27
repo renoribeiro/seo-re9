@@ -5,19 +5,19 @@ import { buildBreadcrumbJsonLd, buildPageSeo } from "@/lib/seo";
 export const Route = createFileRoute("/_marketing/tools")({
   head: () =>
     buildPageSeo({
-      title: "Free SEO Tools",
+      title: "Ferramentas de SEO gratuitas",
       description:
-        "Find competitor keywords, generate keyword ideas, and check backlinks, traffic, spam score, and domain age with OpenSEO’s free SEO tools. No signup.",
+        "Encontre palavras-chave de concorrentes, gere ideias de palavras-chave e verifique backlinks, tráfego, spam score e idade de domínio com as ferramentas de SEO gratuitas do RE9 SEO. Sem cadastro.",
       path: "/tools",
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free SEO tools",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Ferramentas de SEO gratuitas do RE9 SEO",
     }),
   component: ToolsPage,
 });
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Home", path: "/" },
-  { name: "Free tools", path: "/tools" },
+  { name: "Início", path: "/" },
+  { name: "Ferramentas gratuitas", path: "/tools" },
 ]);
 
 function ToolsPage() {
@@ -25,14 +25,15 @@ function ToolsPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <p className="text-sm font-medium text-[var(--color-brand-accent)]">
-          Free tools
+          Ferramentas gratuitas
         </p>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          Free SEO Tools
+          Ferramentas de SEO gratuitas
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Check backlinks, rankings, traffic, and domain details, or preview a
-          search result. Use these tools without an account.
+          Verifique backlinks, posições, tráfego e dados de domínio, ou veja a
+          prévia de um resultado de busca. Use estas ferramentas sem criar
+          conta.
         </p>
       </header>
 
@@ -63,7 +64,7 @@ function ToolsPage() {
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-neutral-950">
-          Connect your Search Console data
+          Conecte seus dados do Search Console
         </h2>
         <a
           href="/google-search-console-mcp"
@@ -81,29 +82,30 @@ function ToolsPage() {
             </h2>
           </div>
           <p className="mt-2 text-sm leading-6 text-[var(--color-brand-muted)]">
-            Point Claude, Codex, or any MCP client at your own Search Console
-            data. Connect your Google account to get started; no Google Cloud
-            project is needed.
+            Conecte o Claude, o Codex ou qualquer cliente MCP aos seus próprios
+            dados do Search Console. Basta conectar sua conta Google para
+            começar; não é preciso ter um projeto no Google Cloud.
           </p>
         </a>
       </section>
 
       <section className="mt-12 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 md:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Why these are free
+          Por que são gratuitas
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          These tools give you a useful first look at a website without an
-          account. Data lookups have usage limits to keep them free. For more
-          research, OpenSEO brings keyword research, rank tracking, backlinks,
-          and site audits into one workspace, with trial credits to get started.
+          Estas ferramentas dão uma primeira visão útil de um site sem precisar
+          de conta. As consultas de dados têm limites de uso para continuarem
+          gratuitas. Para ir além, o RE9 SEO reúne pesquisa de palavras-chave,
+          monitoramento de posições, backlinks e auditorias de site em um só
+          lugar.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-4">
           <a
-            href="https://app.openseo.so/sign-up"
+            href="https://seo.agenciare9.com.br/sign-up"
             className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Try OpenSEO
+            Experimente o RE9 SEO
             <span aria-hidden="true" className="ml-2">
               &rarr;
             </span>
@@ -112,7 +114,7 @@ function ToolsPage() {
             href="/features"
             className="text-sm font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            See all features
+            Ver todos os recursos
             <span aria-hidden="true" className="ml-1">
               &rarr;
             </span>

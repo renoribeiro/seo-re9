@@ -11,7 +11,7 @@ import {
 
 const PATH = "/library";
 const description =
-  "Browse practical SEO strategies for finding search demand, sizing up competitors, auditing a site, tracking rankings, building links, running SEO through an AI agent, mapping intent, and planning pages.";
+  "Estratégias práticas de SEO para encontrar demanda de busca, avaliar concorrentes, auditar um site, monitorar posições, conseguir links, fazer SEO com um agente de IA, mapear intenção e planejar páginas.";
 const featuredStrategies = [
   ...keywordResearchStrategies.slice(0, 2),
   ...competitiveAnalysisStrategies.slice(0, 1),
@@ -24,10 +24,10 @@ const featuredStrategies = [
 export const Route = createFileRoute("/_marketing/library/")({
   head: () =>
     buildPageSeo({
-      title: "SEO Strategy Library",
+      title: "Biblioteca de estratégias de SEO",
       description,
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: StrategyLibraryIndexPage,
 });
@@ -37,20 +37,21 @@ function StrategyLibraryIndexPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <p className="text-sm font-medium text-[var(--color-brand-accent)]">
-          Resources
+          Recursos
         </p>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          SEO Strategy Library
+          Biblioteca de estratégias de SEO
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Find search demand and decide which pages to build. Strategies are
-          grouped by topic so you can start with the problem you need to solve.
+          Encontre demanda de busca e decida quais páginas criar. As estratégias
+          estão agrupadas por tema para você começar pelo problema que precisa
+          resolver.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Browse by topic
+          Navegue por tema
         </h2>
         <div className="mt-5 grid gap-4">
           <a
@@ -58,14 +59,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              Keyword Research
+              Pesquisa de palavras-chave
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Start with customer language, expand into long-tail demand, map
-              search intent, and decide which opportunities deserve a page.
+              Comece pela linguagem do cliente, expanda para a demanda de cauda
+              longa, mapeie a intenção de busca e decida quais oportunidades
+              merecem uma página.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {keywordResearchStrategies.length} strategies{" "}
+              Ver todas as {keywordResearchStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -74,15 +76,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              Competitive Analysis
+              Análise de concorrentes
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Find out which domains really hold your search results, measure
-              the keyword and link gap honestly, and decide what is worth
-              taking.
+              Descubra quais domínios realmente ocupam seus resultados de busca,
+              meça com honestidade a lacuna de palavras-chave e de links e
+              decida o que vale a pena conquistar.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {competitiveAnalysisStrategies.length} strategies{" "}
+              Ver todas as {competitiveAnalysisStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -91,15 +93,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              Site Audit
+              Auditoria do site
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Turn a crawl into scheduled work: triage findings by severity,
-              write the report so it gets approved, and decide which pages
-              should stop existing.
+              Transforme um rastreamento em trabalho planejado: faça a triagem
+              dos achados por gravidade, escreva o relatório para que ele seja
+              aprovado e decida quais páginas devem deixar de existir.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {siteAuditStrategies.length} strategies{" "}
+              Ver todas as {siteAuditStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -108,15 +110,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              Rank Tracking
+              Monitoramento de posições
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Pick the keywords worth watching, know where Search Console stops,
-              track local positions from where customers stand, and write the
-              ranking report that gets read.
+              Escolha as palavras-chave que valem a pena acompanhar, saiba onde
+              o Search Console para, monitore posições locais a partir de onde
+              os clientes estão e escreva o relatório de posições que é lido.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {rankTrackingStrategies.length} strategies{" "}
+              Ver todas as {rankTrackingStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -125,15 +127,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              Link Building
+              Link building
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Read a backlink profile without trusting the score, report the
-              number that moves rankings, and earn links from the pages that
-              already get them.
+              Leia um perfil de backlinks sem confiar cegamente na nota, reporte
+              o número que move as posições e conquiste links a partir das
+              páginas que já os recebem.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {linkBuildingStrategies.length} strategies{" "}
+              Ver todas as {linkBuildingStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -142,15 +144,15 @@ function StrategyLibraryIndexPage() {
             className="block rounded-lg border border-[var(--color-border-subtle)] bg-white p-6 transition-colors hover:border-neutral-900"
           >
             <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">
-              AI-Agent SEO
+              SEO com agentes de IA
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-              Run SEO through the assistant you already use: connect the MCP,
-              decide what a schedule does and what stays with a person, keep the
-              brief human, and make the good run repeatable.
+              Faça SEO pelo assistente que você já usa: conecte o MCP, decida o
+              que fica com um agendamento e o que fica com uma pessoa, mantenha
+              o briefing humano e torne a boa execução repetível.
             </p>
             <p className="mt-5 text-sm font-medium text-neutral-950">
-              View all {aiAgentSeoStrategies.length} strategies{" "}
+              Ver todas as {aiAgentSeoStrategies.length} estratégias{" "}
               <span aria-hidden="true">&rarr;</span>
             </p>
           </a>
@@ -159,10 +161,10 @@ function StrategyLibraryIndexPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Start with a strategy
+          Comece por uma estratégia
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Go straight to a workflow if you already know what you need to do.
+          Vá direto a um fluxo de trabalho se você já sabe o que precisa fazer.
         </p>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           {featuredStrategies.map((strategy) => (

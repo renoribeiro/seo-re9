@@ -11,30 +11,30 @@ const PATH = "/library/ai-agent-seo/what-to-automate";
 
 const faqs = [
   {
-    question: "What SEO tasks can be automated?",
+    question: "Quais tarefas de SEO podem ser automatizadas?",
     answer:
-      "Anything with a fixed input and output and no judgement: scheduled rank checks, Search Console pulls, site audits started on a fixed day, data exports. An agent can add a second layer, summarising and drafting from that data, as long as a person reads the result. Choosing what to track, what to build and what to tell a client stays with a person.",
+      "Tudo que tem entrada e saída fixas e não exige julgamento: checagens de posições agendadas, extrações do Search Console, auditorias do site iniciadas num dia fixo, exportações de dados. Um agente pode acrescentar uma segunda camada, resumindo e rascunhando a partir desses dados, desde que uma pessoa leia o resultado. Escolher o que monitorar, o que construir e o que dizer a um cliente continua com uma pessoa.",
   },
   {
     question:
-      "What is the difference between SEO automation and an AI SEO agent?",
+      "Qual a diferença entre automação de SEO e um agente de SEO com IA?",
     answer:
-      "Automation runs the same job on a schedule with no model involved, like a weekly rank check. An agent takes variable input and produces structured output using a language model, like reading the check and writing the summary. Many products sold as agents are a schedule plus a prompt; that is useful, but it still needs a reader.",
+      "A automação roda o mesmo trabalho num agendamento, sem nenhum modelo envolvido, como uma checagem de posições semanal. Um agente recebe entradas variáveis e produz uma saída estruturada usando um modelo de linguagem, como ler a checagem e escrever o resumo. Muitos produtos vendidos como agentes são um agendamento mais um prompt; isso é útil, mas ainda precisa de alguém que leia.",
   },
   {
-    question: "Can I automate SEO reporting?",
+    question: "Dá para automatizar relatórios de SEO?",
     answer:
-      "The data collection, yes: the tracker and Search Console pulls run on their own and use no credits to read. The draft, yes, with an agent and a saved prompt. The sentence that says what it means for the business should still be written or at least read by a person before it goes out.",
+      "A coleta de dados, sim: o monitoramento e as extrações do Search Console rodam sozinhos e não consomem créditos para leitura. O rascunho, também, com um agente e um prompt salvo. A frase que diz o que aquilo significa para o negócio ainda deve ser escrita, ou pelo menos lida, por uma pessoa antes de ser enviada.",
   },
   {
-    question: "How much does scheduled rank tracking cost in OpenSEO?",
+    question: "Quanto custa o monitoramento de posições agendado no RE9 SEO?",
     answer:
-      "The app estimates before anything runs. As a reference, 25 keywords on mobile checking the top 40 results weekly comes to about $0.25 a month in credits; 100 keywords about a dollar. Scheduled checks go through a queue that is cheaper than one-off live checks. Rank checks on the hosted app need the $10/month plan.",
+      "O app faz a estimativa antes de rodar qualquer coisa. O custo depende da quantidade de palavras-chave, dos dispositivos, da profundidade e da frequência, e as checagens agendadas passam por uma fila mais barata do que as checagens avulsas ao vivo. Para saber mais, fale com a gente: trafego@re9.online.",
   },
   {
-    question: "Should I automate content production?",
+    question: "Devo automatizar a produção de conteúdo?",
     answer:
-      "Not end to end. The strategy on [human in the loop content](/library/ai-agent-seo/human-in-the-loop-content) covers the split that works: a person writes the brief, the agent drafts, a person edits. Automating the brief or the edit produces content that reads like every other automated site.",
+      "Não de ponta a ponta. A estratégia sobre [conteúdo com pessoas no processo](/library/ai-agent-seo/human-in-the-loop-content) mostra a divisão que funciona: uma pessoa escreve o briefing, o agente rascunha, uma pessoa edita. Automatizar o briefing ou a edição produz conteúdo que soa igual a qualquer outro site automatizado.",
   },
 ];
 
@@ -53,17 +53,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "What to Automate and What to Keep: the Dispatcher Rule",
+      title: "O que automatizar e o que manter: a regra do despachante",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="What to automate"
+      crumb="O que automatizar"
       path={PATH}
       library={AI_AGENT_SEO_LIBRARY}
     >

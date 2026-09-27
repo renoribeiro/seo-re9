@@ -1,130 +1,130 @@
 ---
-title: "The technical SEO audit checklist that ends in fixes, not findings"
-description: "A crawl of one 318-page site returned 1,180 findings. Thirty-five were critical, and thirty-two of those traced back to four missing URLs. How to run a technical audit that comes out the other end as a work order instead of a spreadsheet."
+title: "O checklist de auditoria técnica de SEO que termina em correções, não em achados"
+description: "O rastreamento de um site de 318 páginas retornou 1.180 achados. Trinta e cinco eram críticos, e trinta e dois deles vinham de quatro URLs que não existiam mais. Como fazer uma auditoria técnica que termina numa ordem de serviço, e não numa planilha."
 ---
 
-## What should a technical SEO audit checklist actually produce?
+## O que um checklist de auditoria técnica de SEO deve produzir, na prática?
 
-A work order: a list of things a developer or an editor can pick up on Monday and finish. Most audits produce a count, a score out of 100, or a red-amber-green table, and none of those is a task.
+Uma ordem de serviço: uma lista de coisas que um desenvolvedor ou um editor consegue pegar na segunda-feira e concluir. A maioria das auditorias produz uma contagem, uma nota de 0 a 100 ou uma tabela de semáforo (vermelho, amarelo, verde), e nada disso é uma tarefa.
 
-Almost every audit stops short of that. The crawler finds the problem, names it, counts the pages, and hands the interpretation back to you. That last step is where audits die, because interpretation is the expensive part and it gets deferred until nobody remembers why the crawl was run.
+Quase toda auditoria para antes disso. O rastreador encontra o problema, dá um nome a ele, conta as páginas e devolve a interpretação para você. É nessa última etapa que as auditorias morrem, porque a interpretação é a parte cara e vai sendo adiada até ninguém mais lembrar por que o rastreamento foi feito.
 
-Here is what the gap looks like on a real site. A crawl of unscriptedseo.com covered 318 pages and produced **1,180 issues**. Read as a number, that site is a disaster. Read by severity, it is not: 35 critical, 642 warning, 503 informational. All 35 critical rows are the same issue type, broken internal links. Thirty-two of them come from eleven hub pages pointing at the same four URLs that no longer exist.
+Veja como é essa lacuna num site real. Um rastreamento do unscriptedseo.com cobriu 318 páginas e gerou **1.180 problemas**. Lido como número, o site é um desastre. Lido por gravidade, não é: 35 críticos, 642 alertas, 503 informativos. As 35 linhas críticas são todas do mesmo tipo de problema: links internos quebrados. Trinta e duas delas vêm de onze páginas hub que apontam para as mesmas quatro URLs que não existem mais.
 
-![OpenSEO site audit summary for unscriptedseo.com showing 318 pages crawled and 1,180 issues found, split into 35 critical, 642 warning and 503 info, with the Broken internal link group expanded to show its explanation, a How to fix instruction, and the affected URLs each listing its target URL and 404 status](/library/site-audit/audit-issue-how-to-fix-openseo.png)
+![Resumo da auditoria do site unscriptedseo.com no RE9 SEO mostrando 318 páginas rastreadas e 1.180 problemas encontrados, divididos em 35 críticos, 642 alertas e 503 informativos, com o grupo Broken internal link (link interno quebrado) expandido para mostrar a explicação, uma instrução How to fix (como corrigir) e as URLs afetadas, cada uma com a URL de destino e o status 404](/library/site-audit/audit-issue-how-to-fix-openseo.png)
 
-Restoring or redirecting four URLs clears most of the critical tier. The other 1,145 rows are real, and none of them are why that site is not ranking.
+Restaurar ou redirecionar quatro URLs resolve a maior parte do nível crítico. As outras 1.145 linhas são reais, e nenhuma delas explica por que o site não ranqueia.
 
-## Sort by severity before you read a single URL
+## Ordene por gravidade antes de ler uma única URL
 
-The audit engine assigns every issue one of three severities, and the split is deliberate rather than cosmetic. Of the 27 issue types OpenSEO checks, only four are critical: a crawler that got blocked, a 5xx server error, a broken internal link, and a missing title tag. Fourteen are warnings and nine are informational.
+O mecanismo de auditoria atribui a cada problema um de três níveis de gravidade, e essa divisão é proposital, não cosmética. Dos 27 tipos de problema que o RE9 SEO verifica, só quatro são críticos: rastreador bloqueado, erro de servidor 5xx, link interno quebrado e tag de título ausente. Catorze são alertas e nove são informativos.
 
-That ratio tells you how to read any audit. If a report has 1,000 rows and no critical ones, the site has housekeeping to do and no emergency. If it has 12 critical rows, start there and ignore everything else until they are gone.
+Essa proporção ensina a ler qualquer auditoria. Se um relatório tem 1.000 linhas e nenhuma crítica, o site tem uma arrumação a fazer, mas nenhuma emergência. Se tem 12 linhas críticas, comece por elas e ignore todo o resto até resolvê-las.
 
-The severity tiers map to three different kinds of work:
+Os níveis de gravidade correspondem a três tipos diferentes de trabalho:
 
-1. Critical issues stop a page from being seen or understood. They go to whoever can deploy.
-2. Warnings describe pages competing with each other or leaking equity. Duplicate titles, redirect chains, orphan pages. These go into a content or template ticket, and they are usually template-level rather than page-level.
-3. Informational issues are style. A title running to 64 characters is worth fixing when you next touch the page and is worth nobody's sprint.
+1. Problemas críticos impedem que uma página seja vista ou compreendida. Vão para quem consegue fazer deploy.
+2. Alertas descrevem páginas competindo entre si ou desperdiçando autoridade. Títulos duplicados, cadeias de redirecionamento, páginas órfãs. Viram um chamado de conteúdo ou de template e, em geral, são problemas de template, e não de página.
+3. Problemas informativos são questão de estilo. Um título com 64 caracteres merece correção na próxima vez que você mexer na página, e não merece a sprint de ninguém.
 
-Group the report by issue type first and by page second. Twenty-six "title too long" rows are one templating decision, not twenty-six tasks.
+Agrupe o relatório primeiro por tipo de problema e depois por página. Vinte e seis linhas de “título longo demais” são uma única decisão de template, e não vinte e seis tarefas.
 
-## Every issue carries its own fix
+## Cada problema já vem com a correção
 
-The differentiator in this workflow is small and it changes the economics. `get_audit_issues` returns a `how_to_fix` on every single row, written for that issue type, and the app shows the same text inline when you expand a group.
+O diferencial desse fluxo de trabalho é pequeno e muda a conta. `get_audit_issues` retorna um `how_to_fix` em cada linha, escrito para aquele tipo de problema, e o app mostra o mesmo texto quando você expande um grupo.
 
-For the broken internal link above, the instruction reads: _"Update the link to point at the correct live URL, or remove it. If the target was moved, prefer linking directly to the new URL rather than relying on a redirect."_ For a blocked page it names the user agent to allowlist. For thin content it gives you three options and tells you which one applies when the content exists but is rendered by JavaScript.
+Para o link interno quebrado acima, a instrução diz: _“Atualize o link para que aponte para a URL ativa correta, ou remova-o. Se o destino foi movido, prefira apontar o link diretamente para a nova URL em vez de depender de um redirecionamento.”_ Para uma página bloqueada, ela indica o user agent que deve ser liberado. Para conteúdo raso, oferece três opções e diz qual se aplica quando o conteúdo existe, mas é renderizado por JavaScript.
 
-Most audit tools stop at the finding and leave the remediation to a knowledge base article you have to go and find. Carrying the fix in the payload is what lets an agent take the report and open pull requests against it, which is the difference between an audit you read and an audit that gets done.
+A maioria das ferramentas de auditoria para no achado e deixa a correção para um artigo da central de ajuda que você precisa ir procurar. Levar a correção junto com os dados é o que permite a um agente pegar o relatório e abrir pull requests a partir dele, e essa é a diferença entre uma auditoria que você lê e uma auditoria que é executada.
 
-Patrick Stox spent years building exactly this kind of tooling at Ahrefs before moving on, and his own summary of the work is unglamorous:
+Patrick Stox passou anos construindo exatamente esse tipo de ferramenta na Ahrefs antes de seguir outro caminho, e o resumo que ele faz do trabalho não tem nada de glamoroso:
 
-> And yeah, lots of charts, lots of reports. Page Inspect, site structure, obviously a huge impact on Site Audit.
+> E é, muitos gráficos, muitos relatórios. Page Inspect, estrutura do site, obviamente um impacto enorme no Site Audit.
 
-His advice for the repetitive parts of the job is the argument for automating remediation rather than diagnosis:
+O conselho dele para as partes repetitivas do trabalho é o argumento para automatizar a correção, e não o diagnóstico:
 
-> Get it to where it's good enough that you're like, I can trust that, or at least 95% of the way there, which takes a lot of the burden off you.
+> Deixe no ponto em que está bom o suficiente para você pensar: dá pra confiar nisso, ou pelo menos está 95% lá, o que tira um bom peso das suas costas.
 
-He said that about a redirect-matching script he wrote after one migration too many. It applies the same way to an audit: the crawl is not the slow part, the triage is, and triage is the part a machine can carry to 95%. His full conversation on building tools in the AI-search era is on [the Unscripted SEO podcast](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/).
+Ele disse isso sobre um script de correspondência de redirecionamentos que escreveu depois de uma migração além da conta. Vale do mesmo jeito para uma auditoria: o rastreamento não é a parte lenta, a triagem é, e a triagem é a parte que uma máquina consegue levar até 95%. A conversa completa dele sobre construir ferramentas na era da busca com IA está no [podcast Unscripted SEO](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/) (em inglês).
 
-## Check what the crawler was actually served
+## Confira o que o rastreador realmente recebeu
 
-Before you trust any part of the report, confirm the crawler saw the same page a browser sees. This is the check that invalidates every other check when it fails, and it is the one most checklists leave out.
+Antes de confiar em qualquer parte do relatório, confirme que o rastreador viu a mesma página que um navegador vê. É a checagem que invalida todas as outras quando falha, e é a que a maioria dos checklists deixa de fora.
 
-Two things commonly go wrong. The site's bot protection challenges the crawler, in which case the pages come back flagged rather than audited, and you are reading a report about 80 pages while believing you are reading one about 800. Or the edge serves something different to a non-browser client.
+Duas coisas costumam dar errado. A proteção contra bots do site barra o rastreador com um desafio, e aí as páginas voltam sinalizadas em vez de auditadas, e você está lendo um relatório sobre 80 páginas achando que está lendo um sobre 800. Ou a borda da rede (edge) entrega algo diferente para um cliente que não é navegador.
 
-Chris Green, who runs Torque Partnership and spends his time in access logs, has watched the second failure happen:
+Chris Green, que comanda a Torque Partnership e passa o tempo mergulhado em logs de acesso, já viu a segunda falha acontecer:
 
-> So if you use a CDN like Akamai or Fastly or Cloudflare, maybe that network will automatically like mark down your website and serve it a different content type. Like all of that's possible and relatively straightforward, but even those automated processes are not foolproof. I've seen it get it wrong quite recently.
+> Então, se você usa uma CDN como Akamai, Fastly ou Cloudflare, talvez essa rede automaticamente, tipo, converta o seu site em markdown e entregue um tipo de conteúdo diferente. Tipo, tudo isso é possível e relativamente simples, mas nem esses processos automáticos são à prova de falhas. Eu vi isso dar errado bem recentemente.
 
-The practical version of this check is two columns in the pages report. If `fetchClass` is anything other than `ok`, or if a page you know has 2,000 words comes back with a word count of zero, the crawl is describing the edge and not the site. Chris's episode on patents and the agentic web is [here](https://unscriptedseo.com/chris-green-do-googles-patents-still-hold-up-in-an-agentic-web/).
+Na prática, essa checagem são duas colunas no relatório de páginas. Se `fetchClass` for qualquer coisa diferente de `ok`, ou se uma página que você sabe que tem 2.000 palavras voltar com contagem zero, o rastreamento está descrevendo a borda da rede, e não o site. O episódio do Chris sobre patentes e a web agêntica está [aqui](https://unscriptedseo.com/chris-green-do-googles-patents-still-hold-up-in-an-agentic-web/) (em inglês).
 
-## The workflow
+## O fluxo de trabalho
 
-1. Crawl. The free plan covers 50 pages per crawl, which is enough for most brochure sites; larger crawls run to 10,000 pages on the $10/month plan.
-2. Check `fetchClass` before anything else. If pages came back blocked, fix access and re-crawl. Everything downstream is wrong otherwise.
-3. Read the critical tier only. Fix it or schedule it.
-4. Group warnings by issue type and ask which template produced each group.
-5. Leave the informational tier in the export and attach it to the next content refresh.
+1. Rastreie o site, com um limite de páginas adequado ao tamanho dele.
+2. Confira `fetchClass` antes de qualquer outra coisa. Se as páginas voltaram bloqueadas, corrija o acesso e rastreie de novo. Caso contrário, tudo o que vem depois estará errado.
+3. Leia só o nível crítico. Corrija ou coloque na agenda.
+4. Agrupe os alertas por tipo de problema e pergunte qual template produziu cada grupo.
+5. Deixe o nível informativo na exportação e anexe-o à próxima atualização de conteúdo.
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-The whole loop runs through the [OpenSEO MCP](/docs/mcp), which means an agent can crawl, triage, and draft the tickets in one pass.
+O ciclo inteiro roda pelo [MCP do RE9 SEO](/docs/mcp), o que significa que um agente consegue rastrear, triar e rascunhar os chamados de uma vez só.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. Run a site audit on [https://example.com] with a page budget of
-   [200]. Poll until it finishes.
+1. Rode uma auditoria do site em [https://example.com] com um limite
+   de [200] páginas. Consulte o status até terminar.
 
-2. Before reading any issues, list the pages with fetchClass other
-   than "ok". If there are more than a handful, stop and tell me
-   the site blocked the crawl.
+2. Antes de ler qualquer problema, liste as páginas com fetchClass
+   diferente de "ok". Se forem mais do que algumas poucas, pare e me
+   diga que o site bloqueou o rastreamento.
 
-3. Pull the issues at severity "critical". For each one, give me
-   the URL, the specific detail (target URL and status for a broken
-   link, status code for an error), and the how_to_fix text as
-   written.
+3. Puxe os problemas com severity "critical". Para cada um, me dê a
+   URL, o detalhe específico (URL de destino e status, no caso de
+   link quebrado; código de status, no caso de erro) e o texto de
+   how_to_fix como está escrito.
 
-4. Now pull severity "warning" and group it by issueType, not by
-   URL. For each group tell me whether it looks like a per-page
-   mistake or a template producing the same fault everywhere.
+4. Agora puxe severity "warning" e agrupe por issueType, e não por
+   URL. Para cada grupo, me diga se parece um erro pontual de página
+   ou um template gerando a mesma falha em todo lugar.
 
-5. Write the output as a task list ordered by how many pages each
-   task fixes. Put the informational tier at the bottom as one
-   line.
+5. Escreva o resultado como uma lista de tarefas ordenada pela
+   quantidade de páginas que cada tarefa corrige. Coloque o nível
+   informativo no fim, em uma linha.
 
-Do not give me a score.
+Não me dê uma nota.
 ```
 
-That last instruction matters more than it looks. Ask for a score and you get a number to argue about; ask for a task list and you get work.
+A última instrução importa mais do que parece. Peça uma nota e você recebe um número para discutir; peça uma lista de tarefas e você recebe trabalho.
 
-## Where the checklist stops being a checklist
+## Onde o checklist deixa de ser um checklist
 
-Two of the most valuable audit outcomes will never appear as a row in any tool's issue list, because they are decisions rather than defects.
+Dois dos resultados mais valiosos de uma auditoria nunca vão aparecer como linha na lista de problemas de nenhuma ferramenta, porque são decisões, e não defeitos.
 
-The first is deletion. A crawl of 800 near-identical pages reports 800 healthy pages. Nothing is broken, and the site still has a problem. That is the subject of [index bloat](/library/site-audit/index-bloat).
+O primeiro é a exclusão. Um rastreamento de 800 páginas quase idênticas mostra 800 páginas saudáveis. Nada está quebrado, e o site continua tendo um problema. Esse é o assunto de [inchaço de índice](/library/site-audit/index-bloat).
 
-The second is priority against revenue. An audit ranks by severity, which is a property of the issue. Your business ranks by which pages earn, which is a property of the page. Cross the critical list against your [Search Console performance data](/library/keyword-research/gsc-programmatic-discovery) and the two or three fixes that matter separate themselves from the thirty that are merely correct.
+O segundo é a prioridade em relação à receita. Uma auditoria ordena por gravidade, que é uma característica do problema. O seu negócio ordena por quais páginas geram dinheiro, que é uma característica da página. Cruze a lista de críticos com os seus [dados de desempenho do Search Console](/library/keyword-research/gsc-programmatic-discovery), e as duas ou três correções que importam se destacam das trinta que estão apenas corretas.
 
-## Technical SEO audit checklist FAQ
+## Perguntas frequentes sobre checklist de auditoria técnica de SEO
 
-### What is included in a technical SEO audit?
+### O que entra numa auditoria técnica de SEO?
 
-At minimum: crawlability and access, status codes, canonical and indexability signals, titles and meta descriptions, heading structure, internal linking including broken links and orphan pages, duplicate content, image alt coverage, and server response time. OpenSEO checks 27 issue types across those areas and can optionally run Lighthouse on a sample of up to 10 pages for performance and accessibility findings.
+No mínimo: rastreabilidade e acesso, códigos de status, sinais de canônica e de indexabilidade, títulos e meta descriptions, estrutura de cabeçalhos, links internos (incluindo links quebrados e páginas órfãs), conteúdo duplicado, cobertura de texto alternativo em imagens e tempo de resposta do servidor. O RE9 SEO verifica 27 tipos de problema nessas áreas e, opcionalmente, pode rodar o Lighthouse numa amostra de até 10 páginas para trazer achados de desempenho e acessibilidade.
 
-### How often should you run a technical SEO audit?
+### Com que frequência fazer uma auditoria técnica de SEO?
 
-Run one before and after any migration, template change, or platform upgrade, because those are the events that create critical issues. Outside of that, a quarterly crawl is enough for a stable site. Auditing monthly on a site nobody is changing produces the same report every month and trains everyone to ignore it.
+Faça uma antes e depois de qualquer migração, mudança de template ou atualização de plataforma, porque são esses os eventos que criam problemas críticos. Fora isso, um rastreamento por trimestre basta para um site estável. Auditar todo mês um site em que ninguém está mexendo gera o mesmo relatório todo mês e ensina todo mundo a ignorá-lo.
 
-### What is the difference between a technical SEO audit and an SEO audit?
+### Qual a diferença entre auditoria técnica de SEO e auditoria de SEO?
 
-A technical audit asks whether search engines can reach, render, and understand your pages. A broader SEO audit adds content quality, keyword coverage, and links. The technical layer comes first because a content problem on a page Google cannot fetch is not the problem you have.
+A auditoria técnica pergunta se os mecanismos de busca conseguem acessar, renderizar e entender suas páginas. Uma auditoria de SEO mais ampla acrescenta qualidade do conteúdo, cobertura de palavras-chave e links. A camada técnica vem primeiro, porque um problema de conteúdo numa página que o Google não consegue acessar não é o problema que você tem.
 
-### Why do SEO audits produce so many issues?
+### Por que as auditorias de SEO mostram tantos problemas?
 
-Because most issue types are page-level and most sites are templated, so a single template fault multiplies by the number of pages using it. A report of 1,180 issues across 318 pages usually describes a dozen underlying causes. Group by issue type before you count anything.
+Porque a maioria dos tipos de problema é avaliada página a página e a maioria dos sites é feita com templates, então uma única falha de template se multiplica pelo número de páginas que o usam. Um relatório de 1.180 problemas em 318 páginas costuma descrever uma dúzia de causas de fundo. Agrupe por tipo de problema antes de contar qualquer coisa.
 
-### Is there a free technical SEO audit tool?
+### Existe ferramenta gratuita de auditoria técnica de SEO?
 
-Partly. Google Search Console reports coverage and indexing for your own verified property at no cost, and it is the more reliable source for anything Google-specific. A crawler adds the on-page and internal-link picture that Search Console does not give you. OpenSEO is open source and free to start, with 50-page crawls on the free plan and 10,000-page crawls on the $10/month plan.
+Em parte. O Google Search Console mostra cobertura e indexação da sua propriedade verificada sem custo, e é a fonte mais confiável para tudo o que é específico do Google. Um rastreador acrescenta o panorama de SEO on-page e de links internos que o Search Console não oferece. O RE9 SEO tem código aberto e cobre esse lado do rastreamento.

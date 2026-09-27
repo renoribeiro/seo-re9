@@ -1,7 +1,7 @@
-# EveryApp Learnings
+# Aprendizados técnicos
 
-Things to add to EveryApp skill files later.
+Anotações para incorporar depois aos arquivos de skills do projeto.
 
 ## D1
 
-- `db.batch()` is required for multi-row inserts — D1 has a 100 bind param limit per statement, so multi-row `INSERT VALUES (...), (...)` breaks. Use individual INSERT statements batched via `db.batch()` (up to 100 statements per call).
+- `db.batch()` é obrigatório para inserções de várias linhas — o D1 tem limite de 100 parâmetros vinculados por instrução, então um `INSERT VALUES (...), (...)` com várias linhas quebra. Use instruções INSERT individuais agrupadas com `db.batch()` (até 100 instruções por chamada).

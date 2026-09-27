@@ -1,62 +1,59 @@
-# Contributing to OpenSEO
+# Como contribuir com o RE9 SEO
 
-Thank you for your interest in contributing to OpenSEO!
+Obrigado pelo interesse em contribuir com o RE9 SEO!
 
-We deeply appreciate the time and enthusiasm that people bring to the project. One of my favorite things is seeing the forks that people make building off of OpenSEO.
+Valorizamos muito o tempo e o entusiasmo de quem colabora com o projeto, e gostamos de ver os forks que as pessoas criam a partir dele.
 
-## Why aren't we accepting PRs?
+## Por que não estamos aceitando PRs?
 
-Short Answer: AI & Security
+Resposta curta: IA e segurança.
 
-I love using AI to write code as much as anyone. But, it makes it very challenging to assess how much thought and effort went into external pull requests. As a result, I spend a lot of time reviewing, testing and iterating on many external PRs and it ends up slowing down overall development.
+Usamos IA para escrever código tanto quanto qualquer pessoa. Mas isso torna muito difícil avaliar quanto cuidado e esforço foram colocados em pull requests externos. Revisar, testar e iterar muitos PRs externos acaba desacelerando o desenvolvimento como um todo.
 
-Additionally, as OpenSEO becomes more popular, I'm concerned about malicious contributors attempting to sneak in code that slips through review.
+Além disso, à medida que o RE9 SEO cresce, aumenta o risco de contribuições maliciosas tentarem incluir código que passe despercebido na revisão.
 
-## Issues: The best way to contribute
+## Issues: a melhor forma de contribuir
 
-A succinct, clearly written issue describing the problem your facing and your desired behavior is worth its weight in gold.
+Uma issue curta e bem escrita, que descreva o problema que você enfrenta e o comportamento que você espera, vale ouro.
 
-This is much easier for me to review than a PR. If its something that I think a coding agent can easily build, I'll have my own agent build it right away. If it's something bigger, I'll add it to the roadmap.
+Para nós, é muito mais fácil revisar uma issue do que um PR. Se for algo que um agente de código consegue construir com facilidade, podemos implementar rapidamente. Se for algo maior, entra no roadmap.
 
-### Can I still make PRs?
+### Ainda posso abrir PRs?
 
-Yup! I just won't merge them right now. But, making a PR can be a good way to improve the quality of your issue. I'm much more likely to prioritize implementing something myself if you've already created a proof of concept for an integration or built a great UI for me to take inspiration from.
+Pode! Só não vamos fazer merge por enquanto. Mesmo assim, um PR pode melhorar a qualidade da sua issue. Temos muito mais chance de priorizar algo se você já tiver criado uma prova de conceito de uma integração ou uma boa interface que sirva de inspiração.
 
-Videos demoing the feature also help a lot here too since its a sign that the PR wasn't just made by Claude and never tested.
+Vídeos demonstrando o recurso também ajudam bastante, porque mostram que o PR foi de fato testado.
 
 ### /simple-issue-description
 
-For ease of review, I would appreciate if you used the `/simple-issue-description` to refine your issue. I'm hoping that everything being written in the same voice and format will make it easier to understand issues without a lot of back and forth.
+Para facilitar a revisão, pedimos que você use a skill `/simple-issue-description` para refinar a sua issue. Com todas as issues escritas no mesmo tom e formato, fica mais fácil entender cada uma sem muitas idas e vindas.
 
-Install it with:
+Instale com:
 
 ```sh
-npx skills add every-app/open-seo --skill simple-issue-description
+npx skills add renoribeiro/seo-re9 --skill simple-issue-description
 ```
 
-See [Set up OpenSEO Agent Skills](https://openseo.so/docs/skills/setup) for other install options.
+Veja [Configurar as skills de agente do RE9 SEO](https://seo.agenciare9.com.br/docs/skills/setup) para outras opções de instalação.
 
-Here is what we're aiming for with `/simple-issue-description`:
+O que buscamos com `/simple-issue-description`:
 
-- There is sufficient detail in the issue.
-  - What is the problem you're facing?
-  - What is the full user experience for the feature you're proposing?
-- Succinct i.e. not default Claude output.
-  - I have an `/explain-simply` skill I use all the time which inspired `/simple-issue-description`
-  - I can't understand the default Claude / Codex output at this point.
+- Detalhes suficientes na issue.
+  - Qual é o problema que você está enfrentando?
+  - Qual é a experiência completa do recurso que você está propondo?
+- Texto enxuto, ou seja, não a saída padrão e prolixa de um assistente de IA.
 
-### Our Roadmap
+### Nosso roadmap
 
-Here is a link to our Roadmap: http://openseo.so/roadmap
+Veja o nosso roadmap: https://seo.agenciare9.com.br/roadmap
 
-These are planned features and improvements. If you'd like to create an issue and give your thoughts on what would make these features great, I'm all ears!
+São recursos e melhorias planejados. Se quiser abrir uma issue com ideias para deixar esses recursos ainda melhores, adoraríamos ouvir.
 
-## Wrapping Up
+## Para encerrar
 
-I know that this may be disappointing for some people. I hope that in 6 months, we have some awesome review process that alleviates my concerns leading to current process.
+Sabemos que isso pode frustrar algumas pessoas. Esperamos, com o tempo, ter um processo de revisão que resolva essas preocupações.
 
-If you would like to be more involved though, the best way is to [Join our Discord](https://discord.com/invite/c9uGs3cFXr) :
+Se quiser se envolver mais, fale com a gente:
 
-- Help others when they ask questions
-- Share your experiences doing SEO
-- Share things you learned while building your fork
+- Issues: [github.com/renoribeiro/seo-re9/issues](https://github.com/renoribeiro/seo-re9/issues)
+- E-mail: [trafego@re9.online](mailto:trafego@re9.online)

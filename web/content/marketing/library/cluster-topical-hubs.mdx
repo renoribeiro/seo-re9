@@ -1,49 +1,51 @@
 ---
-title: "One page per intent, one hub per topic"
-description: "A 500-row keyword list isn't a strategy. Keyword clustering turns it into a site structure and fixes the cannibalization that's splitting your rankings."
+title: "Uma página por intenção, um hub por tema"
+description: "Uma lista de 500 palavras-chave não é uma estratégia. O agrupamento de palavras-chave a transforma em estrutura de site e resolve a canibalização que está dividindo suas posições."
 ---
 
-## What is keyword clustering?
+## O que é agrupamento de palavras-chave?
 
-Keyword clustering is grouping keywords that deserve the _same page_ because they share one intent. "Keyword clustering", "keyword grouping", and "cluster keywords for seo" are one cluster, so they get one page. "Best keyword clustering tool" is a different intent, so it gets a different page. The unit of SEO is the cluster, not the individual keyword.
+Agrupamento de palavras-chave (keyword clustering) é reunir as palavras-chave que merecem a _mesma página_ porque compartilham uma única intenção. "Agrupamento de palavras-chave", "clusterização de palavras-chave" e "como agrupar palavras-chave para seo" formam um cluster, então ficam em uma página. "Melhor ferramenta de agrupamento de palavras-chave" é outra intenção, então fica em outra página. A unidade do SEO é o cluster, não a palavra-chave isolada.
 
-## How to cluster keywords into topical hubs (without a $99/mo tool)
+## Como agrupar palavras-chave em hubs temáticos (sem uma ferramenta de US$ 99/mês)
 
-1. **Start from your expanded list.** [Seeds](/library/keyword-research/seed-from-conversation) → [expansion](/library/keyword-research/long-tail-question-mining) → [intent labels](/library/keyword-research/search-intent-mapping). You want 100+ rows before clustering is worth it.
-2. **Group by SERP overlap, not word similarity.** Two keywords belong together when Google already ranks the same pages for both. Word-match clustering ("keyword tool" + "keyword tool io") produces false groups.
-3. **Name each cluster by its intent.** The name becomes the page's working title. If you can't name the intent in one line, the cluster is two.
-4. **Arrange clusters into a hub.** The head-term cluster is the pillar page; each subtopic cluster is a spoke that links up. Internal links follow intent adjacency, not chronology.
-5. **Map every cluster to one URL, and record it.** The keyword map (a simple sheet: cluster → URL → status) is the artifact that prevents future cannibalization.
+1. **Comece pela sua lista expandida.** [Sementes](/library/keyword-research/seed-from-conversation) → [expansão](/library/keyword-research/long-tail-question-mining) → [rótulos de intenção](/library/keyword-research/search-intent-mapping). O agrupamento só compensa a partir de umas 100 linhas.
+2. **Agrupe pela sobreposição de SERP, não pela semelhança das palavras.** Duas palavras-chave ficam juntas quando o Google já ranqueia as mesmas páginas para as duas. Agrupar por palavras em comum ("ferramenta de palavras-chave" + "keyword tool io") cria grupos falsos.
+3. **Dê a cada cluster o nome da intenção dele.** Esse nome vira o título provisório da página. Se você não consegue nomear a intenção em uma linha, o cluster na verdade são dois.
+4. **Organize os clusters em um hub.** O cluster do termo principal é a página pilar; cada cluster de subtema é uma página satélite que aponta para ela. Os links internos seguem a proximidade de intenção, não a ordem cronológica.
+5. **Associe cada cluster a uma URL e registre isso.** O mapa de palavras-chave (uma planilha simples: cluster → URL → status) é o documento que evita canibalização no futuro.
 
-![Keyword map table showing clusters mapped to primary keywords, intent, and one target URL each, the structure that prevents keyword cannibalization](/library/keyword-research/keyword-clustering-topical-hub-openseo.png)
+![Tabela de mapa de palavras-chave mostrando clusters associados à palavra-chave principal, à intenção e a uma única URL de destino cada, a estrutura que evita a canibalização de palavras-chave](/library/keyword-research/keyword-clustering-topical-hub-openseo.png)
 
-## How to fix keyword cannibalization
+## Como resolver a canibalização de palavras-chave
 
-Cannibalization is the opposite problem: two of your pages compete for one intent, Google alternates between them, and both rank worse than either would alone.
+A canibalização é o problema oposto: duas páginas suas disputam a mesma intenção, o Google alterna entre elas e as duas ranqueiam pior do que qualquer uma ranquearia sozinha.
 
-- **Find it:** in [Search Console](/google-search-console-mcp), group by query + page. Any query with 2+ of your URLs swapping impressions is a candidate. [Programmatic discovery](/library/keyword-research/gsc-programmatic-discovery) runs the same grouping across every page at once.
-- **Fix it:** merge the weaker page into the stronger (301), or re-point the weaker page at a genuinely different intent and re-title it.
-- **Prevent it:** the keyword map from step 5. No new page ships without checking which cluster it claims.
+- **Encontre:** no [Search Console](/google-search-console-mcp), agrupe por consulta + página. Qualquer consulta em que 2 ou mais URLs suas se revezam nas impressões é candidata. A [descoberta programática](/library/keyword-research/gsc-programmatic-discovery) faz o mesmo agrupamento em todas as páginas de uma vez.
+- **Resolva:** junte a página mais fraca à mais forte (redirecionamento 301) ou reaponte a página mais fraca para uma intenção realmente diferente e mude o título dela.
+- **Previna:** use o mapa de palavras-chave do passo 5. Nenhuma página nova vai ao ar sem verificar qual cluster ela ocupa.
 
-Run this workflow with the [OpenSEO MCP](/docs/mcp):
+Rode este fluxo com o [MCP do RE9 SEO](/docs/mcp):
 
 ```text
-Using the OpenSEO MCP + Search Console: pull my queries grouped by
-query and page, flag queries where two of my URLs alternate, and
-propose merge/redirect fixes. Then cluster my researched keywords
-by shared intent and output a cluster → URL keyword map.
+Usando o MCP do RE9 SEO + o Search Console: puxe minhas consultas
+agrupadas por consulta e página, sinalize as consultas em que duas
+URLs minhas se alternam e proponha correções de
+fusão/redirecionamento. Depois, agrupe as palavras-chave que
+pesquisei por intenção comum e gere um mapa de palavras-chave
+cluster → URL.
 ```
 
-## Keyword clustering FAQ
+## Perguntas frequentes sobre agrupamento de palavras-chave
 
-### What's the best keyword clustering tool?
+### Qual é a melhor ferramenta de agrupamento de palavras-chave?
 
-For SERP-overlap clustering at scale, paid tools exist, but for most sites, OpenSEO's research + an intent-grouping pass (the MCP prompt above) covers it. Judge tools by whether they cluster on SERP overlap; word-similarity clustering is a toy.
+Para agrupar por sobreposição de SERP em grande escala, existem ferramentas pagas, mas, para a maioria dos sites, a pesquisa do RE9 SEO + uma etapa de agrupamento por intenção (o prompt do MCP acima) resolve. Avalie as ferramentas pelo critério de agrupar ou não por sobreposição de SERP; agrupar por semelhança de palavras é brinquedo.
 
-### Is there a free keyword clustering tool?
+### Existe ferramenta gratuita de agrupamento de palavras-chave?
 
-Not an unlimited one. The grouping step itself is free (the MCP prompt above does it), but it runs on researched keywords, and quality keyword data is the part that costs money everywhere. OpenSEO includes the clustering pass with research, so there's no separate clustering tool to buy; you can start for free, and paid plans start at $10/month.
+Não uma ilimitada. A etapa de agrupamento em si é gratuita (o prompt do MCP acima faz isso), mas ela roda sobre palavras-chave pesquisadas, e dados de palavras-chave de qualidade são a parte que custa dinheiro em qualquer lugar. O RE9 SEO inclui a etapa de agrupamento junto com a pesquisa, então não há uma ferramenta de agrupamento separada para comprar.
 
-### What is a keyword mapping template?
+### O que é um modelo de mapeamento de palavras-chave?
 
-A sheet with one row per cluster: primary keyword, supporting keywords, intent, target URL, status. The keyword map above is the working example; copy the structure. Add a forecast column and it becomes a build order: [size each cluster](/library/keyword-research/opportunity-sizing-forecasting) before you commit the quarter.
+Uma planilha com uma linha por cluster: palavra-chave principal, palavras-chave de apoio, intenção, URL de destino e status. O mapa de palavras-chave acima é o exemplo prático; copie a estrutura. Acrescente uma coluna de previsão e ela vira uma ordem de produção: [dimensione cada cluster](/library/keyword-research/opportunity-sizing-forecasting) antes de comprometer o trimestre.

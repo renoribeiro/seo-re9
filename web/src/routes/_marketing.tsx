@@ -1,3 +1,4 @@
+import { BrandLogo } from "@/components/brand-logo";
 import {
   createFileRoute,
   Link,
@@ -5,13 +6,14 @@ import {
   useLocation,
 } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { NewsletterSignup } from "@/components/newsletter-signup";
 import { SiteFooter } from "@/components/site-footer";
 import { featureGroups } from "@/lib/feature-pages";
 
-const GITHUB_REPO = "every-app/open-seo";
-// Used if GitHub is unreachable at build time so the header never renders empty.
-const FALLBACK_STAR_COUNT = "2.1k";
+const GITHUB_REPO = "renoribeiro/seo-re9";
+const GITHUB_URL = `https://github.com/${GITHUB_REPO}`;
+// Used if GitHub is unreachable at build time (or the repo is private): the
+// header then shows the GitHub link without a star count.
+const FALLBACK_STAR_COUNT = "";
 
 // Round to the nearest hundred and render in thousands, e.g. 3140 -> "3.1k".
 function formatStarCount(count: number): string {
@@ -25,12 +27,14 @@ async function fetchGithubStarCount(): Promise<string> {
       headers: {
         Accept: "application/vnd.github+json",
         // GitHub rejects requests without a User-Agent.
-        "User-Agent": "openseo-landing",
+        "User-Agent": "re9-seo-landing",
       },
     });
     if (!res.ok) return FALLBACK_STAR_COUNT;
     const data = (await res.json()) as { stargazers_count?: number };
-    return typeof data.stargazers_count === "number"
+    // A repo with no stars yet shows the plain GitHub link instead of "0".
+    return typeof data.stargazers_count === "number" &&
+      data.stargazers_count > 0
       ? formatStarCount(data.stargazers_count)
       : FALLBACK_STAR_COUNT;
   } catch {
@@ -49,28 +53,27 @@ function loadGithubStarCount(): Promise<string> {
 function getMobileNavItems(githubStarCount: string) {
   return [
     {
-      label: "Product",
+      label: "Produto",
       links: [
-        { label: "Features", href: "/features" },
-        { label: "Pricing", href: "/pricing" },
+        { label: "Funcionalidades", href: "/features" },
+        { label: "Contato", href: "/pricing" },
       ],
     },
     {
-      label: "Resources",
+      label: "Materiais",
       links: [
-        { label: "Agent setup", href: "/docs/agent-setup" },
+        { label: "Configurar agente", href: "/docs/agent-setup" },
         { label: "Skills", href: "/docs/skills" },
-        { label: "Strategy Library", href: "/library" },
-        { label: "Blog", href: "/blogs" },
-        { label: "Docs", href: "/docs" },
+        { label: "Biblioteca de estratégias", href: "/library" },
+        { label: "Documentação", href: "/docs" },
       ],
     },
     {
-      label: "Community",
+      label: "Comunidade",
       links: [
         {
-          label: `GitHub ${githubStarCount}`,
-          href: "https://github.com/every-app/open-seo",
+          label: githubStarCount ? `GitHub ${githubStarCount}` : "GitHub",
+          href: GITHUB_URL,
         },
       ],
     },
@@ -148,8 +151,8 @@ function MarketingLayout() {
     const root = document.documentElement;
     const prevRoot = root.style.backgroundColor;
     const prevBody = document.body.style.backgroundColor;
-    root.style.backgroundColor = "#f5f1ec";
-    document.body.style.backgroundColor = "#f5f1ec";
+    root.style.backgroundColor = "#f4f4f5";
+    document.body.style.backgroundColor = "#f4f4f5";
     return () => {
       root.style.backgroundColor = prevRoot;
       document.body.style.backgroundColor = prevBody;
@@ -163,9 +166,10 @@ function MarketingLayout() {
           <nav className="grid min-h-14 grid-cols-[1fr_auto] items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-white/90 px-4 py-2.5 shadow-sm shadow-neutral-900/5 backdrop-blur md:grid-cols-[1fr_auto_1fr] md:px-5">
             <Link
               to="/"
-              className="text-sm font-semibold hover:opacity-80 transition-opacity"
+              className="text-sm hover:opacity-80 transition-opacity"
+              aria-label="RE9 SEO"
             >
-              OpenSEO
+              <BrandLogo />
             </Link>
 
             <div className="hidden items-center justify-center gap-5 md:flex">
@@ -175,36 +179,42 @@ function MarketingLayout() {
                 to="/pricing"
                 className="text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900"
               >
-                Pricing
+                Contato
               </Link>
             </div>
 
             <div className="flex items-center justify-end gap-2 sm:gap-3">
               <button
                 type="button"
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
                 aria-expanded={mobileMenuOpen}
                 onClick={() => setMobileMenuOpen((open) => !open)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-neutral-900 transition-colors hover:bg-[#f5f1ec] md:hidden"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-neutral-900 transition-colors hover:bg-[#f4f4f5] md:hidden"
               >
                 {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
               <a
-                href="https://github.com/every-app/open-seo"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`GitHub, ${githubStarCount} stars`}
+                aria-label={
+                  githubStarCount
+                    ? `GitHub, ${githubStarCount} estrelas`
+                    : "GitHub"
+                }
                 className="hidden h-9 items-center gap-1.5 px-2 text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 md:inline-flex"
               >
                 <GitHubIcon size={16} />
                 <span>GitHub</span>
-                <span className="text-neutral-500">{githubStarCount}</span>
+                {githubStarCount ? (
+                  <span className="text-neutral-500">{githubStarCount}</span>
+                ) : null}
               </a>
               <a
-                href="https://app.openseo.so/sign-in"
+                href="https://seo.agenciare9.com.br/sign-in"
                 className="hidden h-9 items-center rounded-full border border-[var(--color-border-subtle)] px-4 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900 md:inline-flex"
               >
-                Sign in
+                Entrar
               </a>
             </div>
           </nav>
@@ -213,18 +223,18 @@ function MarketingLayout() {
             <div className="absolute left-0 right-0 top-full z-30 mt-3 rounded-2xl border border-[var(--color-border-subtle)] bg-white p-3 shadow-xl shadow-neutral-900/10 md:hidden">
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="https://app.openseo.so/sign-in"
+                  href="https://seo.agenciare9.com.br/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex h-11 items-center justify-center rounded-xl bg-neutral-950 px-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-800"
                 >
-                  Try OpenSEO
+                  Experimentar o RE9 SEO
                 </a>
                 <a
-                  href="https://app.openseo.so/sign-in"
+                  href="https://seo.agenciare9.com.br/sign-in"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-11 items-center justify-center rounded-xl border border-[var(--color-border-subtle)] px-3 text-sm font-semibold text-neutral-800 transition-colors hover:border-neutral-900 hover:bg-[#f5f1ec]"
+                  className="flex h-11 items-center justify-center rounded-xl border border-[var(--color-border-subtle)] px-3 text-sm font-semibold text-neutral-800 transition-colors hover:border-neutral-900 hover:bg-[#f4f4f5]"
                 >
-                  Sign in
+                  Entrar
                 </a>
               </div>
 
@@ -271,43 +281,38 @@ function ResourcesDropdown() {
     {
       label: "MCP",
       href: "/docs/mcp",
-      description: "Connect OpenSEO to AI clients.",
+      description: "Conecte o RE9 SEO a clientes de IA.",
     },
     {
       label: "Skills",
       href: "/docs/skills",
-      description: "Focused OpenSEO workflows.",
+      description: "Fluxos de trabalho prontos do RE9 SEO.",
     },
     {
-      label: "Strategy Library",
+      label: "Biblioteca de estratégias",
       href: "/library",
-      description: "Practical SEO strategies grouped by topic.",
+      description: "Estratégias práticas de SEO organizadas por tema.",
     },
     {
-      label: "Blog",
-      href: "/blogs",
-      description: "SEO articles and guides.",
-    },
-    {
-      label: "Docs",
+      label: "Documentação",
       href: "/docs",
-      description: "Setup, MCP, skills, and self-hosting guides.",
+      description: "Guias de configuração, MCP, skills e auto-hospedagem.",
     },
   ];
 
   return (
     <div className="group relative">
       <a
-        href="/blogs"
+        href="/library"
         className="text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 md:hidden"
       >
-        Resources
+        Materiais
       </a>
       <button
         type="button"
         className="hidden h-10 items-center text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 md:inline-flex"
       >
-        Resources
+        Materiais
       </button>
       <div className="pointer-events-none absolute left-1/2 top-[calc(100%-2px)] z-20 hidden w-[280px] -translate-x-1/2 pt-2 opacity-0 transition md:block group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
         <div className="rounded-lg border border-[var(--color-border-subtle)] bg-white p-3 shadow-xl shadow-neutral-900/10">
@@ -315,7 +320,7 @@ function ResourcesDropdown() {
             <a
               key={resource.href}
               href={resource.href}
-              className="block rounded-md px-3 py-2.5 transition-colors hover:bg-[#f5f1ec]"
+              className="block rounded-md px-3 py-2.5 transition-colors hover:bg-[#f4f4f5]"
             >
               <span className="block text-sm font-semibold text-neutral-900">
                 {resource.label}
@@ -338,13 +343,13 @@ function FeatureDropdown() {
         to="/features"
         className="text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 md:hidden"
       >
-        Features
+        Funcionalidades
       </Link>
       <button
         type="button"
         className="hidden h-10 items-center text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 md:inline-flex"
       >
-        Features
+        Funcionalidades
       </button>
       <div className="pointer-events-none absolute left-1/2 top-[calc(100%-2px)] z-20 hidden w-[560px] -translate-x-1/2 pt-2 opacity-0 transition md:block group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
         <div className="rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 shadow-xl shadow-neutral-900/10">
@@ -359,7 +364,7 @@ function FeatureDropdown() {
                     <a
                       key={page.slug}
                       href={`/features/${page.slug}`}
-                      className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[#f5f1ec]"
+                      className="block rounded-md px-2 py-1.5 transition-colors hover:bg-[#f4f4f5]"
                     >
                       <span className="block text-sm font-semibold text-neutral-900">
                         {page.eyebrow}
@@ -374,36 +379,37 @@ function FeatureDropdown() {
             ))}
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                AI agents
+                Agentes de IA
               </p>
               <div className="mt-3 space-y-2">
                 <a
                   href="/features/mcp"
-                  className="block rounded-md p-2 transition-colors hover:bg-[#f5f1ec]"
+                  className="block rounded-md p-2 transition-colors hover:bg-[#f4f4f5]"
                 >
                   <span className="text-sm font-semibold text-neutral-900">
-                    OpenSEO MCP
+                    RE9 SEO MCP
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-neutral-600">
-                    Connect Claude, Codex, and agents.
+                    Conecte Claude, Codex e outros agentes.
                   </span>
                 </a>
                 <a
                   href="/google-search-console-mcp"
-                  className="block rounded-md p-2 transition-colors hover:bg-[#f5f1ec]"
+                  className="block rounded-md p-2 transition-colors hover:bg-[#f4f4f5]"
                 >
                   <span className="text-sm font-semibold text-neutral-900">
                     Search Console MCP
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-neutral-600">
-                    Search Console data for agents.
+                    Dados do Search Console para agentes.
                   </span>
                 </a>
                 <a
                   href="/features"
-                  className="block rounded-md border border-[var(--color-border-subtle)] bg-[#f5f1ec] px-2 py-1.5 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900"
+                  className="block rounded-md border border-[var(--color-border-subtle)] bg-[#f4f4f5] px-2 py-1.5 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900"
                 >
-                  View all features <span aria-hidden="true">&rarr;</span>
+                  Ver todas as funcionalidades{" "}
+                  <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
             </div>
@@ -416,24 +422,8 @@ function FeatureDropdown() {
 
 function MarketingFooter() {
   return (
-    <>
-      {/* Newsletter */}
-      <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-8">
-        <p className="text-sm font-semibold text-neutral-900">
-          Stay in the loop
-        </p>
-        <p className="text-sm text-neutral-600 mt-1 leading-relaxed">
-          Product updates, new features, and the occasional behind-the-scenes.
-        </p>
-        <div className="mt-3">
-          <NewsletterSignup />
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="mt-8">
-        <SiteFooter className="text-xs text-neutral-600 [&_a]:transition-colors [&_a]:hover:text-neutral-900" />
-      </div>
-    </>
+    <div className="mt-16 border-t border-[var(--color-border-subtle)] pt-8">
+      <SiteFooter className="text-xs text-neutral-600 [&_a]:transition-colors [&_a]:hover:text-neutral-900" />
+    </div>
   );
 }

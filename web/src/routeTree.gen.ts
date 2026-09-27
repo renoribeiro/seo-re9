@@ -10,16 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MarketingRouteImport } from './routes/_marketing'
-import { Route as GuidesIndexRouteImport } from './routes/guides/index'
 import { Route as DocsIndexRouteImport } from './routes/docs/index'
-import { Route as BlogsIndexRouteImport } from './routes/blogs/index'
 import { Route as MarketingIndexRouteImport } from './routes/_marketing/index'
 import { Route as JsScriptDotjsRouteImport } from './routes/js/script[.]js'
-import { Route as GuidesSplatRouteImport } from './routes/guides/$'
 import { Route as DocsSplatRouteImport } from './routes/docs/$'
-import { Route as BlogsSplatRouteImport } from './routes/blogs/$'
 import { Route as ApiWebsiteTrafficCheckerRouteImport } from './routes/api/website-traffic-checker'
-import { Route as ApiSubscribeRouteImport } from './routes/api/subscribe'
 import { Route as ApiSpamScoreCheckerRouteImport } from './routes/api/spam-score-checker'
 import { Route as ApiKeywordGeneratorRouteImport } from './routes/api/keyword-generator'
 import { Route as ApiEventRouteImport } from './routes/api/event'
@@ -44,7 +39,6 @@ import { Route as MarketingDomainAgeCheckerRouteImport } from './routes/_marketi
 import { Route as MarketingCompetitorKeywordFinderRouteImport } from './routes/_marketing/competitor-keyword-finder'
 import { Route as MarketingCompetitorAnalysisRouteImport } from './routes/_marketing/competitor-analysis'
 import { Route as MarketingBacklinkCheckerRouteImport } from './routes/_marketing/backlink-checker'
-import { Route as MarketingAboutRouteImport } from './routes/_marketing/about'
 import { Route as MarketingLibraryIndexRouteImport } from './routes/_marketing/library/index'
 import { Route as MarketingFeaturesIndexRouteImport } from './routes/_marketing/features/index'
 import { Route as MarketingFeaturesSiteAuditRouteImport } from './routes/_marketing/features/site-audit'
@@ -94,19 +88,9 @@ const MarketingRoute = MarketingRouteImport.update({
   id: '/_marketing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuidesIndexRoute = GuidesIndexRouteImport.update({
-  id: '/guides/',
-  path: '/guides/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DocsIndexRoute = DocsIndexRouteImport.update({
   id: '/docs/',
   path: '/docs/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/blogs/',
-  path: '/blogs/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketingIndexRoute = MarketingIndexRouteImport.update({
@@ -119,19 +103,9 @@ const JsScriptDotjsRoute = JsScriptDotjsRouteImport.update({
   path: '/js/script.js',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GuidesSplatRoute = GuidesSplatRouteImport.update({
-  id: '/guides/$',
-  path: '/guides/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DocsSplatRoute = DocsSplatRouteImport.update({
   id: '/docs/$',
   path: '/docs/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogsSplatRoute = BlogsSplatRouteImport.update({
-  id: '/blogs/$',
-  path: '/blogs/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebsiteTrafficCheckerRoute =
@@ -140,11 +114,6 @@ const ApiWebsiteTrafficCheckerRoute =
     path: '/api/website-traffic-checker',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiSubscribeRoute = ApiSubscribeRouteImport.update({
-  id: '/api/subscribe',
-  path: '/api/subscribe',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiSpamScoreCheckerRoute = ApiSpamScoreCheckerRouteImport.update({
   id: '/api/spam-score-checker',
   path: '/api/spam-score-checker',
@@ -275,11 +244,6 @@ const MarketingBacklinkCheckerRoute =
     path: '/backlink-checker',
     getParentRoute: () => MarketingRoute,
   } as any)
-const MarketingAboutRoute = MarketingAboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => MarketingRoute,
-} as any)
 const MarketingLibraryIndexRoute = MarketingLibraryIndexRouteImport.update({
   id: '/library/',
   path: '/library/',
@@ -548,7 +512,6 @@ const MarketingLibraryAiAgentSeoHumanInTheLoopContentRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof MarketingIndexRoute
-  '/about': typeof MarketingAboutRoute
   '/backlink-checker': typeof MarketingBacklinkCheckerRoute
   '/competitor-analysis': typeof MarketingCompetitorAnalysisRoute
   '/competitor-keyword-finder': typeof MarketingCompetitorKeywordFinderRoute
@@ -573,15 +536,10 @@ export interface FileRoutesByFullPath {
   '/api/event': typeof ApiEventRoute
   '/api/keyword-generator': typeof ApiKeywordGeneratorRoute
   '/api/spam-score-checker': typeof ApiSpamScoreCheckerRoute
-  '/api/subscribe': typeof ApiSubscribeRoute
   '/api/website-traffic-checker': typeof ApiWebsiteTrafficCheckerRoute
-  '/blogs/$': typeof BlogsSplatRoute
   '/docs/$': typeof DocsSplatRoute
-  '/guides/$': typeof GuidesSplatRoute
   '/js/script.js': typeof JsScriptDotjsRoute
-  '/blogs/': typeof BlogsIndexRoute
   '/docs/': typeof DocsIndexRoute
-  '/guides/': typeof GuidesIndexRoute
   '/features/ai-brand-visibility': typeof MarketingFeaturesAiBrandVisibilityRoute
   '/features/ai-search-prompts': typeof MarketingFeaturesAiSearchPromptsRoute
   '/features/backlink-checker': typeof MarketingFeaturesBacklinkCheckerRoute
@@ -628,7 +586,6 @@ export interface FileRoutesByFullPath {
   '/library/site-audit/': typeof MarketingLibrarySiteAuditIndexRoute
 }
 export interface FileRoutesByTo {
-  '/about': typeof MarketingAboutRoute
   '/backlink-checker': typeof MarketingBacklinkCheckerRoute
   '/competitor-analysis': typeof MarketingCompetitorAnalysisRoute
   '/competitor-keyword-finder': typeof MarketingCompetitorKeywordFinderRoute
@@ -653,16 +610,11 @@ export interface FileRoutesByTo {
   '/api/event': typeof ApiEventRoute
   '/api/keyword-generator': typeof ApiKeywordGeneratorRoute
   '/api/spam-score-checker': typeof ApiSpamScoreCheckerRoute
-  '/api/subscribe': typeof ApiSubscribeRoute
   '/api/website-traffic-checker': typeof ApiWebsiteTrafficCheckerRoute
-  '/blogs/$': typeof BlogsSplatRoute
   '/docs/$': typeof DocsSplatRoute
-  '/guides/$': typeof GuidesSplatRoute
   '/js/script.js': typeof JsScriptDotjsRoute
   '/': typeof MarketingIndexRoute
-  '/blogs': typeof BlogsIndexRoute
   '/docs': typeof DocsIndexRoute
-  '/guides': typeof GuidesIndexRoute
   '/features/ai-brand-visibility': typeof MarketingFeaturesAiBrandVisibilityRoute
   '/features/ai-search-prompts': typeof MarketingFeaturesAiSearchPromptsRoute
   '/features/backlink-checker': typeof MarketingFeaturesBacklinkCheckerRoute
@@ -711,7 +663,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_marketing': typeof MarketingRouteWithChildren
-  '/_marketing/about': typeof MarketingAboutRoute
   '/_marketing/backlink-checker': typeof MarketingBacklinkCheckerRoute
   '/_marketing/competitor-analysis': typeof MarketingCompetitorAnalysisRoute
   '/_marketing/competitor-keyword-finder': typeof MarketingCompetitorKeywordFinderRoute
@@ -736,16 +687,11 @@ export interface FileRoutesById {
   '/api/event': typeof ApiEventRoute
   '/api/keyword-generator': typeof ApiKeywordGeneratorRoute
   '/api/spam-score-checker': typeof ApiSpamScoreCheckerRoute
-  '/api/subscribe': typeof ApiSubscribeRoute
   '/api/website-traffic-checker': typeof ApiWebsiteTrafficCheckerRoute
-  '/blogs/$': typeof BlogsSplatRoute
   '/docs/$': typeof DocsSplatRoute
-  '/guides/$': typeof GuidesSplatRoute
   '/js/script.js': typeof JsScriptDotjsRoute
   '/_marketing/': typeof MarketingIndexRoute
-  '/blogs/': typeof BlogsIndexRoute
   '/docs/': typeof DocsIndexRoute
-  '/guides/': typeof GuidesIndexRoute
   '/_marketing/features/ai-brand-visibility': typeof MarketingFeaturesAiBrandVisibilityRoute
   '/_marketing/features/ai-search-prompts': typeof MarketingFeaturesAiSearchPromptsRoute
   '/_marketing/features/backlink-checker': typeof MarketingFeaturesBacklinkCheckerRoute
@@ -795,7 +741,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/backlink-checker'
     | '/competitor-analysis'
     | '/competitor-keyword-finder'
@@ -820,15 +765,10 @@ export interface FileRouteTypes {
     | '/api/event'
     | '/api/keyword-generator'
     | '/api/spam-score-checker'
-    | '/api/subscribe'
     | '/api/website-traffic-checker'
-    | '/blogs/$'
     | '/docs/$'
-    | '/guides/$'
     | '/js/script.js'
-    | '/blogs/'
     | '/docs/'
-    | '/guides/'
     | '/features/ai-brand-visibility'
     | '/features/ai-search-prompts'
     | '/features/backlink-checker'
@@ -875,7 +815,6 @@ export interface FileRouteTypes {
     | '/library/site-audit/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/about'
     | '/backlink-checker'
     | '/competitor-analysis'
     | '/competitor-keyword-finder'
@@ -900,16 +839,11 @@ export interface FileRouteTypes {
     | '/api/event'
     | '/api/keyword-generator'
     | '/api/spam-score-checker'
-    | '/api/subscribe'
     | '/api/website-traffic-checker'
-    | '/blogs/$'
     | '/docs/$'
-    | '/guides/$'
     | '/js/script.js'
     | '/'
-    | '/blogs'
     | '/docs'
-    | '/guides'
     | '/features/ai-brand-visibility'
     | '/features/ai-search-prompts'
     | '/features/backlink-checker'
@@ -957,7 +891,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_marketing'
-    | '/_marketing/about'
     | '/_marketing/backlink-checker'
     | '/_marketing/competitor-analysis'
     | '/_marketing/competitor-keyword-finder'
@@ -982,16 +915,11 @@ export interface FileRouteTypes {
     | '/api/event'
     | '/api/keyword-generator'
     | '/api/spam-score-checker'
-    | '/api/subscribe'
     | '/api/website-traffic-checker'
-    | '/blogs/$'
     | '/docs/$'
-    | '/guides/$'
     | '/js/script.js'
     | '/_marketing/'
-    | '/blogs/'
     | '/docs/'
-    | '/guides/'
     | '/_marketing/features/ai-brand-visibility'
     | '/_marketing/features/ai-search-prompts'
     | '/_marketing/features/backlink-checker'
@@ -1047,15 +975,10 @@ export interface RootRouteChildren {
   ApiEventRoute: typeof ApiEventRoute
   ApiKeywordGeneratorRoute: typeof ApiKeywordGeneratorRoute
   ApiSpamScoreCheckerRoute: typeof ApiSpamScoreCheckerRoute
-  ApiSubscribeRoute: typeof ApiSubscribeRoute
   ApiWebsiteTrafficCheckerRoute: typeof ApiWebsiteTrafficCheckerRoute
-  BlogsSplatRoute: typeof BlogsSplatRoute
   DocsSplatRoute: typeof DocsSplatRoute
-  GuidesSplatRoute: typeof GuidesSplatRoute
   JsScriptDotjsRoute: typeof JsScriptDotjsRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
   DocsIndexRoute: typeof DocsIndexRoute
-  GuidesIndexRoute: typeof GuidesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1067,25 +990,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides/': {
-      id: '/guides/'
-      path: '/guides'
-      fullPath: '/guides/'
-      preLoaderRoute: typeof GuidesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/docs/': {
       id: '/docs/'
       path: '/docs'
       fullPath: '/docs/'
       preLoaderRoute: typeof DocsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blogs/': {
-      id: '/blogs/'
-      path: '/blogs'
-      fullPath: '/blogs/'
-      preLoaderRoute: typeof BlogsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_marketing/': {
@@ -1102,13 +1011,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JsScriptDotjsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/guides/$': {
-      id: '/guides/$'
-      path: '/guides/$'
-      fullPath: '/guides/$'
-      preLoaderRoute: typeof GuidesSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/docs/$': {
       id: '/docs/$'
       path: '/docs/$'
@@ -1116,25 +1018,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blogs/$': {
-      id: '/blogs/$'
-      path: '/blogs/$'
-      fullPath: '/blogs/$'
-      preLoaderRoute: typeof BlogsSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/website-traffic-checker': {
       id: '/api/website-traffic-checker'
       path: '/api/website-traffic-checker'
       fullPath: '/api/website-traffic-checker'
       preLoaderRoute: typeof ApiWebsiteTrafficCheckerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/subscribe': {
-      id: '/api/subscribe'
-      path: '/api/subscribe'
-      fullPath: '/api/subscribe'
-      preLoaderRoute: typeof ApiSubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/spam-score-checker': {
@@ -1303,13 +1191,6 @@ declare module '@tanstack/react-router' {
       path: '/backlink-checker'
       fullPath: '/backlink-checker'
       preLoaderRoute: typeof MarketingBacklinkCheckerRouteImport
-      parentRoute: typeof MarketingRoute
-    }
-    '/_marketing/about': {
-      id: '/_marketing/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof MarketingAboutRouteImport
       parentRoute: typeof MarketingRoute
     }
     '/_marketing/library/': {
@@ -1624,7 +1505,6 @@ declare module '@tanstack/react-router' {
 }
 
 interface MarketingRouteChildren {
-  MarketingAboutRoute: typeof MarketingAboutRoute
   MarketingBacklinkCheckerRoute: typeof MarketingBacklinkCheckerRoute
   MarketingCompetitorAnalysisRoute: typeof MarketingCompetitorAnalysisRoute
   MarketingCompetitorKeywordFinderRoute: typeof MarketingCompetitorKeywordFinderRoute
@@ -1690,7 +1570,6 @@ interface MarketingRouteChildren {
 }
 
 const MarketingRouteChildren: MarketingRouteChildren = {
-  MarketingAboutRoute: MarketingAboutRoute,
   MarketingBacklinkCheckerRoute: MarketingBacklinkCheckerRoute,
   MarketingCompetitorAnalysisRoute: MarketingCompetitorAnalysisRoute,
   MarketingCompetitorKeywordFinderRoute: MarketingCompetitorKeywordFinderRoute,
@@ -1799,15 +1678,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventRoute: ApiEventRoute,
   ApiKeywordGeneratorRoute: ApiKeywordGeneratorRoute,
   ApiSpamScoreCheckerRoute: ApiSpamScoreCheckerRoute,
-  ApiSubscribeRoute: ApiSubscribeRoute,
   ApiWebsiteTrafficCheckerRoute: ApiWebsiteTrafficCheckerRoute,
-  BlogsSplatRoute: BlogsSplatRoute,
   DocsSplatRoute: DocsSplatRoute,
-  GuidesSplatRoute: GuidesSplatRoute,
   JsScriptDotjsRoute: JsScriptDotjsRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
   DocsIndexRoute: DocsIndexRoute,
-  GuidesIndexRoute: GuidesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

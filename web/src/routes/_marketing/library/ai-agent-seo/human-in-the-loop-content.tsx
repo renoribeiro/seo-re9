@@ -12,29 +12,29 @@ const PATH = "/library/ai-agent-seo/human-in-the-loop-content";
 const faqs = [
   {
     question:
-      "How do I use AI for SEO content without producing generic pages?",
+      "Como usar IA para conteúdo de SEO sem produzir páginas genéricas?",
     answer:
-      "Write the brief yourself: the reader, the one thing they should do, your own data, verbatim quotes, and what not to claim. Let the model draft from that. Then run a fact pass against the brief and a pass for machine-writing phrases before anything ships. Every skipped step shows in the result.",
+      "Escreva você mesmo o briefing: o leitor, a única coisa que ele deve fazer, os seus próprios dados, citações literais e o que não afirmar. Deixe o modelo rascunhar a partir disso. Depois, faça uma revisão de fatos em relação ao briefing e outra de frases com cara de texto de máquina antes de publicar qualquer coisa. Toda etapa pulada aparece no resultado.",
   },
   {
-    question: "Should AI write the brief or the draft?",
+    question: "A IA deve escrever o briefing ou o rascunho?",
     answer:
-      "The draft. A brief written by a model contains only what the model already knew, which is what every competing page already says. A brief written by a person carries the data and quotes that make the page different. The draft is labour; the brief is knowledge.",
+      "O rascunho. Um briefing escrito por um modelo contém só o que o modelo já sabia, que é o que todas as páginas concorrentes já dizem. Um briefing escrito por uma pessoa traz os dados e as citações que tornam a página diferente. O rascunho é mão de obra; o briefing é conhecimento.",
   },
   {
-    question: "What is human in the loop content?",
+    question: "O que é conteúdo com pessoas no processo (human in the loop)?",
     answer:
-      "A workflow where a person owns the two ends, briefing and editing, and a model does the middle. It is the opposite of the common pattern where the model briefs and edits while a person writes, which produces polished pages with nothing in them.",
+      "É um fluxo em que uma pessoa cuida das duas pontas, o briefing e a edição, e um modelo faz o meio. É o oposto do padrão comum em que o modelo faz o briefing e edita enquanto uma pessoa escreve, o que produz páginas bem acabadas e sem nada dentro.",
   },
   {
-    question: "How do I check an AI draft?",
+    question: "Como revisar um rascunho feito por IA?",
     answer:
-      "Two passes. Fact: every number, quote and product claim traces to the brief or the source. Slop: remove the phrases and structures that mark machine writing, such as filler openers, false contrasts and stacked rhetorical questions. OpenSEO keeps a catalogue of both in its repository and runs it on every page.",
+      "Em duas passadas. Fatos: todo número, citação e afirmação sobre produto precisa apontar para o briefing ou para a fonte. Texto genérico: remova as frases e estruturas típicas de texto de máquina, como aberturas de enchimento, falsos contrastes e perguntas retóricas empilhadas. Vale manter um catálogo desses dois tipos de problema e aplicá-lo em toda página.",
   },
   {
-    question: "Does OpenSEO write content?",
+    question: "O RE9 SEO escreve conteúdo?",
     answer:
-      "No. The MCP pulls the data half of a brief: Search Console performance, keyword metrics, SERP results, competitors, audit findings. The assistant you connect writes from the brief you complete. The product's own pages follow the same loop and the review rules are public in its repository.",
+      "Não. O MCP puxa a metade de dados de um briefing: desempenho no Search Console, métricas de palavras-chave, resultados da SERP, concorrentes, achados de auditoria. O assistente que você conecta escreve a partir do briefing que você completa.",
   },
 ];
 
@@ -53,17 +53,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Human in the Loop Content: the Brief Is the Job",
+      title: "Conteúdo com pessoas no processo: o briefing é o trabalho",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Human in the loop content"
+      crumb="Conteúdo com pessoas no processo"
       path={PATH}
       library={AI_AGENT_SEO_LIBRARY}
     >

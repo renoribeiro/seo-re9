@@ -1,79 +1,85 @@
-# Self-hosted Google Analytics
+# Google Analytics no self-hosting
 
-Connecting Google Analytics lets OpenSEO bind a GA4 property to a project. The
-connection is optional and read-only.
+Conectar o Google Analytics permite que o RE9 SEO vincule uma propriedade GA4 a um
+projeto. A conexão é opcional e somente leitura.
 
-## What you'll need
+## Do que você vai precisar
 
-- A Google account with access to the GA4 property.
-- A Google Cloud project with OAuth credentials.
-- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `BETTER_AUTH_SECRET` set on
-  the OpenSEO deployment.
+- Uma conta Google com acesso à propriedade GA4.
+- Um projeto no Google Cloud com credenciais OAuth.
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` e `BETTER_AUTH_SECRET` definidos na
+  implantação do RE9 SEO.
 
-If Search Console is already connected, reuse the same Google Cloud project and
-OAuth client. GA4 still asks for a separate consent grant.
+Se o Search Console já estiver conectado, reutilize o mesmo projeto do Google
+Cloud e o mesmo cliente OAuth. O GA4 ainda pede uma autorização de consentimento
+separada.
 
-## 1) Enable the Analytics APIs
+## 1) Ative as APIs do Analytics
 
-In the [Google Cloud Console](https://console.cloud.google.com/), enable both:
+No [Google Cloud Console](https://console.cloud.google.com/), ative as duas:
 
 - [Google Analytics Admin API](https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com)
 - [Google Analytics Data API](https://console.cloud.google.com/apis/library/analyticsdata.googleapis.com)
 
-The Admin API lists properties during connection. The Data API powers the
-read-only reports added in later GA4 milestones.
+A Admin API lista as propriedades durante a conexão. A Data API alimenta os
+relatórios somente leitura adicionados nas etapas seguintes da integração com o GA4.
 
-## 2) Configure the OAuth consent screen
+## 2) Configure a tela de consentimento OAuth
 
-Under **APIs & Services → OAuth consent screen**, configure the app. While the
-app is in Testing, add every Google account that will connect as a test user.
+Em **APIs & Services → OAuth consent screen**, configure o app. Enquanto o app
+estiver em modo Testing, adicione como usuária de teste cada conta Google que vai
+se conectar.
 
-## 3) Register the callback URL
+## 3) Registre a URL de callback
 
-Open **APIs & Services → Credentials**, edit the Web application OAuth client,
-and add an authorized redirect URI matching the deployment origin plus
-`/api/ga4/oauth/callback`.
+Abra **APIs & Services → Credentials**, edite o cliente OAuth do tipo Web
+application e adicione uma URI de redirecionamento autorizada igual à origem da
+implantação mais `/api/ga4/oauth/callback`.
 
-| Deployment   | Redirect URI                                             |
-| ------------ | -------------------------------------------------------- |
-| Deployed     | `https://your-openseo-domain.com/api/ga4/oauth/callback` |
-| Local Docker | `http://localhost:3001/api/ga4/oauth/callback`           |
+| Implantação  | URI de redirecionamento                                 |
+| ------------ | ------------------------------------------------------- |
+| Implantada   | `https://your-re9seo-domain.com/api/ga4/oauth/callback` |
+| Docker local | `http://localhost:3001/api/ga4/oauth/callback`          |
 
-Keep the existing `/api/gsc/oauth/callback` URI if Search Console uses the same
-client.
+Mantenha a URI `/api/gsc/oauth/callback` existente se o Search Console usar o
+mesmo cliente.
 
-## 4) Set environment variables
+## 4) Defina as variáveis de ambiente
 
-Set these values and restart OpenSEO:
+Defina estes valores e reinicie o RE9 SEO:
 
-| Variable               | Value                                                     |
-| ---------------------- | --------------------------------------------------------- |
-| `GOOGLE_CLIENT_ID`     | Web application client ID.                                |
-| `GOOGLE_CLIENT_SECRET` | Web application client secret.                            |
-| `BETTER_AUTH_SECRET`   | Random string of at least 32 characters for token crypto. |
+| Variável               | Valor                                                                  |
+| ---------------------- | ---------------------------------------------------------------------- |
+| `GOOGLE_CLIENT_ID`     | Client ID do cliente Web application.                                  |
+| `GOOGLE_CLIENT_SECRET` | Client secret do cliente Web application.                              |
+| `BETTER_AUTH_SECRET`   | String aleatória de pelo menos 32 caracteres para criptografar tokens. |
 
-Generate the encryption secret with:
+Gere o segredo de criptografia com:
 
 ```sh
 openssl rand -base64 32
 ```
 
-## 5) Connect a property
+## 5) Conecte uma propriedade
 
-Open a project dashboard or **Project settings → Analytics**, click **Connect
-with Google**, approve read-only Analytics access, and choose a GA4 property.
+Abra o painel de um projeto ou **Configurações do projeto → Integrações**, clique em
+**Conectar com o Google**, aprove o acesso somente leitura ao Analytics e escolha
+uma propriedade GA4.
 
-OpenSEO stores the OAuth tokens encrypted in Better Auth's account table. The
-project mapping stores only the selected property metadata and connector
-account. Disconnecting GA4 does not disconnect Search Console.
+O RE9 SEO guarda os tokens OAuth criptografados na tabela de contas do Better
+Auth. O vínculo com o projeto guarda apenas os metadados da propriedade
+selecionada e a conta do conector. Desconectar o GA4 não desconecta o Search
+Console.
 
-## Troubleshooting
+## Solução de problemas
 
-**`redirect_uri_mismatch`** — make sure the registered URI exactly matches the
-scheme, host, port, and `/api/ga4/oauth/callback` path used by the deployment.
+**`redirect_uri_mismatch`** — confirme que a URI registrada corresponde
+exatamente ao esquema, host, porta e caminho `/api/ga4/oauth/callback` usados
+pela implantação.
 
-**No properties appear** — confirm that the Analytics Admin API is enabled and
-the connected Google account has access to the property.
+**Nenhuma propriedade aparece** — confirme que a Analytics Admin API está ativada
+e que a conta Google conectada tem acesso à propriedade.
 
-**Connection expired** — reconnect the Google account. OAuth apps left in
-Google's Testing status can receive short-lived refresh grants.
+**Conexão expirada** — conecte a conta Google de novo. Apps OAuth deixados no
+status Testing do Google podem receber autorizações de atualização de curta
+duração.

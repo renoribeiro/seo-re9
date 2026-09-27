@@ -12,54 +12,55 @@ export const Route = createFileRoute("/_marketing/backlink-checker")({
     typeof search.target === "string" ? { target: search.target } : {},
   head: () =>
     buildPageSeo({
-      title: "Free Backlink Checker: Check Backlinks to Any Website",
+      title:
+        "Verificador de backlinks grátis: confira os backlinks de qualquer site",
       description:
-        "Check backlinks for any domain: referring domains, top backlinks, anchor text, and follow status. Instant results, no signup, no email.",
+        "Confira os backlinks de qualquer domínio: domínios de referência, principais backlinks, texto âncora e tipo de link (follow ou nofollow). Resultados na hora, sem cadastro e sem e-mail.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "OpenSEO free backlink checker",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Verificador de backlinks gratuito do RE9 SEO",
     }),
   component: BacklinkCheckerPage,
 });
 
 const FAQS = [
   {
-    question: "Where does the backlink data come from?",
+    question: "De onde vêm os dados de backlinks?",
     answer:
-      "Results come from DataForSEO's link index, the same data source that powers backlink research inside OpenSEO. The index is refreshed continuously, so counts can differ slightly from other tools that crawl the web on their own schedule.",
+      "Os resultados vêm do índice de links da DataForSEO, a mesma fonte de dados usada na pesquisa de backlinks do RE9 SEO. O índice é atualizado continuamente, então os números podem variar um pouco em relação a outras ferramentas que rastreiam a web no próprio ritmo.",
   },
   {
-    question: "How many backlinks can I see for free?",
+    question: "Quantos backlinks posso ver de graça?",
     answer:
-      "The free checker shows a domain's summary metrics and its top 15 backlinks, one per referring domain, ranked by domain strength. Sign up for OpenSEO to page through the full list, see referring domains and anchors, filter out spam, and export the data.",
+      "O verificador gratuito mostra as métricas de resumo do domínio e os 15 principais backlinks, um por domínio de referência, ordenados pela força do domínio. Crie uma conta no RE9 SEO para navegar pela lista completa, ver domínios de referência e âncoras, filtrar spam e exportar os dados.",
   },
   {
-    question: "Can I check a competitor's backlinks?",
+    question: "Posso verificar os backlinks de um concorrente?",
     answer:
-      "Yes. Enter your domain, a competitor's, or a site you're evaluating for outreach. Backlink data is public-web data, so no site ownership or verification is needed.",
+      "Sim. Digite o seu domínio, o de um concorrente ou o de um site que você está avaliando para outreach. Dados de backlinks são dados públicos da web, então não é preciso ser dono do site nem fazer nenhuma verificação.",
   },
   {
-    question: "What is domain rank?",
+    question: "O que é o Domain Rank?",
     answer:
-      "Domain rank is a 0-100 score of a domain's link-profile strength, similar to domain authority metrics in other tools. Higher means the domain has more and stronger links pointing at it.",
+      "O Domain Rank é uma pontuação de 0 a 100 da força do perfil de links de um domínio, parecida com as métricas de autoridade de domínio de outras ferramentas. Quanto maior, mais links (e mais fortes) apontam para o domínio.",
   },
 ];
 
 const HIGHLIGHTS = [
   {
-    title: "Link profile summary",
+    title: "Resumo do perfil de links",
     description:
-      "Domain rank, total backlinks, referring domains, and broken backlinks for the domain you check.",
+      "Domain Rank, total de backlinks, domínios de referência e backlinks quebrados do domínio verificado.",
   },
   {
-    title: "Top backlinks",
+    title: "Principais backlinks",
     description:
-      "The strongest links pointing at the domain, one per referring domain, with anchor text and follow status.",
+      "Os links mais fortes que apontam para o domínio, um por domínio de referência, com texto âncora e tipo de link (follow ou nofollow).",
   },
   {
-    title: "Competitor visibility",
+    title: "Visão sobre concorrentes",
     description:
-      "Works on any domain, so you can see who links to competitors and where their authority comes from.",
+      "Funciona com qualquer domínio, então você vê quem linka para os concorrentes e de onde vem a autoridade deles.",
   },
 ];
 
@@ -69,14 +70,14 @@ function BacklinkCheckerPage() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading="Free Backlink Checker"
-      subhead="Check the backlinks of any website. Enter a domain and get its domain rank, referring domains, and top backlinks with anchor text and follow status."
+      heading="Verificador de backlinks grátis"
+      subhead="Confira os backlinks de qualquer site. Digite um domínio e veja o Domain Rank, os domínios de referência e os principais backlinks, com texto âncora e tipo de link."
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Explore more backlinks",
-        body: "Browse referring domains, review anchor text, and filter backlinks in OpenSEO. Start with free trial credits.",
-        featureLabel: "Learn about the Backlinks feature",
+        heading: "Explore mais backlinks",
+        body: "Navegue pelos domínios de referência, analise o texto âncora e filtre backlinks no RE9 SEO.",
+        featureLabel: "Conheça o recurso de Backlinks",
       }}
     >
       <BacklinkCheckerTool initialTarget={target} />

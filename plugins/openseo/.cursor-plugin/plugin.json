@@ -1,13 +1,13 @@
 {
   "name": "openseo",
   "version": "1.0.0",
-  "description": "SEO made simple. Research keywords and competitors, audit sites, track rankings, and use Search Console data from your agent.",
+  "description": "SEO sem complicação. Pesquise palavras-chave e concorrentes, audite sites, monitore posições e use dados do Search Console pelo seu agente.",
   "author": {
     "name": "Every App, Inc",
-    "email": "support@openseo.so"
+    "email": "trafego@re9.online"
   },
-  "homepage": "https://openseo.so",
-  "repository": "https://github.com/every-app/open-seo",
+  "homepage": "https://seo.agenciare9.com.br",
+  "repository": "https://github.com/renoribeiro/seo-re9",
   "license": "MIT",
   "keywords": [
     "seo",
@@ -19,7 +19,7 @@
     "rank-tracking",
     "local-seo"
   ],
-  "logo": "https://raw.githubusercontent.com/every-app/open-seo/main/public/transparent-logo.png",
+  "logo": "https://raw.githubusercontent.com/renoribeiro/seo-re9/main/public/transparent-logo.png",
   "skills": "skills",
   "mcpServers": "mcp.json"
 }

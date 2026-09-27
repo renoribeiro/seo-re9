@@ -2,13 +2,20 @@ import * as Popover from "@radix-ui/react-popover";
 
 export function formatCount(value: number | null | undefined): string {
   return typeof value === "number"
-    ? Math.round(value).toLocaleString("en-US")
+    ? Math.round(value).toLocaleString("pt-BR")
     : "—";
 }
 
+// Provider figures are in US dollars; only the display locale is pt-BR.
+const USD = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
+
 export function formatMoney(value: number | null | undefined): string {
   if (typeof value !== "number") return "—";
-  return `$${Math.round(value).toLocaleString("en-US")}`;
+  return USD.format(Math.round(value));
 }
 
 /** Tap or click for details; the portal keeps help outside clipped cards. */
@@ -45,7 +52,7 @@ export function InfoTip({
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
-          aria-label="More information"
+          aria-label="Mais informações"
           sideOffset={6}
           collisionPadding={12}
           align={align === "right" ? "end" : "center"}

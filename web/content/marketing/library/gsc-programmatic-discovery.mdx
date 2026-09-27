@@ -1,107 +1,108 @@
 ---
-title: "Query-mine the Search Console you already own"
-description: "Your own Search Console is the only keyword database built from people who reached you. The strategy for mining it: striking-distance keywords, zero-click pages, and the queries Google won't name."
+title: "Garimpe as consultas do Search Console que você já tem"
+description: "O seu Search Console é o único banco de palavras-chave formado por pessoas que chegaram até você. A estratégia para explorá-lo: palavras-chave ao alcance da primeira página, páginas sem cliques e as consultas que o Google não revela."
 ---
 
-## What is programmatic keyword discovery?
+## O que é descoberta programática de palavras-chave?
 
-Programmatic keyword discovery means treating your own Search Console as the keyword database, then working it in bulk instead of one query at a time. Every other source estimates demand from the outside. Search Console reports demand that already found you, on the pages that already exist, with the positions you already hold. It is the only first-party keyword data you own, and most sites read maybe two screens of it a month.
+Descoberta programática de palavras-chave é tratar o seu próprio Search Console como banco de palavras-chave e trabalhar com ele em lote, em vez de olhar uma consulta por vez. Todas as outras fontes estimam a demanda de fora para dentro. O Search Console mostra a demanda que já encontrou você, nas páginas que já existem, nas posições que você já ocupa. São os únicos dados primários de palavras-chave que você tem, e a maioria dos sites lê talvez duas telas deles por mês.
 
-The catch is that Google hands it to you in a shape designed for spot checks rather than strategy. Working it programmatically means pulling the whole surface through an API, joining it to your rankings, and asking questions the interface will not answer.
+O problema é que o Google entrega esses dados num formato pensado para conferências pontuais, não para estratégia. Trabalhar com eles de forma programática significa puxar tudo por uma API, cruzar com as suas posições e fazer as perguntas que a interface não responde.
 
-## Why your query report is missing most of your clicks
+## Por que o relatório de consultas esconde a maior parte dos seus cliques
 
-Open a page report and note the click total. Then add up the clicks in the query table underneath. The second number is smaller, often dramatically so. Google anonymizes queries below a privacy threshold, so the searches that drove most of your traffic never appear by name.
+Abra o relatório de uma página e anote o total de cliques. Depois some os cliques da tabela de consultas logo abaixo. O segundo número é menor, muitas vezes bem menor. O Google anonimiza as consultas que ficam abaixo de um limite de privacidade, então as buscas que trouxeram a maior parte do seu tráfego nunca aparecem pelo nome.
 
-The gap is worse than most people assume. On one of my own pages earning around a hundred clicks a month, the interface named five queries. Going through the API raised that to twelve. Out of a hundred clicks, I could name twelve of them, on a page I wrote and understood.
+A diferença é pior do que a maioria imagina. Em uma página real que recebe cerca de cem cliques por mês, a interface mostrava cinco consultas. Pela API, esse número subiu para doze. De cem cliques, só doze tinham nome, numa página cujo tema e conteúdo eram conhecidos de ponta a ponta.
 
-That is the problem the [dark query post](/blogs/dark-queries) works through in detail. This page is the repeatable strategy that comes out of it.
+É o chamado problema das consultas ocultas. Esta página traz a estratégia replicável para lidar com ele.
 
-Grant Simmons, who has built SEO tooling for years, adds a confidence score to his estimates:
+Grant Simmons, que desenvolve ferramentas de SEO há anos, acrescenta uma nota de confiança às estimativas dele:
 
-> Most of my tools, I add in a confidence score, because the math is just math and reasoning is just reasoning.
+> Na maioria das minhas ferramentas eu incluo uma nota de confiança, porque a conta é só conta e o raciocínio é só raciocínio.
 
-He is also skeptical that the gap can be closed outright, on the grounds that you are still dealing with garbage in and garbage out. Both things hold. You cannot recover the exact hidden queries, and you can still assemble a defensible picture of them from data you already hold.
+Ele também duvida que dê para fechar essa lacuna de vez, porque, no fim, continua valendo a regra de que dado ruim na entrada gera resultado ruim na saída. As duas coisas são verdade. Você não consegue recuperar as consultas ocultas exatas, mas consegue montar um retrato defensável delas com dados que já tem.
 
-## How to find striking-distance keywords in Search Console
+## Como encontrar palavras-chave ao alcance da primeira página no Search Console
 
-Striking-distance keywords are the terms where you rank between roughly position 11 and 30. They earn few clicks and prove Google already considers your page a credible answer. Moving one of them onto page one is cheaper than earning a new ranking from nothing, which makes this the highest-return query mine on most sites.
+Palavras-chave ao alcance da primeira página são os termos em que você ocupa mais ou menos da posição 11 à 30. Elas geram poucos cliques, mas provam que o Google já considera a sua página uma resposta confiável. Levar uma delas para a primeira página custa menos do que conquistar uma posição do zero, e é por isso que essa costuma ser a garimpagem de consultas com maior retorno na maioria dos sites.
 
-The workflow runs in four steps:
+O fluxo tem quatro etapas:
 
-1. Pull every query for the property over the longest window available, not the default three months.
-2. Filter to positions 11 to 30 with impressions above your own noise floor.
-3. Group those queries by the page currently ranking, which turns a keyword list into a page-by-page work queue.
-4. Sort each page's group by impressions, because impressions measure demand that Google is already showing you losing.
+1. Puxe todas as consultas da propriedade no maior período disponível, não nos três meses padrão.
+2. Filtre as posições de 11 a 30 com impressões acima do seu próprio patamar de ruído.
+3. Agrupe essas consultas pela página que ranqueia hoje, o que transforma uma lista de palavras-chave numa fila de trabalho página por página.
+4. Ordene o grupo de cada página por impressões, porque as impressões medem a demanda que o Google já está mostrando que você perde.
 
-![A ranked-keyword list filtered to positions 10 through 13, showing the keyword, its position, and monthly search volume for each row](/library/keyword-research/gsc-striking-distance-openseo.png)
+![Lista de palavras-chave ranqueadas filtrada da posição 10 à 13, com a palavra-chave, a posição e o volume de busca mensal de cada linha](/library/keyword-research/gsc-striking-distance-openseo.png)
 
-The list above is one site's striking-distance band, filtered to positions 10 through 13. Nothing here is a head term, and that is the point: these are queries the site already half-ranks for, several of them worth a few hundred searches a month, all of them sitting one page away from traffic.
+A lista acima é a faixa ao alcance da primeira página de um site, filtrada da posição 10 à 13. Nenhum desses termos é genérico e de alto volume, e é justamente essa a questão: são consultas em que o site já ranqueia pela metade, várias delas com algumas centenas de buscas por mês, todas a uma página de distância do tráfego.
 
-Step three matters more than it looks. Sorting by query treats every row as its own project. Grouping by page tells you which single URL to improve to capture a dozen of them at once, which is the same logic behind [clustering keywords into topical hubs](/library/keyword-research/cluster-topical-hubs).
+A terceira etapa importa mais do que parece. Ordenar por consulta trata cada linha como um projeto separado. Agrupar por página mostra qual URL melhorar para capturar uma dúzia delas de uma vez, a mesma lógica de [agrupar palavras-chave em hubs temáticos](/library/keyword-research/cluster-topical-hubs).
 
-## The 16-month window most people skip
+## A janela de 16 meses que quase todo mundo ignora
 
-Search Console's default view is short, and the export most people take is shorter. Grant's practical advice is to stop working from the recent slice:
+A visualização padrão do Search Console é curta, e a exportação que a maioria faz é mais curta ainda. O conselho prático de Grant é parar de trabalhar só com o recorte recente:
 
-> Generally you get a lot more information when you look at the 16 months of Google Search Console data, to have an understanding of, if the article has been around for that long, all the queries that have mapped, not just the most recent queries. I think that's often forgotten.
+> Em geral você tem muito mais informação quando olha os 16 meses de dados do Google Search Console, para entender, se o artigo existe há tanto tempo, todas as consultas que já foram associadas a ele, e não só as mais recentes. Acho que isso é muito esquecido.
 
-Sixteen months is the full retention window Google offers. Pulling all of it changes what you can see: seasonal queries that vanish from a 90-day view, terms a page ranked for before a redesign, and the slow drift of a page away from the topic it was written for. A query that appeared for six months and stopped is a signal. A 90-day export shows you an absence instead.
+Dezesseis meses é todo o período de retenção que o Google oferece. Puxar o período inteiro muda o que você enxerga: consultas sazonais que somem numa visão de 90 dias, termos em que a página ranqueava antes de um redesign e o lento afastamento de uma página do tema para o qual foi escrita. Uma consulta que apareceu por seis meses e parou é um sinal. Numa exportação de 90 dias, você vê só uma ausência.
 
-## Zero-click pages and the queries worth rewriting for
+## Páginas sem cliques e as consultas que valem uma reescrita
 
-The other half of the mine runs in the opposite direction. Look for pages with heavy impressions and almost no clicks. High impressions confirm Google shows the page for real demand. Near-zero clicks means the title and description are losing the auction, or the page is answering an intent the searcher did not have.
+A outra metade da garimpagem vai na direção oposta. Procure páginas com muitas impressões e quase nenhum clique. Muitas impressões confirmam que o Google mostra a página para uma demanda real. Cliques perto de zero significam que o título e a descrição estão perdendo a disputa, ou que a página responde a uma intenção que quem buscou não tinha.
 
-Sort those by impressions and read the queries attached. When the queries do not match what the page is about, you have found a page drifting off its topic, and the fix is usually a split rather than a rewrite. When the queries match and the clicks still do not come, the fix is the title. Both are cheaper than new content, and both come from data you already own.
+Ordene essas páginas por impressões e leia as consultas associadas. Quando as consultas não batem com o assunto da página, você encontrou uma página se afastando do próprio tema, e a solução costuma ser dividi-la, não reescrevê-la. Quando as consultas batem e os cliques mesmo assim não vêm, a solução é o título. As duas saem mais baratas do que conteúdo novo, e as duas vêm de dados que você já tem.
 
-## Do it with OpenSEO
+## Como fazer com o RE9 SEO
 
-Because the Search Console connection runs through OpenSEO, your agent can query it alongside your ranking data without a second integration. Connect the [OpenSEO MCP](/docs/mcp) once, or read how the [Search Console MCP](/google-search-console-mcp) fits together, then run the workflow with this prompt.
+Como a conexão com o Search Console passa pelo RE9 SEO, o seu agente consegue consultá-la junto com os dados de posições, sem uma segunda integração. Conecte o [MCP do RE9 SEO](/docs/mcp) uma vez, ou veja como funciona o [MCP do Search Console](/google-search-console-mcp), e rode o fluxo com este prompt.
 
 ```text
-Using the OpenSEO MCP, pull Search Console query data for
-[mydomain.com] over the longest window available.
+Usando o MCP do RE9 SEO, puxe os dados de consultas do Search Console
+de [meudominio.com] no maior período disponível.
 
-1. Striking distance
-Filter to queries in positions 11-30 with more than [50] impressions.
-Group them by the page that ranks, then sort each group by total
-impressions. Give me the top 10 pages by recoverable impressions.
+1. Ao alcance da primeira página
+Filtre as consultas nas posições 11-30 com mais de [50] impressões.
+Agrupe pela página que ranqueia e ordene cada grupo pelo total de
+impressões. Traga as 10 páginas com mais impressões recuperáveis.
 
-2. Zero-click pages
-List pages with high impressions and a click-through rate under 1%.
-For each, show the queries driving the impressions and tell me
-whether they match the page's actual topic.
+2. Páginas sem cliques
+Liste as páginas com muitas impressões e CTR abaixo de 1%.
+Para cada uma, mostre as consultas que geram as impressões e diga
+se elas batem com o tema real da página.
 
-3. The gap
-For my top 10 pages by clicks, compare total clicks against the sum
-of clicks in the named-query table. Report the difference as a
-percentage. Those are the pages where I am planning blind.
+3. A lacuna
+Nas minhas 10 páginas com mais cliques, compare o total de cliques
+com a soma dos cliques da tabela de consultas nomeadas. Informe a
+diferença em porcentagem. São as páginas em que estou planejando às
+cegas.
 
-Output as a document I can review.
+Entregue como um documento que eu possa revisar.
 ```
 
-The output is a work queue ordered by what it would cost to fix, rather than a keyword list ordered by a volume number that was never about your site.
+O resultado é uma fila de trabalho ordenada pelo custo de cada correção, e não uma lista de palavras-chave ordenada por um volume que nunca teve a ver com o seu site.
 
-## What to do first
+## Por onde começar
 
-Run step one against your single most important page. If the striking-distance group has more than five queries in it, that page is the next thing you should edit, and you now know which ten words to edit it around. Then widen the window to sixteen months and see what used to work.
+Rode a primeira etapa na página mais importante do seu site. Se o grupo ao alcance da primeira página tiver mais de cinco consultas, essa é a próxima página que você deve editar, e agora você sabe em torno de quais dez palavras editá-la. Depois amplie o período para dezesseis meses e veja o que já funcionou no passado.
 
-From here, the queries you surface feed the rest of the library. Unnamed question queries belong in [long-tail question mining](/library/keyword-research/long-tail-question-mining). Grouped page queries belong in [topical hubs](/library/keyword-research/cluster-topical-hubs). Anything with buying language belongs in [intent mapping](/library/keyword-research/search-intent-mapping) before you write a word.
+A partir daqui, as consultas que você encontrar alimentam o resto da biblioteca. Perguntas sem nome vão para a [garimpagem de perguntas de cauda longa](/library/keyword-research/long-tail-question-mining). Consultas agrupadas por página vão para os [hubs temáticos](/library/keyword-research/cluster-topical-hubs). Tudo o que tiver linguagem de compra passa pelo [mapeamento de intenção](/library/keyword-research/search-intent-mapping) antes de você escrever uma palavra.
 
-## Search Console keyword research FAQ
+## Perguntas frequentes sobre pesquisa de palavras-chave no Search Console
 
-### Can you use Google Search Console for keyword research?
+### Dá para usar o Google Search Console para pesquisa de palavras-chave?
 
-Yes, and it is the most reliable source you have, because it reports queries that reached your site rather than estimating a market. Its limits are that it only shows terms you already rank for, and it hides queries below a privacy threshold. Use it for expansion and validation, and use a keyword tool for the demand you have not captured yet.
+Dá, e ele é a fonte mais confiável que você tem, porque mostra consultas que chegaram ao seu site em vez de estimar um mercado. Os limites são que ele só mostra termos em que você já ranqueia e esconde consultas abaixo de um limite de privacidade. Use-o para expandir e validar, e use uma ferramenta de palavras-chave para a demanda que você ainda não capturou.
 
-### What are striking-distance keywords?
+### O que são palavras-chave ao alcance da primeira página?
 
-Queries where you rank roughly between positions 11 and 30. They sit on page two, earn few clicks, and demonstrate that Google already treats your page as a plausible answer. They are the cheapest rankings to improve on most sites.
+Consultas em que você ocupa mais ou menos da posição 11 à 30. Elas estão na segunda página, geram poucos cliques e mostram que o Google já trata a sua página como uma resposta plausível. Na maioria dos sites, são as posições mais baratas de melhorar.
 
-### How far back does Google Search Console data go?
+### Quantos meses de dados o Google Search Console guarda?
 
-Sixteen months. Most exports default to a far shorter window, so pulling the full range surfaces seasonal queries and historical rankings that a 90-day view hides.
+Dezesseis meses. A maioria das exportações usa por padrão um período bem mais curto, então puxar o intervalo completo revela consultas sazonais e posições antigas que uma visão de 90 dias esconde.
 
-### Why don't the clicks in the query table add up to the total?
+### Por que os cliques da tabela de consultas não batem com o total?
 
-Google anonymizes queries that too few people searched, so they never appear by name while their clicks still count in the total. The shortfall runs from a small fraction to most of the total depending on the size of the site. Reading the same pages at page level rather than query level recovers much of the count.
+O Google anonimiza consultas buscadas por poucas pessoas, então elas nunca aparecem pelo nome, embora os cliques delas continuem entrando no total. A diferença vai de uma pequena fração até a maior parte do total, dependendo do tamanho do site. Ler as mesmas páginas no nível de página, e não de consulta, recupera boa parte da contagem.

@@ -21,7 +21,11 @@ const TOP_BACKLINKS_LIMIT = 15;
 const CACHE_TTL_SECONDS = 86_400;
 
 const requestSchema = z.object({
-  target: z.string().trim().min(1, "Enter a domain").max(300),
+  target: z
+    .string()
+    .trim()
+    .min(1, "Digite um domínio")
+    .max(300, "Domínio longo demais"),
   turnstileToken: z.string().max(4096).optional(),
 });
 
@@ -84,7 +88,7 @@ export const Route = createFileRoute("/api/backlink-check")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success) {
           return jsonResponse(
-            { error: parsed.error.issues[0]?.message ?? "Invalid request" },
+            { error: parsed.error.issues[0]?.message ?? "Requisição inválida" },
             400,
           );
         }
@@ -92,7 +96,7 @@ export const Route = createFileRoute("/api/backlink-check")({
         const domain = normalizeDomain(parsed.data.target);
         if (!domain) {
           return jsonResponse(
-            { error: "Enter a valid domain, like example.com" },
+            { error: "Digite um domínio válido, como exemplo.com.br" },
             400,
           );
         }
@@ -189,7 +193,7 @@ export const Route = createFileRoute("/api/backlink-check")({
           console.error("Backlink check error:", err);
           // Negative cache: money was already spent, so stop an immediate
           // retry loop on a reliably-failing domain.
-          const message = "Backlink check failed. Please try again.";
+          const message = "A verificação de backlinks falhou. Tente novamente.";
           await writeCached(
             TOOL.slug,
             domain,

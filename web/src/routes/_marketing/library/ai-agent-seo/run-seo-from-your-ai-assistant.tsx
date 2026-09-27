@@ -11,29 +11,29 @@ const PATH = "/library/ai-agent-seo/run-seo-from-your-ai-assistant";
 
 const faqs = [
   {
-    question: "What is MCP in SEO?",
+    question: "O que é MCP em SEO?",
     answer:
-      "The Model Context Protocol, a standard that lets an AI assistant call external tools and receive data. An SEO MCP server gives the assistant Search Console, keyword, SERP, backlink, rank tracking and audit data inside the conversation, so it can fetch and analyse instead of only writing from what you paste.",
+      "É o Model Context Protocol, um padrão que permite a um assistente de IA chamar ferramentas externas e receber dados. Um servidor MCP de SEO dá ao assistente dados do Search Console, de palavras-chave, da SERP, de backlinks, de monitoramento de posições e de auditoria dentro da conversa, para que ele busque e analise em vez de só escrever a partir do que você cola.",
   },
   {
-    question: "Which AI assistants work with the OpenSEO MCP?",
+    question: "Quais assistentes de IA funcionam com o MCP do RE9 SEO?",
     answer:
-      "Claude Code, Claude Desktop, Codex and Cursor, through one server configuration. The docs carry the setup for each. Agent skills, which are SKILL.md files describing SEO workflows, install alongside it.",
+      "Claude Code, Claude Desktop, Codex e Cursor, com uma única configuração de servidor. A documentação traz a configuração de cada um. As skills de agente, que são arquivos SKILL.md que descrevem fluxos de SEO, são instaladas junto.",
   },
   {
-    question: "Does using the MCP cost credits?",
+    question: "Usar o MCP consome créditos?",
     answer:
-      "Search Console reads, URL inspection and audit reads use no credits. Calls that fetch from a data provider, such as keyword metrics, SERP results, domain and backlink data, and rank checks, use credits, and each tool states its cost before it runs. The hosted app includes credits with the $10 plan; self-hosted deployments pay their provider directly.",
+      "Leituras do Search Console, inspeção de URL e leitura de auditorias não consomem créditos. Chamadas que buscam dados num provedor, como métricas de palavras-chave, resultados da SERP, dados de domínio e de backlinks e checagens de posições, consomem créditos, e cada ferramenta informa o custo antes de rodar. Instalações auto-hospedadas pagam o provedor diretamente.",
   },
   {
-    question: "Can an AI agent do SEO on its own?",
+    question: "Um agente de IA consegue fazer SEO sozinho?",
     answer:
-      "It can fetch, filter, sort and draft on its own. It cannot tell a bot query from a human one, judge whether a ranking is worth having, or know what the business will act on. The workflows here keep a person at the steps where that judgement happens.",
+      "Ele consegue buscar, filtrar, ordenar e rascunhar sozinho. Não consegue distinguir uma consulta de robô de uma humana, julgar se uma posição vale a pena nem saber o que o negócio vai colocar em prática. Os fluxos daqui mantêm uma pessoa nas etapas em que esse julgamento acontece.",
   },
   {
-    question: "What is the first thing to run after connecting the MCP?",
+    question: "Qual é a primeira coisa a rodar depois de conectar o MCP?",
     answer:
-      "Project setup, then a Search Console pull of queries at positions 4 to 20 with real impressions, with a filter that removes bot queries and junk. It costs nothing and it produces the list every other workflow starts from.",
+      "A configuração do projeto e, em seguida, uma extração do Search Console com as consultas entre as posições 4 e 20 com impressões reais, com um filtro que remove consultas de robôs e lixo. Não custa nada e gera a lista de onde todos os outros fluxos partem.",
   },
 ];
 
@@ -52,17 +52,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Run SEO From Your AI Assistant: the MCP Workflow",
+      title: "Faça SEO pelo seu assistente de IA: o fluxo com MCP",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Run SEO from your AI assistant"
+      crumb="Faça SEO pelo seu assistente de IA"
       path={PATH}
       library={AI_AGENT_SEO_LIBRARY}
     >

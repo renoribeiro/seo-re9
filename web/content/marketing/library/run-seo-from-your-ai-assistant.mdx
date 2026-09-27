@@ -1,121 +1,121 @@
 ---
-title: "Run SEO from your AI assistant: the MCP workflow"
-description: "Connect one server and the assistant you already use can read Search Console, pull keyword data, check rankings and crawl a site, in the same conversation. What MCP is, the first five prompts that pay for the setup, and the row in the data that shows why a human still reads the output."
+title: "Faça SEO pelo seu assistente de IA: o fluxo com MCP"
+description: "Conecte um servidor e o assistente que você já usa passa a ler o Search Console, puxar dados de palavras-chave, conferir posições e rastrear um site, tudo na mesma conversa. O que é MCP, os cinco primeiros prompts que já pagam a configuração e a linha nos dados que mostra por que uma pessoa ainda precisa ler o resultado."
 ---
 
-## What is MCP, and why does it matter for SEO?
+## O que é MCP e por que ele importa para SEO?
 
-MCP, the Model Context Protocol, is the standard that lets an AI assistant call tools. Without it, an assistant knows what it was trained on and what you paste in. With it, the assistant can ask a server a question and get the answer as data: the queries your site ranked for last month, the search volume for a term, the position of a keyword on mobile in one city, the pages a crawl found with no title.
+MCP, o Model Context Protocol, é o padrão que permite a um assistente de IA chamar ferramentas. Sem ele, o assistente sabe o que aprendeu no treinamento e o que você cola na conversa. Com ele, o assistente pode fazer uma pergunta a um servidor e receber a resposta em forma de dados: as consultas para as quais seu site ranqueou no mês passado, o volume de busca de um termo, a posição de uma palavra-chave no celular em uma cidade, as páginas sem título que um rastreamento encontrou.
 
-For SEO the difference is the whole job. Most of the work is not writing; it is moving between five tabs, exporting from one and pasting into another, then thinking. An assistant with the data in the conversation does the moving and leaves you the thinking.
+Em SEO, essa diferença é o trabalho inteiro. A maior parte do trabalho não é escrever; é pular entre cinco abas, exportar de uma e colar em outra, e só depois pensar. Um assistente com os dados dentro da conversa faz o vaivém e deixa o pensar para você.
 
-Dan Kurtz, who runs an agency built around agentic customers, describes what his day looks like once the servers are connected:
+Dan Kurtz, que tem uma agência estruturada em torno de clientes que são agentes de IA, descreve como fica o dia dele depois que os servidores estão conectados:
 
-> every morning boot the computer up, open up Claude, and it goes using MCP connectors, goes into all of my accounts, scrapes everything. So at a top level I can see everything that needs to be done for clients
+> toda manhã eu ligo o computador, abro o Claude, e ele vai, usando os conectores MCP, entra em todas as minhas contas e raspa tudo. Então, numa visão geral, eu consigo ver tudo o que precisa ser feito para os clientes
 
-![A quote card reading: Every morning boot the computer up, open up Claude, and it goes using MCP connectors, goes into all of my accounts, scrapes everything. So at a top level I can see everything that needs to be done for clients. Attributed to Dan Kurtz of MissPepper AI, from The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-morning-boot-claude.png "Dan Kurtz on the morning MCP run")
+![Cartão de citação: “Toda manhã eu ligo o computador, abro o Claude, e ele vai, usando os conectores MCP, entra em todas as minhas contas e raspa tudo. Então, numa visão geral, eu consigo ver tudo o que precisa ser feito para os clientes.” — Dan Kurtz, da MissPepper AI, no The Unscripted SEO Interview Podcast.](/library/ai-agent-seo/quote-morning-boot-claude.png "Dan Kurtz sobre a rotina matinal com MCP")
 
-His episode is [on the Unscripted SEO podcast](https://unscriptedseo.com/dan-kurtz-bots-as-a-customer-segment-markdown-agentic-flywheel/). Adrian Nikolov, whose agency runs its client diagnostics the same way, on the first step of every engagement:
+O episódio dele está [no podcast Unscripted SEO](https://unscriptedseo.com/dan-kurtz-bots-as-a-customer-segment-markdown-agentic-flywheel/) (em inglês). Adrian Nikolov, cuja agência roda os diagnósticos de clientes do mesmo jeito, sobre o primeiro passo de todo trabalho:
 
-> That's a completely automated diagnostic that runs through all the MCPs. It crawls the website with screaming frog. pulls all of the relevant keyword data with data for SEO
+> É um diagnóstico totalmente automatizado que passa por todos os MCPs. Ele rastreia o site com o Screaming Frog, puxa todos os dados de palavras-chave relevantes com o DataForSEO
 
-His episode is [here](https://unscriptedseo.com/adrian-nikolov-organic-growth-engineering/). Malte Landwehr, who runs product at Peec AI, on what that does to the tools themselves:
+O episódio dele está [aqui](https://unscriptedseo.com/adrian-nikolov-organic-growth-engineering/) (em inglês). Malte Landwehr, que comanda produto na Peec AI, sobre o que isso faz com as próprias ferramentas:
 
-> It's more likely that I tell Claude to create a linear ticket or tell me the status of a linear ticket than me actually logging into linear.
+> É mais provável eu pedir para o Claude criar um ticket no Linear ou me dizer o status de um ticket no Linear do que eu mesmo entrar no Linear.
 
-His episode is [here](https://unscriptedseo.com/episode-recap-malte-landwehr-of-peec-ai-on-consensus-query-fan-outs-and-ai-content-guardrails/). Read the data through one server, write through another, and the assistant is the thing in between.
+O episódio dele está [aqui](https://unscriptedseo.com/episode-recap-malte-landwehr-of-peec-ai-on-consensus-query-fan-outs-and-ai-content-guardrails/) (em inglês). Leia os dados por um servidor, escreva por outro, e o assistente é o que fica no meio.
 
-## The setup, once
+## A configuração, uma vez só
 
-The [OpenSEO MCP](/docs/mcp) connects to Claude Code, Claude Desktop, Codex and Cursor. You add one server, sign in, and the assistant gains the tools: Search Console reads, keyword metrics, SERP results, domain and backlink data, rank tracking, site audit, local rank grids. Search Console and audit reads use no credits; research calls that hit a data provider do, and each tool says so before it runs.
+O [MCP do RE9 SEO](/docs/mcp) se conecta ao Claude Code, ao Claude Desktop, ao Codex e ao Cursor. Você adiciona um servidor, faz login, e o assistente ganha as ferramentas: leituras do Search Console, métricas de palavras-chave, resultados da SERP, dados de domínio e de backlinks, monitoramento de posições, auditoria do site, grades de posições locais. Leituras do Search Console e da auditoria não consomem créditos; chamadas de pesquisa que consultam um provedor de dados consomem, e cada ferramenta avisa isso antes de rodar.
 
-Then install the [agent skills](/docs/skills/setup). A skill is a `SKILL.md` file that tells the assistant how to use the tools for one job, so you do not have to explain the workflow each time. There are skills for [keyword research](/docs/skills/keyword-research), [competitor analysis](/docs/skills/competitor-analysis), [site audit](/docs/skills/seo-audit), [local SEO](/docs/skills/local-seo) and [link prospecting](/docs/skills/link-prospecting), plus an [SEO coach](/docs/skills/seo-coach) that picks the workflow if you are not sure which you need.
+Depois, instale as [skills de agente](/docs/skills/setup). Uma skill é um arquivo `SKILL.md` que diz ao assistente como usar as ferramentas para uma tarefa específica, para você não ter que explicar o fluxo toda vez. Há skills para [pesquisa de palavras-chave](/docs/skills/keyword-research), [análise de concorrentes](/docs/skills/competitor-analysis), [auditoria do site](/docs/skills/seo-audit), [SEO local](/docs/skills/local-seo) e [prospecção de links](/docs/skills/link-prospecting), além de um [coach de SEO](/docs/skills/seo-coach) que escolhe o fluxo se você não tiver certeza de qual precisa.
 
-Start with [project setup](/docs/skills/seo-project-setup). It saves your goals, positioning, competitors and key pages to the project, and every later prompt reads them.
+Comece pela [configuração do projeto](/docs/skills/seo-project-setup). Ela salva no projeto seus objetivos, posicionamento, concorrentes e páginas principais, e todo prompt posterior lê essas informações.
 
-## The first five prompts
+## Os cinco primeiros prompts
 
-Five prompts, in order, that return more than they cost. Each one is a full strategy elsewhere in this library; these are the short forms.
+Cinco prompts, nesta ordem, que devolvem mais do que custam. Cada um é uma estratégia completa em outra parte desta biblioteca; aqui estão as versões curtas.
 
-**1. What am I already ranking for that I am not getting?** Search Console by query, last three months, positions 4 to 20, sorted by impressions. This is the list a [rank tracker](/features/rank-tracking) is built from, and it costs nothing.
+**1. Para o que eu já ranqueio e não estou aproveitando?** Search Console por consulta, últimos três meses, posições 4 a 20, ordenado por impressões. É a partir dessa lista que se monta um [monitor de posições](/features/rank-tracking), e ela não consome créditos.
 
-**2. Which of my pages compete with each other?** Search Console by query and page. Flag queries with multiple URLs for review. Check whether those pages serve the same intent and whether the overlap hurts performance before changing links or merging them. [Cluster keywords into topical hubs](/library/keyword-research/cluster-topical-hubs) covers it.
+**2. Quais páginas minhas competem entre si?** Search Console por consulta e página. Marque para revisão as consultas com várias URLs. Confira se essas páginas atendem à mesma intenção de busca e se a sobreposição prejudica o desempenho antes de mudar links ou fundir as páginas. [Agrupe palavras-chave em hubs temáticos](/library/keyword-research/cluster-topical-hubs) trata disso.
 
-**3. What do the sites that outrank me have that I do not?** Domain overview and ranked keywords for the top three competitors, minus yours. [Keyword gap analysis](/library/competitive-analysis/keyword-gap-analysis).
+**3. O que os sites que ranqueiam acima de mim têm que eu não tenho?** Visão geral do domínio e palavras-chave ranqueadas dos três principais concorrentes, menos as suas. [Análise de lacuna de palavras-chave](/library/competitive-analysis/keyword-gap-analysis).
 
-**4. What is broken?** A site audit, then the issues sorted by severity. [The technical SEO audit checklist](/library/site-audit/technical-seo-audit-checklist).
+**4. O que está quebrado?** Uma auditoria do site e, depois, os problemas ordenados por gravidade. [O checklist de auditoria técnica de SEO](/library/site-audit/technical-seo-audit-checklist).
 
-**5. Where should my links come from?** Your own top pages by referring domains, and the reason each one earned them. The [backlink checker](/features/backlink-checker) lists them.
+**5. De onde devem vir os meus links?** Suas próprias páginas principais por domínios de referência, e o motivo pelo qual cada uma os conquistou. O [verificador de backlinks](/features/backlink-checker) lista essas páginas.
 
-None of the five needs a keyword typed by a human. All five need a human to read the answer.
+Nenhum dos cinco exige que uma pessoa digite uma palavra-chave. Todos os cinco exigem que uma pessoa leia a resposta.
 
-## The row that shows why
+## A linha que mostra o porquê
 
-Here is the first prompt run against a real site through the MCP. The Search Console call returned the queries seoarcade.com ranked for over 28 days, and the top rows are what you would expect: the brand name, a few guest names, `seo for home services` at position 17 with 1,545 impressions.
+Aqui está o primeiro prompt rodado em um site real pelo MCP. A chamada ao Search Console devolveu as consultas para as quais o seoarcade.com ranqueou em 28 dias, e as primeiras linhas são as esperadas: o nome da marca, alguns nomes de convidados, `seo for home services` (SEO para serviços residenciais) na posição 17 com 1.545 impressões.
 
-![A terminal session in Claude Code calling the OpenSEO MCP get_search_console_performance tool for seoarcade.com over 28 days: the top rows are the brand name and real queries with clicks, impressions and position, and then a query that is the full text of an AI prompt beginning "you are a keyword analysis bot at an adtech company", with 31 impressions at position 10.2](/library/ai-agent-seo/mcp-search-console-query-pull-openseo.png "Search Console through the OpenSEO MCP")
+![Uma sessão de terminal no Claude Code chamando a ferramenta get_search_console_performance do MCP do RE9 SEO para o seoarcade.com em 28 dias: as primeiras linhas são o nome da marca e consultas reais com cliques, impressões e posição, e depois vem uma consulta que é o texto completo de um prompt de IA começando com “you are a keyword analysis bot at an adtech company”, com 31 impressões na posição 10,2](/library/ai-agent-seo/mcp-search-console-query-pull-openseo.png "O Search Console pelo MCP do RE9 SEO")
 
-Then there is a query with 31 impressions at position 10.2 whose text begins "you are a keyword analysis bot at an adtech company. your task is to analyze the provided keyword" and runs for two thousand characters. That is not a person. It is another company's AI agent, pasting its own system prompt into Google, and Google recorded the site as ranking for it.
+Depois aparece uma consulta com 31 impressões na posição 10,2, cujo texto começa com "you are a keyword analysis bot at an adtech company. your task is to analyze the provided keyword" ("você é um bot de análise de palavras-chave em uma empresa de adtech. sua tarefa é analisar a palavra-chave fornecida") e segue por dois mil caracteres. Isso não é uma pessoa. É o agente de IA de outra empresa colando o próprio prompt de sistema no Google, e o Google registrou que o site ranqueia para isso.
 
-An assistant that summarises the table will count that row. A person who reads it will laugh and exclude it. Mason McCumber, an AI automation specialist, has the right description of the tool you are working with:
+Um assistente que resume a tabela vai contar essa linha. Uma pessoa que a lê vai dar risada e excluí-la. Mason McCumber, especialista em automação com IA, tem a descrição certa da ferramenta com que você está trabalhando:
 
-> The best way I can describe it is it's a teenager on steroids. Like, it's hopped up on G-Force and it's ready to go. But at the same time, like, it's a teenager at heart.
+> O melhor jeito que eu consigo descrever é que é um adolescente bombado. Tipo, está elétrico e pronto para sair correndo. Mas, ao mesmo tempo, no fundo ainda é um adolescente.
 
-His episode is [on the Unscripted Small Business podcast](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/). The data arrives faster than you could fetch it. The judgement about what it means did not get faster, and it is still yours. [What to automate and what to keep](/library/ai-agent-seo/what-to-automate) is about where that line goes.
+O episódio dele está [no podcast Unscripted Small Business](https://unscriptedsmallbusiness.com/mason-mccumber-on-ai-agents-agentic-workflows-building-smarter-business-systems-show-notes/) (em inglês). Os dados chegam mais rápido do que você conseguiria buscá-los. O julgamento sobre o que eles significam não ficou mais rápido, e continua sendo seu. [O que automatizar e o que manter com você](/library/ai-agent-seo/what-to-automate) trata de onde fica essa linha.
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-Connect Search Console to the project and the [OpenSEO MCP](/docs/mcp) to your assistant. This prompt is the first of the five above, with the filter step the row above makes necessary.
+Conecte o Search Console ao projeto e o [MCP do RE9 SEO](/docs/mcp) ao seu assistente. Este prompt é o primeiro dos cinco acima, com a etapa de filtro que a linha acima tornou necessária.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. Call get_project_context and tell me what the project already
-   knows: goal, positioning, competitors, key pages. If it is empty,
-   stop and ask me the four questions the seo-project-setup skill
-   asks.
+1. Chame get_project_context e me diga o que o projeto já sabe:
+   objetivo, posicionamento, concorrentes, páginas principais. Se
+   estiver vazio, pare e me faça as quatro perguntas que a skill
+   seo-project-setup faz.
 
-2. Pull Search Console performance for the last 3 months by query,
-   all rows. Exclude queries containing the brand name and any query
-   longer than 80 characters or containing "you are a" or a numeric
-   ID followed by a colon. Tell me how many rows you excluded and
-   show me three of them.
+2. Puxe o desempenho do Search Console dos últimos 3 meses por
+   consulta, todas as linhas. Exclua consultas que contenham o nome
+   da marca e qualquer consulta com mais de 80 caracteres ou que
+   contenha "you are a" ou um ID numérico seguido de dois-pontos.
+   Me diga quantas linhas você excluiu e me mostre três delas.
 
-3. Keep queries at average position 4 to 20 with at least 100
-   impressions. Sort by impressions. Show me the top 20 with clicks,
-   impressions and position.
+3. Mantenha as consultas com posição média de 4 a 20 e pelo menos
+   100 impressões. Ordene por impressões. Mostre as 20 principais com
+   cliques, impressões e posição.
 
-4. Pull the same period by query and page, and for the 20, tell me
-   which URL ranks and whether any query shows two of my URLs.
+4. Puxe o mesmo período por consulta e página e, para as 20, me diga
+   qual URL ranqueia e se alguma consulta mostra duas URLs minhas.
 
-5. Do not recommend content yet. Tell me which three of the 20 you
-   would want to look at first and why, in one line each.
+5. Não recomende conteúdo ainda. Me diga quais três das 20 você
+   olharia primeiro e por quê, em uma linha cada.
 ```
 
-Step 2's exclusion count is the tell. On the site above it removes a dozen rows that would otherwise sit in the striking-distance list forever, at position 10, waiting for clicks that no human will ever send.
+A contagem de exclusões do passo 2 é o que entrega o problema. No site acima, ela remove uma dúzia de linhas que, de outra forma, ficariam para sempre na lista de consultas ao alcance da primeira página, na posição 10, esperando cliques que nenhuma pessoa jamais vai dar.
 
-## The assistant fetches; you decide
+## O assistente busca; você decide
 
-MCP turns the assistant from a writer into an analyst with access. That is most of the value of the tools you were paying for, in a window you already have open. What it does not turn the assistant into is the person who knows that a two-thousand-character query is a bot, that a position-2 term with no clicks has an answer box above it, or that the client's boss will only read the first sentence. Those stay with you, and the rest of this library is about keeping them there.
+O MCP transforma o assistente de redator em analista com acesso aos dados. Isso entrega a maior parte do valor das ferramentas pelas quais você pagava, numa janela que você já tem aberta. O que ele não faz é transformar o assistente na pessoa que sabe que uma consulta de dois mil caracteres é um bot, que um termo na posição 2 sem cliques tem uma caixa de resposta acima dele, ou que o chefe do cliente só vai ler a primeira frase. Isso continua com você, e o resto desta biblioteca é sobre manter as coisas assim.
 
-## MCP for SEO FAQ
+## Perguntas frequentes sobre MCP para SEO
 
-### What is MCP in SEO?
+### O que é MCP em SEO?
 
-The Model Context Protocol, a standard that lets an AI assistant call external tools and receive data. An SEO MCP server gives the assistant Search Console, keyword, SERP, backlink, rank tracking and audit data inside the conversation, so it can fetch and analyse instead of only writing from what you paste.
+O Model Context Protocol, um padrão que permite a um assistente de IA chamar ferramentas externas e receber dados. Um servidor MCP de SEO dá ao assistente, dentro da conversa, dados de Search Console, palavras-chave, SERP, backlinks, monitoramento de posições e auditoria, para que ele possa buscar e analisar em vez de só escrever a partir do que você cola.
 
-### Which AI assistants work with the OpenSEO MCP?
+### Quais assistentes de IA funcionam com o MCP do RE9 SEO?
 
-Claude Code, Claude Desktop, Codex and Cursor, through one server configuration. The docs carry the setup for each. Agent skills, which are SKILL.md files describing SEO workflows, install alongside it.
+Claude Code, Claude Desktop, Codex e Cursor, com uma única configuração de servidor. A documentação traz a configuração de cada um. As skills de agente, que são arquivos SKILL.md descrevendo fluxos de SEO, são instaladas junto.
 
-### Does using the MCP cost credits?
+### Usar o MCP consome créditos?
 
-Search Console reads, URL inspection and audit reads use no credits. Calls that fetch from a data provider, such as keyword metrics, SERP results, domain and backlink data, and rank checks, use credits, and each tool states its cost before it runs. The hosted app includes credits with the $10 plan; self-hosted deployments pay their provider directly.
+Leituras do Search Console, inspeção de URL e leituras da auditoria não consomem créditos. Chamadas que buscam dados em um provedor, como métricas de palavras-chave, resultados da SERP, dados de domínio e de backlinks e checagens de posição, consomem créditos, e cada ferramenta informa o custo antes de rodar. Instalações auto-hospedadas pagam o provedor de dados diretamente.
 
-### Can an AI agent do SEO on its own?
+### Um agente de IA consegue fazer SEO sozinho?
 
-It can fetch, filter, sort and draft on its own. It cannot tell a bot query from a human one, judge whether a ranking is worth having, or know what the business will act on. The workflows here keep a person at the steps where that judgement happens.
+Ele consegue buscar, filtrar, ordenar e rascunhar sozinho. Não consegue distinguir uma consulta de bot de uma consulta humana, julgar se vale a pena ter uma posição nem saber sobre o que a empresa vai agir. Os fluxos aqui mantêm uma pessoa nas etapas em que esse julgamento acontece.
 
-### What is the first thing to run after connecting the MCP?
+### Qual é a primeira coisa a rodar depois de conectar o MCP?
 
-Project setup, then a Search Console pull of queries at positions 4 to 20 with real impressions, with a filter that removes bot queries and junk. It costs nothing and it produces the list every other workflow starts from.
+A configuração do projeto e, depois, uma extração do Search Console com as consultas nas posições 4 a 20 e com impressões reais, usando um filtro que remove consultas de bots e lixo. Não consome créditos e gera a lista de onde todos os outros fluxos partem.

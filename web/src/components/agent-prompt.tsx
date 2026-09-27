@@ -7,12 +7,14 @@ import {
 export function AgentPrompt({ kind }: { kind: "setup" | "update" }) {
   const prompt =
     kind === "setup"
-      ? getAgentSetupPrompt("https://app.openseo.so")
+      ? getAgentSetupPrompt("https://seo.agenciare9.com.br")
       : agentUpdatePrompt;
 
   return (
     <CodeBlock
-      title={kind === "setup" ? "Setup prompt" : "Update prompt"}
+      title={
+        kind === "setup" ? "Prompt de configuração" : "Prompt de atualização"
+      }
       viewportProps={{ className: "max-h-64" }}
     >
       <Pre className="whitespace-pre-wrap px-4">

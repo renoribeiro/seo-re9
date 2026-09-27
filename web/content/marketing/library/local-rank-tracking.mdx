@@ -1,112 +1,113 @@
 ---
-title: "Local rank tracking: your position depends on where the searcher is standing"
-description: "For a local business there is no single rank, only a rank at a point on the map. A nine-point grid around one Tennessee service company showed four different businesses holding number one, and the company itself nowhere in the set."
+title: "Monitoramento de posições local: sua posição depende de onde a pessoa está quando busca"
+description: "Para um negócio local não existe uma posição única, só uma posição em cada ponto do mapa. Uma grade de nove pontos em volta de uma empresa de serviços no Tennessee mostrou quatro negócios diferentes em primeiro lugar, e a própria empresa fora da lista."
 ---
 
-## Why a local business cannot have one rank
+## Por que um negócio local não pode ter uma única posição
 
-Ask Google for a plumber from the north side of a town and from the south side, three kilometres apart, and you get two different map packs. Neither is wrong. Google weights proximity heavily for local queries, so the answer moves with the searcher, and a rank tracker that checks from one fixed point reports one of the many answers as if it were the answer.
+Peça ao Google um encanador a partir da zona norte de uma cidade e depois a partir da zona sul, a três quilômetros de distância, e você recebe dois map packs (pacotes locais do Google Maps) diferentes. Nenhum dos dois está errado. O Google dá muito peso à proximidade nas buscas locais, então a resposta muda conforme a pessoa se move, e um monitor de posições que checa a partir de um ponto fixo reporta uma das muitas respostas como se fosse a resposta.
 
-Melissa Popp, content strategy director at Rickety Roo, states the rule most local SEOs work from:
+Melissa Popp, diretora de estratégia de conteúdo da Rickety Roo, resume a regra que a maioria dos profissionais de SEO local segue:
 
-> we know proximity and relevance are two of the most important factors for how you show up in map pack as a local business
+> a gente sabe que proximidade e relevância são dois dos fatores mais importantes para como você aparece no map pack como negócio local
 
-![A quote card reading: Proximity and relevance are two of the most important factors for how you show up in the map pack as a local business. Attributed to Melissa Popp, content strategy director at Rickety Roo, from The Unscripted SEO Interview Podcast.](/library/rank-tracking/quote-proximity-and-relevance.png "Melissa Popp on proximity and relevance")
+![Cartão de citação: “Proximidade e relevância são dois dos fatores mais importantes para como você aparece no map pack como negócio local.” — Melissa Popp, diretora de estratégia de conteúdo da Rickety Roo, no The Unscripted SEO Interview Podcast.](/library/rank-tracking/quote-proximity-and-relevance.png "Melissa Popp sobre proximidade e relevância")
 
-Her episode on fixing your Google Business Profile before anything else is [on the Unscripted SEO podcast](https://unscriptedseo.com/melissa-popp-go-fix-your-google-business-profile/). The implication for tracking is that a local business needs its position measured from several places, not one, or the number will describe the tracker's location rather than the customer's.
+O episódio dela sobre arrumar o Perfil da Empresa no Google antes de qualquer outra coisa está [no podcast Unscripted SEO](https://unscriptedseo.com/melissa-popp-go-fix-your-google-business-profile/) (em inglês). A consequência para o monitoramento é que um negócio local precisa medir sua posição a partir de vários lugares, não de um só, ou o número vai descrever a localização do monitor, e não a do cliente.
 
-## What a nine-point grid showed
+## O que uma grade de nove pontos mostrou
 
-Here is the shape of the problem on a real business: an HVAC and plumbing company in a mid-sized Tennessee town. I ran a three-by-three grid, nine points three kilometres apart, centred on the town, on mobile, for two queries.
+Veja o formato do problema num negócio real: uma empresa de climatização e encanamento numa cidade de porte médio do Tennessee. A análise usou uma grade três por três, com nove pontos a três quilômetros um do outro, centrada na cidade, no mobile, para duas consultas.
 
-For `plumber cookeville tn`, the number one result was a different business depending on the point. One plumber held the top spot across the north and west, a larger plumbing, heating and cooling company held the centre and the south, a third business took the east and south-east, and a fourth appeared at a single north-east point. Every point returned 18 to 20 results.
+Para `plumber cookeville tn` (encanador em Cookeville, Tennessee), o primeiro resultado era um negócio diferente dependendo do ponto. Um encanador ficava com o primeiro lugar no norte e no oeste, uma empresa maior de encanamento, aquecimento e refrigeração ficava com o centro e o sul, um terceiro negócio levava o leste e o sudeste, e um quarto aparecia em um único ponto a nordeste. Todos os pontos retornaram de 18 a 20 resultados.
 
-![OpenSEO local rank grid for plumber cookeville tn: nine points three kilometres apart, with a different business at number one across the north-west, the centre and south, the east, and the north-east, and the target business matched at none of them](/library/rank-tracking/local-rank-grid-cookeville-openseo.png "Local rank grid in OpenSEO")
+![Grade de posições local do RE9 SEO para plumber cookeville tn: nove pontos a três quilômetros um do outro, com um negócio diferente em primeiro lugar no noroeste, no centro e no sul, no leste e no nordeste, e a empresa-alvo sem correspondência em nenhum deles](/library/rank-tracking/local-rank-grid-cookeville-openseo.png "Grade de posições local no RE9 SEO")
 
-For `hvac repair cookeville`, the split was cleaner: one company held number one at seven of nine points and a second company took two of the three points along the southern edge.
+Para `hvac repair cookeville` (conserto de climatização em Cookeville), a divisão foi mais clara: uma empresa ficou em primeiro lugar em sete dos nove pontos, e uma segunda empresa levou dois dos três pontos da borda sul.
 
-So over a six-kilometre square, a searcher could be shown five or six different businesses at number one depending on which query they typed and where they typed it. A single-point tracker reporting "position 1" or "position 4" for this town would be reporting one of those cells and calling it the market.
+Ou seja, num quadrado de seis quilômetros de lado, quem busca pode ver cinco ou seis negócios diferentes em primeiro lugar, dependendo da consulta digitada e de onde ela foi digitada. Um monitor de ponto único que reportasse "posição 1" ou "posição 4" para essa cidade estaria reportando uma dessas células e chamando isso de mercado.
 
-The company I was checking on appeared at none of the eighteen points. The grid's name-match returned nothing, and a listings search within 15 kilometres found no business under the name the company uses on its website. That is a finding in its own right, and it comes before any question of rank: the first thing a local grid tells you is whether you are in the set at all. If the profile exists under another name, that name needs to go into the tracker; if it does not exist, no amount of rank tracking will find it.
+A empresa analisada não apareceu em nenhum dos dezoito pontos. A busca pelo nome na grade não retornou nada, e uma pesquisa de estabelecimentos num raio de 15 quilômetros não encontrou nenhum negócio com o nome que a empresa usa no site. Isso já é uma descoberta por si só, e vem antes de qualquer pergunta sobre posição: a primeira coisa que uma grade local diz é se você sequer aparece no conjunto de resultados. Se o perfil existe com outro nome, é esse nome que precisa entrar no monitor; se ele não existe, nenhum monitoramento de posições vai encontrá-lo.
 
-## Storefront or service area
+## Loja física ou área de atendimento
 
-Set up your Business Profile to match how you serve customers. [Google allows eligible hybrid businesses](https://support.google.com/business/answer/9157481) to show a storefront address and a service area when they both receive customers and travel or deliver to them. If customers do not visit your address, hide it and list the area you serve.
+Configure o seu Perfil da Empresa de acordo com a forma como você atende os clientes. [O Google permite que negócios híbridos elegíveis](https://support.google.com/business/answer/9157481) mostrem um endereço de loja e uma área de atendimento quando recebem clientes no local e também vão até eles ou fazem entregas. Se os clientes não vão até o seu endereço, oculte-o e informe a área que você atende.
 
-Melissa describes the difficulty of competing across locations:
+Melissa descreve a dificuldade de competir em vários locais:
 
-> it can be a lot easier to rank an actual brick and mortar location than it can be a service area page because you open up the competitiveness
+> pode ser bem mais fácil ranquear um endereço físico de verdade do que uma página de área de atendimento, porque você amplia a concorrência
 
-Choose the profile settings that describe your business accurately. You can also build useful location pages for the neighbourhoods and towns you serve to reach customers through organic website results. [Map positioning to real demand](/library/keyword-research/positioning-to-demand) covers finding which of those towns search for it.
+Escolha as configurações de perfil que descrevem o seu negócio com precisão. Você também pode criar páginas locais úteis para os bairros e cidades que atende, para alcançar clientes pelos resultados orgânicos do site. [Conecte o posicionamento à demanda real](/library/keyword-research/positioning-to-demand) mostra como descobrir quais dessas cidades buscam pelo que você oferece.
 
-## Which points to track
+## Quais pontos monitorar
 
-Run a Maps grid to survey your visibility, then repeat it with the same settings to compare positions over time. Choose points where your customers search. Melissa's method for finding them:
+Rode uma grade no Maps para fazer um levantamento da sua visibilidade e depois repita com as mesmas configurações para comparar as posições ao longo do tempo. Escolha pontos onde os seus clientes fazem buscas. O método da Melissa para encontrá-los:
 
-> there's also testing that needs to be involved there to figure out, know, like what areas, you know, looking in GA4 and other analytics tools, you know, where are people searching from down to at that city level
+> também precisa ter teste aí para descobrir, sabe, tipo quais áreas, sabe, olhando no GA4 e em outras ferramentas de analytics, sabe, de onde as pessoas estão buscando, até o nível de cidade
 
-That gives you two to five named places. Separately, OpenSEO rank trackers measure your website's organic rankings from a chosen location. They do not track your Business Profile's Maps position. A business serving three towns can use three small trackers to follow its organic results. Twenty keywords in three locations is 60 checks a week, which on the queued schedule is about $0.60 a month.
+Isso dá de dois a cinco lugares com nome. Separadamente, os monitores de posições do RE9 SEO medem as posições orgânicas do seu site a partir de um local escolhido. Eles não acompanham a posição do seu Perfil da Empresa no Maps. Um negócio que atende três cidades pode usar três monitores pequenos para acompanhar seus resultados orgânicos. Vinte palavras-chave em três locais são 60 checagens por semana; checagens agendadas passam por uma fila mais barata que as checagens ao vivo, e o app mostra o custo estimado antes de você salvar.
 
-The grid itself is priced per point: a 3x3 grid is nine Maps searches, a 5x5 is twenty-five, and the app shows the cost before it runs. Use the 3x3 for a quarterly survey and the 5x5 when you are deciding whether to open or list a second location.
+A grade em si consome créditos por ponto: uma grade 3x3 são nove buscas no Maps, uma 5x5 são vinte e cinco, e o app mostra o custo antes de rodar. Use a 3x3 para um levantamento trimestral e a 5x5 quando estiver decidindo se abre ou cadastra um segundo endereço.
 
-## What to do with a bad grid
+## O que fazer com uma grade ruim
 
-If you rank well at the centre and fall off two kilometres out, that is proximity doing what proximity does, and the fixes are the ones Melissa puts first: a complete, accurate profile in the right category, reviews you answer, and hours and contact details that are correct. If you rank badly everywhere, check the category and the name before anything else. And if you are absent, as the company above was, the tracker has done its job on the first run by telling you the problem is upstream of rankings.
+Se você ranqueia bem no centro e some a dois quilômetros de distância, é a proximidade fazendo o que a proximidade faz, e as correções são as que a Melissa coloca em primeiro lugar: um perfil completo e correto, na categoria certa, avaliações respondidas, e horários e dados de contato corretos. Se você ranqueia mal em todos os pontos, confira a categoria e o nome antes de qualquer coisa. E se você não aparece, como a empresa acima, o monitor cumpriu sua função na primeira execução, ao mostrar que o problema vem antes de qualquer questão de posição.
 
-This is also a budget conversation. Melissa on the size of budget she can work with:
+Essa também é uma conversa sobre orçamento. Melissa, sobre o tamanho de orçamento com que consegue trabalhar:
 
-> I can work with $500. It doesn't mean that we are going to have all the results we want in six months or a year. But I can move the needle with $500
+> Eu consigo trabalhar com US$ 500. Isso não quer dizer que a gente vai ter todos os resultados que quer em seis meses ou um ano. Mas eu consigo fazer diferença com US$ 500
 
-A local grid and three small trackers are a few dollars of that, and they are what stops the other $490 being spent on the wrong town.
+Uma grade local e três monitores pequenos são o que impede que o resto desse orçamento seja gasto na cidade errada.
 
-## Run this with the OpenSEO MCP
+## Como fazer isso com o MCP do RE9 SEO
 
-Connect the [OpenSEO MCP](/docs/mcp): use the grid for Maps positions and a rank tracker for organic website rankings. The [local-seo](/docs/skills/local-seo) skill packages this workflow.
+Conecte o [MCP do RE9 SEO](/docs/mcp): use a grade para as posições no Maps e um monitor de posições para as posições orgânicas do site. A skill [local-seo](/docs/skills/local-seo) empacota esse fluxo de trabalho.
 
 ```text
-Using the OpenSEO MCP on project [name] for [business name] at
-[address or coordinates]:
+Usando o MCP do RE9 SEO no projeto [nome] para [nome do negócio] em
+[endereço ou coordenadas]:
 
-1. Search local businesses within 10 km for "[business name]" and
-   confirm the listing exists. Give me its exact title, its cid, and
-   its primary category. If nothing matches, stop and tell me.
+1. Pesquise negócios locais num raio de 10 km por "[nome do negócio]"
+   e confirme que o perfil existe. Me dê o título exato, o cid e a
+   categoria principal. Se nada corresponder, pare e me avise.
 
-2. Run a 3x3 local rank grid, 2 km spacing, on mobile, for
-   "[main service] [town]", using the cid from step 1 as the target.
-   Show me the rank at each point and the business holding #1 at
-   each point.
+2. Rode uma grade de posições local 3x3, com espaçamento de 2 km, no
+   mobile, para "[serviço principal] [cidade]", usando o cid da etapa
+   1 como alvo. Mostre a posição em cada ponto e o negócio que está
+   em 1º lugar em cada ponto.
 
-3. Repeat for "[second service] [town]".
+3. Repita para "[segundo serviço] [cidade]".
 
-4. Summarise: at how many of the 9 points am I in the top 3, how
-   many in the top 10, and which competitors hold #1 where I do not.
+4. Resuma: em quantos dos 9 pontos estou no top 3, em quantos estou
+   no top 10, e quais concorrentes ficam em 1º onde eu não fico.
 
-5. For organic website rankings, separately create one rank tracker
-   per location I name, weekly, mobile, depth 20. Estimate the cost
-   with 20 keywords each before adding anything. Explain that these
-   trackers do not measure Maps positions.
+5. Para as posições orgânicas do site, crie à parte um monitor de
+   posições por local que eu indicar, semanal, mobile, profundidade
+   20. Estime o custo com 20 palavras-chave cada antes de adicionar
+   qualquer coisa. Explique que esses monitores não medem posições
+   no Maps.
 ```
 
-Step 1 is the one that would have saved the company above a quarter of guessing. Match on the cid, not the name, once you have it.
+A etapa 1 é a que teria poupado a empresa acima de um trimestre de adivinhação. Depois que tiver o cid, faça a correspondência por ele, não pelo nome.
 
-## Local rank tracking FAQ
+## Perguntas frequentes sobre monitoramento de posições local
 
-### Why do my local rankings look different on my phone and my colleague's?
+### Por que minhas posições locais aparecem diferentes no meu celular e no do meu colega?
 
-Because you are standing in different places, or Google thinks you are. Proximity is one of the strongest signals for local queries, so two searchers a few kilometres apart routinely see different map packs. A tracker that checks from one point reports one of those views.
+Porque vocês estão em lugares diferentes, ou o Google acha que estão. A proximidade é um dos sinais mais fortes nas buscas locais, então duas pessoas a poucos quilômetros de distância costumam ver map packs diferentes. Um monitor que checa a partir de um ponto só reporta uma dessas visões.
 
-### What is a local rank grid?
+### O que é uma grade de posições local?
 
-A set of searches run from points on a grid around a location, usually 3x3 or 5x5, reporting where a business ranks at each point. It shows how far a business's visibility reaches and where competitors take over, which a single rank check cannot.
+Um conjunto de buscas feitas a partir de pontos distribuídos numa grade em volta de um local, normalmente 3x3 ou 5x5, que mostra em que posição um negócio aparece em cada ponto. Ela revela até onde vai a visibilidade de um negócio e onde os concorrentes assumem, algo que uma checagem de posição única não consegue mostrar.
 
-### How many points should a local rank grid have?
+### Quantos pontos uma grade de posições local deve ter?
 
-Nine, spaced to cover the area you serve, is enough to see the shape. Use twenty-five when you are making a location decision. Beyond that you are paying for resolution you will not act on.
+Nove, espaçados para cobrir a área que você atende, bastam para enxergar o desenho. Use vinte e cinco quando estiver tomando uma decisão sobre endereço. Acima disso, você está pagando por uma resolução com a qual não vai fazer nada.
 
-### Should a service-area business set up a service area or an address on Google?
+### Um negócio com área de atendimento deve cadastrar a área ou um endereço no Google?
 
-Use the settings that match how you serve customers. An eligible storefront that also visits or delivers to customers can show both an address and a service area. If customers do not visit your address, hide it and list your service area.
+Use as configurações que correspondem à forma como você atende os clientes. Uma loja física elegível que também vai até os clientes ou faz entregas pode mostrar tanto um endereço quanto uma área de atendimento. Se os clientes não vão até o seu endereço, oculte-o e informe a sua área de atendimento.
 
-### Does OpenSEO do local rank tracking?
+### O RE9 SEO faz monitoramento de posições local?
 
-Yes. The MCP local rank grid measures Business Profile positions in Maps. Scheduled rank trackers measure organic website rankings from a chosen location. Both use credits. On the hosted app, scheduled and live rank-tracker checks require the $10/month plan, which includes $10 of credits.
+Sim. A grade de posições local do MCP mede as posições do Perfil da Empresa no Maps. Os monitores de posições agendados medem as posições orgânicas do site a partir de um local escolhido. Os dois consomem créditos, e o app mostra o custo estimado antes de rodar.

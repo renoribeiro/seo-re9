@@ -19,9 +19,9 @@ const MAX_DOMAINS = 10;
 
 const requestSchema = z.object({
   domains: z
-    .array(z.string().trim().min(1).max(300))
-    .min(1, "Enter at least one domain")
-    .max(MAX_DOMAINS, `Enter up to ${MAX_DOMAINS} domains`),
+    .array(z.string().trim().min(1).max(300, "Domínio longo demais"))
+    .min(1, "Digite pelo menos um domínio")
+    .max(MAX_DOMAINS, `Digite até ${MAX_DOMAINS} domínios`),
   turnstileToken: z.string().max(4096).optional(),
 });
 
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/api/domain-age-checker")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success) {
           return jsonResponse(
-            { error: parsed.error.issues[0]?.message ?? "Invalid request" },
+            { error: parsed.error.issues[0]?.message ?? "Requisição inválida" },
             400,
           );
         }
@@ -86,7 +86,9 @@ export const Route = createFileRoute("/api/domain-age-checker")({
         ];
         if (domains.length === 0) {
           return jsonResponse(
-            { error: "Enter at least one valid domain, like example.com" },
+            {
+              error: "Digite pelo menos um domínio válido, como exemplo.com.br",
+            },
             400,
           );
         }
@@ -151,14 +153,14 @@ async function lookupDomain(domain: string): Promise<DomainAgeRow> {
         // rdap.org answers 403 to requests with no User-Agent, and the
         // Workers runtime doesn't set one.
         "User-Agent":
-          "openseo-free-tools (+https://openseo.so/domain-age-checker)",
+          "openseo-free-tools (+https://seo.agenciare9.com.br/domain-age-checker)",
       },
       redirect: "follow",
       signal: AbortSignal.timeout(10_000),
     });
   } catch (err) {
     console.error(`RDAP lookup failed for ${domain}:`, err);
-    return emptyRow(domain, "Registration lookup timed out");
+    return emptyRow(domain, "A consulta do registro excedeu o tempo limite");
   }
 
   // rdap.org 404s without redirecting when no registry serves that TLD; a
@@ -168,14 +170,14 @@ async function lookupDomain(domain: string): Promise<DomainAgeRow> {
     return emptyRow(
       domain,
       response.status === 404 && answeredByRegistry
-        ? "No registration record found"
-        : `No public registration data for .${tld}`,
+        ? "Nenhum registro encontrado para este domínio"
+        : `Sem dados públicos de registro para .${tld}`,
     );
   }
 
   const parsed = rdapSchema.safeParse(await response.json().catch(() => null));
   if (!parsed.success) {
-    return emptyRow(domain, `No public registration data for .${tld}`);
+    return emptyRow(domain, `Sem dados públicos de registro para .${tld}`);
   }
 
   const events = parsed.data.events ?? [];
@@ -194,7 +196,7 @@ async function lookupDomain(domain: string): Promise<DomainAgeRow> {
     registrar: readRegistrar(parsed.data.entities ?? []),
     ageYears: age?.years ?? null,
     ageMonths: age?.months ?? null,
-    error: created ? null : "No registration date published",
+    error: created ? null : "Data de registro não publicada",
   };
 }
 

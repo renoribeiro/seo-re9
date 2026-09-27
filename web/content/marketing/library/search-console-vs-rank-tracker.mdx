@@ -1,125 +1,128 @@
 ---
-title: "Is Search Console a rank tracker? Where the free data stops"
-description: "Search Console tells you an average position across searchers, devices, and countries, for the queries it chooses to show you. That is enough for a lot of sites. Here is how to tell whether yours is one of them."
+title: "O Search Console é um monitor de posições? Onde os dados gratuitos param"
+description: "O Search Console mostra uma posição média entre pessoas, dispositivos e países, para as consultas que ele escolhe mostrar. Isso basta para muitos sites. Veja como saber se o seu é um deles."
 ---
 
-## Can you check keyword rankings for free?
+## Dá para ver as posições das palavras-chave de graça?
 
-Yes, for your own site, in Google Search Console. It costs nothing, it is Google's own record rather than a third party's guess, and it reports the metric a rank tracker cannot: clicks. For a site that wants to know whether SEO is working, Search Console is the first answer and sometimes the only one needed.
+Dá, para o seu próprio site, no Google Search Console. Não custa nada, é o registro do próprio Google (e não o palpite de terceiros) e traz a métrica que um monitor de posições não consegue trazer: cliques. Para um site que quer saber se o SEO está funcionando, o Search Console é a primeira resposta e, às vezes, a única necessária.
 
-What it does not give you is a rank. It gives you an average position, and the difference matters more than the name suggests.
+O que ele não dá é uma posição exata. Ele dá uma posição média, e essa diferença pesa mais do que o nome sugere.
 
-## What Search Console's position is
+## O que é a posição do Search Console
 
-Every time your site appears in a result set, Google records the position of your highest result. The number in the report is the mean of those positions across every impression in the date range, every device, every country, and every query that rolls up into the row you are looking at.
+Toda vez que o seu site aparece num conjunto de resultados, o Google registra a posição do seu resultado mais alto. O número do relatório é a média dessas posições em todas as impressões do período, em todos os dispositivos, em todos os países e em todas as consultas que se somam na linha que você está olhando.
 
-So a query at "position 8.4" might be position 3 on desktop in one state and position 14 on mobile everywhere else. A page at "position 12" might be at 5 for one query and 30 for another. The average is true and it hides the shape.
+Então uma consulta na "posição 8,4" pode estar na posição 3 no desktop em um estado e na posição 14 no mobile em todo o resto. Uma página na "posição 12" pode estar em 5 para uma consulta e em 30 para outra. A média é verdadeira, mas esconde como os números se distribuem.
 
-Three other properties of the data shape what you can do with it:
+Outras três características dos dados determinam o que você consegue fazer com eles:
 
-- **Recent data can be preliminary.** The [24-hour view](https://developers.google.com/search/blog/2024/12/recent-data-search-console) shows data within hours. Finalized reports arrive later, and recent figures can change.
-- **It keeps 16 months.** Grant Simmons, who ran search at Homes.com and now works with Fiat Growth, points out that this is the part people waste: "generally you get a lot more information when you look at the 16 months of Google search console data to have an understanding of if the article has been around for that long all the queries that have mapped not just the most recent queries I think that's often forgotten." His episode on measurement is [on the Unscripted SEO podcast](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/).
-  ![A quote card reading: You get a lot more information when you look at the 16 months of Google Search Console data. Attributed to Grant Simmons of Fiat Growth, formerly Homes.com, from The Unscripted SEO Interview Podcast.](/library/rank-tracking/quote-sixteen-months-search-console.png "Grant Simmons on 16 months of Search Console data")
+- **Os dados recentes podem ser preliminares.** A [visualização de 24 horas](https://developers.google.com/search/blog/2024/12/recent-data-search-console) mostra dados em poucas horas. Os relatórios consolidados chegam depois, e os números recentes podem mudar.
+- **Ele guarda 16 meses.** Grant Simmons, que comandou a área de busca do Homes.com e hoje trabalha com a Fiat Growth, aponta que é justamente essa parte que as pessoas desperdiçam: "em geral você consegue muito mais informação quando olha os 16 meses de dados do Google Search Console para entender, se o artigo existe há tanto tempo, todas as consultas que foram mapeadas, e não só as mais recentes. Acho que isso muitas vezes é esquecido." O episódio dele sobre mensuração está [no podcast Unscripted SEO](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/) (em inglês).
+  ![Cartão de citação: “Você consegue muito mais informação quando olha os 16 meses de dados do Google Search Console.” — Grant Simmons, da Fiat Growth, ex-Homes.com, no The Unscripted SEO Interview Podcast.](/library/rank-tracking/quote-sixteen-months-search-console.png "Grant Simmons sobre 16 meses de dados do Search Console")
 
-- **It does not show every query.** A share of your clicks arrive on queries Search Console never reports, for privacy reasons. I have a post that earns about a hundred clicks a month, and the query report explains twelve of them. [The Dark Query Problem](/blogs/dark-queries) is about what to do with the rest.
+- **Ele não mostra todas as consultas.** Parte dos seus cliques chega por consultas que o Search Console nunca informa, por motivos de privacidade. Em uma página real que recebe cerca de cem cliques por mês, o relatório de consultas explica só doze deles.
 
-There is one more thing worth knowing if you compare Search Console across time. In the autumn of 2025, Google stopped serving 100 results on a single page. Rank trackers had been fetching that page for years to record deep positions, and every fetch counted as an impression for every site on it. When the page went away, desktop impressions fell across the industry at once. If your impressions chart has a cliff that month, that is the cliff, and it was never people.
+Tem mais uma coisa que vale saber se você compara o Search Console ao longo do tempo. No segundo semestre de 2025, o Google deixou de entregar 100 resultados numa única página. Os monitores de posições buscavam essa página havia anos para registrar posições profundas, e cada busca contava como uma impressão para todos os sites que estavam nela. Quando a página deixou de existir, as impressões no desktop caíram de uma vez no mercado inteiro. Se o seu gráfico de impressões tem um degrau naquele mês, é esse o degrau, e aquelas impressões nunca foram de pessoas.
 
-## What a rank tracker adds
+## O que um monitor de posições acrescenta
 
-A tracker asks Google a specific question on a schedule you set: for this keyword, from this location, on this device, where does this domain appear, and what else is on the page? It records the answer as a number, not an average.
+Um monitor faz ao Google uma pergunta específica, numa frequência que você define: para esta palavra-chave, a partir deste local, neste dispositivo, onde este domínio aparece e o que mais está na página? Ele registra a resposta como um número, não como uma média.
 
-A tracker puts these measurements together for each scheduled check:
+Um monitor reúne estas medições em cada checagem agendada:
 
-1. **A single position** for one keyword on one device in one place, comparable week to week.
-2. **The ranking URL for that check.** Search Console also reports URLs when you group by query and page; a tracker records which URL appeared in the specific search it ran.
-3. **The previous position**, so movement is a number in a column rather than a chart you squint at.
-4. **SERP features** on the page: an AI overview, a local pack, a video carousel, a shopping block. When your position holds and your clicks fall, this column is usually the reason.
-5. **Competitors' positions**, for terms you do not rank for at all. Search Console has nothing to say about a query you never appeared for.
+1. **Uma posição única** para uma palavra-chave, em um dispositivo, em um lugar, comparável semana a semana.
+2. **A URL ranqueada naquela checagem.** O Search Console também informa URLs quando você agrupa por consulta e página; o monitor registra qual URL apareceu na busca específica que ele fez.
+3. **A posição anterior**, para que a movimentação seja um número numa coluna, e não um gráfico que você precisa apertar os olhos para ler.
+4. **Os recursos da SERP** na página: uma visão geral criada por IA, um pacote local, um carrossel de vídeos, um bloco de compras. Quando sua posição se mantém e seus cliques caem, essa coluna costuma ser o motivo.
+5. **As posições dos concorrentes**, para termos em que você nem ranqueia. O Search Console não tem nada a dizer sobre uma consulta em que você nunca apareceu.
 
-Here is what the difference looks like on a real tracker. The 25 keywords below were chosen because Search Console reported seoarcade.com at average positions between 2 and 20 for them. After one mobile check from the US, three had a position; the other 22 were not in the top 40 at all. The averages were true. The positions were not there.
+Veja como fica a diferença num monitor real. As 25 palavras-chave abaixo foram escolhidas porque o Search Console mostrava o seoarcade.com em posições médias entre 2 e 20 para elas. Depois de uma checagem no mobile a partir dos EUA, três tinham posição; as outras 22 não estavam nem entre as 40 primeiras. As médias eram verdadeiras. As posições não estavam lá.
 
-![OpenSEO rank tracker results for seoarcade.com after one mobile check: 25 tracked keywords sorted by position, three with a position, ranking URL and SERP features, the rest showing no position inside the top 40](/library/rank-tracking/rank-tracker-positions-openseo.png "Rank tracker results in OpenSEO")
+![Resultados do monitor de posições do RE9 SEO para seoarcade.com depois de uma checagem no mobile: 25 palavras-chave monitoradas ordenadas por posição, três com posição, URL ranqueada e recursos da SERP, e o restante sem posição dentro do top 40](/library/rank-tracking/rank-tracker-positions-openseo.png "Resultados do monitor de posições no RE9 SEO")
 
-The cost is that every one of those answers is a paid request. In OpenSEO, scheduled checks run through a queue that prices out at a fraction of a cent per keyword per device, so a 25-keyword weekly tracker costs about $0.25 a month; a one-off live check costs around three and a half times more per keyword. On the hosted app, rank checks need the $10 plan, which includes $10 of credits each month. Search Console reads in OpenSEO cost nothing at all.
+O custo é que cada uma dessas respostas é uma requisição paga. No RE9 SEO, o custo cresce na proporção de palavras-chave × dispositivos × profundidade, as checagens agendadas passam por uma fila mais barata que as checagens ao vivo, e o app mostra o custo estimado antes de rodar. Já as leituras do Search Console no RE9 SEO não consomem créditos.
 
-## When Search Console alone is enough
+## Quando só o Search Console basta
 
-More often than tool vendors admit. Search Console is enough when all of the following are true:
+Mais vezes do que os fornecedores de ferramentas admitem. O Search Console basta quando tudo isto é verdade:
 
-- You have one location and one language, so the average is not blending markets.
-- You can read direction from a chart and do not need a position to the decimal.
-- Your questions are about your own pages, not a competitor's.
-- The pages you care about are ones Google already shows, so the query rows exist.
+- Você tem um local e um idioma, então a média não está misturando mercados.
+- Você consegue ler a tendência num gráfico e não precisa de uma posição com casa decimal.
+- Suas perguntas são sobre as suas páginas, não sobre as de um concorrente.
+- As páginas que importam para você são páginas que o Google já mostra, então as linhas de consulta existem.
 
-A ten-page consultancy site, a regional service business with one office, a founder checking whether the launch post is gaining: Search Console, filtered to the right page and device, answers the question. Adding a tracker adds a bill and a second dashboard without adding a decision.
+Um site de consultoria com dez páginas, uma empresa de serviços regional com um escritório, um fundador conferindo se o post de lançamento está ganhando tração: o Search Console, filtrado para a página e o dispositivo certos, responde à pergunta. Adicionar um monitor acrescenta uma conta a pagar e um segundo painel, sem acrescentar uma decisão.
 
-## When you need the tracker
+## Quando você precisa do monitor
 
-Four situations, and one of them is usually what tips it.
+Quatro situações, e normalmente é uma delas que faz a balança pender.
 
-- **You are local.** Position depends on where the searcher is standing, and Search Console's country filter is far too coarse. [Local rank tracking](/library/rank-tracking/local-rank-tracking) covers this.
-- **You report upward.** "Average position improved from 14.2 to 13.1" is a sentence nobody can act on. "Nine of the twenty terms tied to the pricing page moved onto page one" is. Search Console cannot produce the second sentence without a lot of manual work each week.
-- **You need to know why clicks fell while position held.** That is the SERP features column.
-- **You want a competitor in the same table.** Search Console is a first-party tool and will never report someone else's site.
+- **Seu negócio é local.** A posição depende de onde a pessoa está quando busca, e o filtro de país do Search Console é grosso demais. [Monitoramento de posições local](/library/rank-tracking/local-rank-tracking) trata disso.
+- **Você presta contas a quem está acima.** "A posição média melhorou de 14,2 para 13,1" é uma frase que não leva a nenhuma ação. "Nove dos vinte termos ligados à página de preços entraram na primeira página" leva. O Search Console não consegue produzir a segunda frase sem muito trabalho manual toda semana.
+- **Você precisa saber por que os cliques caíram enquanto a posição se manteve.** Essa é a coluna de recursos da SERP.
+- **Você quer um concorrente na mesma tabela.** O Search Console é uma ferramenta de dados próprios e nunca vai mostrar o site de outra pessoa.
 
-## Use both, in the right order
+## Use os dois, na ordem certa
 
-The workable pattern is Search Console first and the tracker second. Search Console picks the keywords, because it knows which queries already show your site and how far down; [which keywords to track](/library/rank-tracking/which-keywords-to-track) is that process. The tracker then follows those terms with the precision Search Console lacks. Then Search Console comes back at the end, because clicks are the number the tracker cannot produce, and a report that shows positions moving without showing what the clicks did is half a report.
+O padrão que funciona é o Search Console primeiro e o monitor depois. O Search Console escolhe as palavras-chave, porque sabe quais consultas já mostram o seu site e em que posição; [quais palavras-chave monitorar](/library/rank-tracking/which-keywords-to-track) descreve esse processo. O monitor então acompanha esses termos com a precisão que falta ao Search Console. E o Search Console volta no final, porque cliques são o número que o monitor não consegue produzir, e um relatório que mostra posições se movendo sem mostrar o que aconteceu com os cliques é meio relatório.
 
-## Run this with the OpenSEO MCP
+## Como fazer isso com o MCP do RE9 SEO
 
-Connect Search Console to the project, then connect the [OpenSEO MCP](/docs/mcp). The first three steps use no credits.
+Conecte o Search Console ao projeto e depois conecte o [MCP do RE9 SEO](/docs/mcp). As três primeiras etapas não consomem créditos.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. Pull Search Console performance for the last 28 days by query and
-   device. Show me the 20 queries with the most impressions, with
-   position on mobile and on desktop side by side. Flag any query
-   where the two positions differ by more than 5.
+1. Traga o desempenho do Search Console dos últimos 28 dias por
+   consulta e dispositivo. Mostre as 20 consultas com mais
+   impressões, com a posição no mobile e no desktop lado a lado.
+   Sinalize qualquer consulta em que as duas posições difiram em
+   mais de 5.
 
-2. Pull the same 20 queries by query and page. For any query that
-   returns two of my URLs, list both with their impressions.
+2. Traga as mesmas 20 consultas por consulta e página. Para qualquer
+   consulta que retorne duas das minhas URLs, liste as duas com as
+   respectivas impressões.
 
-3. Pull the last 16 months by date for the whole property and tell
-   me whether impressions dropped by more than 30% in any single
-   week, with the week.
+3. Traga os últimos 16 meses por data para a propriedade inteira e
+   me diga se as impressões caíram mais de 30% em alguma semana
+   específica, indicando a semana.
 
-4. Call get_rank_tracker for this project and list the tracked
-   keywords with their latest mobile position and previous position.
-   For each one that is also in the Search Console list, put the two
-   positions in one row: tracker position, Search Console average.
+4. Chame get_rank_tracker para este projeto e liste as palavras-chave
+   monitoradas com a posição mais recente no mobile e a posição
+   anterior. Para cada uma que também estiver na lista do Search
+   Console, coloque as duas posições numa linha: posição no monitor,
+   média do Search Console.
 
-5. Tell me which keywords I am tracking that Search Console shows no
-   impressions for, and which Search Console queries with more than
-   500 impressions I am not tracking.
+5. Me diga quais palavras-chave eu monitoro que não têm impressões no
+   Search Console e quais consultas do Search Console com mais de 500
+   impressões eu não estou monitorando.
 ```
 
-Step 4 is where the difference shows. The tracker position and the Search Console average for the same term will not match, and the gap between them is the blending this page is about. Step 5 keeps the two lists honest with each other over time.
+A etapa 4 é onde a diferença aparece. A posição no monitor e a média do Search Console para o mesmo termo não vão bater, e a distância entre elas é justamente a mistura de que trata esta página. A etapa 5 mantém as duas listas coerentes entre si ao longo do tempo.
 
-## The free data is the ground truth for clicks
+## Os dados gratuitos são a fonte de verdade sobre cliques
 
-Everything a tracker reports is a description of a results page. Search Console is a record of what people did on it. When the two disagree about whether things are going well, the clicks are right and the positions are the explanation. Set them up in that relationship from the start and you will read both correctly.
+Tudo o que um monitor informa é uma descrição de uma página de resultados. O Search Console é um registro do que as pessoas fizeram nela. Quando os dois discordam sobre se as coisas vão bem, os cliques estão certos e as posições são a explicação. Monte os dois nessa relação desde o início e você vai ler ambos corretamente.
 
-## Search Console and rank tracking FAQ
+## Perguntas frequentes sobre Search Console e monitoramento de posições
 
-### Is Google Search Console a rank tracker?
+### O Google Search Console é um monitor de posições?
 
-Not in the usual sense. It reports an average position per query or page, blended across devices, countries, and dates, for your own verified site only. Its 24-hour view shows recent preliminary data; finalized reports arrive later. A rank tracker records one position per keyword, device, and location on a schedule, and can include sites you do not own.
+Não no sentido usual. Ele informa uma posição média por consulta ou página, misturando dispositivos, países e datas, e só para o seu próprio site verificado. A visualização de 24 horas mostra dados recentes preliminares; os relatórios consolidados chegam depois. Um monitor de posições registra uma posição por palavra-chave, dispositivo e local, numa frequência definida, e pode incluir sites que não são seus.
 
-### Why does my Search Console position not match the rank tracker?
+### Por que a posição do Search Console não bate com a do monitor de posições?
 
-Because they measure different things. Search Console averages your best position across every impression in the period, so a term that is 3 in one state and 15 elsewhere reports as something in between. A tracker reports the position from one place on one device on one day. A gap of several positions between them is normal.
+Porque eles medem coisas diferentes. O Search Console faz a média da sua melhor posição em todas as impressões do período, então um termo que está em 3 em um estado e em 15 no resto aparece como algo entre os dois. Um monitor informa a posição a partir de um lugar, em um dispositivo, em um dia. Uma diferença de várias posições entre eles é normal.
 
-### How accurate is Search Console average position?
+### Qual a precisão da posição média do Search Console?
 
-It is Google's own count of where your result appeared, so the impressions and clicks are as accurate as any data you will get. The position is accurate as an average; it is not a rank. Filter by device and country and the average becomes much closer to what a searcher sees.
+É a contagem do próprio Google de onde o seu resultado apareceu, então as impressões e os cliques são tão precisos quanto qualquer dado que você vai conseguir. A posição é precisa como média; ela não é uma posição exata. Filtre por dispositivo e país, e a média fica muito mais próxima do que a pessoa vê.
 
-### How do I check keyword rankings for free?
+### Como ver as posições das palavras-chave de graça?
 
-Open Search Console, go to Performance, filter to the page or query you care about, and switch on the average position metric. Filter to a single device and country to make the number meaningful. That covers your own site; for a competitor's rankings you need a tool that fetches results, which costs money wherever you do it.
+Abra o Search Console, vá em Desempenho, filtre pela página ou consulta que importa e ative a métrica de posição média. Filtre por um único dispositivo e país para que o número faça sentido. Isso cobre o seu próprio site; para as posições de um concorrente, você precisa de uma ferramenta que busque os resultados, e isso custa dinheiro em qualquer lugar.
 
-### Does OpenSEO use credits to read Search Console?
+### O RE9 SEO consome créditos para ler o Search Console?
 
-No. Search Console and URL inspection reads are free in OpenSEO, in the app and through the MCP. Rank tracking checks use credits because they fetch live results, and on the hosted app they require the $10/month plan, which includes $10 of credits.
+Não. As leituras do Search Console e da inspeção de URL não consomem créditos no RE9 SEO, nem no app nem pelo MCP. As checagens do monitor de posições consomem créditos porque buscam resultados ao vivo, e o app mostra o custo estimado antes de rodar.

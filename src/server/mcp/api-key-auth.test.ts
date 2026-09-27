@@ -19,7 +19,7 @@ vi.mock("@/lib/auth", () => ({
       createOrganization: vi.fn(),
     },
   }),
-  getHostedBaseUrl: () => "https://app.openseo.so",
+  getHostedBaseUrl: () => "https://seo.agenciare9.com.br",
 }));
 
 vi.mock("@/server/auth/repositories/AuthRepository", () => ({
@@ -52,7 +52,7 @@ const ctx: ExecutionContext = {
 };
 
 function request(headers?: HeadersInit, method = "POST") {
-  return new Request("https://app.openseo.so/mcp", { method, headers });
+  return new Request("https://seo.agenciare9.com.br/mcp", { method, headers });
 }
 
 describe("handleMcpApiKeyRequest", () => {
@@ -105,7 +105,7 @@ describe("handleMcpApiKeyRequest", () => {
         role: "owner",
         scopes: [...MCP_OAUTH_SCOPES],
         clientId: "api_key",
-        baseUrl: "https://app.openseo.so",
+        baseUrl: "https://seo.agenciare9.com.br",
       },
     });
   });

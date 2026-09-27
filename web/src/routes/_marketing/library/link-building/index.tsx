@@ -6,29 +6,30 @@ const PATH = "/library/link-building";
 
 const faqs = [
   {
-    question: "What is link building?",
+    question: "O que é link building?",
     answer:
-      "Getting other websites to link to yours, so that search engines and the people on those sites treat your pages as worth pointing at. The links that count come from sites about the same subject, and the number that moves rankings is how many different sites link, not how many links there are.",
+      "É fazer com que outros sites apontem links para o seu, para que os buscadores e as pessoas desses sites tratem suas páginas como dignas de indicação. Os links que contam vêm de sites sobre o mesmo assunto, e o número que move as posições é quantos sites diferentes apontam para você, não quantos links existem.",
   },
   {
-    question: "Do backlinks still matter for SEO?",
+    question: "Backlinks ainda importam para SEO?",
     answer:
-      "Yes, and the practitioners on the podcast think they may matter more as they get rarer. What has changed is which ones count: relevant sites in your field over high-scoring sites in another, and distinct referring domains over repeated links from the same one. AI search systems also lean on the same link-based authority signals.",
+      "Sim, e os profissionais do podcast acham que podem importar ainda mais à medida que ficam mais raros. O que mudou foi quais deles contam: sites relevantes da sua área valem mais do que sites com nota alta de outra área, e domínios de referência distintos valem mais do que links repetidos do mesmo site. Os sistemas de busca com IA também se apoiam nos mesmos sinais de autoridade baseados em links.",
   },
   {
-    question: "What is a good link building strategy for a small business?",
+    question:
+      "Qual é uma boa estratégia de link building para um pequeno negócio?",
     answer:
-      "Do things a local site would report: sponsor, join, host, clean up a park. Ask the businesses that share your customer and do not compete with you for a mention. Build one tool people in your field search for. Then count referring domains, not backlinks, and ignore the people emailing you to sell links.",
+      "Faça coisas que um site local noticiaria: patrocine, participe, organize, limpe uma praça. Peça uma menção às empresas que atendem o mesmo cliente e não competem com você. Crie uma ferramenta que as pessoas da sua área procuram. Depois, conte domínios de referência, não backlinks, e ignore quem manda e-mail oferecendo links à venda.",
   },
   {
-    question: "How many backlinks do I need to rank?",
+    question: "Quantos backlinks eu preciso para ranquear?",
     answer:
-      "As many referring domains as the pages that outrank you have, from sites in the same field. The count of backlinks is a poor guide because a single site can supply hundreds of them. Check a competitor's profile for the referring domain number and the backlink gap analysis for the domains that link to them and not to you.",
+      "Tantos domínios de referência quanto as páginas que estão à sua frente têm, vindos de sites da mesma área. A contagem de backlinks é um guia ruim, porque um único site pode fornecer centenas deles. Veja no perfil de um concorrente o número de domínios de referência e, na análise de lacunas de backlinks, os domínios que apontam para ele e não para você.",
   },
   {
-    question: "How does OpenSEO help with link building?",
+    question: "Como o RE9 SEO ajuda no link building?",
     answer:
-      "The backlinks tool shows any domain's backlinks, referring domains, top linked pages, anchor text, dofollow or nofollow, domain rank, spam score and broken status, with filters and export. A free backlink checker shows the summary without an account. The MCP provides backlink summaries and individual backlink rows; use the app for the Top Pages table. The link-prospecting skill packages the competitor workflow.",
+      "A ferramenta de backlinks mostra, para qualquer domínio, os backlinks, os domínios de referência, as páginas mais linkadas, o texto âncora, dofollow ou nofollow, o domain rank, o spam score e o status de link quebrado, com filtros e exportação. Um verificador de backlinks gratuito mostra o resumo sem precisar de conta. O MCP entrega resumos de backlinks e as linhas individuais de backlinks; use o app para a tabela de páginas principais. A skill de prospecção de links empacota o fluxo de concorrentes.",
   },
 ];
 
@@ -43,18 +44,18 @@ const faqLd = {
 };
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Strategy Library", path: "/library" },
-  { name: "Link Building", path: PATH },
+  { name: "Biblioteca de estratégias", path: "/library" },
+  { name: "Link building", path: PATH },
 ]);
 
 export const Route = createFileRoute("/_marketing/library/link-building/")({
   head: () =>
     buildPageSeo({
-      title: "Link Building: The Strategy Library",
+      title: "Link building: a biblioteca de estratégias",
       description:
-        "Three link building strategies from practitioners who build links for a living: audit a backlink profile without trusting the score, report referring domains instead of backlinks, and earn links from the pages that already get them. Each includes a workflow and an OpenSEO MCP prompt.",
+        "Três estratégias de link building de profissionais que vivem de conseguir links: audite um perfil de backlinks sem confiar cegamente na nota, reporte domínios de referência em vez de backlinks e conquiste links a partir das páginas que já os recebem. Cada uma traz um fluxo de trabalho e um prompt de MCP do RE9 SEO.",
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: LinkBuildingLibraryPage,
 });
@@ -64,36 +65,36 @@ function LinkBuildingLibraryPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
-          / <span>Link Building</span>
+          / <span>Link building</span>
         </nav>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          The Link Building Strategy Library
+          Biblioteca de estratégias de link building
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Three strategies for the person who has to grow a site&rsquo;s
-          authority without a link budget: how to read a backlink profile
-          without trusting the score, which number to report, and where the next
-          links come from. Each one is built on a real profile and includes a
-          copy-paste OpenSEO MCP prompt.
+          Três estratégias para quem precisa aumentar a autoridade de um site
+          sem verba para links: como ler um perfil de backlinks sem confiar
+          cegamente na nota, qual número reportar e de onde vêm os próximos
+          links. Cada uma parte de um perfil real e traz um prompt de MCP do RE9
+          SEO pronto para copiar e colar.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How do you build links that count?
+          Como conseguir links que contam?
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Read what you already have, count distinct sources, and look at which
-          pages are already earning attention.
+          Leia o que você já tem, conte as fontes distintas e veja quais páginas
+          já estão atraindo atenção.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {linkBuildingStrategies.map((strategy, index) => {
@@ -127,133 +128,137 @@ function LinkBuildingLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Why most link building produces the wrong links
+          Por que a maior parte do link building gera os links errados
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Link building is the part of SEO with the most sellers and the least
-          measurement. The sellers sort the web by a score, and the score is
-          easy to buy. On one real profile the three newest links came from a
-          casino domain and two link sellers, unrequested, and the casino domain
-          carried a higher domain rank than the relevant sites beneath it. A
-          strategy built on the score would have counted that as a win.
+          Link building é a parte do SEO com mais vendedores e menos medição. Os
+          vendedores ordenam a web por uma nota, e a nota é fácil de comprar.
+          Num perfil real, os três links mais novos vieram de um domínio de
+          cassino e de dois vendedores de links, sem ninguém ter pedido, e o
+          domínio de cassino tinha um domain rank maior do que os sites
+          relevantes abaixo dele. Uma estratégia baseada na nota teria contado
+          isso como vitória.
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          The practitioners on the Unscripted SEO podcast, people who build
-          links for clients and test on their own sites, describe a different
-          order of operations. Relevance first: a link from a site about your
-          subject, to a page about that subject. Then diversity: how many
-          different sites, not how many links. The three strategies above follow
-          that order, and each one starts from a real backlink profile rather
-          than a hypothetical one.
+          Os profissionais do podcast Unscripted SEO, pessoas que conseguem
+          links para clientes e testam nos próprios sites, descrevem outra
+          ordem. Primeiro a relevância: um link de um site sobre o seu assunto,
+          para uma página sobre esse assunto. Depois a diversidade: quantos
+          sites diferentes, não quantos links. As três estratégias acima seguem
+          essa ordem, e cada uma parte de um perfil de backlinks real, não
+          hipotético.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What OpenSEO backlink analysis shows
+          O que a análise de backlinks do RE9 SEO mostra
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Enter any domain, yours or a competitor&rsquo;s, and the overview
-          reports backlinks, referring domains, referring pages, domain rank,
-          spam score, and broken backlinks and pages, with a year of backlink
-          and referring-domain history and new-versus-lost links by month. Three
-          tables sit beneath it: every backlink with its source page, target
-          page, anchor text, dofollow or nofollow flag, domain rank, spam score
-          and first-seen date; every referring domain with its backlink count
-          and issues; and your top pages by the links they attract.
+          Informe qualquer domínio, o seu ou o de um concorrente, e a visão
+          geral mostra backlinks, domínios de referência, páginas de referência,
+          domain rank, spam score e backlinks e páginas quebrados, com um ano de
+          histórico de backlinks e de domínios de referência e os backlinks
+          novos e perdidos por mês. Abaixo ficam três tabelas: cada backlink com
+          página de origem, página de destino, texto âncora, marcação dofollow
+          ou nofollow, domain rank, spam score e data da primeira descoberta;
+          cada domínio de referência com sua contagem de backlinks e problemas;
+          e suas páginas principais pelos links que atraem.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          The backlink table shows one row per referring domain by default, or
-          every individual link, and filters by domain rank, spam score, link
-          type and source terms. Everything exports. The{" "}
+          A tabela de backlinks mostra uma linha por domínio de referência por
+          padrão, ou cada link individual, e filtra por domain rank, spam score,
+          tipo de link e termos da origem. Tudo pode ser exportado. O{" "}
           <a
             href="/backlink-checker"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            free backlink checker
+            verificador de backlinks gratuito
           </a>{" "}
-          shows the summary and top 15 links for any domain without an account.
-          In the app, a domain overview costs about 50 credits and a page of 100
-          backlink rows about 30.
+          mostra o resumo e os 15 principais links de qualquer domínio sem
+          precisar de conta. No app, uma visão geral do domínio consome cerca de
+          50 créditos, e uma página com 100 linhas de backlinks, cerca de 30.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          You can run all of it from the{" "}
+          Você pode rodar tudo isso pela página do{" "}
           <a
             href="/features/backlink-checker"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            backlink checker
-          </a>{" "}
-          page. The{" "}
+            verificador de backlinks
+          </a>
+          . O{" "}
           <a
             href="/docs/mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            OpenSEO MCP
+            MCP do RE9 SEO
           </a>{" "}
-          gives an AI assistant the overview and backlink rows, alongside Search
-          Console and keyword data in one conversation. Use the app for the Top
-          Pages table. The{" "}
+          entrega a um assistente de IA a visão geral e as linhas de backlinks,
+          junto com o Search Console e os dados de palavras-chave, numa só
+          conversa. Use o app para a tabela de páginas principais. A{" "}
           <a
             href="/docs/skills/link-prospecting"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            link-prospecting skill
+            skill de prospecção de links
           </a>{" "}
-          packages the competitor workflow.
+          empacota o fluxo de concorrentes.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Where link building ends
+          Onde o link building termina
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Three things a backlink profile cannot tell you, and where to get
-          them.
+          Três coisas que um perfil de backlinks não consegue dizer, e onde
+          encontrá-las.
         </p>
         <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700">
           <li>
-            Which domains link to your competitors and not to you. That is a
-            comparison across profiles, and{" "}
+            Quais domínios apontam para seus concorrentes e não para você. Isso
+            é uma comparação entre perfis, e a{" "}
             <a
               href="/library/competitive-analysis/backlink-gap-analysis"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              backlink gap analysis
+              análise de lacunas de backlinks
             </a>{" "}
-            in the competitive analysis library is the strategy for it.
+            da biblioteca de análise de concorrentes é a estratégia para isso.
           </li>
           <li>
-            Whether the mention counted without a link. Unlinked brand mentions
-            and citations are how AI assistants decide who to recommend; one
-            guest cited data that most of what gets a brand named in an AI
-            answer lives off its own domain.{" "}
+            Se a menção contou mesmo sem link. Menções de marca sem link e
+            citações são o que os assistentes de IA usam para decidir quem
+            recomendar; um convidado citou dados mostrando que a maior parte do
+            que faz uma marca ser citada numa resposta de IA está fora do
+            próprio domínio dela. A{" "}
             <a
               href="/features/ai-brand-visibility"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              AI brand visibility
+              visibilidade da marca em IA
             </a>{" "}
-            measures that side; a backlink tool does not.
+            mede esse lado; uma ferramenta de backlinks, não.
           </li>
           <li>
-            Whether the page deserved the link. A page that earns links is
-            usually a tool, a piece of data or an event, and{" "}
+            Se a página merecia o link. Uma página que conquista links costuma
+            ser uma ferramenta, um dado ou um evento, e{" "}
             <a
               href="/library/keyword-research/positioning-to-demand"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              positioning to demand
+              ligar o posicionamento à demanda
             </a>{" "}
-            is how to decide what to build before you ask anyone to point at it.
+            é o jeito de decidir o que construir antes de pedir a alguém que
+            aponte para ela.
           </li>
         </ul>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Link building FAQ
+          Perguntas frequentes sobre link building
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -272,18 +277,19 @@ function LinkBuildingLibraryPage() {
       <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 sm:flex-row sm:items-center md:p-8">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            Read your backlink profile with your own agent
+            Leia o seu perfil de backlinks com o seu próprio agente
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-            Each strategy ends with a copy-paste MCP prompt. OpenSEO is open
-            source, free to start, and does not require a credit card.
+            Cada estratégia termina com um prompt de MCP pronto para copiar e
+            colar. O RE9 SEO é de código aberto. Fale com a gente:
+            trafego@re9.online.
           </p>
         </div>
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Start with OpenSEO
+          Começar com o RE9 SEO
           <span aria-hidden="true" className="ml-2">
             &rarr;
           </span>

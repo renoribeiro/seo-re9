@@ -69,7 +69,7 @@ export function CountrySelect({
 export function SubmitButton({
   status,
   idleLabel,
-  loadingLabel = "Checking…",
+  loadingLabel = "Verificando…",
 }: {
   status: ToolStatus;
   idleLabel: string;
@@ -85,7 +85,7 @@ export function SubmitButton({
       {status === "loading"
         ? loadingLabel
         : verificationStatus === "loading"
-          ? "Verifying…"
+          ? "Validando…"
           : idleLabel}
     </button>
   );
@@ -100,7 +100,7 @@ export function ToolForm({
   input,
   status,
   errorMessage,
-  cacheDuration = "24 hours",
+  cacheDuration = "24 horas",
   children,
 }: {
   onSubmit: (input: Record<string, unknown>, token: string) => Promise<void>;
@@ -154,24 +154,24 @@ export function ToolForm({
       </VerificationContext.Provider>
       {SITE_KEY ? <div ref={widget.container} /> : null}
       <p className="mt-2.5 text-xs text-[var(--color-brand-muted)]">
-        Free &middot; No signup
+        Grátis &middot; Sem cadastro
       </p>
       {verification === "loading" && status !== "loading" ? (
         <p
           role="status"
           className="mt-2 text-xs text-[var(--color-brand-muted)]"
         >
-          Verifying your browser. Complete the check above if prompted.
+          Validando seu navegador. Se aparecer uma verificação acima, conclua-a.
         </p>
       ) : null}
       {verification === "error" ? (
         <div role="alert" className="mt-2 text-sm text-red-600">
           <p>
-            Verification could not complete. Check your connection and try
-            again.
+            Não foi possível concluir a verificação. Confira sua conexão e tente
+            novamente.
           </p>
           <button type="button" onClick={retry} className="mt-1 underline">
-            Retry verification
+            Tentar a verificação novamente
           </button>
         </div>
       ) : null}
@@ -185,7 +185,7 @@ export function ToolForm({
           role="status"
           className="mt-2 text-xs text-[var(--color-brand-muted)]"
         >
-          Results may be cached for up to {cacheDuration}.
+          Os resultados podem ficar em cache por até {cacheDuration}.
         </p>
       ) : null}
     </form>

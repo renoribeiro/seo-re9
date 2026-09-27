@@ -1,13 +1,13 @@
 {
   "name": "openseo",
   "version": "1.0.0",
-  "description": "Without good data, your agent gives generic advice. Keyword research, competitor research, backlinks, and site audits. All for $10/month.",
+  "description": "Sem dados de qualidade, seu agente dá conselhos genéricos. Pesquisa de palavras-chave, concorrentes, backlinks e auditoria de sites com o RE9 SEO.",
   "author": {
-    "name": "OpenSEO",
-    "url": "https://openseo.so"
+    "name": "RE9 SEO",
+    "url": "https://seo.agenciare9.com.br"
   },
-  "homepage": "https://openseo.so",
-  "repository": "https://github.com/every-app/open-seo",
+  "homepage": "https://seo.agenciare9.com.br",
+  "repository": "https://github.com/renoribeiro/seo-re9",
   "license": "MIT",
   "keywords": [
     "seo",
@@ -22,19 +22,19 @@
   "skills": "./skills/",
   "mcpServers": {
     "openseo": {
-      "url": "https://app.openseo.so/mcp"
+      "url": "https://seo.agenciare9.com.br/mcp"
     }
   },
   "interface": {
-    "displayName": "OpenSEO",
-    "shortDescription": "Without good data, your agent gives generic advice. Keyword research, competitor research, backlinks, and site audits. All for $10/month.",
-    "longDescription": "Without good data, your agent gives generic advice. Keyword research, competitor research, backlinks, and site audits. All for $10/month.",
-    "developerName": "OpenSEO",
+    "displayName": "RE9 SEO",
+    "shortDescription": "Sem dados de qualidade, seu agente dá conselhos genéricos. Pesquisa de palavras-chave, concorrentes, backlinks e auditoria de sites com o RE9 SEO.",
+    "longDescription": "Sem dados de qualidade, seu agente dá conselhos genéricos. Pesquisa de palavras-chave, concorrentes, backlinks e auditoria de sites com o RE9 SEO.",
+    "developerName": "RE9 SEO",
     "category": "Productivity",
     "capabilities": ["Interactive"],
-    "websiteURL": "https://openseo.so",
-    "privacyPolicyURL": "https://openseo.so/privacy",
-    "termsOfServiceURL": "https://openseo.so/terms-and-conditions",
+    "websiteURL": "https://seo.agenciare9.com.br",
+    "privacyPolicyURL": "https://seo.agenciare9.com.br/privacy",
+    "termsOfServiceURL": "https://seo.agenciare9.com.br/terms-and-conditions",
     "defaultPrompt": [
       "Research keywords for my site and shortlist the best opportunities.",
       "Audit my site and give me a one-page report with a single next action.",

@@ -7,83 +7,83 @@ const TOOL = freeTools["keyword-generator"];
 export const Route = createFileRoute("/_marketing/keyword-generator")({
   head: () =>
     buildPageSeo({
-      title: "Free Keyword Generator",
+      title: "Gerador de palavras-chave grátis",
       description:
-        "Start with a topic and find keyword ideas people search for. Compare estimated search volume and difficulty in your target country.",
+        "Comece com um tema e encontre ideias de palavras-chave que as pessoas buscam. Compare o volume de busca estimado e a dificuldade no país que você quer alcançar.",
       path: TOOL.path,
-      titleSuffix: "OpenSEO",
-      imageAlt: "Free Keyword Generator",
+      titleSuffix: "RE9 SEO",
+      imageAlt: "Gerador de palavras-chave grátis",
     }),
   component: Page,
 });
 const HIGHLIGHTS = [
   {
-    title: "Ideas from a topic",
+    title: "Ideias a partir de um tema",
     description:
-      "Get up to 20 keyword suggestions from a short phrase, such as email marketing or running shoes.",
+      "Receba até 20 sugestões de palavras-chave a partir de uma frase curta, como marketing digital ou tênis de corrida.",
   },
   {
-    title: "Monthly search volume",
+    title: "Volume de busca mensal",
     description:
-      "See estimated Google searches in your selected country. Use volume to compare demand, not to predict visits.",
+      "Veja a estimativa de buscas no Google no país selecionado. Use o volume para comparar demanda, não para prever visitas.",
   },
   {
-    title: "Difficulty estimates",
+    title: "Estimativas de dificuldade",
     description:
-      "Use the available 0–100 difficulty scores as an initial check, then review the search results before choosing a keyword.",
+      "Use as pontuações de dificuldade de 0 a 100 disponíveis como uma primeira avaliação e depois analise os resultados de busca antes de escolher uma palavra-chave.",
   },
 ];
 const FAQS = [
   {
-    question: "Does this use AI to invent keywords?",
+    question: "A ferramenta usa IA para inventar palavras-chave?",
     answer:
-      "No. Suggestions come from DataForSEO’s Google keyword database, with available volume and difficulty metrics. Some topics or countries may return few or no ideas.",
+      "Não. As sugestões vêm do banco de palavras-chave do Google da DataForSEO, com as métricas de volume e dificuldade disponíveis. Alguns temas ou países podem retornar poucas ideias ou nenhuma.",
   },
   {
-    question: "How should I choose a starting topic?",
+    question: "Como escolher um tema inicial?",
     answer:
-      "Use a short phrase that describes your product, service, or audience’s problem. If the results are too broad, try a more specific phrase; if there are no results, try a broader one.",
+      "Use uma frase curta que descreva seu produto, seu serviço ou o problema do seu público. Se os resultados forem amplos demais, tente uma frase mais específica; se não houver resultados, tente uma mais ampla.",
   },
   {
-    question: "What do missing metrics mean?",
+    question: "O que significam as métricas em branco?",
     answer:
-      "A dash means the provider has no value for that metric. It does not mean zero searches or zero competition. Volumes are estimates, and close variations can share the same estimate.",
+      "Um traço significa que o provedor não tem valor para aquela métrica. Não significa zero buscas nem zero concorrência. Os volumes são estimativas, e variações próximas podem ter a mesma estimativa.",
   },
   {
-    question: "How current are the results?",
+    question: "Os resultados são atuais?",
     answer:
-      "The tool uses DataForSEO’s keyword database, which is updated periodically. Results may be cached for up to 24 hours; they are not a real-time count of searches.",
+      "A ferramenta usa o banco de palavras-chave da DataForSEO, que é atualizado periodicamente. Os resultados podem ficar em cache por até 24 horas; não são uma contagem de buscas em tempo real.",
   },
   {
-    question: "Is this free?",
+    question: "É grátis?",
     answer:
-      "Yes. You can get up to 20 keyword ideas without signup. Usage limits apply. The full OpenSEO workspace uses paid credits. Free trial credits are available to get started.",
+      "Sim. Você recebe até 20 ideias de palavras-chave sem cadastro. Há limites de uso.",
   },
 ];
 function Page() {
   return (
     <ToolFrame
       tool={TOOL}
-      heading={"Free Keyword Generator"}
+      heading={"Gerador de palavras-chave grátis"}
       subhead={
-        "Start with a topic and find keyword ideas people search for. Compare estimated search volume and difficulty in your target country."
+        "Comece com um tema e encontre ideias de palavras-chave que as pessoas buscam. Compare o volume de busca estimado e a dificuldade no país que você quer alcançar."
       }
       highlights={HIGHLIGHTS}
       faqs={FAQS}
       cta={{
-        heading: "Choose your next content topic",
-        body: "Continue your research in OpenSEO and save keywords to your project. Start with free trial credits.",
-        featureLabel: "Explore keyword research",
+        heading: "Escolha seu próximo tema de conteúdo",
+        body: "Continue a pesquisa no RE9 SEO e salve palavras-chave no seu projeto.",
+        featureLabel: "Conheça a pesquisa de palavras-chave",
       }}
     >
       <KeywordDiscoveryTool tool={"keyword-generator"} />
       <p className="mt-4 text-sm leading-6 text-[var(--color-brand-muted)]">
-        Already know a competitor in your space?{" "}
+        Já conhece um concorrente do seu mercado?{" "}
         <a
           className="font-medium text-neutral-950 underline underline-offset-4"
           href="/competitor-keyword-finder"
         >
-          Find their ranking keywords &rarr;
+          Descubra as palavras-chave em que ele ranqueia &rarr;
         </a>
       </p>
     </ToolFrame>

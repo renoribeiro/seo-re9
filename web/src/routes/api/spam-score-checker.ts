@@ -21,7 +21,11 @@ const CACHE_TTL_SECONDS = 86_400;
 const WORST_BACKLINKS_LIMIT = 10;
 
 const requestSchema = z.object({
-  target: z.string().trim().min(1, "Enter a domain").max(300),
+  target: z
+    .string()
+    .trim()
+    .min(1, "Digite um domínio")
+    .max(300, "Domínio longo demais"),
   turnstileToken: z.string().max(4096).optional(),
 });
 
@@ -86,7 +90,7 @@ export const Route = createFileRoute("/api/spam-score-checker")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success) {
           return jsonResponse(
-            { error: parsed.error.issues[0]?.message ?? "Invalid request" },
+            { error: parsed.error.issues[0]?.message ?? "Requisição inválida" },
             400,
           );
         }
@@ -94,7 +98,7 @@ export const Route = createFileRoute("/api/spam-score-checker")({
         const domain = normalizeDomain(parsed.data.target);
         if (!domain) {
           return jsonResponse(
-            { error: "Enter a valid domain, like example.com" },
+            { error: "Digite um domínio válido, como exemplo.com.br" },
             400,
           );
         }
@@ -183,7 +187,8 @@ export const Route = createFileRoute("/api/spam-score-checker")({
           return cacheableJson(result, CACHE_TTL_SECONDS);
         } catch (err) {
           console.error("Spam score check error:", err);
-          const message = "Spam score check failed. Please try again.";
+          const message =
+            "A verificação de spam score falhou. Tente novamente.";
           await writeCached(
             TOOL.slug,
             domain,

@@ -1,17 +1,17 @@
 {
-  "title": "Agent Skills",
+  "title": "Skills de agente",
   "pages": [
-    "[Overview](/docs/skills)",
-    "[Install Agent Skills](/docs/skills/setup)",
-    "[Project Setup](/docs/skills/seo-project-setup)",
+    "[Visão geral](/docs/skills)",
+    "[Instale as skills de agente](/docs/skills/setup)",
+    "[Configuração do projeto](/docs/skills/seo-project-setup)",
     "[SEO Coach](/docs/skills/seo-coach)",
-    "[SEO Audit](/docs/skills/seo-audit)",
-    "[Keyword Research](/docs/skills/keyword-research)",
-    "[Keyword Clustering](/docs/skills/keyword-clustering)",
-    "[Competitive Landscape](/docs/skills/competitive-landscape)",
-    "[Competitor Analysis](/docs/skills/competitor-analysis)",
-    "[Local SEO](/docs/skills/local-seo)",
-    "[Link Prospecting](/docs/skills/link-prospecting)",
-    "[SEO Report](/docs/skills/seo-report)"
+    "[Auditoria de SEO](/docs/skills/seo-audit)",
+    "[Pesquisa de palavras-chave](/docs/skills/keyword-research)",
+    "[Agrupamento de palavras-chave](/docs/skills/keyword-clustering)",
+    "[Panorama competitivo](/docs/skills/competitive-landscape)",
+    "[Análise de concorrentes](/docs/skills/competitor-analysis)",
+    "[SEO local](/docs/skills/local-seo)",
+    "[Prospecção de links](/docs/skills/link-prospecting)",
+    "[Relatório de SEO](/docs/skills/seo-report)"
   ]
 }

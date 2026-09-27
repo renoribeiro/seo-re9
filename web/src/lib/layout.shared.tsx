@@ -1,38 +1,39 @@
+import { BrandLogo } from "@/components/brand-logo";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: <span className="font-semibold">OpenSEO</span>,
+      title: <BrandLogo />,
     },
     searchToggle: {
       enabled: false,
     },
     links: [
       {
-        text: "Resources",
-        url: "/blogs",
+        text: "Materiais",
+        url: "/library",
         items: [
           {
-            text: "Blog",
-            description: "SEO articles and guides.",
-            url: "/blogs",
+            text: "Biblioteca de estratégias",
+            description: "Estratégias práticas de SEO organizadas por tema.",
+            url: "/library",
           },
           {
             text: "MCP",
-            description: "Connect OpenSEO to AI clients.",
+            description: "Conecte o RE9 SEO a clientes de IA.",
             url: "/docs/mcp",
           },
           {
             text: "Skills",
-            description: "Focused OpenSEO workflows.",
+            description: "Fluxos de trabalho prontos do RE9 SEO.",
             url: "/docs/skills",
           },
         ],
       },
       {
         text: "GitHub",
-        url: "https://github.com/every-app/open-seo",
+        url: "https://github.com/renoribeiro/seo-re9",
         external: true,
       },
     ],

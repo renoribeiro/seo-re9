@@ -1,7 +1,7 @@
 {
-  "title": "Self-Hosting",
+  "title": "Hospedagem própria",
   "pages": [
-    "[Overview](/docs/self-hosting)",
+    "[Visão geral](/docs/self-hosting)",
     "[Docker](/docs/self-hosting/docker)",
     "[Cloudflare](/docs/self-hosting/cloudflare)"
   ]

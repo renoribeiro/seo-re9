@@ -3,7 +3,7 @@ import { trackTool } from "@/lib/free-tools/analytics";
 import { type FreeTool, freeTools } from "@/lib/free-tools/tool-pages";
 import { buildBreadcrumbJsonLd, SITE_URL, toCanonicalUrl } from "@/lib/seo";
 
-const SIGNUP_URL = "https://app.openseo.so/sign-up";
+const SIGNUP_URL = "https://seo.agenciare9.com.br/sign-up";
 
 type ToolHighlight = { title: string; description: string };
 
@@ -34,7 +34,7 @@ export function ToolFrame({
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <p className="text-sm font-medium text-[var(--color-brand-accent)]">
-          Free tool
+          Ferramenta gratuita
         </p>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
           {heading}
@@ -48,7 +48,7 @@ export function ToolFrame({
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What you get
+          O que você recebe
         </h2>
         <ol className="mt-5 grid gap-4 md:grid-cols-3">
           {highlights.map((item, index) => (
@@ -72,7 +72,7 @@ export function ToolFrame({
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          FAQ
+          Perguntas frequentes
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -101,7 +101,7 @@ export function ToolFrame({
             onClick={() => trackTool("tool_cta_click", tool.slug)}
             className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Try OpenSEO
+            Experimente o RE9 SEO
             <span aria-hidden="true" className="ml-2">
               &rarr;
             </span>
@@ -135,7 +135,7 @@ function RelatedTools({ tool }: { tool: FreeTool }) {
   return (
     <section className="mt-12">
       <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-        More free tools
+        Mais ferramentas gratuitas
       </h2>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
         {tool.related
@@ -166,7 +166,7 @@ function RelatedTools({ tool }: { tool: FreeTool }) {
           href="/tools"
           className="text-sm font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
         >
-          All free SEO tools
+          Todas as ferramentas de SEO gratuitas
           <span aria-hidden="true" className="ml-1">
             &rarr;
           </span>
@@ -187,7 +187,7 @@ function buildToolJsonLd(tool: FreeTool, faqs: ToolFaq[]) {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: `OpenSEO ${tool.name}`,
+      name: `${tool.name} | RE9 SEO`,
       applicationCategory: "SEO",
       operatingSystem: "Web",
       url: toCanonicalUrl(tool.path),
@@ -199,7 +199,7 @@ function buildToolJsonLd(tool: FreeTool, faqs: ToolFaq[]) {
       },
       provider: {
         "@type": "Organization",
-        name: "OpenSEO",
+        name: "RE9 SEO",
         url: SITE_URL,
       },
     },
@@ -213,8 +213,8 @@ function buildToolJsonLd(tool: FreeTool, faqs: ToolFaq[]) {
       })),
     },
     buildBreadcrumbJsonLd([
-      { name: "Home", path: "/" },
-      { name: "Free tools", path: "/tools" },
+      { name: "Início", path: "/" },
+      { name: "Ferramentas gratuitas", path: "/tools" },
       { name: tool.name, path: tool.path },
     ]),
   ];

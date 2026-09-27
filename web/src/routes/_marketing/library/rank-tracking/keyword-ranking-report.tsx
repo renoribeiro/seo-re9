@@ -11,29 +11,29 @@ const PATH = "/library/rank-tracking/keyword-ranking-report";
 
 const faqs = [
   {
-    question: "What should an SEO ranking report include?",
+    question: "O que um relatório de posições de SEO deve incluir?",
     answer:
-      "The business metric for the tracked pages against the prior period, ranking movement as four counts (entered top 3, entered page 1, left page 1, unchanged), the three rows that explain the movement with SERP features noted, a brand and non-brand split, and a short list of work done and planned. The full keyword table goes in an attachment.",
+      "A métrica de negócio das páginas monitoradas comparada ao período anterior, a variação de posições em quatro contagens (entrou no Top 3, entrou na primeira página, saiu da primeira página, sem mudança), as três linhas que explicam a variação com os recursos da SERP anotados, a divisão entre marca e não marca e uma lista curta do trabalho feito e planejado. A tabela completa de palavras-chave vai em anexo.",
   },
   {
-    question: "How often should I send a ranking report?",
+    question: "Com que frequência enviar um relatório de posições?",
     answer:
-      "Monthly for most businesses, weekly if a launch or migration is in progress. The tracker can check daily; the report should not, because week-to-week ranking noise is real and reporting it trains the reader to ignore the report.",
+      "Mensalmente para a maioria das empresas, semanalmente se houver um lançamento ou uma migração em andamento. O monitoramento pode checar todo dia; o relatório não deve, porque o ruído de posições de uma semana para outra é real e reportá-lo ensina quem lê a ignorar o relatório.",
   },
   {
-    question: "Should a ranking report show average position?",
+    question: "Um relatório de posições deve mostrar a posição média?",
     answer:
-      "Not across all keywords. It is a mean of unrelated queries, changes whenever the list changes, and means nothing to a non-SEO reader. Report positions per keyword for the few rows that matter and movement counts for the rest.",
+      "Não somando todas as palavras-chave. Ela é uma média de consultas sem relação entre si, muda sempre que a lista muda e não significa nada para quem não é de SEO. Informe a posição por palavra-chave nas poucas linhas que importam e contagens de variação para o resto.",
   },
   {
-    question: "How do I explain a ranking drop to a client or manager?",
+    question: "Como explicar uma queda de posição para um cliente ou gestor?",
     answer:
-      "Name the keyword, the previous and current position, the URL, and what is now on the results page, then say what you are doing about it. If the position held and clicks fell, show the SERP feature that took the click. A drop with a cause and a plan is a normal report; a drop with neither is a problem.",
+      "Diga qual é a palavra-chave, a posição anterior e a atual, a URL e o que aparece agora na página de resultados, e depois diga o que você está fazendo a respeito. Se a posição se manteve e os cliques caíram, mostre o recurso da SERP que levou o clique. Uma queda com causa e plano é um relatório normal; uma queda sem nenhum dos dois é um problema.",
   },
   {
-    question: "Can OpenSEO generate a ranking report?",
+    question: "O RE9 SEO gera relatório de posições?",
     answer:
-      "It provides the pieces: tracked positions with previous positions and SERP features, Search Console clicks by page and query at no credit cost, and an MCP so an assistant can assemble the report from a prompt like the one above. It does not produce a composite score, on purpose.",
+      "Ele fornece as peças: posições monitoradas com as posições anteriores e os recursos da SERP, cliques do Search Console por página e por consulta sem consumir créditos e um MCP para que um assistente monte o relatório a partir de um prompt como o de cima. De propósito, ele não produz uma nota composta.",
   },
 ];
 
@@ -52,17 +52,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "The Keyword Ranking Report Your CEO Will Read",
+      title: "O relatório de posições de palavras-chave que o seu CEO vai ler",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Keyword ranking report"
+      crumb="Relatório de posições"
       path={PATH}
       library={RANK_TRACKING_LIBRARY}
     >

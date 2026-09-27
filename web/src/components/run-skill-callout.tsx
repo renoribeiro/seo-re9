@@ -12,7 +12,7 @@ export function RunSkillCallout({ command }: RunSkillCalloutProps) {
         <span className="size-2 rounded-full bg-fd-muted-foreground/30" />
         <span className="size-2 rounded-full bg-fd-muted-foreground/30" />
         <span className="ml-2 text-xs font-medium text-fd-muted-foreground">
-          Run this skill in your agent
+          Rode esta skill no seu agente
         </span>
       </div>
       <div className="flex items-center gap-3 p-4">

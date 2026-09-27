@@ -1,18 +1,18 @@
-# Cloudflare Self-Hosting: Legacy Deployments
+# Self-hosting na Cloudflare: implantações legadas
 
-Maintenance for installs created with the retired **Deploy to Cloudflare button** or the **manual Wrangler flow**. These deployments keep working — nothing changes for you. New deployments should use the [current guide](./SELF_HOSTING_CLOUDFLARE.md).
+Manutenção de instalações criadas pelo antigo **botão "Deploy to Cloudflare"** ou pelo **fluxo manual com Wrangler**. Essas implantações continuam funcionando — nada muda para você. Novas implantações devem usar o [guia atual](./SELF_HOSTING_CLOUDFLARE.md).
 
-## Updating (Deploy-button repos)
+## Atualizando (repositórios criados pelo botão Deploy)
 
-Your repo was created by the deploy button and `wrangler.jsonc` holds your resource IDs; keep them while pulling the newest code.
+Seu repositório foi criado pelo botão de deploy e o `wrangler.jsonc` guarda os IDs dos seus recursos; mantenha-os ao puxar o código mais recente.
 
-One-time setup:
+Configuração única:
 
 ```bash
-git remote add upstream https://github.com/every-app/open-seo.git
+git remote add upstream https://github.com/renoribeiro/seo-re9.git
 ```
 
-Update steps:
+Passos de atualização:
 
 ```bash
 git fetch upstream
@@ -25,7 +25,7 @@ git commit -m "restore Cloudflare settings" || true
 git push --force-with-lease origin main
 ```
 
-## Updating (manual Wrangler deployments)
+## Atualizando (implantações manuais com Wrangler)
 
 ```bash
 git pull
@@ -33,45 +33,45 @@ pnpm install
 pnpm run deploy
 ```
 
-`pnpm run deploy` also deploys a second worker, `open-seo-audit`, which runs site audits. Copy your `DB`, `KV`, and `R2` bindings from `wrangler.jsonc` into `wrangler.audit.jsonc` (it needs no `OAUTH_KV`) — the deploy fails on ids that don't exist in your account. Then set its DataForSEO key once, or every Lighthouse check in an audit fails:
+O `pnpm run deploy` também implanta um segundo Worker, `open-seo-audit`, que executa as auditorias do site. Copie os bindings `DB`, `KV` e `R2` do `wrangler.jsonc` para o `wrangler.audit.jsonc` (ele não precisa de `OAUTH_KV`) — a implantação falha com IDs que não existem na sua conta. Depois, defina a chave do DataForSEO dele uma vez; caso contrário, todas as verificações do Lighthouse em uma auditoria falham:
 
 ```bash
 pnpm exec wrangler secret put DATAFORSEO_API_KEY --name open-seo-audit
 ```
 
-## Giving teammates access
+## Dando acesso à equipe
 
-1. Open Cloudflare Zero Trust.
-2. Go to Access -> Applications.
-3. Open your OpenSEO application.
-4. Edit the `Allow` policy.
-5. Add teammate emails (or your company email domain / group).
-6. Save.
+1. Abra o Cloudflare Zero Trust.
+2. Vá em Access -> Applications.
+3. Abra a aplicação do RE9 SEO.
+4. Edite a política `Allow`.
+5. Adicione os e-mails das pessoas da equipe (ou o domínio de e-mail / grupo da sua empresa).
+6. Salve.
 
-Screenshots: [edit the Access policy](https://github.com/user-attachments/assets/c7bbc7b4-a18e-4ae4-9fe5-3b33c72048a7), [add teammate emails](https://github.com/user-attachments/assets/fa4ecaf2-31f7-4a64-9001-210cf729747b).
+Capturas de tela: [editar a política do Access](https://github.com/user-attachments/assets/c7bbc7b4-a18e-4ae4-9fe5-3b33c72048a7), [adicionar e-mails da equipe](https://github.com/user-attachments/assets/fa4ecaf2-31f7-4a64-9001-210cf729747b).
 
-## Optional: R2 lifecycle rule
+## Opcional: regra de ciclo de vida do R2
 
-DataForSEO API responses are cached in R2 under the `dataforseo-cache/` prefix. Recommended so expired cache objects don't accumulate:
+As respostas da API do DataForSEO ficam em cache no R2, sob o prefixo `dataforseo-cache/`. Recomendado para que objetos de cache expirados não se acumulem:
 
 ```bash
 pnpm exec wrangler r2 bucket lifecycle add open-seo dataforseo-cache-expiry dataforseo-cache/ --expire-days 7
 ```
 
-Replace `open-seo` with your bucket name if you changed it.
+Troque `open-seo` pelo nome do seu bucket, se você o alterou.
 
-## Troubleshooting
+## Solução de problemas
 
-**Login fails or OpenSEO doesn't load.** Re-check, on your Worker under `Settings`:
+**O login falha ou o RE9 SEO não carrega.** Confira, no seu Worker, em `Settings`:
 
-- `Domains & Routes`: `Cloudflare Access` is enabled for the `workers.dev` route.
-- `Variables & Secrets`: `TEAM_DOMAIN` (for example `https://your-team.cloudflareaccess.com`), `POLICY_AUD` (the Access application audience tag), and `DATAFORSEO_API_KEY` are set. The `open-seo-audit` worker needs `DATAFORSEO_API_KEY` too.
-- Manual Wrangler deployments: the binding IDs in `wrangler.jsonc` match your resources.
+- `Domains & Routes`: o `Cloudflare Access` está ativado para a rota `workers.dev`.
+- `Variables & Secrets`: `TEAM_DOMAIN` (por exemplo `https://your-team.cloudflareaccess.com`), `POLICY_AUD` (a tag de audiência da aplicação do Access) e `DATAFORSEO_API_KEY` estão definidos. O Worker `open-seo-audit` também precisa de `DATAFORSEO_API_KEY`.
+- Implantações manuais com Wrangler: os IDs dos bindings no `wrangler.jsonc` correspondem aos seus recursos.
 
-`https://<your-worker-hostname>/api/health` reports runtime configuration checks and database status. For server errors, open the Worker `Logs` or run `pnpm exec wrangler tail`.
+`https://<your-worker-hostname>/api/health` mostra as verificações de configuração em tempo de execução e o status do banco de dados. Para erros no servidor, abra os `Logs` do Worker ou rode `pnpm exec wrangler tail`.
 
-**Migrating to the current flow** is not supported yet — the new deploy provisions fresh resources, so your data would not move. Keep using this page.
+**Migrar para o fluxo atual** ainda não é suportado — a nova implantação provisiona recursos novos, então seus dados não seriam transferidos. Continue usando esta página.
 
-## Everything else
+## Todo o resto
 
-MCP setup and telemetry work the same as current deployments — see [Operations](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md).
+A configuração do MCP e a telemetria funcionam como nas implantações atuais — veja [Operação](./SELF_HOSTING_CLOUDFLARE_OPERATIONS.md).

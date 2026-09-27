@@ -3,45 +3,50 @@ import { aiAgentSeoStrategies } from "@/lib/strategy-libraries";
 import { buildPageSeo } from "@/lib/seo";
 
 const mcpDescription =
-  "Give Claude, Cursor, or any MCP client real SEO tools: keyword research, live SERPs, backlinks, rank tracking, and Search Console data via one MCP server.";
+  "Dê ao Claude, ao Cursor ou a qualquer cliente MCP ferramentas reais de SEO: pesquisa de palavras-chave, SERPs ao vivo, backlinks, monitoramento de posições e dados do Search Console em um único servidor MCP.";
 
 const toolCategories = [
   {
-    label: "Keywords",
+    label: "Palavras-chave",
     tools: [
       {
-        title: "Research keywords",
-        description: "Get keyword ideas with volume, difficulty, and CPC.",
-      },
-      {
-        title: "Get SERP results",
-        description: "See live Google organic results for a keyword.",
-      },
-      {
-        title: "Save keywords",
-        description: "Keep useful ideas organized in your OpenSEO project.",
-      },
-      {
-        title: "Get rank tracker data",
+        title: "Pesquisar palavras-chave",
         description:
-          "Read tracked-keyword positions and latest results from your project's rank trackers.",
+          "Gere ideias de palavras-chave com volume, dificuldade e CPC.",
+      },
+      {
+        title: "Obter resultados da SERP",
+        description:
+          "Veja os resultados orgânicos do Google ao vivo para uma palavra-chave.",
+      },
+      {
+        title: "Salvar palavras-chave",
+        description:
+          "Mantenha as ideias úteis organizadas no seu projeto do RE9 SEO.",
+      },
+      {
+        title: "Obter dados de monitoramento de posições",
+        description:
+          "Leia as posições das palavras-chave monitoradas e os resultados mais recentes dos monitoramentos do seu projeto.",
       },
     ],
   },
   {
-    label: "Competitive research",
+    label: "Pesquisa de concorrentes",
     tools: [
       {
-        title: "Get domain overview",
-        description: "Summarize a domain's organic footprint.",
+        title: "Obter visão geral do domínio",
+        description: "Resuma a presença orgânica de um domínio.",
       },
       {
-        title: "Get domain keywords",
-        description: "Find keywords a domain already ranks for.",
+        title: "Obter palavras-chave do domínio",
+        description:
+          "Encontre as palavras-chave em que um domínio já ranqueia.",
       },
       {
-        title: "Get backlinks overview",
-        description: "Check backlink and referring-domain stats.",
+        title: "Obter visão geral de backlinks",
+        description:
+          "Confira estatísticas de backlinks e domínios de referência.",
       },
     ],
   },
@@ -49,14 +54,14 @@ const toolCategories = [
     label: "Search Console",
     tools: [
       {
-        title: "Get GSC performance",
+        title: "Obter desempenho do GSC",
         description:
-          "Read clicks, impressions, CTR, and position from the connected property.",
+          "Leia cliques, impressões, CTR e posição da propriedade conectada.",
       },
       {
-        title: "Inspect URLs",
+        title: "Inspecionar URLs",
         description:
-          "Check index coverage, crawl, canonical, mobile, and rich-result signals.",
+          "Verifique cobertura de indexação, rastreamento, URL canônica, Mobile e sinais de resultados avançados.",
       },
     ],
   },
@@ -64,34 +69,34 @@ const toolCategories = [
 
 const workflows = [
   {
-    title: "First-pass keyword research",
+    title: "Primeira rodada de pesquisa de palavras-chave",
     description:
-      "Ask the agent to expand seed topics into keyword ideas with volume, difficulty, and CPC, then save the promising ones back to your OpenSEO project for human review.",
+      "Peça ao agente para expandir temas-semente em ideias de palavras-chave com volume, dificuldade e CPC e salvar as mais promissoras no seu projeto do RE9 SEO para revisão humana.",
   },
   {
-    title: "Competitor teardown",
+    title: "Raio-x de um concorrente",
     description:
-      "Point the agent at a competitor domain and have it pull the domain overview, ranking keywords, and backlink stats, then summarize where you can realistically compete.",
+      "Aponte o agente para o domínio de um concorrente e peça a visão geral do domínio, as palavras-chave ranqueadas e as estatísticas de backlinks, com um resumo de onde você pode competir de forma realista.",
   },
   {
-    title: "Striking-distance sweep from Search Console",
+    title: "Varredura de oportunidades próximas do topo no Search Console",
     description:
-      "Have the agent read your GSC queries, find page-two keywords worth pushing to page one, and check the live SERP for each before recommending changes.",
+      "Peça ao agente para ler suas consultas do GSC, encontrar palavras-chave na página dois que valem ser levadas para a página um e checar a SERP ao vivo de cada uma antes de recomendar mudanças.",
   },
   {
-    title: "Keyword clustering and tagging",
+    title: "Agrupamento e tags de palavras-chave",
     description:
-      "Let the agent group saved keywords by intent, tag them by page or topic cluster, and hand back a content plan you can act on in the OpenSEO UI.",
+      "Deixe o agente agrupar as palavras-chave salvas por intenção, marcá-las com tags por página ou cluster de temas e devolver um plano de conteúdo que você pode executar na interface do RE9 SEO.",
   },
 ];
 
 export const Route = createFileRoute("/_marketing/features/mcp")({
   head: () =>
     buildPageSeo({
-      title: "SEO MCP Server: Keyword, SERP & Backlink Tools",
+      title: "Servidor MCP de SEO: palavras-chave, SERP e backlinks",
       description: mcpDescription,
       path: "/features/mcp",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: McpPage,
 });
@@ -99,16 +104,17 @@ export const Route = createFileRoute("/_marketing/features/mcp")({
 function McpPage() {
   return (
     <>
-      <p className="text-sm font-medium text-neutral-500">OpenSEO MCP</p>
+      <p className="text-sm font-medium text-neutral-500">MCP do RE9 SEO</p>
       <h1 className="mt-3 text-3xl font-bold tracking-tight leading-tight">
-        An SEO MCP server for AI agents
+        Um servidor MCP de SEO para agentes de IA
       </h1>
       <p className="mt-4 text-neutral-700 leading-relaxed">
-        OpenSEO is an SEO MCP server that connects Claude, Cursor, Codex, or any
-        MCP client to real data, so your agent can research keywords, inspect
-        live SERPs, compare competitor domains, summarize backlink context, save
-        keyword opportunities, review rank-tracking data, and read first-party
-        Search Console signals.
+        O RE9 SEO é um servidor MCP de SEO que conecta o Claude, o Cursor, o
+        Codex ou qualquer cliente MCP a dados reais. Assim, seu agente pode
+        pesquisar palavras-chave, analisar SERPs ao vivo, comparar domínios de
+        concorrentes, resumir o contexto de backlinks, salvar oportunidades de
+        palavras-chave, revisar dados de monitoramento de posições e ler sinais
+        próprios do Search Console.
       </p>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -116,37 +122,42 @@ function McpPage() {
           href="/docs/mcp"
           className="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Set up OpenSEO MCP
+          Configurar o MCP do RE9 SEO
         </a>
         <a
           href="/docs/skills"
           className="inline-flex h-10 items-center justify-center rounded-md border border-neutral-300 px-5 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900"
         >
-          View OpenSEO skills
+          Ver as skills do RE9 SEO
         </a>
       </div>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold">What is an SEO MCP server?</h2>
+        <h2 className="text-xl font-semibold">
+          O que é um servidor MCP de SEO?
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-          MCP (Model Context Protocol) is the standard AI clients use to call
-          external tools. An SEO MCP server exposes SEO data (keyword metrics,
-          SERP results, domain and backlink stats) as tools an agent can call
-          mid-conversation. Instead of guessing at search volumes or rankings,
-          your agent queries real data from your OpenSEO project, and can save
-          its findings back so you can review them in the UI. Pair it with{" "}
+          MCP (Model Context Protocol) é o padrão que os clientes de IA usam
+          para chamar ferramentas externas. Um servidor MCP de SEO expõe dados
+          de SEO (métricas de palavras-chave, resultados da SERP, estatísticas
+          de domínios e backlinks) como ferramentas que o agente pode chamar no
+          meio da conversa. Em vez de chutar volumes de busca ou posições, seu
+          agente consulta dados reais do seu projeto no RE9 SEO e pode salvar o
+          que encontrou para você revisar na interface. Combine com a{" "}
           <a
             href="/features/keyword-research"
             className="font-medium text-neutral-900 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-700"
           >
-            keyword research
+            pesquisa de palavras-chave
           </a>{" "}
-          for an agent-driven first pass over any topic.
+          para uma primeira rodada, feita pelo agente, sobre qualquer tema.
         </p>
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold">Agent workflows that work</h2>
+        <h2 className="text-xl font-semibold">
+          Fluxos com agentes que funcionam
+        </h2>
         <ol className="mt-6 space-y-6">
           {workflows.map((workflow, index) => (
             <li
@@ -170,7 +181,9 @@ function McpPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold">Available tool groups</h2>
+        <h2 className="text-xl font-semibold">
+          Grupos de ferramentas disponíveis
+        </h2>
         <div className="mt-5 grid gap-x-8 gap-y-8 md:grid-cols-3">
           {toolCategories.map((category) => (
             <div key={category.label}>
@@ -195,11 +208,14 @@ function McpPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold">AI-Agent SEO strategy library</h2>
+        <h2 className="text-xl font-semibold">
+          Biblioteca de estratégias de SEO com agentes de IA
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-          Practitioner strategies for running SEO through an agent: what to
-          connect, what to automate, where the human stays, and how to make a
-          good run repeatable. Each includes a copy-paste MCP prompt.
+          Estratégias práticas para fazer SEO com um agente: o que conectar, o
+          que automatizar, onde a pessoa continua no controle e como tornar uma
+          boa execução repetível. Cada uma traz um prompt MCP pronto para
+          copiar.
         </p>
         <ul className="mt-5 space-y-3">
           {aiAgentSeoStrategies.map((strategy) => (
@@ -221,46 +237,46 @@ function McpPage() {
             href="/library/ai-agent-seo"
             className="inline-flex h-9 items-center justify-center rounded-md border border-neutral-300 px-4 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900"
           >
-            Browse all AI-agent SEO strategies
+            Ver todas as estratégias de SEO com agentes de IA
           </a>
         </div>
       </section>
 
       <section className="mt-12 rounded-lg border border-neutral-200 bg-white p-5">
         <h2 className="text-lg font-semibold text-neutral-900">
-          Google Search Console MCP — no Google Cloud setup
+          MCP do Google Search Console, sem configurar o Google Cloud
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-          OpenSEO MCP can read Search Console performance and URL inspection
-          data from a connected hosted project. No Google Cloud project or OAuth
-          credentials needed. These tools are read-only and do not use OpenSEO
-          credits.
+          O MCP do RE9 SEO pode ler dados de desempenho e de inspeção de URLs do
+          Search Console de um projeto hospedado conectado. Não é preciso criar
+          projeto no Google Cloud nem credenciais OAuth. Essas ferramentas são
+          somente leitura e não consomem créditos do RE9 SEO.
         </p>
         <div className="mt-4">
           <a
             href="/google-search-console-mcp"
             className="inline-flex h-9 items-center justify-center rounded-md border border-neutral-300 px-4 text-sm font-medium text-neutral-900 transition-colors hover:border-neutral-900"
           >
-            Explore GSC MCP
+            Conhecer o MCP do GSC
           </a>
         </div>
       </section>
 
       <section className="mt-12 rounded-lg border border-neutral-200 bg-neutral-50 p-5">
         <h2 className="text-lg font-semibold text-neutral-900">
-          Setup lives in Docs
+          A configuração está na documentação
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-          The MCP server URL, Claude setup, Codex setup, and troubleshooting
-          steps are maintained in the docs so this feature page can stay focused
-          on what OpenSEO MCP makes possible.
+          A URL do servidor MCP, a configuração do Claude e do Codex e a solução
+          de problemas ficam na documentação, para que esta página possa focar
+          no que o MCP do RE9 SEO torna possível.
         </p>
         <div className="mt-4">
           <a
             href="/docs/mcp"
             className="inline-flex h-9 items-center justify-center rounded-md bg-neutral-900 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Open MCP docs
+            Abrir a documentação do MCP
           </a>
         </div>
       </section>

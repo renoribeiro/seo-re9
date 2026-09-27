@@ -12,7 +12,8 @@ export function KeywordTable({
   if (rows.length === 0) {
     return (
       <p className="mt-3 rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-        No ranking keywords found in the available data for this country.
+        Nenhuma palavra-chave ranqueada encontrada nos dados disponíveis para
+        este país.
       </p>
     );
   }
@@ -20,21 +21,23 @@ export function KeywordTable({
   return (
     <ToolTable
       label={
-        showTraffic ? "Competitor-only keywords" : "Competitor top keywords"
+        showTraffic
+          ? "Palavras-chave só do concorrente"
+          : "Principais palavras-chave do concorrente"
       }
       className="mt-3"
     >
       <table className="w-full min-w-[640px] text-left text-sm">
         <thead>
           <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
-            <th className="px-4 py-3 font-medium">Keyword</th>
+            <th className="px-4 py-3 font-medium">Palavra-chave</th>
             <th className="px-4 py-3 font-medium">Volume</th>
-            <th className="px-4 py-3 font-medium">Difficulty</th>
-            <th className="px-4 py-3 font-medium">Position</th>
+            <th className="px-4 py-3 font-medium">Dificuldade</th>
+            <th className="px-4 py-3 font-medium">Posição</th>
             {showTraffic ? (
-              <th className="px-4 py-3 font-medium">Traffic</th>
+              <th className="px-4 py-3 font-medium">Tráfego</th>
             ) : null}
-            <th className="px-4 py-3 font-medium">Ranking URL</th>
+            <th className="px-4 py-3 font-medium">URL ranqueada</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-[var(--color-border-subtle)]">

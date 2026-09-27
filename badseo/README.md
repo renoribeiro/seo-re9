@@ -7,11 +7,11 @@ technical-SEO rule: a missing `<title>`, a redirect loop, a page nothing links
 to, thin content. Point an SEO crawler at it and check what the crawler catches.
 
 It is also the end-to-end test fixture for the
-[OpenSEO](https://openseo.so) site audit. Every page lists the audit issues it
+[OpenSEO](https://seo.agenciare9.com.br) site audit. Every page lists the audit issues it
 should trigger, and a harness runs the real audit engine against a running copy
 to check that it does.
 
-Maintained by the team behind [OpenSEO](https://openseo.so), an open-source SEO
+Maintained by the team behind [OpenSEO](https://seo.agenciare9.com.br), an open-source SEO
 tool.
 
 ---

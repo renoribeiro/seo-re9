@@ -8,10 +8,11 @@ const page = featurePages.domainOverview;
 export const Route = createFileRoute("/_marketing/features/domain-overview")({
   head: () =>
     buildPageSeo({
-      title: "Domain Overview Tool: Traffic, Keywords & Top Pages",
+      title:
+        "Visão geral do domínio: tráfego, palavras-chave e principais páginas",
       description: page.description,
       path: "/features/domain-overview",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       imageAlt: page.imageAlt,
     }),
   component: () => <FeaturePageTemplate page={page} />,

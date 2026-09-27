@@ -1,70 +1,72 @@
-# Default Project Cleanup
+# Limpeza de projetos Default duplicados
 
-Most installs do not need this cleanup. Use it only if running the latest
-migrations fails with a unique-constraint error for
+A maioria das instalações não precisa desta limpeza. Use-a apenas se a execução
+das migrações mais recentes falhar com um erro de restrição de unicidade em
 `projects_one_default_per_organization_idx`.
 
-The cleanup keeps one canonical auto-created `Default` project per organization,
-remaps supported child rows onto it, preserves rank-tracking history and keyword
-metadata where possible, then removes duplicate Default projects.
+A limpeza mantém um único projeto `Default` criado automaticamente por
+organização, remapeia para ele as linhas filhas suportadas, preserva o histórico
+do monitoramento de posições e os metadados das palavras-chave sempre que
+possível e, depois, remove os projetos Default duplicados.
 
-## Cloudflare D1 Database
+## Banco de dados Cloudflare D1
 
-1. Preview the cleanup:
+1. Pré-visualize a limpeza:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo
    ```
 
-2. If the output looks right, apply it:
+2. Se a saída estiver correta, aplique:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo --apply --confirm-remote-apply
    ```
 
-3. Validate or re-run validation:
+3. Valide ou rode a validação de novo:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo --validate-only
    ```
 
-4. Re-run the normal migration/deploy.
+4. Rode de novo a migração/implantação normal.
 
-Before applying to production, make sure you have a recent D1 backup or
-time-travel restore point. For hosted production, disable signups/writes for
-roughly 60 seconds while the cleanup runs.
+Antes de aplicar em produção, garanta que você tem um backup recente do D1 ou um
+ponto de restauração do time travel. Na produção hospedada, desative novos
+cadastros/gravações por cerca de 60 segundos enquanto a limpeza roda.
 
-## Local Docker / Local SQLite-Backed D1 Database
+## Docker local / banco D1 local baseado em SQLite
 
-1. Preview the cleanup:
+1. Pré-visualize a limpeza:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo --local
    ```
 
-2. Apply it:
+2. Aplique:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo --local --apply
    ```
 
-3. Validate or re-run validation:
+3. Valide ou rode a validação de novo:
 
    ```sh
    pnpm cleanup:default-projects:d1 --database open-seo --local --validate-only
    ```
 
-4. Re-run the normal local migration.
+4. Rode de novo a migração local normal.
 
-## What Happened
+## O que aconteceu
 
-Several simultaneous requests could initialize the same organization at once,
-creating more than one auto-created `Default` project.
+Várias requisições simultâneas podiam inicializar a mesma organização ao mesmo
+tempo, criando mais de um projeto `Default` automático.
 
-## More Detail
+## Mais detalhes
 
-The runner in `scripts/d1-default-project-cleanup.ts` is the recommended entry
-point because it includes dry-run output, active-run preflight checks, post-apply
-validation, and an explicit confirmation flag for remote databases.
+O executor em `scripts/d1-default-project-cleanup.ts` é o ponto de entrada
+recomendado, porque inclui saída de simulação (dry-run), verificações prévias de
+execuções ativas, validação após a aplicação e uma flag de confirmação explícita
+para bancos remotos.
 
-The SQL implementation lives in `scripts/cleanup-default-projects.sql`.
+A implementação em SQL fica em `scripts/cleanup-default-projects.sql`.

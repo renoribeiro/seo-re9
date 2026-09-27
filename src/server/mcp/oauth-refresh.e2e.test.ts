@@ -11,7 +11,7 @@ import type { createOpenSeoOAuthProvider } from "./oauth-provider";
 // clients before (PR #420); these tests pin the full register → authorize →
 // consent → token → use → refresh → rotate chain.
 
-const BASE = "https://app.openseo.so";
+const BASE = "https://seo.agenciare9.com.br";
 const MCP_RESOURCE = `${BASE}/mcp`;
 
 vi.mock("cloudflare:workers", () => ({
@@ -26,7 +26,7 @@ vi.mock("cloudflare:workers", () => ({
 }));
 
 vi.mock("@/lib/auth", () => ({
-  getHostedBaseUrl: () => "https://app.openseo.so",
+  getHostedBaseUrl: () => "https://seo.agenciare9.com.br",
 }));
 
 vi.mock("@/middleware/ensure-user/hosted", () => ({

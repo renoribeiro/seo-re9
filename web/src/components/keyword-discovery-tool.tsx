@@ -41,7 +41,7 @@ export function KeywordDiscoveryTool({
         <div className="grid gap-3 md:grid-cols-[2fr_1fr]">
           <div>
             <FieldLabel htmlFor={`${tool}-input`}>
-              {competitor ? "Competitor domain" : "Topic or keyword"}
+              {competitor ? "Domínio do concorrente" : "Tema ou palavra-chave"}
             </FieldLabel>
             <input
               id={`${tool}-input`}
@@ -54,14 +54,14 @@ export function KeywordDiscoveryTool({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={
-                competitor ? "competitor.com" : "e.g. email marketing"
+                competitor ? "concorrente.com.br" : "ex.: marketing digital"
               }
               disabled={status === "loading"}
               className={`mt-1 ${FIELD_CLASS}`}
             />
           </div>
           <div>
-            <FieldLabel htmlFor={`${tool}-country`}>Country</FieldLabel>
+            <FieldLabel htmlFor={`${tool}-country`}>País</FieldLabel>
             <div className="mt-1">
               <CountrySelect
                 id={`${tool}-country`}
@@ -76,35 +76,43 @@ export function KeywordDiscoveryTool({
           <SubmitButton
             status={status}
             idleLabel={
-              competitor ? "Find competitor keywords" : "Generate keyword ideas"
+              competitor
+                ? "Encontrar palavras-chave do concorrente"
+                : "Gerar ideias de palavras-chave"
             }
-            loadingLabel="Finding keywords…"
+            loadingLabel="Buscando palavras-chave…"
           />
         </div>
       </ToolForm>
       {status === "done" && result ? (
-        <section className="mt-6 space-y-4" aria-label="Keyword results">
+        <section
+          className="mt-6 space-y-4"
+          aria-label="Resultados de palavras-chave"
+        >
           <h2 className="break-words text-xl font-semibold text-neutral-950">
             {"target" in result
-              ? `Top keywords for ${result.target}`
-              : `Keyword ideas for “${result.keyword}”`}
+              ? `Principais palavras-chave de ${result.target}`
+              : `Ideias de palavras-chave para “${result.keyword}”`}
           </h2>
           <p className="text-sm leading-6 text-[var(--color-brand-muted)]">
-            Showing {result.keywords.length} keywords. Volume is estimated
-            monthly searches in {countryLabel(result.locationCode)}. Difficulty
-            estimates how hard it may be to rank, from 0 to 100. Lower scores
-            suggest easier competition. A dash means data is unavailable.
+            Mostrando {result.keywords.length}{" "}
+            {result.keywords.length === 1 ? "palavra-chave" : "palavras-chave"}.
+            O volume é a estimativa de buscas mensais no país escolhido (
+            {countryLabel(result.locationCode)}). A dificuldade estima o quanto
+            pode ser difícil ranquear, de 0 a 100. Pontuações menores indicam
+            concorrência mais fácil. Um traço indica que o dado não está
+            disponível.
           </p>
           {"target" in result ? (
             <KeywordTable rows={result.keywords} />
           ) : result.keywords.length ? (
-            <ToolTable label="Keyword ideas">
+            <ToolTable label="Ideias de palavras-chave">
               <table className="w-full min-w-[360px] text-left text-sm">
                 <thead>
                   <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
-                    <th className="px-4 py-3 font-medium">Keyword</th>
+                    <th className="px-4 py-3 font-medium">Palavra-chave</th>
                     <th className="px-4 py-3 font-medium">Volume</th>
-                    <th className="px-4 py-3 font-medium">Difficulty</th>
+                    <th className="px-4 py-3 font-medium">Dificuldade</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -126,12 +134,13 @@ export function KeywordDiscoveryTool({
             </ToolTable>
           ) : (
             <p className="rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm">
-              No keyword ideas found in the available data. Try a broader topic
-              or another country.
+              Nenhuma ideia de palavra-chave encontrada nos dados disponíveis.
+              Tente um tema mais amplo ou outro país.
             </p>
           )}
-          <UpsellCard tool={tool} cta="Continue keyword research">
-            Explore more keywords and save the ones worth pursuing in OpenSEO.
+          <UpsellCard tool={tool} cta="Continuar a pesquisa de palavras-chave">
+            No RE9 SEO, você explora mais palavras-chave e salva as que valem a
+            pena.
           </UpsellCard>
         </section>
       ) : null}

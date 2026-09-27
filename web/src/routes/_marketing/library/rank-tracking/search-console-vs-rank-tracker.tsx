@@ -11,29 +11,30 @@ const PATH = "/library/rank-tracking/search-console-vs-rank-tracker";
 
 const faqs = [
   {
-    question: "Is Google Search Console a rank tracker?",
+    question: "O Google Search Console serve para monitorar posições?",
     answer:
-      "Not in the usual sense. It reports an average position per query or page, blended across devices, countries, and dates, for your own verified site only. Its 24-hour view shows recent preliminary data; finalized reports arrive later. A rank tracker records one position per keyword, device, and location on a schedule, and can include sites you do not own.",
+      "Não no sentido usual. Ele informa uma posição média por consulta ou página, misturando dispositivos, países e datas, e só do seu próprio site verificado. A visão de 24 horas mostra dados recentes preliminares; os relatórios finais chegam depois. Um monitoramento de posições registra uma posição por palavra-chave, dispositivo e localização de forma agendada, e pode incluir sites que não são seus.",
   },
   {
-    question: "Why does my Search Console position not match the rank tracker?",
+    question:
+      "Por que a posição do Search Console não bate com a do monitoramento?",
     answer:
-      "Because they measure different things. Search Console averages your best position across every impression in the period, so a term that is 3 in one state and 15 elsewhere reports as something in between. A tracker reports the position from one place on one device on one day. A gap of several positions between them is normal.",
+      "Porque eles medem coisas diferentes. O Search Console tira a média da sua melhor posição em todas as impressões do período, então um termo que está em 3º lugar num estado e em 15º em outros aparece como algo no meio. Um monitoramento informa a posição a partir de um lugar, num dispositivo, num dia. Uma diferença de algumas posições entre os dois é normal.",
   },
   {
-    question: "How accurate is Search Console average position?",
+    question: "Quão precisa é a posição média do Search Console?",
     answer:
-      "It is Google's own count of where your result appeared, so the impressions and clicks are as accurate as any data you will get. The position is accurate as an average; it is not a rank. Filter by device and country and the average becomes much closer to what a searcher sees.",
+      "É a contagem do próprio Google de onde o seu resultado apareceu, então impressões e cliques são tão precisos quanto qualquer dado que você vai conseguir. A posição é precisa como média; ela não é uma colocação. Filtre por dispositivo e país e a média fica bem mais próxima do que uma pessoa vê.",
   },
   {
-    question: "How do I check keyword rankings for free?",
+    question: "Como verificar posições de palavras-chave de graça?",
     answer:
-      "Open Search Console, go to Performance, filter to the page or query you care about, and switch on the average position metric. Filter to a single device and country to make the number meaningful. That covers your own site; for a competitor's rankings you need a tool that fetches results, which costs money wherever you do it.",
+      "Abra o Search Console, vá em Desempenho, filtre pela página ou consulta que interessa e ative a métrica de posição média. Filtre por um único dispositivo e país para o número fazer sentido. Isso cobre o seu próprio site; para as posições de um concorrente você precisa de uma ferramenta que busque os resultados, e isso custa dinheiro em qualquer lugar.",
   },
   {
-    question: "Does OpenSEO use credits to read Search Console?",
+    question: "O RE9 SEO consome créditos para ler o Search Console?",
     answer:
-      "No. Search Console and URL inspection reads are free in OpenSEO, in the app and through the MCP. Rank tracking checks use credits because they fetch live results, and on the hosted app they require the $10/month plan, which includes $10 of credits.",
+      "Não. As leituras do Search Console e da inspeção de URL são gratuitas no RE9 SEO, no app e pelo MCP. As checagens de monitoramento de posições consomem créditos porque buscam resultados ao vivo.",
   },
 ];
 
@@ -52,17 +53,18 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Is Search Console a Rank Tracker? Where the Free Data Stops",
+      title:
+        "O Search Console serve para monitorar posições? Onde os dados gratuitos param",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Search Console vs a rank tracker"
+      crumb="Search Console x monitoramento de posições"
       path={PATH}
       library={RANK_TRACKING_LIBRARY}
     >

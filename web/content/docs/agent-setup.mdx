@@ -1,91 +1,91 @@
 ---
-title: "Agent setup"
-description: "Connect your AI agent to OpenSEO and keep its SEO skills up to date."
+title: "Configuração do agente"
+description: "Conecte seu agente de IA ao RE9 SEO e mantenha as skills de SEO dele atualizadas."
 ---
 
-OpenSEO connects your agent to live SEO data through MCP. Skills give it reusable workflows for keyword research, audits, competitor research, and other SEO tasks.
+O RE9 SEO conecta seu agente a dados de SEO em tempo real por meio do MCP. As skills dão ao agente fluxos de trabalho reutilizáveis para pesquisa de palavras-chave, auditorias, pesquisa de concorrentes e outras tarefas de SEO.
 
-## Set up your agent
+## Configure seu agente
 
-Copy this prompt into Claude Code, Codex, Grok Bot, Hermes, or another agent. It asks your agent to use its supported installation method and guide you through any steps you need to do yourself.
+Copie este prompt no Claude Code, Codex, Grok Bot, Hermes ou outro agente. Ele pede que o agente use o método de instalação compatível e oriente você nas etapas que precisar fazer por conta própria.
 
 <AgentPrompt kind="setup" />
 
-Approve the OpenSEO sign-in in your browser when prompted. Once setup is complete, ask your agent to use **SEO Coach** to help you choose what to do next.
+Aprove o login do RE9 SEO no navegador quando for solicitado. Com a configuração concluída, peça ao agente para usar o **SEO Coach** (`seo-coach`) e ajudar você a escolher o próximo passo.
 
-You can also copy this prompt from [Agent setup in OpenSEO](https://app.openseo.so/ai). For a self-hosted instance, use its Agent setup page so the prompt includes your own server address.
+Você também pode copiar este prompt na [Configuração do agente no RE9 SEO](https://seo.agenciare9.com.br/ai). Em uma instância self-hosted, use a página de Configuração do agente dela, para que o prompt inclua o endereço do seu próprio servidor.
 
-Prefer to set it up yourself? Follow the instructions for your agent below. If the setup prompt already completed installation, skip to [Update your skills](#update-your-skills).
+Prefere configurar por conta própria? Siga as instruções do seu agente abaixo. Se o prompt de configuração já concluiu a instalação, vá direto para [Atualize suas skills](#update-your-skills).
 
 ### Claude Code
 
-Run inside Claude Code to install MCP and the public SEO skills:
+Execute dentro do Claude Code para instalar o MCP e as skills públicas de SEO:
 
 ```text
-/plugin marketplace add every-app/open-seo
+/plugin marketplace add renoribeiro/seo-re9
 /plugin install openseo@openseo
 ```
 
-If Claude asks you to activate the plugin, run `/reload-plugins`. Follow the sign-in prompt, then try `/openseo:seo-coach`. See the [Claude Code plugin guide](/docs/claude-code-plugin) for troubleshooting.
+Se o Claude pedir para ativar o plugin, execute `/reload-plugins`. Siga a solicitação de login e depois teste `/openseo:seo-coach`. Veja o [guia do plugin para Claude Code](/docs/claude-code-plugin) para resolver problemas.
 
 ### Codex CLI
 
-Run in your terminal:
+Execute no seu terminal:
 
 ```bash
-codex plugin marketplace add every-app/open-seo
+codex plugin marketplace add renoribeiro/seo-re9
 codex plugin add openseo@openseo
 ```
 
-Reload or restart Codex if the plugin is not available yet, then sign in:
+Recarregue ou reinicie o Codex se o plugin ainda não estiver disponível e depois faça login:
 
 ```bash
 codex mcp login openseo
 ```
 
-Ask Codex to use SEO Coach. See the [Codex plugin guide](/docs/codex-plugin) for troubleshooting. For plugins installed through a desktop directory, use that directory's controls.
+Peça ao Codex para usar o SEO Coach. Veja o [guia do plugin para Codex](/docs/codex-plugin) para resolver problemas. Para plugins instalados por um diretório do aplicativo desktop, use os controles desse diretório.
 
 ### Hermes
 
-Use the setup prompt above to connect MCP. To install SEO Coach through the Hermes skills hub, run in your terminal:
+Use o prompt de configuração acima para conectar o MCP. Para instalar o SEO Coach pelo hub de skills do Hermes, execute no seu terminal:
 
 ```bash
-hermes skills install every-app/open-seo/plugins/openseo/skills/seo-coach
+hermes skills install renoribeiro/seo-re9/plugins/openseo/skills/seo-coach
 ```
 
-Repeat with the names of other [OpenSEO skills](/docs/skills) you want. Hub installations retain their source so Hermes can check for updates later. See [Hermes skill management](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills).
+Repita com os nomes das outras [skills do RE9 SEO](/docs/skills) que você quiser. Instalações pelo hub guardam a origem, para que o Hermes possa verificar atualizações depois. Veja [gerenciamento de skills do Hermes](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills).
 
 ### Grok Bot
 
-Paste the setup prompt into your Bot. Open **Marketplace** in the sidebar to manage packaged skills and connectors. Find private skills under **Your plugins → Manage plugins and skills → Private skills**. Private skills are shared across your Bots.
+Cole o prompt de configuração no seu Bot. Abra **Marketplace** na barra lateral para gerenciar skills e conectores empacotados. As skills privadas ficam em **Your plugins → Manage plugins and skills → Private skills**. Skills privadas são compartilhadas entre todos os seus Bots.
 
-Follow the Bot's instructions for any steps you need to complete yourself. See [Grok Bot skills](https://docs.x.ai/grok-bot/skills-routines-and-automations).
+Siga as instruções do Bot para as etapas que você precisar concluir por conta própria. Veja [skills do Grok Bot](https://docs.x.ai/grok-bot/skills-routines-and-automations).
 
-### Claude web/Desktop and other agents
+### Claude web/Desktop e outros agentes
 
-Follow the [MCP connection guide](/docs/mcp), then install skills through your agent's supported skill manager. Claude web/Desktop manages custom skills under **Customize → Skills**; its flow differs from the Claude Code plugin.
+Siga o [guia de conexão MCP](/docs/mcp) e depois instale as skills pelo gerenciador de skills compatível com o seu agente. O Claude web/Desktop gerencia skills personalizadas em **Customize → Skills**; esse fluxo é diferente do plugin para Claude Code.
 
-For agents using the skills CLI, choose public OpenSEO skills interactively:
+Para agentes que usam a CLI de skills, escolha as skills públicas do RE9 SEO de forma interativa:
 
 ```bash
-npx skills add https://github.com/every-app/open-seo/tree/main/plugins/openseo/skills
+npx skills add https://github.com/renoribeiro/seo-re9/tree/main/plugins/openseo/skills
 ```
 
-Choose the current agent and your preferred installation scope. Skip this if the OpenSEO plugin already supplies your skills. See [manual skill setup](/docs/skills/setup) for other options.
+Escolha o agente atual e o escopo de instalação que preferir. Pule esta etapa se o plugin do RE9 SEO já fornece suas skills. Veja a [configuração manual de skills](/docs/skills/setup) para outras opções.
 
-## Update your skills
+## Atualize suas skills [#update-your-skills]
 
-When OpenSEO releases improved skills, update the copies installed in your agent. Updating the MCP connection alone does not update those files.
+Quando o RE9 SEO lançar skills melhoradas, atualize as cópias instaladas no seu agente. Atualizar só a conexão MCP não atualiza esses arquivos.
 
-Paste this prompt into the agent where you use OpenSEO. It asks the agent to check how the skills were installed and preserve your connection settings and personal edits.
+Cole este prompt no agente em que você usa o RE9 SEO. Ele pede que o agente verifique como as skills foram instaladas e preserve suas configurações de conexão e edições pessoais.
 
 <AgentPrompt kind="update" />
 
-To update manually, use the method that matches your installation below.
+Para atualizar manualmente, use o método que corresponde à sua instalação abaixo.
 
-### Update the Claude Code plugin
+### Atualize o plugin do Claude Code
 
-Run inside Claude Code:
+Execute dentro do Claude Code:
 
 ```text
 /plugin marketplace update openseo
@@ -93,44 +93,44 @@ Run inside Claude Code:
 /reload-plugins
 ```
 
-You can enable automatic updates in `/plugin` → **Marketplaces** → **openseo** → **Enable auto-update**. Third-party marketplaces have this off by default. Reload when Claude prompts you to activate an update. See [Claude's plugin update documentation](https://code.claude.com/docs/en/discover-plugins#configure-auto-updates).
+Você pode ativar as atualizações automáticas em `/plugin` → **Marketplaces** → **openseo** → **Enable auto-update**. Em marketplaces de terceiros, essa opção vem desativada por padrão. Recarregue quando o Claude pedir para ativar uma atualização. Veja a [documentação de atualização de plugins do Claude](https://code.claude.com/docs/en/discover-plugins#configure-auto-updates).
 
-### Update the Codex CLI plugin
+### Atualize o plugin do Codex CLI
 
-Run in your terminal:
+Execute no seu terminal:
 
 ```bash
 codex plugin marketplace upgrade openseo
 ```
 
-Reload or restart Codex if the updated skills are not available. If your CLI rejects a command, check `codex plugin --help` for the commands supported by your version. See [OpenAI's marketplace documentation](https://developers.openai.com/plugins/build/plugins).
+Recarregue ou reinicie o Codex se as skills atualizadas não estiverem disponíveis. Se a sua CLI rejeitar um comando, confira `codex plugin --help` para ver os comandos aceitos pela sua versão. Veja a [documentação de marketplace da OpenAI](https://developers.openai.com/plugins/build/plugins).
 
-### Update Hermes hub skills
+### Atualize as skills do hub do Hermes
 
-Check for updates, then update each installed OpenSEO skill by name. For example:
+Verifique se há atualizações e depois atualize cada skill do RE9 SEO instalada pelo nome. Por exemplo:
 
 ```bash
 hermes skills check
 hermes skills update seo-coach
 ```
 
-Repeat for your other installed OpenSEO skills. Hermes skips locally edited skills by default. Review those edits before replacing them; only add `--force` if you want to discard them. See [Hermes's update lifecycle](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#update-lifecycle).
+Repita para as outras skills do RE9 SEO instaladas. Por padrão, o Hermes ignora skills editadas localmente. Revise essas edições antes de substituí-las; só adicione `--force` se quiser descartá-las. Veja o [ciclo de atualização do Hermes](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#update-lifecycle).
 
-### Update skills installed with the skills CLI
+### Atualize skills instaladas com a CLI de skills
 
-List your installations, then update the OpenSEO skills by name. For example:
+Liste suas instalações e depois atualize as skills do RE9 SEO pelo nome. Por exemplo:
 
 ```bash
 npx skills list
 npx skills update seo-coach seo-audit
 ```
 
-Use the names you actually installed and choose the same project or global scope. Pass `-g` for global skills or `-p` for project skills. Back up personal edits before updating. Run the setup command to select any newly added workflows separately. See the [skills CLI documentation](https://github.com/vercel-labs/skills#skills-update).
+Use os nomes que você realmente instalou e escolha o mesmo escopo, de projeto ou global. Passe `-g` para skills globais ou `-p` para skills de projeto. Faça backup das edições pessoais antes de atualizar. Execute o comando de configuração separadamente para selecionar fluxos de trabalho adicionados recentemente. Veja a [documentação da CLI de skills](https://github.com/vercel-labs/skills#skills-update).
 
-### Update Grok Bot or manually copied skills
+### Atualize o Grok Bot ou skills copiadas manualmente
 
-Use the update prompt above. For Grok Bot, open **Marketplace → Your plugins → Manage plugins and skills** to find the installed skill or plugin. Its public documentation does not currently specify an upstream skill-update command, so use the management controls available in your version.
+Use o prompt de atualização acima. No Grok Bot, abra **Marketplace → Your plugins → Manage plugins and skills** para encontrar a skill ou o plugin instalado. A documentação pública dele ainda não especifica um comando para atualizar skills a partir da origem, então use os controles de gerenciamento disponíveis na sua versão.
 
-For manually copied skills, compare your installed copies with the [public OpenSEO skill folders](https://github.com/every-app/open-seo/tree/main/plugins/openseo/skills). Preserve personal edits and replace the complete skill folder, including supporting files. Use your agent's skill manager for uploaded skills, such as Claude's **Customize → Skills**.
+Para skills copiadas manualmente, compare as cópias instaladas com as [pastas públicas de skills do RE9 SEO](https://github.com/renoribeiro/seo-re9/tree/main/plugins/openseo/skills). Preserve as edições pessoais e substitua a pasta inteira da skill, incluindo os arquivos de apoio. Para skills enviadas por upload, use o gerenciador de skills do seu agente, como **Customize → Skills** no Claude.
 
-After updating, reload the skills or start a new session if needed. Ask the agent to confirm it can find the updated OpenSEO skills before starting your next SEO task.
+Depois de atualizar, recarregue as skills ou inicie uma nova sessão, se necessário. Peça ao agente para confirmar que encontra as skills atualizadas do RE9 SEO antes de começar sua próxima tarefa de SEO.

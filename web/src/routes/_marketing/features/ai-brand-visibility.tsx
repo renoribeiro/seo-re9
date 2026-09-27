@@ -10,10 +10,10 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "AI Brand Visibility Tool",
+      title: "Ferramenta de visibilidade da marca em IA",
       description: page.description,
       path: "/features/ai-brand-visibility",
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       imageAlt: page.imageAlt,
     }),
   component: () => <FeaturePageTemplate page={page} />,

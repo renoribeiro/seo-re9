@@ -19,7 +19,7 @@ export function ApiKeySettings() {
 
   const mcpUrl =
     typeof window === "undefined"
-      ? "https://app.openseo.so/mcp"
+      ? "https://seo.agenciare9.com.br/mcp"
       : `${window.location.origin}/mcp`;
 
   const apiKeysQuery = useQuery({
@@ -102,16 +102,6 @@ export function ApiKeySettings() {
           <p className="mt-1 text-sm text-base-content/60">
             Use em agentes remotos, como o Hermes, em que o fluxo normal de
             login não funciona.
-          </p>
-          <p className="mt-1 text-sm">
-            <a
-              className="link link-primary"
-              href="https://openseo.so/docs/mcp"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Guia de configuração
-            </a>
           </p>
         </div>
         <button

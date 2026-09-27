@@ -15,7 +15,7 @@ export function AgentSetup({
 }) {
   const prompt = getAgentSetupPrompt(
     typeof window === "undefined"
-      ? "https://app.openseo.so"
+      ? "https://seo.agenciare9.com.br"
       : window.location.origin,
   );
 

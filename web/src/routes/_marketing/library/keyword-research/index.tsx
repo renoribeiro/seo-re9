@@ -6,29 +6,30 @@ const PATH = "/library/keyword-research";
 
 const faqs = [
   {
-    question: "How do you do keyword research for SEO?",
+    question: "Como fazer pesquisa de palavras-chave para SEO?",
     answer:
-      "Seed from customer language, expand into long-tails and questions, label by intent, cluster into one-page-per-intent hubs, then validate against Search Console. Volume is the final filter, not the starting point.",
+      "Parta da linguagem do cliente, expanda para cauda longa e perguntas, classifique por intenção, agrupe em hubs com uma página por intenção e valide com o Search Console. O volume é o filtro final, não o ponto de partida.",
   },
   {
-    question: "How do you do keyword research for free?",
+    question: "Como fazer pesquisa de palavras-chave de graça?",
     answer:
-      "The discovery half runs on sources you already have: customer conversations, Google's autocomplete and People Also Ask, and your Search Console. Quality SEO data costs money, which is why the big SEO suites run $100/month and up. You can start OpenSEO for free; the paid plan starts at $10/month and includes $10 of usage. If you need more, you can buy top-up credits.",
+      "A parte de descoberta usa fontes que você já tem: conversas com clientes, o preenchimento automático e o People Also Ask do Google e o seu Search Console. Dados de SEO de qualidade custam dinheiro, e é por isso que as grandes suítes de SEO cobram caro. Para validar e expandir o que essas fontes trazem com dados reais, use o RE9 SEO. Fale com a gente: trafego@re9.online.",
   },
   {
-    question: "Can you do keyword research without Google Keyword Planner?",
+    question:
+      "Dá para fazer pesquisa de palavras-chave sem o Google Keyword Planner?",
     answer:
-      "Yes. Keyword Planner combines close variants and reports approximate search-volume data designed for ad planning. Use it to sanity-check commercial value rather than as your only source for discovering topics.",
+      "Sim. O Keyword Planner junta variantes próximas e informa volumes de busca aproximados, pensados para planejar anúncios. Use-o para conferir o valor comercial, não como sua única fonte para descobrir temas.",
   },
   {
-    question: "What are the 3 types of keywords?",
+    question: "Quais são os 3 tipos de palavras-chave?",
     answer:
-      "There is no universal set of three. OpenSEO uses four intent types: informational, navigational, commercial, and transactional. By shape, terms are often grouped as head, mid-tail, and long-tail.",
+      "Não existe um conjunto universal de três. O RE9 SEO usa quatro tipos de intenção: informacional, navegacional, comercial e transacional. Pelo formato, os termos costumam ser agrupados em cabeça, cauda média e cauda longa.",
   },
   {
-    question: "How do you do keyword research for a blog?",
+    question: "Como fazer pesquisa de palavras-chave para um blog?",
     answer:
-      "Blogs win in the tail: mine questions, cluster them into topical hubs, and let each post own one question-intent completely rather than skimming ten.",
+      "Blogs ganham na cauda: garimpe perguntas, agrupe-as em hubs temáticos e deixe cada post responder por completo a uma única intenção de pergunta, em vez de passar por cima de dez.",
   },
 ];
 
@@ -43,18 +44,19 @@ const faqLd = {
 };
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Strategy Library", path: "/library" },
-  { name: "Keyword Research", path: PATH },
+  { name: "Biblioteca de estratégias", path: "/library" },
+  { name: "Pesquisa de palavras-chave", path: PATH },
 ]);
 
 export const Route = createFileRoute("/_marketing/library/keyword-research/")({
   head: () =>
     buildPageSeo({
-      title: "How to Do Keyword Research: The Strategy Library",
+      title:
+        "Como fazer pesquisa de palavras-chave: a biblioteca de estratégias",
       description:
-        "Eight demand-discovery strategies drawn from interviews with working SEOs, each with a workflow and an OpenSEO MCP prompt for its data-backed steps.",
+        "Oito estratégias de descoberta de demanda tiradas de entrevistas com profissionais de SEO, cada uma com um fluxo de trabalho e um prompt de MCP do RE9 SEO para as etapas baseadas em dados.",
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: KeywordResearchLibraryPage,
 });
@@ -64,38 +66,39 @@ function KeywordResearchLibraryPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
-          / <span>Keyword Research</span>
+          / <span>Pesquisa de palavras-chave</span>
         </nav>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          The Keyword Research Strategy Library
+          Biblioteca de estratégias de pesquisa de palavras-chave
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Eight demand-discovery strategies drawn from interviews with working
-          SEOs, each with a workflow and an OpenSEO MCP prompt for its
-          data-backed steps.
+          Oito estratégias de descoberta de demanda tiradas de entrevistas com
+          profissionais de SEO, cada uma com um fluxo de trabalho e um prompt de
+          MCP do RE9 SEO para as etapas baseadas em dados.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How to do keyword research through demand discovery
+          Como fazer pesquisa de palavras-chave pela descoberta de demanda
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Most guides teach you to export a volume report and sort descending.
-          These strategies start earlier, where demand originates: customer
-          language, question mining, your own Search Console. They end with
-          pages mapped to intent, not keywords stuffed into paragraphs. Each
-          strategy includes a walkthrough and a copy-paste MCP prompt for its
-          data-backed steps.
+          A maioria dos guias ensina a exportar um relatório de volume e ordenar
+          do maior para o menor. Estas estratégias começam antes, onde a demanda
+          nasce: a linguagem do cliente, o garimpo de perguntas, o seu próprio
+          Search Console. Elas terminam em páginas mapeadas por intenção, não em
+          palavras-chave enfiadas em parágrafos. Cada estratégia traz um passo a
+          passo e um prompt de MCP pronto para copiar e colar nas etapas
+          baseadas em dados.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {keywordResearchStrategies.map((strategy, index) => {
@@ -134,56 +137,54 @@ function KeywordResearchLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How to supplement Google Keyword Planner
+          Como complementar o Google Keyword Planner
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Keyword Planner is built for planning search-ad campaigns. Its
-          historical metrics combine close variants and report approximate
-          monthly searches, so treat them as directional rather than a complete
-          content-discovery dataset.
+          O Keyword Planner foi feito para planejar campanhas de anúncios de
+          busca. As métricas históricas dele juntam variantes próximas e
+          informam buscas mensais aproximadas, então trate esses números como
+          uma direção, não como uma base completa para descobrir conteúdo.
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          The strategies in this library supplement it with three sources you
-          can inspect: your customers' language (strategy 01), Google's own
-          question surfaces (strategy 02), and your Search Console reality
-          (strategy 05). Volume data still matters, but it is most useful after
-          you understand the customer language and search intent.
+          As estratégias desta biblioteca o complementam com três fontes que
+          você pode inspecionar: a linguagem dos seus clientes (estratégia 01),
+          os espaços de perguntas do próprio Google (estratégia 02) e a
+          realidade do seu Search Console (estratégia 05). Os dados de volume
+          continuam importando, mas são mais úteis depois que você entende a
+          linguagem do cliente e a intenção de busca.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Free sources for keyword discovery
+          Fontes gratuitas para descobrir palavras-chave
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Google's free surfaces (autocomplete, People Also Ask) plus your own
-          Search Console support the discovery. You can run the data-backed
-          parts of these workflows with{" "}
+          Os recursos gratuitos do Google (preenchimento automático, People Also
+          Ask) e o seu próprio Search Console sustentam a descoberta. Você pode
+          rodar as partes baseadas em dados destes fluxos com a{" "}
           <a
             href="/features/keyword-research"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            OpenSEO's keyword research
+            pesquisa de palavras-chave do RE9 SEO
           </a>{" "}
-          and your connected Search Console. OpenSEO is open source and
-          self-hostable, and its{" "}
+          e o seu Search Console conectado. O RE9 SEO é de código aberto e pode
+          ser hospedado por você, e o{" "}
           <a
             href="/docs/mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
             MCP
           </a>{" "}
-          lets a compatible AI assistant query both sources while it works
-          through the workflow. Quality SEO data is why the big suites run
-          $100/month and up; OpenSEO's paid plan starts at $10/month and includes
-          $10 of usage, with top-ups available if you need more. You can start
-          for free.
+          dele permite que um assistente de IA compatível consulte as duas
+          fontes enquanto executa o fluxo.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Keyword research FAQ
+          Perguntas frequentes sobre pesquisa de palavras-chave
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -197,27 +198,6 @@ function KeywordResearchLibraryPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 sm:flex-row sm:items-center md:p-8">
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            The Keyword Research Playbook
-          </h2>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-            Eight interview-backed strategies and a seed-to-brief checklist in a
-            working PDF. Ungated.
-          </p>
-        </div>
-        <a
-          href="/library/keyword-research/keyword-research-playbook.pdf"
-          className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
-        >
-          Download the playbook
-          <span aria-hidden="true" className="ml-2">
-            &rarr;
-          </span>
-        </a>
       </section>
 
       <script

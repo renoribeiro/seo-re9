@@ -1,118 +1,119 @@
-# Self-hosted Google Search Console
+# Google Search Console no self-hosting
 
-Connecting Google Search Console (GSC) lets OpenSEO pull your real clicks,
-impressions, positions, and URL inspection data, straight from Google.
+Conectar o Google Search Console (GSC) permite que o RE9 SEO traga seus cliques,
+impressões, posições e dados de inspeção de URL reais, direto do Google.
 
-It's **optional**: OpenSEO runs fine without it, just without Search Console data.
+É **opcional**: o RE9 SEO funciona bem sem ele, só que sem os dados do Search Console.
 
-## What you'll need
+## Do que você vai precisar
 
-- A Google account with access to your verified Search Console property.
-- ~10 minutes in the [Google Cloud Console](https://console.cloud.google.com/).
-- Three environment variables set on your deployment (see [step 4](#4-set-environment-variables)).
+- Uma conta Google com acesso à sua propriedade verificada no Search Console.
+- Uns 10 minutos no [Google Cloud Console](https://console.cloud.google.com/).
+- Três variáveis de ambiente definidas na sua implantação (veja o [passo 4](#4-defina-as-variáveis-de-ambiente)).
 
-## 1) Create a Google Cloud project and enable the API
+## 1) Crie um projeto no Google Cloud e ative a API
 
-1. Open the [Google Cloud Console](https://console.cloud.google.com/) and create
-   a project (or pick an existing one).
-2. Enable the
+1. Abra o [Google Cloud Console](https://console.cloud.google.com/) e crie um
+   projeto (ou escolha um existente).
+2. Ative a
    [Google Search Console API](https://console.cloud.google.com/apis/library/searchconsole.googleapis.com)
-   for that project.
+   nesse projeto.
 
-## 2) Configure the OAuth consent screen
+## 2) Configure a tela de consentimento OAuth
 
-Under **APIs & Services → OAuth consent screen**:
+Em **APIs & Services → OAuth consent screen**:
 
-- Pick **External** (unless everyone using it is in your Google Workspace org).
-- Fill in the app name, support email, and developer contact email.
-- While the app is in **Testing**, add the Google accounts that will connect as
-  **test users** — otherwise Google blocks the sign-in with `access_denied`.
+- Escolha **External** (a menos que todas as pessoas que vão usar estejam na sua organização do Google Workspace).
+- Preencha o nome do app, o e-mail de suporte e o e-mail de contato de desenvolvimento.
+- Enquanto o app estiver em **Testing**, adicione as contas Google que vão se
+  conectar como **test users** — caso contrário, o Google bloqueia o login com `access_denied`.
 
-For personal or internal use you don't need to submit for verification; testing
-mode is enough.
+Para uso pessoal ou interno, você não precisa enviar o app para verificação; o
+modo de teste é suficiente.
 
-## 3) Create an OAuth client ID
+## 3) Crie um ID de cliente OAuth
 
-Under **APIs & Services → Credentials → Create credentials → OAuth client ID**:
+Em **APIs & Services → Credentials → Create credentials → OAuth client ID**:
 
-1. Application type: **Web application**.
-2. Add an **Authorized redirect URI** that exactly matches your deployment's
-   origin plus `/api/gsc/oauth/callback`:
+1. Tipo de aplicativo: **Web application**.
+2. Adicione uma **Authorized redirect URI** exatamente igual à origem da sua
+   implantação mais `/api/gsc/oauth/callback`:
 
-   | Deployment   | Redirect URI                                             |
-   | ------------ | -------------------------------------------------------- |
-   | Deployed     | `https://your-openseo-domain.com/api/gsc/oauth/callback` |
-   | Local Docker | `http://localhost:3001/api/gsc/oauth/callback`           |
+   | Implantação  | URI de redirecionamento                                 |
+   | ------------ | ------------------------------------------------------- |
+   | Implantada   | `https://your-re9seo-domain.com/api/gsc/oauth/callback` |
+   | Docker local | `http://localhost:3001/api/gsc/oauth/callback`          |
 
-   The scheme, host, and port must match exactly, with no trailing slash.
+   O esquema, o host e a porta devem ser idênticos, sem barra no final.
 
-3. Save, then copy the **Client ID** and **Client secret**.
+3. Salve e copie o **Client ID** e o **Client secret**.
 
-## 4) Set environment variables
+## 4) Defina as variáveis de ambiente
 
-Set these three values, then restart OpenSEO:
+Defina estes três valores e reinicie o RE9 SEO:
 
-| Variable               | Value                                                                   |
-| ---------------------- | ----------------------------------------------------------------------- |
-| `GOOGLE_CLIENT_ID`     | Client ID from step 3.                                                  |
-| `GOOGLE_CLIENT_SECRET` | Client secret from step 3.                                              |
-| `BETTER_AUTH_SECRET`   | A random string of **at least 32 characters** (encrypts stored tokens). |
+| Variável               | Valor                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| `GOOGLE_CLIENT_ID`     | Client ID do passo 3.                                                                |
+| `GOOGLE_CLIENT_SECRET` | Client secret do passo 3.                                                            |
+| `BETTER_AUTH_SECRET`   | Uma string aleatória de **pelo menos 32 caracteres** (criptografa os tokens salvos). |
 
-`BETTER_AUTH_SECRET` is not needed for normal self-hosting — only for Search
-Console, because the stored OAuth tokens are encrypted at rest with it. Generate
-one with:
+O `BETTER_AUTH_SECRET` não é necessário no self-hosting normal — só para o Search
+Console, porque os tokens OAuth salvos são criptografados em repouso com ele.
+Gere um com:
 
 ```sh
 openssl rand -base64 32
 ```
 
-Where to set them:
+Onde defini-las:
 
-- **Docker self-hosting:** `.env`
-- **Cloudflare:** the Workers dashboard (as secrets)
-- **Local development:** `.env.local`
+- **Self-hosting com Docker:** `.env`
+- **Cloudflare:** no painel de Workers (como secrets)
+- **Desenvolvimento local:** `.env.local`
 
-## 5) Restart and connect
+## 5) Reinicie e conecte
 
-Restart OpenSEO so it picks up the new variables. For Docker, changing `.env`
-means Compose has to recreate the container to reapply it:
+Reinicie o RE9 SEO para ele carregar as novas variáveis. No Docker, mudar o `.env`
+exige que o Compose recrie o container para aplicar as mudanças:
 
 ```bash
 docker compose up -d --force-recreate open-seo
 ```
 
-Then open **Integrations**, click **Connect with Google**, authorize the Google
-account that owns your verified property, and pick the property to bind to your
-project.
+Depois, abra **Integrações**, clique em **Conectar com o Google**, autorize a
+conta Google dona da sua propriedade verificada e escolha a propriedade que será
+vinculada ao seu projeto.
 
-## How it works
+## Como funciona
 
-- OpenSEO uses your Google client to run the OAuth flow and stores the resulting
-  grant in its database, with the access and refresh tokens **encrypted at rest**
-  (keyed by `BETTER_AUTH_SECRET`).
-- Access tokens are minted and refreshed on demand — you only authorize once.
-- Search Console data comes from your own Google account, so OpenSEO never meters credits for it.
+- O RE9 SEO usa o seu cliente Google para executar o fluxo OAuth e salva a
+  autorização resultante no banco de dados, com os tokens de acesso e de
+  atualização **criptografados em repouso** (com a chave `BETTER_AUTH_SECRET`).
+- Os tokens de acesso são gerados e renovados sob demanda — você só autoriza uma vez.
+- Os dados do Search Console vêm da sua própria conta Google, então o RE9 SEO nunca desconta créditos por eles.
 
-## Troubleshooting
+## Solução de problemas
 
-**`redirect_uri_mismatch` from Google** — the redirect URI in your OAuth client
-must exactly equal `<your-origin>/api/gsc/oauth/callback`. Re-check scheme
-(`http` vs `https`), host, port, and that there's no trailing slash.
+**`redirect_uri_mismatch` vindo do Google** — a URI de redirecionamento no seu
+cliente OAuth deve ser exatamente igual a `<your-origin>/api/gsc/oauth/callback`.
+Confira o esquema (`http` vs `https`), o host, a porta e se não há barra no final.
 
 **"Google OAuth client not configured" / "not configured for Search Console yet"**
-(in the app or via the MCP tools) — one of `GOOGLE_CLIENT_ID`,
-`GOOGLE_CLIENT_SECRET`, or `BETTER_AUTH_SECRET` is missing, or the secret is
-shorter than 32 characters. Set all three and restart. On Docker, recreate the
-container so Compose reapplies `.env`:
+(no app ou pelas ferramentas MCP) — falta uma das variáveis `GOOGLE_CLIENT_ID`,
+`GOOGLE_CLIENT_SECRET` ou `BETTER_AUTH_SECRET`, ou o segredo tem menos de 32
+caracteres. Defina as três e reinicie. No Docker, recrie o container para que o
+Compose aplique o `.env`:
 
 ```bash
 docker compose up -d --force-recreate open-seo
 ```
 
-**`access_denied` during sign-in** — the Google account isn't listed as a test
-user on the OAuth consent screen (while the app is in Testing mode). Add it under
-**OAuth consent screen → Test users**.
+**`access_denied` durante o login** — a conta Google não está na lista de
+usuários de teste da tela de consentimento OAuth (enquanto o app está em modo
+Testing). Adicione-a em **OAuth consent screen → Test users**.
 
-**Connected, but no properties to pick** — the Google account you authorized
-doesn't have a verified property in Search Console. Verify the site in
-[Search Console](https://search.google.com/search-console) first, then reconnect.
+**Conectado, mas sem propriedades para escolher** — a conta Google que você
+autorizou não tem uma propriedade verificada no Search Console. Verifique o site
+no [Search Console](https://search.google.com/search-console) primeiro e conecte
+de novo.

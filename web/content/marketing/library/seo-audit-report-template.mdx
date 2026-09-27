@@ -1,135 +1,140 @@
 ---
-title: "Write an SEO audit report the client will actually act on"
-description: "Most audit reports get read once and filed. A structure that connects each finding to a page, a cost, and a business number, plus what to leave out and why the summary belongs at the front."
+title: "Como escrever um relatório de auditoria de SEO que o cliente realmente coloca em prática"
+description: "A maioria dos relatórios de auditoria é lida uma vez e arquivada. Uma estrutura que liga cada achado a uma página, a um custo e a um número do negócio, além do que deixar de fora e por que o resumo vai no começo."
 ---
 
-## What should an SEO audit report contain?
+## O que um relatório de auditoria de SEO deve conter?
 
-Six things, in this order: what you checked, what is broken now, what it costs, what you propose, who does it, and how you will know it worked. Everything else in a typical audit deck is evidence, and evidence belongs in an appendix.
+Seis coisas, nesta ordem: o que você verificou, o que está quebrado agora, quanto isso custa, o que você propõe, quem faz e como você vai saber que funcionou. Todo o resto de uma apresentação de auditoria típica é evidência, e evidência vai para o apêndice.
 
-The reason most audit reports fail is not that they are wrong. They are usually correct and unusable. A 40-page document listing 1,180 findings across 27 issue types is a faithful description of a crawl, and it gives the person paying for it no way to decide anything.
+A maioria dos relatórios de auditoria não fracassa por estar errada. Normalmente eles estão certos e são inutilizáveis. Um documento de 40 páginas listando 1.180 achados em 27 tipos de problema é uma descrição fiel de um rastreamento, e não dá a quem está pagando nenhuma forma de decidir coisa alguma.
 
-Grant Simmons, who ran search at Homes.com through its CoStar acquisition and now works with Fiat Growth, names this as the unsolved problem of the whole business:
+Grant Simmons, que comandou a área de busca do Homes.com durante a aquisição pela CoStar e hoje trabalha com a Fiat Growth, aponta isso como o problema não resolvido de todo o setor:
 
-> I think the biggest challenge that most agencies have and most individual consultants have is reporting.
+> Acho que o maior desafio que a maioria das agências e a maioria dos consultores independentes têm é o relatório.
 
-And he is specific about what is missing from it:
+E ele é específico sobre o que está faltando:
 
-> I still think it's a primary agency issue where there's no consistency in tying efforts, outcomes back to KPIs for the business.
+> Continuo achando que é um problema central das agências, que não têm consistência em ligar os esforços e os resultados aos KPIs do negócio.
 
-That is the test to apply to your own audit report. Point at any row in it and ask which business number moves if the row gets fixed. If you cannot answer for most rows, you have written a crawl summary. Grant's full conversation on entity SEO and measurement is on [the Unscripted SEO podcast](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/).
+Esse é o teste para aplicar no seu próprio relatório de auditoria. Aponte para qualquer linha e pergunte qual número do negócio muda se aquela linha for corrigida. Se você não consegue responder para a maioria das linhas, escreveu um resumo de rastreamento. A conversa completa do Grant sobre SEO de entidades e mensuração está no [podcast Unscripted SEO](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/) (em inglês).
 
-## The structure
+## A estrutura
 
-### 1. Scope, in two sentences
+### 1. Escopo, em duas frases
 
-What was crawled, how many pages, on what date, and what was excluded. Then the one line most audits omit: whether the crawl succeeded. If the site's bot protection blocked part of the crawl, that belongs in the first paragraph, not a footnote, because it bounds every number that follows.
+O que foi rastreado, quantas páginas, em que data e o que ficou de fora. Depois, a linha que a maioria das auditorias omite: se o rastreamento deu certo. Se a proteção contra bots do site bloqueou parte do rastreamento, isso vai no primeiro parágrafo, e não numa nota de rodapé, porque limita todos os números que vêm depois.
 
-### 2. The critical tier, with named owners
+### 2. O nível crítico, com responsáveis nomeados
 
-Only the issues that stop a page being reached, rendered, or understood. On a healthy site this is a short list, sometimes empty. Each row gets a URL, the specific detail, and the fix. Do not summarise this section. The client should be able to forward it to a developer without editing it.
+Só os problemas que impedem uma página de ser acessada, renderizada ou compreendida. Num site saudável, é uma lista curta, às vezes vazia. Cada linha leva uma URL, o detalhe específico e a correção. Não resuma esta seção. O cliente deve conseguir encaminhá-la a um desenvolvedor sem editar nada.
 
-![OpenSEO site audit report for unscriptedseo.com grouped into CRITICAL, WARNING and INFO tiers, showing one critical issue type with 35 pages, nine warning types led by missing meta description on 279 pages, and five informational types, with an Export control above the list](/library/site-audit/audit-report-by-severity-openseo.png)
+![Relatório de auditoria do site unscriptedseo.com no RE9 SEO, agrupado nos níveis crítico (CRITICAL), alerta (WARNING) e informativo (INFO), mostrando um tipo de problema crítico com 35 páginas, nove tipos de alerta liderados pela meta description ausente em 279 páginas e cinco tipos informativos, com um controle de exportação (Export) acima da lista](/library/site-audit/audit-report-by-severity-openseo.png)
 
-### 3. Warnings, grouped by cause and not by URL
+### 3. Alertas agrupados pela causa, e não por URL
 
-This is the section that decides whether the report gets used. Two hundred and seventy-nine pages missing a meta description is one line, one owner, and one template change. Written out as 279 rows it becomes a document nobody opens twice.
+Esta é a seção que decide se o relatório vai ser usado. Duzentas e setenta e nove páginas sem meta description são uma linha, um responsável e uma mudança de template. Escritas como 279 linhas, viram um documento que ninguém abre duas vezes.
 
-Name the cause for each group. "The post template does not output a meta description" is a sentence a developer can act on. "279 pages are missing meta descriptions" is a number a client can only feel bad about.
+Nomeie a causa de cada grupo. “O template de posts não gera uma meta description” é uma frase com a qual um desenvolvedor consegue agir. “279 páginas estão sem meta description” é um número que só faz o cliente se sentir mal.
 
-### 4. What it costs, in the client's units
+### 4. Quanto custa, na unidade do cliente
 
-Convert each group into the unit the reader already tracks: revenue on the affected pages for ecommerce, form fills for lead generation, sessions for a publisher. Pull the figure from Search Console or analytics rather than from the audit, because the audit does not know which pages matter.
+Converta cada grupo na unidade que o leitor já acompanha: receita das páginas afetadas, no e-commerce; formulários preenchidos, na geração de leads; sessões, para um site editorial. Tire o número do Search Console ou do analytics, e não da auditoria, porque a auditoria não sabe quais páginas importam.
 
-Grant puts a number on the uncertainty rather than hiding it:
+Grant coloca um número na incerteza em vez de escondê-la:
 
-> most of my tools, I add in a confidence score, because the math is just math and reasoning is just reasoning.
+> na maioria das minhas ferramentas, eu acrescento uma pontuação de confiança, porque a matemática é só matemática e o raciocínio é só raciocínio.
 
-An estimate with a stated confidence survives being challenged in a meeting. An estimate presented as a fact does not survive the first person who asks how you got it.
+Uma estimativa com um grau de confiança declarado resiste a ser questionada numa reunião. Uma estimativa apresentada como fato não resiste à primeira pessoa que pergunta como você chegou a ela.
 
-### 5. The proposal, ordered by pages fixed per hour of work
+### 5. A proposta, ordenada por páginas corrigidas por hora de trabalho
 
-Order by return, which means severity is an input rather than the sort key. A template change that repairs 279 pages outranks four broken links even though the broken links score higher on severity. Severity is a property of the issue. Return is a property of the fix.
+Ordene pelo retorno, o que significa que a gravidade é um dos dados de entrada, e não o critério de ordenação. Uma mudança de template que conserta 279 páginas fica à frente de quatro links quebrados, mesmo que os links quebrados tenham gravidade maior. A gravidade é uma característica do problema. O retorno é uma característica da correção.
 
-### 6. The measurement plan
+### 6. O plano de mensuração
 
-Two or three specific numbers, with the date you will read them and the date you expect movement: indexed page count, clicks on the affected URL set, crawl errors in Search Console. Write down what would count as the change not working, before you start.
+Dois ou três números específicos, com a data em que você vai lê-los e a data em que espera ver movimento: quantidade de páginas indexadas, cliques no conjunto de URLs afetadas, erros de rastreamento no Search Console. Anote, antes de começar, o que vai contar como sinal de que a mudança não funcionou.
 
-## What to leave out
+## O que deixar de fora
 
-The informational tier does not belong in the body of the report. Twenty-six long titles and 82 heading-order skips are real, and putting them in front of a decision-maker costs you the attention you need for the four things that matter. Export them, attach the file, and reference it in one line.
+O nível informativo não pertence ao corpo do relatório. Vinte e seis títulos longos e 82 saltos na ordem dos cabeçalhos são reais, e colocá-los na frente de quem decide custa a atenção de que você precisa para as quatro coisas que importam. Exporte, anexe o arquivo e faça referência a ele em uma linha.
 
-The same goes for a composite score. Any tool that emits one number out of 100 creates a conversation about that number: the client asks why it is 62 rather than 80, you explain the weighting, and nobody discusses the broken links. OpenSEO does not compute a site health score at all. The only scores it stores are Lighthouse's own performance, SEO, accessibility, and best-practice numbers for the sampled pages, and those are worth reporting as what they are, a page-level measurement of ten pages, rather than promoting into a headline.
+O mesmo vale para uma pontuação composta. Qualquer ferramenta que gera um número de 0 a 100 cria uma conversa sobre esse número: o cliente pergunta por que é 62 e não 80, você explica os pesos, e ninguém discute os links quebrados. O RE9 SEO não calcula nenhuma pontuação de saúde do site. As únicas pontuações que ele guarda são as do próprio Lighthouse, de desempenho, SEO, acessibilidade e boas práticas, para as páginas da amostra, e vale relatá-las pelo que são, uma medição de dez páginas, em vez de promovê-las a manchete.
 
-Chris Green of Torque Partnership makes the case for why report hygiene is not cosmetic, in the context of bot traffic corrupting analytics:
+Chris Green, da Torque Partnership, explica por que a higiene do relatório não é um detalhe cosmético, falando sobre o tráfego de bots que distorce o analytics:
 
-> it pollutes all of my other data, which then ruins decision making, which then eventually potentially ruins my budget and my remit.
+> isso polui todos os meus outros dados, o que depois estraga a tomada de decisão, o que depois, no fim, pode acabar com o meu orçamento e com o meu escopo.
 
-A wrong number in an audit report travels the same route. It gets copied into a deck, the deck sets a budget, and the budget outlives everyone's memory of where the number came from. Chris's episode is [here](https://unscriptedseo.com/chris-green-do-googles-patents-still-hold-up-in-an-agentic-web/).
+Um número errado num relatório de auditoria percorre o mesmo caminho. Ele é copiado para uma apresentação, a apresentação define um orçamento, e o orçamento sobrevive à memória de todo mundo sobre de onde o número veio. O episódio do Chris está [aqui](https://unscriptedseo.com/chris-green-do-googles-patents-still-hold-up-in-an-agentic-web/) (em inglês).
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-The report structure above is a prompt. Because `get_audit_issues` returns a `how_to_fix` string on every issue, an agent can write section 2 verbatim rather than paraphrasing remediation advice it half-remembers.
+A estrutura de relatório acima é um prompt. Como `get_audit_issues` retorna um texto `how_to_fix` em cada problema, um agente consegue escrever a seção 2 ao pé da letra, em vez de parafrasear uma orientação de correção de que ele mal se lembra.
 
 ```text
-Using the OpenSEO MCP on project [name], write me an SEO audit
-report for [client] from the most recent site audit.
+Usando o MCP do RE9 SEO no projeto [nome], escreva um relatório de
+auditoria de SEO para [cliente] a partir da auditoria do site mais
+recente.
 
-Structure it exactly like this:
+Estruture exatamente assim:
 
-1. SCOPE: pages crawled, date, and whether any pages came back with
-   fetchClass other than "ok". If any did, say so in the first
-   paragraph and state how many findings are therefore unverified.
+1. ESCOPO: páginas rastreadas, data e se alguma página voltou com
+   fetchClass diferente de "ok". Se alguma voltou, diga isso no
+   primeiro parágrafo e informe quantos achados, por isso, não
+   foram verificados.
 
-2. CRITICAL: every issue at severity "critical". URL, the detail
-   from the issue row, and the how_to_fix text unedited. No
-   summarising.
+2. CRÍTICO: todo problema com severity "critical". URL, o detalhe da
+   linha do problema e o texto de how_to_fix sem edição. Sem
+   resumir.
 
-3. WARNINGS BY CAUSE: pull severity "warning", group by issueType,
-   and for each group write one sentence naming the likely cause
-   (template, migration, editorial). Sort groups by page count.
+3. ALERTAS POR CAUSA: puxe severity "warning", agrupe por issueType e,
+   para cada grupo, escreva uma frase nomeando a causa provável
+   (template, migração, editorial). Ordene os grupos pela quantidade
+   de páginas.
 
-4. COST: for the top three groups, list the affected URLs and tell
-   me which of them appear in Search Console with clicks or
-   impressions. Flag any group where none of the pages get traffic.
+4. CUSTO: para os três maiores grupos, liste as URLs afetadas e me
+   diga quais delas aparecem no Search Console com cliques ou
+   impressões. Sinalize qualquer grupo em que nenhuma página recebe
+   tráfego.
 
-5. PROPOSAL: order the groups by pages fixed per unit of effort,
-   not by severity. Say which team owns each one.
+5. PROPOSTA: ordene os grupos por páginas corrigidas por unidade de
+   esforço, e não por gravidade. Diga qual equipe é responsável por
+   cada um.
 
-6. MEASUREMENT: three numbers to re-check in 30 days.
+6. MENSURAÇÃO: três números para checar de novo em 30 dias.
 
-Put the informational tier in an appendix as counts only. Do not
-invent a score.
+Coloque o nível informativo num apêndice, só com as contagens. Não
+invente uma pontuação.
 ```
 
-Step 4 is what turns a crawl into a report. The audit knows which pages are broken; Search Console knows which broken pages anybody was ever going to visit. [Programmatic discovery with Search Console](/library/keyword-research/gsc-programmatic-discovery) covers pulling that side.
+O passo 4 é o que transforma um rastreamento em relatório. A auditoria sabe quais páginas estão quebradas; o Search Console sabe quais páginas quebradas alguém algum dia ia visitar. [Descoberta programática com o Search Console](/library/keyword-research/gsc-programmatic-discovery) explica como puxar esse lado.
 
-## An audit report is a proposal for work
+## Um relatório de auditoria é uma proposta de trabalho
 
-An audit report has a job that is easy to lose sight of: getting someone to authorise work. It is a sales document for a set of tasks, and it succeeds when the tasks get scheduled.
+Um relatório de auditoria tem uma função fácil de perder de vista: conseguir que alguém autorize o trabalho. Ele é um documento de venda para um conjunto de tarefas, e dá certo quando as tarefas entram na agenda.
 
-That reframes every editorial choice in it. The 1,180-row export is honest and it does not persuade anybody. Four named fixes with owners, costs, and a re-check date do. Keep the export, attach it, and write the four.
+Isso muda o enquadramento de cada escolha editorial dentro dele. A exportação de 1.180 linhas é honesta e não convence ninguém. Quatro correções nomeadas, com responsáveis, custos e uma data para nova checagem, convencem. Mantenha a exportação, anexe e escreva as quatro.
 
-When the proposed fix is deletion rather than repair, the report needs a different shape again, because you are asking permission to remove pages someone paid to create. [Index bloat](/library/site-audit/index-bloat) covers how to make that case with evidence.
+Quando a correção proposta é apagar em vez de consertar, o relatório precisa de outro formato, porque você está pedindo permissão para remover páginas pelas quais alguém pagou. [Inchaço de índice](/library/site-audit/index-bloat) mostra como defender essa proposta com evidências.
 
-## SEO audit report FAQ
+## Perguntas frequentes sobre relatório de auditoria de SEO
 
-### What should be in an SEO audit report?
+### O que deve ter num relatório de auditoria de SEO?
 
-Scope and crawl reliability, the critical issues with named owners and exact fixes, warnings grouped by underlying cause rather than by URL, an estimate of what each group costs in the client's own metric, a prioritised proposal, and a short measurement plan with dates. Raw findings go in an appendix.
+Escopo e confiabilidade do rastreamento, os problemas críticos com responsáveis nomeados e correções exatas, alertas agrupados pela causa de fundo em vez de por URL, uma estimativa de quanto cada grupo custa na métrica do próprio cliente, uma proposta priorizada e um plano de mensuração curto, com datas. Os achados brutos vão para o apêndice.
 
-### How long should an SEO audit report be?
+### Qual deve ser o tamanho de um relatório de auditoria de SEO?
 
-The body should be short enough to read in a meeting, which in practice means four to eight pages. Length lives in the appendix. A long body signals that the findings were not triaged, which is the work the client is paying for.
+O corpo deve ser curto o bastante para ser lido numa reunião, o que, na prática, significa de quatro a oito páginas. O volume fica no apêndice. Um corpo longo indica que os achados não foram triados, e a triagem é justamente o trabalho pelo qual o cliente está pagando.
 
-### Should an SEO audit report include a score?
+### Um relatório de auditoria de SEO deve ter uma pontuação?
 
-Not a composite one. A single number out of 100 invites an argument about the weighting and displaces the conversation about which fixes get scheduled. Report counts by severity, which are checkable, and let the proposal carry the judgement. Lighthouse category scores are fine to include as long as you say how many pages they cover.
+Não uma pontuação composta. Um número único de 0 a 100 convida a uma discussão sobre os pesos e toma o lugar da conversa sobre quais correções vão entrar na agenda. Informe as contagens por gravidade, que podem ser conferidas, e deixe a proposta carregar o julgamento. Pode incluir as pontuações por categoria do Lighthouse, desde que diga quantas páginas elas cobrem.
 
-### How do you present SEO audit findings to a client?
+### Como apresentar os resultados de uma auditoria de SEO ao cliente?
 
-Lead with the decision you want, not the evidence you gathered. Open with the proposal and the cost, keep the critical issues as a forwardable list, group everything else by cause, and put the full export behind a link. Say plainly which numbers are estimates.
+Comece pela decisão que você quer, não pelas evidências que reuniu. Abra com a proposta e o custo, mantenha os problemas críticos como uma lista pronta para encaminhar, agrupe todo o resto pela causa e deixe a exportação completa atrás de um link. Diga com clareza quais números são estimativas.
 
-### Is there a free SEO audit report template?
+### Existe um modelo gratuito de relatório de auditoria de SEO?
 
-The structure on this page is the template, and it is more useful than a formatted document because it tells you what goes in each section and what to leave out. OpenSEO can produce every section from a real crawl using the prompt above; it is open source and free to start, with paid plans from $10/month for larger crawls.
+A estrutura desta página é o modelo, e ela é mais útil que um documento formatado, porque diz o que vai em cada seção e o que deixar de fora. O RE9 SEO consegue produzir cada seção a partir de um rastreamento real usando o prompt acima, e o código dele é aberto.

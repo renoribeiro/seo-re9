@@ -1,60 +1,60 @@
 ---
-title: "SEO Audit Agent Skill"
-description: "Audit a website with your AI agent and understand its important SEO problems, worthwhile improvements, and likely effects on traffic and the business."
+title: "Skill de auditoria de SEO"
+description: "Audite um site com o seu agente de IA e entenda os problemas de SEO importantes, as melhorias que valem a pena e os efeitos prováveis no tráfego e no negócio."
 ---
 
 <RunSkillCallout command="/seo-audit" />
 
-The SEO Audit Agent Skill audits a site and writes a concise HTML report that anyone can understand and use, including someone who has never done SEO.
+A skill de auditoria de SEO (`seo-audit`) audita um site e escreve um relatório HTML conciso que qualquer pessoa consegue entender e usar, inclusive quem nunca trabalhou com SEO.
 
-Your agent checks the site's technical health, important pages, links, and search visibility. It checks ranking assumptions against live search results and weighs the likely benefit of proposed work against the effort. The report explains the problems found, how proposed changes could affect traffic or potential customers, and whether the likely benefit warrants the effort. It separates confirmed findings from hypotheses and says when the audit has not established a substantial improvement worth making.
+O agente verifica a saúde técnica do site, as páginas importantes, os links e a visibilidade na busca. Ele confronta as hipóteses de ranqueamento com resultados de busca em tempo real e compara o benefício provável do trabalho proposto com o esforço necessário. O relatório explica os problemas encontrados, como as mudanças propostas podem afetar o tráfego ou os potenciais clientes e se o benefício provável justifica o esforço. Ele separa descobertas confirmadas de hipóteses e avisa quando a auditoria não identificou uma melhoria substancial que valha a pena.
 
-The skill is plain `SKILL.md` instructions, so it runs in Claude Code, Codex, or any agent that supports the skills format. It delivers through the [SEO Report skill](/docs/skills/seo-report): the finished page is saved to your OpenSEO project and appears on the project's Reports page, where anyone on your team can open it or print it to PDF.
+A skill é formada por instruções simples em `SKILL.md`, então funciona no Claude Code, no Codex ou em qualquer agente compatível com o formato de skills. A entrega é feita pela [skill de relatório de SEO](/docs/skills/seo-report): a página final é salva no seu projeto do RE9 SEO e aparece na página Relatórios do projeto, onde qualquer pessoa da sua equipe pode abri-la ou imprimi-la em PDF.
 
-## What this skill helps your agent do
+## O que esta skill ajuda seu agente a fazer
 
-- Crawl the site, read the prioritized issues, and map the page families the crawl missed using the sitemap.
-- Check backlinks, traffic estimates, and which pages appear for relevant searches.
-- Read stronger and weaker pages in each important family side by side and judge whether each answers its own searcher's question with specific, accurate information.
-- Verify ranking assumptions with live search results before choosing a priority.
-- Build a shortlist of opportunities across different kinds of work, then choose the few whose likely benefit warrants the effort. An easy fix or a big raw search volume does not win on its own.
-- Explain each recommendation with short "Do this" and "Why" bullets, a compact evidence table, and, when useful, a labeled traffic scenario.
-- Show everything else it weighed in one "What else we checked" table with a one-line decision, so material findings are never dropped.
-- Explain every technical term in plain English the first time it appears.
-- Save the result to your project as a single HTML page anyone on your team can open or print.
+- Rastrear o site, ler os problemas priorizados e mapear, usando o sitemap, as famílias de páginas que o rastreamento não alcançou.
+- Verificar backlinks, estimativas de tráfego e quais páginas aparecem em buscas relevantes.
+- Ler lado a lado as páginas mais fortes e mais fracas de cada família importante e avaliar se cada uma responde à pergunta de quem busca com informações específicas e corretas.
+- Validar as hipóteses de ranqueamento com resultados de busca em tempo real antes de escolher uma prioridade.
+- Montar uma lista curta de oportunidades em diferentes tipos de trabalho e escolher as poucas cujo benefício provável justifica o esforço. Uma correção fácil ou um volume de busca alto, sozinhos, não bastam.
+- Explicar cada recomendação com tópicos curtos de "Faça isto" e "Por quê", uma tabela compacta de evidências e, quando útil, um cenário de tráfego identificado como tal.
+- Mostrar tudo o que mais foi avaliado em uma única tabela "O que mais verificamos", com uma decisão de uma linha para cada item, para que nenhuma descoberta relevante se perca.
+- Explicar cada termo técnico em linguagem simples na primeira vez que ele aparece.
+- Salvar o resultado no seu projeto como uma única página HTML que qualquer pessoa da equipe pode abrir ou imprimir.
 
-## When to use it
+## Quando usar
 
-Use this skill when the report is for someone new to SEO: a client, a founder, a friend with a podcast or a photography site. It is also a good first skill if that beginner is you, because the report explains itself.
+Use esta skill quando o relatório for para alguém que está começando em SEO: um cliente, um fundador, um amigo com um podcast ou um site de fotografia. Ela também é uma boa primeira skill se essa pessoa iniciante for você, porque o relatório se explica sozinho.
 
-It handles broken sites honestly. If the domain is down or half-crawled, the agent investigates why before writing, and the recommendation changes to match: an expired certificate or a dead domain with a live successor site each call for a different response.
+Ela lida com sites quebrados de forma honesta. Se o domínio estiver fora do ar ou tiver sido rastreado só pela metade, o agente investiga o motivo antes de escrever, e a recomendação se ajusta: um certificado expirado e um domínio morto com um site sucessor no ar pedem respostas diferentes.
 
-## What you get back
+## O que você recebe
 
-One report on your project's Reports page. It opens with your next SEO move, then one to three recommendations, each naming a page or small group with "Do this" and "Why" bullets and a small evidence table. A "What else we checked" table lists the other opportunities the audit weighed and why they lost. The full evidence sits in an expandable section at the end. There is no fixed length: the prose stays light, and the data stays visible. In chat you get the link, the verdict, and the leading recommendation.
+Um relatório na página Relatórios do seu projeto. Ele começa com o seu próximo passo em SEO e depois traz de uma a três recomendações, cada uma indicando uma página ou um pequeno grupo de páginas, com tópicos de "Faça isto" e "Por quê" e uma pequena tabela de evidências. Uma tabela "O que mais verificamos" lista as outras oportunidades que a auditoria avaliou e por que ficaram de fora. As evidências completas ficam em uma seção expansível no final. Não há tamanho fixo: o texto é enxuto e os dados ficam à vista. No chat, você recebe o link, o veredito e a recomendação principal.
 
-## How to get the best result
+## Como obter o melhor resultado
 
-- Give the agent one domain.
-- Say who the report is for.
-- Mention anything you already know, like a site move or an old domain.
-- Ask to see the verified facts if you want to check the agent's work.
-- Give the agent a research budget if you need a spending limit.
+- Informe ao agente um único domínio.
+- Diga para quem é o relatório.
+- Mencione o que você já sabe, como uma migração de site ou um domínio antigo.
+- Peça para ver os fatos verificados se quiser conferir o trabalho do agente.
+- Defina um orçamento de pesquisa para o agente se precisar de um limite de gastos.
 
-## Use it with OpenSEO MCP
+## Use com o MCP do RE9 SEO
 
-Set up [OpenSEO MCP](/docs/mcp) so your agent can run the audit and read backlink data, traffic estimates, and keyword ideas. The site audit is included on every plan (up to 50 pages on the free plan); backlink, domain, ranking, live-search, and keyword lookups spend credits. The skill expands research when it can change the diagnosis or priority, reuses relevant evidence, and respects explicit budgets. Cost varies with the investigation rather than a fixed lookup allowance.
+Configure o [MCP do RE9 SEO](/docs/mcp) para que o agente possa executar a auditoria e ler dados de backlinks, estimativas de tráfego e ideias de palavras-chave. Consultas de backlinks, domínios, posições, buscas em tempo real e palavras-chave consomem créditos. A skill amplia a pesquisa quando isso pode mudar o diagnóstico ou a prioridade, reaproveita evidências relevantes e respeita orçamentos definidos explicitamente. O custo varia conforme a investigação, e não segundo uma cota fixa de consultas.
 
-## Read the actual skill
+## Leia a skill original
 
-The source `SKILL.md` lives on GitHub:
+O `SKILL.md` original fica no GitHub:
 
-- [SEO Audit skill](https://github.com/every-app/open-seo/tree/main/.agents/skills/seo-audit)
+- [Skill de auditoria de SEO](https://github.com/renoribeiro/seo-re9/tree/main/.agents/skills/seo-audit)
 
-## Related skills
+## Skills relacionadas
 
-- [SEO Report](/docs/skills/seo-report), the shared skill that writes and saves the report.
-- [SEO Coach](/docs/skills/seo-coach) if you are not sure this is the right workflow to run first.
-- [Keyword Research](/docs/skills/keyword-research) to build the keyword plan behind a recommendation.
-- [Link Prospecting](/docs/skills/link-prospecting) when the report recommends link outreach and you want to go beyond the first outreach batch.
-- [Competitor Analysis](/docs/skills/competitor-analysis) once the basics are handled and you want to study who outranks you.
+- [Relatório de SEO](/docs/skills/seo-report), a skill compartilhada que escreve e salva o relatório.
+- [SEO Coach](/docs/skills/seo-coach), se você não tem certeza de que este é o fluxo certo para começar.
+- [Pesquisa de palavras-chave](/docs/skills/keyword-research), para montar o plano de palavras-chave por trás de uma recomendação.
+- [Prospecção de links](/docs/skills/link-prospecting), quando o relatório recomendar outreach de links e você quiser ir além do primeiro lote de contatos.
+- [Análise de concorrentes](/docs/skills/competitor-analysis), quando o básico estiver resolvido e você quiser estudar quem ranqueia acima de você.

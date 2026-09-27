@@ -55,7 +55,7 @@ export function BacklinkCheckerTool({
       >
         <div className="flex flex-col gap-2 sm:flex-row">
           <label htmlFor="backlink-target" className="sr-only">
-            Domain to check
+            Domínio para verificar
           </label>
           <input
             id="backlink-target"
@@ -67,11 +67,11 @@ export function BacklinkCheckerTool({
             required
             value={target}
             onChange={(e) => setTarget(e.target.value)}
-            placeholder="example.com"
+            placeholder="exemplo.com.br"
             disabled={status === "loading"}
             className={FIELD_CLASS}
           />
-          <SubmitButton status={status} idleLabel="Check backlinks" />
+          <SubmitButton status={status} idleLabel="Verificar backlinks" />
         </div>
       </ToolForm>
 
@@ -88,7 +88,7 @@ function CheckResults({ result }: { result: CheckResult }) {
   return (
     <div className="mt-6">
       <h2 className="text-lg font-semibold tracking-tight text-neutral-950">
-        Backlink profile for{" "}
+        Perfil de backlinks de{" "}
         <span className="text-[var(--color-brand-accent)]">
           {result.target}
         </span>
@@ -98,47 +98,50 @@ function CheckResults({ result }: { result: CheckResult }) {
         <MetricGrid
           metrics={[
             {
-              label: "Domain rank",
+              label: "Domain Rank",
               value: formatCount(summary.rank),
-              tip: "DataForSEO's 0-100 strength score for a domain's link profile. Similar idea to Ahrefs DR or Moz DA, but each tool uses its own index and formula, so numbers differ between tools.",
+              tip: "Pontuação de 0 a 100 da DataForSEO para a força do perfil de links de um domínio. A ideia é parecida com o DR do Ahrefs ou o DA do Moz, mas cada ferramenta usa seu próprio índice e fórmula, então os números variam entre elas.",
             },
             {
               label: "Backlinks",
               value: formatCount(summary.backlinks),
-              tip: "Total individual links pointing at this domain, counting multiple links from the same website.",
+              tip: "Total de links individuais que apontam para este domínio, contando vários links do mesmo site.",
             },
             {
-              label: "Referring domains",
+              label: "Domínios de referência",
               value: formatCount(summary.referringDomains),
-              tip: "Unique websites that link to this domain at least once.",
+              tip: "Sites únicos que linkam para este domínio pelo menos uma vez.",
             },
             {
-              label: "Broken backlinks",
+              label: "Backlinks quebrados",
               value: formatCount(summary.brokenBacklinks),
-              tip: "Links pointing at pages on this domain that no longer load, such as deleted pages returning 404.",
+              tip: "Links que apontam para páginas deste domínio que não carregam mais, como páginas excluídas que retornam 404.",
             },
           ]}
         />
       </div>
 
       {topBacklinks.length > 0 ? (
-        <ToolTable label="Backlink Checker results" className="mt-4">
+        <ToolTable
+          label="Resultados do verificador de backlinks"
+          className="mt-4"
+        >
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
                 <th className="px-4 py-3 font-medium">
                   Rank
-                  <InfoTip tip="Strength (0-100) of the linking website's own link profile. Links from higher-rank domains generally carry more weight." />
+                  <InfoTip tip="Força (0 a 100) do perfil de links do próprio site que faz o link. Links de domínios com rank maior costumam ter mais peso." />
                 </th>
-                <th className="px-4 py-3 font-medium">Referring page</th>
+                <th className="px-4 py-3 font-medium">Página de origem</th>
                 <th className="px-4 py-3 font-medium">
-                  Anchor and target
-                  <InfoTip tip="The clickable text of the link, and the page on this domain the link points to." />
+                  Âncora e destino
+                  <InfoTip tip="O texto clicável do link e a página deste domínio para onde ele aponta." />
                 </th>
                 <th className="px-4 py-3 font-medium">
-                  Type
+                  Tipo
                   <InfoTip
-                    tip="Follow links can pass ranking value to the target. Nofollow links ask search engines not to count them."
+                    tip="Links follow podem passar valor de ranqueamento para o destino. Links nofollow pedem aos buscadores que não os considerem."
                     align="right"
                   />
                 </th>
@@ -193,24 +196,25 @@ function CheckResults({ result }: { result: CheckResult }) {
         </ToolTable>
       ) : (
         <p className="mt-4 rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-          No live backlinks found for this domain in the index yet.
+          Ainda não há backlinks ativos para este domínio no índice.
         </p>
       )}
 
-      <UpsellCard tool={TOOL} cta="Explore more backlinks">
+      <UpsellCard tool={TOOL} cta="Explorar mais backlinks">
         {hasMore ? (
           <>
-            Showing the top {topBacklinks.length} backlinks, one per referring
-            domain, strongest domains first.{" "}
+            Mostrando os {topBacklinks.length} principais backlinks, um por
+            domínio de referência, dos domínios mais fortes para os mais fracos.
+            O índice tem{" "}
             <span className="font-medium text-neutral-950">
-              {formatCount(total)} total backlinks
+              {formatCount(total)} backlinks no total
             </span>{" "}
-            are in the index for this domain.
+            para este domínio.
           </>
         ) : (
           <>
-            Explore the full picture: referring domains, anchors, new and lost
-            links, and spam signals.
+            Veja o quadro completo: domínios de referência, âncoras, links novos
+            e perdidos e sinais de spam.
           </>
         )}
       </UpsellCard>

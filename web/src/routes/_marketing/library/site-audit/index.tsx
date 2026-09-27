@@ -6,34 +6,34 @@ const PATH = "/library/site-audit";
 
 const faqs = [
   {
-    question: "What is a technical SEO audit?",
+    question: "O que é uma auditoria técnica de SEO?",
     answer:
-      "A check of whether search engines can reach, render, and understand your pages. It covers crawl access, status codes, canonical and indexability signals, titles and headings, internal linking, duplicate content, and response time. It comes before content and link work, because a content problem on a page Google cannot fetch is not the problem you have.",
+      "É verificar se os buscadores conseguem acessar, renderizar e entender as suas páginas. Ela cobre acesso ao rastreamento, códigos de status, sinais de canonical e de indexação, títulos e cabeçalhos, links internos, conteúdo duplicado e tempo de resposta. Vem antes do trabalho de conteúdo e de links, porque um problema de conteúdo numa página que o Google não consegue buscar não é o problema que você tem.",
   },
   {
-    question: "What should a technical SEO audit checklist produce?",
+    question: "O que um checklist de auditoria técnica de SEO deve produzir?",
     answer:
-      "A work order rather than a count. Group findings by issue type instead of by URL, keep only the issues that stop a page being reached or understood in front of the reader, and attach the specific remediation to each one. A report of 1,180 findings across 318 pages usually describes about a dozen underlying causes.",
+      "Uma ordem de serviço, não uma contagem. Agrupe os achados por tipo de problema em vez de por URL, deixe à vista de quem lê só os problemas que impedem uma página de ser acessada ou entendida e anexe a correção específica a cada um. Um relatório com 1.180 achados em 318 páginas costuma descrever uma dúzia de causas de fundo.",
   },
   {
-    question: "Why do SEO audits produce so many issues?",
+    question: "Por que as auditorias de SEO geram tantos problemas?",
     answer:
-      "Because most checks run per page and most sites are templated, so one template fault multiplies by every page using it. Two hundred and seventy-nine pages missing a meta description is one template change, not 279 tasks. Grouping by cause is what turns the number back into work.",
+      "Porque a maioria das verificações roda por página e a maioria dos sites usa templates, então um defeito de template se multiplica por todas as páginas que o usam. Duzentas e setenta e nove páginas sem meta description são uma mudança de template, não 279 tarefas. Agrupar por causa é o que transforma o número de volta em trabalho.",
   },
   {
-    question: "What is index bloat, and how do I know if I have it?",
+    question: "O que é inchaço de índice e como saber se eu tenho?",
     answer:
-      "More URLs eligible for indexing than the site has distinct things to say: pagination, filter parameters, tag archives, and per-item permalinks. A crawler cannot tell you whether you have it, because every bloated page returns 200 and passes its own checks. Inspect a sample of the suspect URLs in Search Console instead. If they come back unknown to Google or canonicalised away, there is nothing to delete.",
+      "É ter mais URLs aptas à indexação do que coisas distintas que o site tem a dizer: paginação, parâmetros de filtro, arquivos de tags e links permanentes por item. Um rastreador não consegue dizer se você tem esse problema, porque toda página inchada retorna 200 e passa nas próprias verificações. Em vez disso, inspecione uma amostra das URLs suspeitas no Search Console. Se elas voltarem como desconhecidas para o Google ou canonicalizadas para outra URL, não há nada para apagar.",
   },
   {
-    question: "Why did my SEO crawler get blocked?",
+    question: "Por que meu rastreador de SEO foi bloqueado?",
     answer:
-      "A bot-protection layer refused it, usually with a 403, a 429 rate limit, or a managed challenge, and usually from the CDN edge rather than your server. Googlebot is normally exempt because vendors verify it by reverse DNS; third-party crawlers are not. Until access is fixed, every other number in the audit covers only the pages that were served.",
+      "Uma camada de proteção contra bots o recusou, geralmente com um 403, um limite de requisições 429 ou um desafio gerenciado, e geralmente na borda da CDN, não no seu servidor. O Googlebot costuma ficar isento porque os fornecedores o verificam por DNS reverso; rastreadores de terceiros não. Até o acesso ser corrigido, todos os outros números da auditoria cobrem só as páginas que foram entregues.",
   },
   {
-    question: "Is there a free SEO audit tool?",
+    question: "Existe ferramenta gratuita de auditoria de SEO?",
     answer:
-      "Partly. Google Search Console reports coverage and indexing for your own verified property at no cost, and it is more reliable than any third-party estimate for anything Google-specific. A crawler adds the on-page and internal-link picture Search Console does not give you. OpenSEO is open source and free to start, with 50-page crawls on the free plan; the paid plan is $10/month and raises the limit to 10,000 pages per crawl.",
+      "Em parte. O Google Search Console mostra cobertura e indexação da sua propriedade verificada sem custo, e é mais confiável do que qualquer estimativa de terceiros para tudo o que é específico do Google. Um rastreador acrescenta a visão on-page e de links internos que o Search Console não dá. O RE9 SEO é de código aberto e faz esse rastreamento. Fale com a gente: trafego@re9.online.",
   },
 ];
 
@@ -48,18 +48,18 @@ const faqLd = {
 };
 
 const breadcrumbLd = buildBreadcrumbJsonLd([
-  { name: "Strategy Library", path: "/library" },
-  { name: "Site Audit", path: PATH },
+  { name: "Biblioteca de estratégias", path: "/library" },
+  { name: "Auditoria do site", path: PATH },
 ]);
 
 export const Route = createFileRoute("/_marketing/library/site-audit/")({
   head: () =>
     buildPageSeo({
-      title: "Technical SEO Audit: The Strategy Library",
+      title: "Auditoria técnica de SEO: a biblioteca de estratégias",
       description:
-        "Three site audit strategies for turning a crawl into scheduled work: triage by severity, report it so it gets approved, and decide what to delete. Each includes a workflow and an OpenSEO MCP prompt.",
+        "Três estratégias de auditoria para transformar um rastreamento em trabalho planejado: triagem por gravidade, um relatório que seja aprovado e a decisão do que apagar. Cada uma traz um fluxo de trabalho e um prompt de MCP do RE9 SEO.",
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
     }),
   component: SiteAuditLibraryPage,
 });
@@ -69,36 +69,38 @@ function SiteAuditLibraryPage() {
     <article className="mx-auto max-w-5xl">
       <header className="max-w-3xl">
         <nav
-          aria-label="Breadcrumb"
+          aria-label="Trilha de navegação"
           className="text-sm text-[var(--color-brand-muted)]"
         >
           <a
             href="/library"
             className="font-medium text-[var(--color-brand-accent)]"
           >
-            Strategy Library
+            Biblioteca de estratégias
           </a>{" "}
-          / <span>Site Audit</span>
+          / <span>Auditoria do site</span>
         </nav>
         <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-neutral-950 md:text-6xl">
-          The Site Audit Strategy Library
+          Biblioteca de estratégias de auditoria do site
         </h1>
         <p className="mt-5 text-lg leading-8 text-[var(--color-brand-muted)]">
-          Three strategies for turning a crawl into scheduled work: triage the
-          findings by severity, write the report so it gets approved, and decide
-          which pages should stop existing. Each one includes a workflow and a
-          copy-paste OpenSEO MCP prompt.
+          Três estratégias para transformar um rastreamento em trabalho
+          planejado: faça a triagem dos achados por gravidade, escreva o
+          relatório para que ele seja aprovado e decida quais páginas devem
+          deixar de existir. Cada uma traz um fluxo de trabalho e um prompt de
+          MCP do RE9 SEO pronto para copiar e colar.
         </p>
       </header>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          How do you run a site audit that ends in fixes?
+          Como fazer uma auditoria do site que termine em correções?
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Sort the findings by severity, decide which are worth someone&rsquo;s
-          sprint, and write the case so the work gets authorised. Deleting pages
-          is a separate decision that needs its own evidence.
+          Ordene os achados por gravidade, decida quais merecem entrar na sprint
+          de alguém e escreva a justificativa para que o trabalho seja
+          autorizado. Apagar páginas é uma decisão separada, que precisa das
+          próprias evidências.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {siteAuditStrategies.map((strategy, index) => {
@@ -132,121 +134,119 @@ function SiteAuditLibraryPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Why most audits stop one step short
+          Por que a maioria das auditorias para um passo antes
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          A crawler is good at finding problems and has no opinion about which
-          of them matter to your business. So the output is a list, the list is
-          long, and the expensive work of deciding what to do with it gets
-          deferred until nobody remembers why the crawl was run. Audits do not
-          fail because the findings are wrong. They fail because a correct
-          description of 1,180 problems gives the person paying for it no way to
-          decide anything.
+          Um rastreador é bom em encontrar problemas e não tem opinião sobre
+          quais deles importam para o seu negócio. Então o resultado é uma
+          lista, a lista é longa, e o trabalho caro de decidir o que fazer com
+          ela fica para depois, até ninguém lembrar por que o rastreamento foi
+          feito. Auditorias não falham porque os achados estão errados. Falham
+          porque uma descrição correta de 1.180 problemas não dá a quem paga por
+          ela nenhum jeito de decidir nada.
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Two habits close most of that gap. Group findings by their underlying
-          cause rather than by URL, because a templated site turns one mistake
-          into hundreds of rows. And carry the remediation with the finding, so
-          the person reading the report is not sent off to search for what a
-          canonical conflict is before they can act.
+          Dois hábitos fecham a maior parte dessa distância. Agrupe os achados
+          pela causa de fundo, não por URL, porque um site feito com templates
+          transforma um erro em centenas de linhas. E leve a correção junto com
+          o achado, para que quem lê o relatório não precise sair pesquisando o
+          que é um conflito de canonical antes de agir.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          What the OpenSEO site audit checks
+          O que a auditoria do site do RE9 SEO verifica
         </h2>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          The crawler is robots.txt-aware and stays on the same origin. It
-          checks 27 issue types across three severities: four critical (a
-          blocked crawler, a 5xx error, a broken internal link, a missing
-          title), 14 warnings covering duplicate titles and descriptions,
-          duplicate content, missing or multiple H1s, redirect chains and loops,
-          canonical conflicts, thin content, missing image alt text, orphan
-          pages and dead ends, and nine informational checks for length, heading
-          order, response time, and intentional noindex or canonical signals.
-          Every issue carries a <code>how_to_fix</code> written for that issue
-          type.
+          O rastreador respeita o robots.txt e fica na mesma origem. Ele
+          verifica 27 tipos de problema em três níveis de gravidade: quatro
+          críticos (rastreador bloqueado, erro 5xx, link interno quebrado,
+          título ausente), 14 alertas que cobrem títulos e descrições
+          duplicados, conteúdo duplicado, H1 ausente ou múltiplo, cadeias e
+          loops de redirecionamento, conflitos de canonical, conteúdo raso,
+          texto alternativo de imagem ausente, páginas órfãs e sem saída, e nove
+          verificações informativas de tamanho, ordem de cabeçalhos, tempo de
+          resposta e sinais intencionais de noindex ou canonical. Todo problema
+          traz um <code>how_to_fix</code> escrito para aquele tipo de problema.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          You can run all of it from the{" "}
+          Você pode rodar tudo isso pela página de{" "}
           <a
             href="/features/site-audit"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            site audit
+            auditoria do site
           </a>{" "}
-          page, or through the{" "}
+          ou pelo{" "}
           <a
             href="/docs/mcp"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
-            OpenSEO MCP
+            MCP do RE9 SEO
           </a>
-          , which lets a compatible AI assistant start the crawl, poll it, read
-          the issues with their fixes, and cross-check individual URLs against
-          Google Search Console in one conversation. The{" "}
+          , que permite a um assistente de IA compatível iniciar o rastreamento,
+          acompanhar o andamento, ler os problemas com suas correções e cruzar
+          URLs específicas com o Google Search Console numa só conversa. A skill
+          de agente{" "}
           <a
             href="/docs/skills/seo-audit"
             className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
           >
             seo-audit
           </a>{" "}
-          agent skill packages the same steps as a reusable command.
+          empacota os mesmos passos como um comando reutilizável.
         </p>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-          Free accounts can crawl 50 pages per audit, which covers most brochure
-          sites. Larger crawls run to 10,000 pages on the $10/month plan.
-          Lighthouse is optional and samples up to 10 representative pages
-          rather than every URL.
+          O Lighthouse é opcional e analisa uma amostra de até 10 páginas
+          representativas, não todas as URLs.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Where the audit needs data the crawl does not have
+          Onde a auditoria precisa de dados que o rastreamento não tem
         </h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-neutral-700">
-          Two of the most valuable audit outcomes are decisions rather than
-          defects, and no crawler will surface either as a row.
+          Alguns dos resultados mais valiosos de uma auditoria são decisões, não
+          defeitos, e nenhum rastreador vai mostrá-los como uma linha.
         </p>
         <ul className="mt-4 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700">
           <li>
-            Which broken pages anyone was ever going to visit. Severity is a
-            property of the issue; value is a property of the page. Cross the
-            critical list against your{" "}
+            Quais páginas quebradas alguém realmente visitaria. A gravidade é
+            uma propriedade do problema; o valor é uma propriedade da página.
+            Cruze a lista crítica com as suas{" "}
             <a
               href="/library/keyword-research/gsc-programmatic-discovery"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              Search Console queries and pages
+              consultas e páginas do Search Console
             </a>{" "}
-            and the fixes that matter separate from the ones that are merely
-            correct.
+            e as correções que importam se separam das que são apenas corretas.
           </li>
           <li>
-            Whether a wall of near-identical URLs is in the index at all. A
-            crawler reports 800 healthy pages; URL inspection tells you Google
-            never fetched 795 of them.
+            Se um paredão de URLs quase idênticas está mesmo no índice. Um
+            rastreador relata 800 páginas saudáveis; a inspeção de URL mostra
+            que o Google nunca buscou 795 delas.
           </li>
           <li>
-            Whether a competitor&rsquo;s advantage is technical or structural.
-            Before rebuilding a template, check the{" "}
+            Se a vantagem de um concorrente é técnica ou estrutural. Antes de
+            refazer um template, confira os{" "}
             <a
               href="/library/competitive-analysis/find-your-real-competitors"
               className="font-medium text-neutral-950 underline decoration-[var(--color-brand-accent)] underline-offset-4"
             >
-              domains that actually hold your results
+              domínios que realmente ocupam seus resultados
             </a>
-            , because half of them are frequently directories you were never
-            going to outrank.
+            , porque metade deles costuma ser de diretórios que você nunca iria
+            ultrapassar.
           </li>
         </ul>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-          Site audit FAQ
+          Perguntas frequentes sobre auditoria do site
         </h2>
         <div className="mt-5 divide-y divide-[var(--color-border-subtle)] rounded-lg border border-[var(--color-border-subtle)] bg-white">
           {faqs.map((faq) => (
@@ -265,18 +265,19 @@ function SiteAuditLibraryPage() {
       <section className="mt-12 flex flex-col items-start justify-between gap-4 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6 sm:flex-row sm:items-center md:p-8">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-950">
-            Run a site audit with your own agent
+            Faça uma auditoria do site com o seu próprio agente
           </h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-brand-muted)]">
-            Each strategy ends with a copy-paste MCP prompt. OpenSEO is open
-            source, free to start, and does not require a credit card.
+            Cada estratégia termina com um prompt de MCP pronto para copiar e
+            colar. O RE9 SEO é de código aberto. Fale com a gente:
+            trafego@re9.online.
           </p>
         </div>
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-11 shrink-0 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Start with OpenSEO
+          Começar com o RE9 SEO
           <span aria-hidden="true" className="ml-2">
             &rarr;
           </span>

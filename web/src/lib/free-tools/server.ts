@@ -71,11 +71,11 @@ export function dataforseoKey(): string | undefined {
 
 export function serviceUnavailable(tool: string) {
   console.error(`Missing DATAFORSEO_API_KEY for ${tool}`);
-  return jsonResponse({ error: "Service temporarily unavailable" }, 503);
+  return jsonResponse({ error: "Serviço temporariamente indisponível" }, 503);
 }
 
 const UNAVAILABLE =
-  "This tool is temporarily unavailable. Please try again later.";
+  "Esta ferramenta está temporariamente indisponível. Tente novamente mais tarde.";
 const turnstileResultSchema = z.object({
   success: z.boolean(),
   hostname: z.string().optional(),
@@ -92,10 +92,10 @@ export async function readToolBody(
       ?.toLowerCase()
       .startsWith("application/json")
   ) {
-    return jsonResponse({ error: "Send a JSON request" }, 415);
+    return jsonResponse({ error: "Envie uma requisição JSON" }, 415);
   }
   const reader = request.body?.getReader();
-  if (!reader) return jsonResponse({ error: "Invalid request" }, 400);
+  if (!reader) return jsonResponse({ error: "Requisição inválida" }, 400);
   const chunks: Uint8Array[] = [];
   let size = 0;
   try {
@@ -105,7 +105,7 @@ export async function readToolBody(
       size += value.byteLength;
       if (size > 16_384) {
         await reader.cancel();
-        return jsonResponse({ error: "Request is too large" }, 413);
+        return jsonResponse({ error: "A requisição é grande demais" }, 413);
       }
       chunks.push(value);
     }
@@ -117,7 +117,7 @@ export async function readToolBody(
     }
     return JSON.parse(new TextDecoder().decode(bytes));
   } catch {
-    return jsonResponse({ error: "Invalid JSON request" }, 400);
+    return jsonResponse({ error: "Requisição JSON inválida" }, 400);
   } finally {
     reader.releaseLock();
   }
@@ -134,7 +134,7 @@ export async function guardToolRequest(input: {
   const origin = input.request.headers.get("origin");
   if (origin && origin !== url.origin) {
     return jsonResponse(
-      { error: "Cross-site submissions are not allowed" },
+      { error: "Envios de outros sites não são permitidos" },
       403,
     );
   }
@@ -156,7 +156,7 @@ export async function guardToolRequest(input: {
       });
       if (!success)
         return jsonResponse(
-          { error: "Too many checks. Try again in a minute." },
+          { error: "Muitas consultas. Tente novamente em um minuto." },
           429,
           { "Retry-After": "60" },
         );
@@ -167,7 +167,10 @@ export async function guardToolRequest(input: {
   if (!secret && import.meta.env.DEV) return null;
   if (!input.turnstileToken || input.turnstileToken.length > 2048) {
     return jsonResponse(
-      { error: "Human verification failed. Refresh the page and try again." },
+      {
+        error:
+          "A verificação humana falhou. Atualize a página e tente novamente.",
+      },
       403,
     );
   }
@@ -194,7 +197,10 @@ export async function guardToolRequest(input: {
       result.data.action !== "free_tool"
     ) {
       return jsonResponse(
-        { error: "Human verification failed. Refresh the page and try again." },
+        {
+          error:
+            "A verificação humana falhou. Atualize a página e tente novamente.",
+        },
         403,
       );
     }
@@ -234,8 +240,8 @@ export async function chargeToolBudget(input: {
     if (decision === "allowed") return null;
     const message =
       decision === "visitor"
-        ? "You've hit today's free limit. Sign up for the full workspace."
-        : "This free tool has reached today's limit. Try again tomorrow, or sign up for OpenSEO to keep researching.";
+        ? "Você atingiu o limite gratuito de hoje. Crie uma conta no RE9 SEO para continuar pesquisando."
+        : "Esta ferramenta gratuita atingiu o limite de hoje. Tente novamente amanhã ou crie uma conta no RE9 SEO para continuar pesquisando.";
     return jsonResponse({ error: message }, 429);
   } catch (err) {
     console.error(`Free tool budget unavailable (${input.tool}):`, err);
@@ -256,7 +262,7 @@ function cacheStore(): Cache {
 
 function cacheRequest(tool: string, key: string): Request {
   return new Request(
-    `https://openseo.so/api/${tool}/${encodeURIComponent(key)}`,
+    `https://seo.agenciare9.com.br/api/${tool}/${encodeURIComponent(key)}`,
   );
 }
 

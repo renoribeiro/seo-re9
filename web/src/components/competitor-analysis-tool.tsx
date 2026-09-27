@@ -77,7 +77,7 @@ export function CompetitorAnalysisTool() {
         <div className="grid gap-3 md:grid-cols-3">
           <div>
             <FieldLabel htmlFor="competitor-domain">
-              Competitor domain
+              Domínio do concorrente
             </FieldLabel>
             <input
               id="competitor-domain"
@@ -89,14 +89,14 @@ export function CompetitorAnalysisTool() {
               required
               value={competitor}
               onChange={(e) => setCompetitor(e.target.value)}
-              placeholder="competitor.com"
+              placeholder="concorrente.com.br"
               disabled={status === "loading"}
               className={`mt-1 ${FIELD_CLASS}`}
             />
           </div>
           <div>
             <FieldLabel htmlFor="competitor-your-domain">
-              Your domain (optional)
+              Seu domínio (opcional)
             </FieldLabel>
             <input
               id="competitor-your-domain"
@@ -107,13 +107,13 @@ export function CompetitorAnalysisTool() {
               spellCheck={false}
               value={yourDomain}
               onChange={(e) => setYourDomain(e.target.value)}
-              placeholder="example.com"
+              placeholder="exemplo.com.br"
               disabled={status === "loading"}
               className={`mt-1 ${FIELD_CLASS}`}
             />
           </div>
           <div>
-            <FieldLabel htmlFor="competitor-country">Country</FieldLabel>
+            <FieldLabel htmlFor="competitor-country">País</FieldLabel>
             <div className="mt-1">
               <CountrySelect
                 id="competitor-country"
@@ -125,7 +125,7 @@ export function CompetitorAnalysisTool() {
           </div>
         </div>
         <div className="mt-3">
-          <SubmitButton status={status} idleLabel="Analyze competitor" />
+          <SubmitButton status={status} idleLabel="Analisar concorrente" />
         </div>
       </ToolForm>
 
@@ -146,34 +146,34 @@ function AnalysisReport({ result }: { result: AnalysisResult }) {
             <MetricGrid
               metrics={[
                 {
-                  label: `${result.competitor} traffic`,
+                  label: `Tráfego de ${result.competitor}`,
                   value: formatCount(
                     result.comparison.competitor.organicTraffic,
                   ),
-                  tip: "Estimated monthly organic visits for the competitor in the selected country.",
+                  tip: "Visitas orgânicas mensais estimadas do concorrente no país selecionado.",
                 },
                 {
-                  label: `${result.competitor} keywords`,
+                  label: `Palavras-chave de ${result.competitor}`,
                   value: formatCount(
                     result.comparison.competitor.organicKeywords,
                   ),
                 },
                 {
-                  label: `${result.yourDomain} traffic`,
+                  label: `Tráfego de ${result.yourDomain}`,
                   value: formatCount(result.comparison.you.organicTraffic),
-                  tip: "Estimated monthly organic visits for your domain in the selected country.",
+                  tip: "Visitas orgânicas mensais estimadas do seu domínio no país selecionado.",
                 },
                 {
-                  label: `${result.yourDomain} keywords`,
+                  label: `Palavras-chave de ${result.yourDomain}`,
                   value: formatCount(result.comparison.you.organicKeywords),
                 },
               ]}
             />
           </div>
           <p className="mt-2 text-xs text-[var(--color-brand-muted)]">
-            Traffic value:{" "}
-            {formatMoney(result.comparison.competitor.trafficValue)} vs{" "}
-            {formatMoney(result.comparison.you.trafficValue)} per month.
+            Valor do tráfego:{" "}
+            {formatMoney(result.comparison.competitor.trafficValue)} vs.{" "}
+            {formatMoney(result.comparison.you.trafficValue)} por mês.
           </p>
         </section>
       ) : null}
@@ -181,7 +181,7 @@ function AnalysisReport({ result }: { result: AnalysisResult }) {
       {result.gap && result.gap.length > 0 ? (
         <section>
           <h2 className="text-lg font-semibold tracking-tight text-neutral-950">
-            Keywords they rank for that you don&rsquo;t
+            Palavras-chave em que ele ranqueia e você não
           </h2>
           <KeywordTable rows={result.gap} showTraffic />
         </section>
@@ -189,21 +189,22 @@ function AnalysisReport({ result }: { result: AnalysisResult }) {
 
       {result.gapFailed ? (
         <p className="rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-          We couldn't load the keyword comparison. Try again. The competitor's
-          keywords and pages below are still available.
+          Não foi possível carregar a comparação de palavras-chave. Tente
+          novamente. As palavras-chave e as páginas do concorrente abaixo
+          continuam disponíveis.
         </p>
       ) : null}
 
       {result.gap && result.gap.length === 0 ? (
         <p className="rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-          No competitor-only keywords were found in the available data for this
-          country.
+          Nenhuma palavra-chave exclusiva do concorrente foi encontrada nos
+          dados disponíveis para este país.
         </p>
       ) : null}
 
       <section>
         <h2 className="text-lg font-semibold tracking-tight text-neutral-950">
-          Top keywords for{" "}
+          Principais palavras-chave de{" "}
           <span className="text-[var(--color-brand-accent)]">
             {result.competitor}
           </span>
@@ -213,20 +214,21 @@ function AnalysisReport({ result }: { result: AnalysisResult }) {
 
       <section>
         <h2 className="text-lg font-semibold tracking-tight text-neutral-950">
-          Top pages
+          Principais páginas
         </h2>
         {result.pages.length === 0 ? (
           <p className="mt-3 rounded-lg border border-[var(--color-border-subtle)] bg-white p-5 text-sm text-neutral-700">
-            No ranking pages found in the available data for this country.
+            Nenhuma página ranqueada encontrada nos dados disponíveis para este
+            país.
           </p>
         ) : (
-          <ToolTable label="Competitor top pages" className="mt-3">
+          <ToolTable label="Principais páginas do concorrente" className="mt-3">
             <table className="w-full min-w-[520px] text-left text-sm">
               <thead>
                 <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
                   <th className="px-4 py-3 font-medium">URL</th>
-                  <th className="px-4 py-3 font-medium">Traffic</th>
-                  <th className="px-4 py-3 font-medium">Keywords</th>
+                  <th className="px-4 py-3 font-medium">Tráfego</th>
+                  <th className="px-4 py-3 font-medium">Palavras-chave</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -249,21 +251,26 @@ function AnalysisReport({ result }: { result: AnalysisResult }) {
         )}
       </section>
 
-      <UpsellCard tool={TOOL} cta="Explore more competitor keywords">
+      <UpsellCard tool={TOOL} cta="Explorar mais palavras-chave do concorrente">
         {result.keywords.length > 0 ? (
           <>
-            Showing {result.keywords.length}
+            Mostrando {result.keywords.length}
             {result.totalKeywords !== null
-              ? ` of ${formatCount(result.totalKeywords)}`
+              ? ` de ${formatCount(result.totalKeywords)}`
               : ""}{" "}
-            ranking keywords.{" "}
+            {result.keywords.length === 1 && result.totalKeywords === null
+              ? "palavra-chave ranqueada."
+              : "palavras-chave ranqueadas."}{" "}
           </>
         ) : (
-          <>Try another country or competitor to explore more ranking data. </>
+          <>
+            Tente outro país ou concorrente para explorar mais dados de
+            ranqueamento.{" "}
+          </>
         )}
-        Browse more competitor keywords in OpenSEO, filter by search volume,
-        difficulty, and ranking position, and save keywords for further
-        research.
+        No RE9 SEO, você vê mais palavras-chave do concorrente, filtra por
+        volume de busca, dificuldade e posição e salva palavras-chave para
+        aprofundar a pesquisa.
       </UpsellCard>
     </div>
   );

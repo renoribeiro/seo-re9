@@ -4,8 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const SUPPORT_EMAIL = "trafego@re9.online";
-const DISCORD_URL = "https://discord.gg/c9uGs3cFXr";
-const GITHUB_URL = "https://github.com/every-app/open-seo";
+const GITHUB_URL = "https://github.com/renoribeiro/seo-re9";
 
 export const Route = createFileRoute("/_app/support")({
   component: SupportPage,
@@ -54,22 +53,6 @@ function SupportPage() {
               )}
             </button>
           </div>
-
-          <a
-            href={DISCORD_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="block rounded-lg border border-base-300 px-5 py-4 transition-colors hover:border-base-content/20"
-          >
-            <p className="text-sm font-semibold">Discord</p>
-            <p className="mt-1 text-sm text-base-content/60">
-              Peça ajuda, compartilhe ideias e aprenda com a comunidade.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-base-content">
-              Entrar no Discord
-              <span aria-hidden="true">&rarr;</span>
-            </span>
-          </a>
 
           <a
             href={`${GITHUB_URL}/issues`}

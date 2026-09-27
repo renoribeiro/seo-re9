@@ -66,7 +66,7 @@ export function WebsiteTrafficCheckerTool() {
       >
         <div className="grid gap-3 md:grid-cols-3">
           <div>
-            <FieldLabel htmlFor="traffic-target">Domain</FieldLabel>
+            <FieldLabel htmlFor="traffic-target">Domínio</FieldLabel>
             <input
               id="traffic-target"
               name="target"
@@ -77,14 +77,14 @@ export function WebsiteTrafficCheckerTool() {
               required
               value={target}
               onChange={(e) => setTarget(e.target.value)}
-              placeholder="example.com"
+              placeholder="exemplo.com.br"
               disabled={status === "loading"}
               className={`mt-1 ${FIELD_CLASS}`}
             />
           </div>
           <div>
             <FieldLabel htmlFor="traffic-compare">
-              Compare with (optional)
+              Comparar com (opcional)
             </FieldLabel>
             <input
               id="traffic-compare"
@@ -95,13 +95,13 @@ export function WebsiteTrafficCheckerTool() {
               spellCheck={false}
               value={compare}
               onChange={(e) => setCompare(e.target.value)}
-              placeholder="competitor.com"
+              placeholder="concorrente.com.br"
               disabled={status === "loading"}
               className={`mt-1 ${FIELD_CLASS}`}
             />
           </div>
           <div>
-            <FieldLabel htmlFor="traffic-country">Country</FieldLabel>
+            <FieldLabel htmlFor="traffic-country">País</FieldLabel>
             <div className="mt-1">
               <CountrySelect
                 id="traffic-country"
@@ -113,7 +113,7 @@ export function WebsiteTrafficCheckerTool() {
           </div>
         </div>
         <div className="mt-3">
-          <SubmitButton status={status} idleLabel="Check traffic" />
+          <SubmitButton status={status} idleLabel="Verificar tráfego" />
         </div>
       </ToolForm>
 
@@ -122,14 +122,17 @@ export function WebsiteTrafficCheckerTool() {
           {result.comparison ? (
             <section>
               <h2 className="text-lg font-semibold text-neutral-950">
-                Compare domains
+                Comparação de domínios
               </h2>
-              <ToolTable label="Domain traffic comparison" className="mt-3">
+              <ToolTable
+                label="Comparação de tráfego entre domínios"
+                className="mt-3"
+              >
                 <table className="w-full min-w-[520px] text-left text-sm">
                   <thead>
                     <tr className="border-b border-[var(--color-border-subtle)]">
                       <th scope="col" className="px-4 py-3 font-medium">
-                        Metric
+                        Métrica
                       </th>
                       <th
                         scope="col"
@@ -148,22 +151,22 @@ export function WebsiteTrafficCheckerTool() {
                   <tbody className="divide-y divide-[var(--color-border-subtle)]">
                     {[
                       {
-                        label: "Estimated visits / month",
+                        label: "Visitas estimadas / mês",
                         key: "organicTraffic" as const,
                         format: formatCount,
                       },
                       {
-                        label: "Organic keywords",
+                        label: "Palavras-chave orgânicas",
                         key: "organicKeywords" as const,
                         format: formatCount,
                       },
                       {
-                        label: "Traffic value / month",
+                        label: "Valor do tráfego / mês",
                         key: "trafficValue" as const,
                         format: formatMoney,
                       },
                       {
-                        label: "Ranking pages",
+                        label: "Páginas ranqueadas",
                         key: "totalPages" as const,
                         format: formatCount,
                       },
@@ -187,8 +190,8 @@ export function WebsiteTrafficCheckerTool() {
                 </table>
               </ToolTable>
               <p className="mt-2 text-xs text-[var(--color-brand-muted)]">
-                Traffic is estimated from rankings. Traffic value estimates the
-                monthly cost of equivalent Google Ads clicks.
+                O tráfego é estimado a partir das posições. O valor do tráfego
+                estima o custo mensal de cliques equivalentes no Google Ads.
               </p>
             </section>
           ) : null}
@@ -199,10 +202,11 @@ export function WebsiteTrafficCheckerTool() {
           {result.comparison ? (
             <DomainReport data={result.comparison} showMetrics={false} />
           ) : null}
-          <UpsellCard tool={TOOL} cta="Explore more keywords and pages">
-            The free checker shows the top 5 keywords and pages per domain.
-            OpenSEO lets you browse more keywords and pages, filter the results,
-            and save keywords for rank tracking.
+          <UpsellCard tool={TOOL} cta="Explorar mais palavras-chave e páginas">
+            A verificação gratuita mostra as 5 principais palavras-chave e
+            páginas por domínio. No RE9 SEO, você vê mais palavras-chave e
+            páginas, filtra os resultados e salva palavras-chave para o
+            monitoramento de posições.
           </UpsellCard>
         </div>
       ) : null}
@@ -228,24 +232,24 @@ function DomainReport({
           <MetricGrid
             metrics={[
               {
-                label: "Organic traffic / month",
+                label: "Tráfego orgânico / mês",
                 value: formatCount(data.organicTraffic),
-                tip: "DataForSEO's estimated monthly organic visits, derived from the keywords this domain ranks for and their search volume. An estimate, not analytics data.",
+                tip: "Visitas orgânicas mensais estimadas pela DataForSEO, calculadas a partir das palavras-chave em que este domínio ranqueia e do volume de busca delas. É uma estimativa, não dados de analytics.",
               },
               {
-                label: "Organic keywords",
+                label: "Palavras-chave orgânicas",
                 value: formatCount(data.organicKeywords),
-                tip: "How many keywords this domain ranks for in the selected country's top 100 organic results.",
+                tip: "Quantas palavras-chave deste domínio aparecem entre os 100 primeiros resultados orgânicos do país selecionado.",
               },
               {
-                label: "Traffic value",
+                label: "Valor do tráfego",
                 value: formatMoney(data.trafficValue),
-                tip: "What this organic traffic would cost per month to buy through Google Ads at current CPCs.",
+                tip: "Quanto esse tráfego orgânico custaria por mês se fosse comprado no Google Ads, com os CPCs atuais.",
               },
               {
-                label: "Ranking pages",
+                label: "Páginas ranqueadas",
                 value: formatCount(data.totalPages),
-                tip: "How many pages on this domain rank for at least one keyword in the selected country.",
+                tip: "Quantas páginas deste domínio ranqueiam para pelo menos uma palavra-chave no país selecionado.",
               },
             ]}
           />
@@ -253,13 +257,13 @@ function DomainReport({
       ) : null}
 
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
-        <ToolTable label={`Top keywords for ${data.domain}`}>
+        <ToolTable label={`Principais palavras-chave de ${data.domain}`}>
           <table className="w-full min-w-[320px] text-left text-sm">
             <thead>
               <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
-                <th className="px-4 py-3 font-medium">Top keyword</th>
+                <th className="px-4 py-3 font-medium">Palavra-chave</th>
                 <th className="px-4 py-3 font-medium">Volume</th>
-                <th className="px-4 py-3 font-medium">Position</th>
+                <th className="px-4 py-3 font-medium">Posição</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -289,7 +293,7 @@ function DomainReport({
                     colSpan={3}
                     className="px-4 py-4 text-sm text-neutral-700"
                   >
-                    No ranking keywords found for this country.
+                    Nenhuma palavra-chave ranqueada encontrada para este país.
                   </td>
                 </tr>
               ) : null}
@@ -297,13 +301,13 @@ function DomainReport({
           </table>
         </ToolTable>
 
-        <ToolTable label={`Top pages for ${data.domain}`}>
+        <ToolTable label={`Principais páginas de ${data.domain}`}>
           <table className="w-full min-w-[320px] text-left text-sm">
             <thead>
               <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
-                <th className="px-4 py-3 font-medium">Top page</th>
-                <th className="px-4 py-3 font-medium">Traffic</th>
-                <th className="px-4 py-3 font-medium">Keywords</th>
+                <th className="px-4 py-3 font-medium">Página</th>
+                <th className="px-4 py-3 font-medium">Tráfego</th>
+                <th className="px-4 py-3 font-medium">Palavras-chave</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -326,7 +330,7 @@ function DomainReport({
                     colSpan={3}
                     className="px-4 py-4 text-sm text-neutral-700"
                   >
-                    No ranking pages found for this country.
+                    Nenhuma página ranqueada encontrada para este país.
                   </td>
                 </tr>
               ) : null}

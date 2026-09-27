@@ -10,19 +10,19 @@ const PATH = "/library/keyword-research/search-intent-mapping";
 
 const faqs = [
   {
-    question: "Why is search intent important for SEO?",
+    question: "Por que a intenção de busca é importante para SEO?",
     answer:
-      "Because Google ranks pages that satisfy intent, not pages that mention keywords. A perfectly optimized page against the wrong intent can't win. Read the SERP and you'll see the intent Google has decided the query carries.",
+      "Porque o Google ranqueia páginas que atendem à intenção, não páginas que mencionam palavras-chave. Uma página perfeitamente otimizada para a intenção errada não consegue vencer. Leia a SERP e você verá a intenção que o Google decidiu que a consulta carrega.",
   },
   {
-    question: "What are buyer intent keywords?",
+    question: "O que são palavras-chave com intenção de compra?",
     answer:
-      'Queries that signal purchase readiness: "pricing", "vs", "alternative", "best X for Y", "discount". They\'re low volume and high competition per click, but still usually your best ROI, because the searcher arrives pre-sold.',
+      'São consultas que sinalizam prontidão para comprar: "preço", "vs", "alternativa", "melhor X para Y", "desconto". Têm volume baixo e concorrência alta por clique, mas ainda costumam dar o melhor ROI, porque a pessoa chega já convencida.',
   },
   {
-    question: "How do I check the search intent of a keyword?",
+    question: "Como verificar a intenção de busca de uma palavra-chave?",
     answer:
-      "Search it. The current top 10 is Google's answer: if it's all listicles, the intent is commercial comparison; all docs and definitions, informational. OpenSEO also auto-labels intent on researched keywords in most countries.",
+      "Busque por ela. O Top 10 atual é a resposta do Google: se só aparecem listas, a intenção é de comparação comercial; se só aparecem documentações e definições, é informacional. O RE9 SEO também classifica automaticamente a intenção das palavras-chave pesquisadas na maioria dos países.",
   },
 ];
 
@@ -41,10 +41,11 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "What Is Search Intent? Mapping Keywords Hot, Warm, and Cold",
+      title:
+        "O que é intenção de busca? Mapeando palavras-chave em quentes, mornas e frias",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -52,7 +53,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Search-intent mapping"
+        crumb="Mapeamento de intenção de busca"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

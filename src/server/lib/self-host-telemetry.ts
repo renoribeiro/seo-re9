@@ -21,8 +21,10 @@ import {
 import { getSetupIssueSummary } from "@/server/lib/setup-status";
 import { isTelemetryOptOutValue } from "@/shared/selfhost-checks";
 
-const SELF_HOST_POSTHOG_KEY =
-  "phc_xaXj4vE4LikxfvR7q6EHemAYNBSZW4hQkqor7fpf8aGT";
+// Telemetry is off unless the operator sets their own PostHog project key.
+// (Upstream OpenSEO hardcoded its own key, which would report this fork's
+// installs to the original authors.)
+const SELF_HOST_POSTHOG_KEY_ENV = "SELF_HOST_TELEMETRY_POSTHOG_KEY";
 const SELF_HOST_POSTHOG_HOST = "https://us.i.posthog.com";
 
 const DAILY_HEARTBEAT_INTERVAL_MS = 24 * 60 * 60 * 1000;
@@ -125,6 +127,7 @@ function isNonProductionBuild() {
 
 async function telemetryIsDisabled() {
   if (await isHostedServerAuthMode()) return true;
+  if (!(await getOptionalEnvValue(SELF_HOST_POSTHOG_KEY_ENV))) return true;
   if (
     isTelemetryOptOutValue(
       await getOptionalEnvValue("OPENSEO_TELEMETRY_DISABLED"),
@@ -230,7 +233,9 @@ async function sendHeartbeat(
   installId: string,
   properties: HeartbeatProperties,
 ) {
-  const client = new PostHog(SELF_HOST_POSTHOG_KEY, {
+  const apiKey = await getOptionalEnvValue(SELF_HOST_POSTHOG_KEY_ENV);
+  if (!apiKey) return;
+  const client = new PostHog(apiKey, {
     host: SELF_HOST_POSTHOG_HOST,
     flushAt: 1,
     flushInterval: 0,

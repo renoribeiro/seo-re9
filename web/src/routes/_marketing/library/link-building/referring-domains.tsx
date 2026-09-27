@@ -11,29 +11,29 @@ const PATH = "/library/link-building/referring-domains";
 
 const faqs = [
   {
-    question: "What is the difference between backlinks and referring domains?",
+    question: "Qual a diferença entre backlinks e domínios de referência?",
     answer:
-      "A backlink is one link from one page. A referring domain is one website that links to you, however many times. Two thousand backlinks can come from twenty sites. Referring domains is the count of distinct sources and the better measure of how many sites endorse yours.",
+      "Um backlink é um link vindo de uma página. Um domínio de referência é um site que aponta para você, não importa quantas vezes. Dois mil backlinks podem vir de vinte sites. Domínios de referência é a contagem de fontes distintas e a melhor medida de quantos sites endossam o seu.",
   },
   {
-    question: "How many referring domains do I need?",
+    question: "De quantos domínios de referência eu preciso?",
     answer:
-      "Enough to match the pages that outrank you for the terms you want, from sites in the same field. Check the competitors' profiles for the number; a backlink gap analysis shows the domains that link to them and not to you.",
+      "O suficiente para igualar as páginas que estão à sua frente nos termos que você quer, vindos de sites da mesma área. Veja o número nos perfis dos concorrentes; uma análise de lacunas de backlinks mostra os domínios que apontam para eles e não para você.",
   },
   {
-    question: "Are links from my own other websites worth anything?",
+    question: "Links dos meus outros sites valem alguma coisa?",
     answer:
-      "A little, and less each time. They are real links, but a search engine can see common ownership and hosting, and the diversity that moves rankings comes from sites you do not control. Count them separately so they do not inflate the total.",
+      "Um pouco, e cada vez menos. São links reais, mas um buscador consegue ver que o dono e a hospedagem são os mesmos, e a diversidade que move as posições vem de sites que você não controla. Conte esses links separadamente para não inflar o total.",
   },
   {
-    question: "What is distance to seed?",
+    question: "O que é distância até a semente (distance to seed)?",
     answer:
-      "The number of link hops between a site and the sites a search engine trusts most in a field. A link from a site that is itself cited by the industry's authorities is close to the seed and counts for more than a link from a high-scoring site in an unrelated field. You cannot see the seed list; you can judge whether a linking site is one your industry cites.",
+      "É o número de saltos de link entre um site e os sites em que um buscador mais confia numa área. Um link de um site que é citado pelas autoridades do setor está perto da semente e conta mais do que um link de um site com nota alta de uma área sem relação. Você não consegue ver a lista de sementes, mas consegue avaliar se um site que aponta para você é citado pelo seu setor.",
   },
   {
-    question: "Does OpenSEO show referring domains?",
+    question: "O RE9 SEO mostra domínios de referência?",
     answer:
-      "Yes. The backlinks overview reports the referring domain count and the top referring domains with their backlink count, rank, spam score and first-seen date, and the growth chart shows backlinks and referring domains over the last year. The free backlink checker shows the summary without an account.",
+      "Sim. A visão geral de backlinks mostra a contagem de domínios de referência e os principais domínios de referência com contagem de backlinks, nota, spam score e data da primeira descoberta, e o gráfico de crescimento mostra backlinks e domínios de referência no último ano. O verificador de backlinks gratuito mostra o resumo sem precisar de conta.",
   },
 ];
 
@@ -52,17 +52,18 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Referring Domains, Not Backlinks: the Count That Moves Rankings",
+      title:
+        "Domínios de referência, não backlinks: o número que move as posições",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Referring domains"
+      crumb="Domínios de referência"
       path={PATH}
       library={LINK_BUILDING_LIBRARY}
     >

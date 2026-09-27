@@ -1,101 +1,101 @@
 ---
-title: "Set up OpenSEO MCP"
-description: "Connect OpenSEO MCP to Claude, Codex, and other AI clients."
+title: "Configure o MCP do RE9 SEO"
+description: "Conecte o MCP do RE9 SEO ao Claude, ao Codex e a outros clientes de IA."
 ---
 
-OpenSEO MCP lets compatible AI clients call OpenSEO tools for keyword research, SERP inspection, local business research, competitive search intelligence, domain research, backlink overview, saved keywords, rank tracking, shared project context, and Google Search Console performance and URL inspection.
+O MCP do RE9 SEO permite que clientes de IA compatíveis chamem as ferramentas do RE9 SEO para pesquisa de palavras-chave, análise de SERP, pesquisa de negócios locais, inteligência competitiva de busca, pesquisa de domínios, visão geral de backlinks, palavras-chave salvas, monitoramento de posições, contexto compartilhado do projeto e desempenho e inspeção de URLs do Google Search Console.
 
-The hosted MCP server URL is:
+A URL do servidor MCP hospedado é:
 
 ```txt
-https://app.openseo.so/mcp
+https://seo.agenciare9.com.br/mcp
 ```
 
-The first connection sends you through OpenSEO login. After authorization, your MCP client can call OpenSEO tools with the project context and account scopes you approved. For headless environments and CI, [connect with an API key](#connect-with-an-api-key) instead.
+Na primeira conexão, você passa pelo login do RE9 SEO. Depois da autorização, seu cliente MCP pode chamar as ferramentas do RE9 SEO com o contexto de projeto e os escopos de conta que você aprovou. Para ambientes sem interface (headless) e CI, [conecte com uma chave de API](#connect-with-an-api-key).
 
-For the most current setup UI and a copyable endpoint, open [Agent setup in OpenSEO](https://app.openseo.so/ai).
+Para ver a tela de configuração mais atual e um endpoint pronto para copiar, abra a [Configuração do agente no RE9 SEO](https://seo.agenciare9.com.br/ai).
 
-For setup prompts, plugin commands, and skill updates, see [Agent setup](/docs/agent-setup).
+Para prompts de configuração, comandos de plugin e atualização das skills, veja [Configuração do agente](/docs/agent-setup).
 
-No account yet? Try the [free SEO tools](/tools).
+Ainda não tem conta? Experimente as [ferramentas de SEO gratuitas](/tools).
 
 ## Claude Code
 
-The [OpenSEO plugin](/docs/claude-code-plugin) is the preferred way to connect Claude Code — one install adds MCP and the public SEO skills together. Use the steps below only if you want MCP on its own.
+O [plugin do RE9 SEO](/docs/claude-code-plugin) é a forma recomendada de conectar o Claude Code — uma instalação adiciona o MCP e as skills públicas de SEO juntos. Use os passos abaixo só se quiser apenas o MCP.
 
-Use user scope to make OpenSEO available across projects. Use local scope for the current repository.
+Use o escopo de usuário (user) para deixar o RE9 SEO disponível em todos os projetos. Use o escopo local para o repositório atual.
 
 ```bash
-claude mcp add --transport http --scope user openseo https://app.openseo.so/mcp
+claude mcp add --transport http --scope user openseo https://seo.agenciare9.com.br/mcp
 ```
 
-After adding the server, approve the OpenSEO login when prompted.
+Depois de adicionar o servidor, aprove o login do RE9 SEO quando for solicitado.
 
 ## Claude Desktop
 
-1. Open Customize -> Connectors.
-2. Click Add (or +), then choose Add custom connector.
-3. Paste `https://app.openseo.so/mcp`.
-4. Approve the OpenSEO login when prompted.
+1. Abra Customize -> Connectors.
+2. Clique em Add (ou +) e escolha Add custom connector.
+3. Cole `https://seo.agenciare9.com.br/mcp`.
+4. Aprove o login do RE9 SEO quando for solicitado.
 
-Claude Desktop custom connectors are available on Free, Pro, Max, Team, and Enterprise plans. Free plans support one custom connector.
+Conectores personalizados do Claude Desktop estão disponíveis nos planos Free, Pro, Max, Team e Enterprise da Anthropic. O plano Free permite um conector personalizado.
 
 ## Cursor
 
-1. Open Cursor Settings -> Tools & Integrations -> MCP Tools.
-2. Click New MCP Server. Cursor opens `mcp.json`.
-3. Add:
+1. Abra Cursor Settings -> Tools & Integrations -> MCP Tools.
+2. Clique em New MCP Server. O Cursor abre o `mcp.json`.
+3. Adicione:
 
 ```json
 {
   "mcpServers": {
     "openseo": {
-      "url": "https://app.openseo.so/mcp"
+      "url": "https://seo.agenciare9.com.br/mcp"
     }
   }
 }
 ```
 
-4. Approve the OpenSEO login when prompted.
+4. Aprove o login do RE9 SEO quando for solicitado.
 
 ## Codex CLI
 
-The [OpenSEO plugin](/docs/codex-plugin) is the preferred way to connect Codex CLI — one install adds MCP and the public SEO skills together. Use the steps below only if you want MCP on its own.
+O [plugin do RE9 SEO](/docs/codex-plugin) é a forma recomendada de conectar o Codex CLI — uma instalação adiciona o MCP e as skills públicas de SEO juntos. Use os passos abaixo só se quiser apenas o MCP.
 
-Run this in your terminal:
+Execute no seu terminal:
 
 ```bash
-codex mcp add openseo --url https://app.openseo.so/mcp
+codex mcp add openseo --url https://seo.agenciare9.com.br/mcp
 ```
 
-Approve the login when prompted.
+Aprove o login quando for solicitado.
 
 ## Codex Desktop
 
-1. Open Settings -> Integrations & MCP.
-2. Click Add your own.
-3. Paste `https://app.openseo.so/mcp`.
-4. Approve the OpenSEO login when prompted.
+1. Abra Settings -> Integrations & MCP.
+2. Clique em Add your own.
+3. Cole `https://seo.agenciare9.com.br/mcp`.
+4. Aprove o login do RE9 SEO quando for solicitado.
 
-## Connect with an API key
+## Conectar com uma chave de API [#connect-with-an-api-key]
 
-Use an API key in headless environments, CI, or clients where OAuth is inconvenient. API keys are personal: anything an agent does with your key acts as you in your workspace.
+Use uma chave de API em ambientes sem interface (headless), em CI ou em clientes em que o OAuth é pouco prático. As chaves de API são pessoais: tudo o que um agente fizer com a sua chave é feito em seu nome, no seu workspace.
 
-In the [OpenSEO app](https://app.openseo.so/settings), open **Settings -> API keys**, create a key, and copy it when it appears. It won't be shown again.
+No [app do RE9 SEO](https://seo.agenciare9.com.br/settings), abra **Configurações -> Chaves de API**, crie uma chave e copie-a assim que ela aparecer. Ela não será exibida de novo.
 
-For Claude Code, run:
+No Claude Code, execute:
 
 ```bash
-claude mcp add --transport http --scope user openseo https://app.openseo.so/mcp --header "Authorization: Bearer oseo_YOUR_KEY"
+claude mcp add --transport http --scope user openseo https://seo.agenciare9.com.br/mcp --header "Authorization: Bearer oseo_YOUR_KEY"
 ```
 
-For Cursor, add `headers` to the server entry in `mcp.json`:
+No Cursor, adicione `headers` à entrada do servidor no `mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "openseo": {
-      "url": "https://app.openseo.so/mcp",
+      "url": "https://seo.agenciare9.com.br/mcp",
       "headers": {
         "Authorization": "Bearer oseo_YOUR_KEY"
       }
@@ -104,62 +104,62 @@ For Cursor, add `headers` to the server entry in `mcp.json`:
 }
 ```
 
-For Codex CLI, put the key in an environment variable and reference it:
+No Codex CLI, coloque a chave em uma variável de ambiente e faça referência a ela:
 
 ```bash
 export OPENSEO_API_KEY=oseo_YOUR_KEY
-codex mcp add openseo --url https://app.openseo.so/mcp --bearer-token-env-var OPENSEO_API_KEY
+codex mcp add openseo --url https://seo.agenciare9.com.br/mcp --bearer-token-env-var OPENSEO_API_KEY
 ```
 
-Any other client that supports custom HTTP headers can send `Authorization: Bearer oseo_YOUR_KEY` or `x-api-key: oseo_YOUR_KEY`.
+Troque `oseo_YOUR_KEY` pela chave que você copiou. Qualquer outro cliente que aceite cabeçalhos HTTP personalizados pode enviar `Authorization: Bearer oseo_YOUR_KEY` ou `x-api-key: oseo_YOUR_KEY`.
 
-## Available tools
+## Ferramentas disponíveis
 
-OpenSEO MCP exposes tools for SEO research workflows:
+O MCP do RE9 SEO oferece ferramentas para fluxos de pesquisa de SEO:
 
-- Research keywords with volume, difficulty, and CPC.
-- Fetch live Google organic SERP results for keywords.
-- Find exact keyword, page, rank, volume, CPC, intent, and traffic rows for a domain or page.
-- Compare SERP competitors across a supplied keyword set.
-- Search local businesses near a coordinate, filtering by rating, review count, or claimed status.
-- Fetch one Maps or Local Finder SERP, and read Google Business Q&A when needed.
-- Audit a Google Business Profile: categories, rating, hours, photos, and claim status.
-- Collect Google reviews (including reviews from other sites) and Google Business posts.
-- Look up valid Google Business category slugs.
-- Check Google Maps rank at each point of a grid around a business.
-- Hydrate keywords with search volume, difficulty, intent, CPC, and trends.
-- List saved keywords from an OpenSEO project.
-- Save useful keywords back to OpenSEO.
-- Read rank tracker configs and latest keyword positions.
-- Summarize a domain's organic footprint.
-- Find keywords a domain already ranks for.
-- Check backlink and referring-domain overview data.
-- Read first-party Google Search Console performance (clicks, impressions, CTR, position).
-- Inspect index status, crawl, and canonical for specific URLs (up to 10 per call).
-- Read and update a project's shared context: business, goal, positioning, writing preferences, competitors, key pages, and a research log (free, no credits).
-- Save and read HTML reports on a project (free, no credits).
-- List a project's report templates, and save a reusable report brief to the project (free, no credits).
+- Pesquisar palavras-chave com volume, dificuldade e CPC.
+- Buscar resultados orgânicos da SERP do Google em tempo real para palavras-chave.
+- Encontrar linhas exatas de palavra-chave, página, posição, volume, CPC, intenção e tráfego de um domínio ou página.
+- Comparar concorrentes na SERP para um conjunto de palavras-chave informado.
+- Buscar negócios locais perto de uma coordenada, filtrando por nota, número de avaliações ou status de reivindicação.
+- Buscar uma SERP do Maps ou do Local Finder e ler as perguntas e respostas do Google Business quando necessário.
+- Auditar um Perfil da Empresa no Google: categorias, nota, horários, fotos e status de reivindicação.
+- Coletar avaliações do Google (incluindo avaliações de outros sites) e posts do Google Business.
+- Consultar os slugs válidos de categorias do Google Business.
+- Verificar a posição no Google Maps em cada ponto de uma grade ao redor de um negócio.
+- Enriquecer palavras-chave com volume de busca, dificuldade, intenção, CPC e tendências.
+- Listar as palavras-chave salvas de um projeto do RE9 SEO.
+- Salvar palavras-chave úteis de volta no RE9 SEO.
+- Ler as configurações do monitoramento de posições e as posições mais recentes das palavras-chave.
+- Resumir a presença orgânica de um domínio.
+- Encontrar palavras-chave para as quais um domínio já ranqueia.
+- Consultar a visão geral de backlinks e domínios de referência.
+- Ler o desempenho do Google Search Console com dados próprios (cliques, impressões, CTR, posição).
+- Inspecionar status de indexação, rastreamento e canonical de URLs específicas (até 10 por chamada).
+- Ler e atualizar o contexto compartilhado de um projeto: negócio, objetivo, posicionamento, preferências de escrita, concorrentes, páginas principais e um registro de pesquisa (não consome créditos).
+- Salvar e ler relatórios HTML em um projeto (não consome créditos).
+- Listar os modelos de relatório de um projeto e salvar um briefing de relatório reutilizável no projeto (não consome créditos).
 
-## What to do after setup
+## O que fazer depois da configuração
 
-Once OpenSEO MCP is connected, [set up OpenSEO Agent Skills](/docs/skills/setup). MCP gives your agent access to OpenSEO data. Skills are separate `SKILL.md` files that tell your agent how to use that data for specific SEO jobs.
+Com o MCP do RE9 SEO conectado, [configure as skills de agente do RE9 SEO](/docs/skills/setup). O MCP dá ao seu agente acesso aos dados do RE9 SEO. As skills são arquivos `SKILL.md` separados que dizem ao agente como usar esses dados em tarefas específicas de SEO.
 
-Start with one focused workflow instead of asking your agent to "do SEO" broadly.
+Comece com um fluxo de trabalho específico, em vez de pedir ao agente para "fazer SEO" de forma ampla.
 
-- Use [SEO project setup](/docs/skills/seo-project-setup) to save your goals, positioning, competitors, and key pages to your project context, so every other skill reuses them.
-- Use [SEO coach](/docs/skills/seo-coach) if you are new to SEO or are not sure which workflow to run first.
-- Use [keyword research](/docs/skills/keyword-research) to discover keyword opportunities.
-- Use [competitive landscape](/docs/skills/competitive-landscape) to map a market before choosing competitors or pages.
-- Use [competitor analysis](/docs/skills/competitor-analysis) to study one competitor.
-- Use [keyword clustering](/docs/skills/keyword-clustering) to turn keywords into page groups.
-- Use [link prospecting](/docs/skills/link-prospecting) to find outreach prospects for a linkable asset.
+- Use a [Configuração do projeto de SEO](/docs/skills/seo-project-setup) para salvar seus objetivos, posicionamento, concorrentes e páginas principais no contexto do projeto, para que todas as outras skills reaproveitem essas informações.
+- Use o [SEO Coach](/docs/skills/seo-coach) se você está começando em SEO ou não sabe qual fluxo executar primeiro.
+- Use a [Pesquisa de palavras-chave](/docs/skills/keyword-research) para descobrir oportunidades de palavras-chave.
+- Use o [Panorama competitivo](/docs/skills/competitive-landscape) para mapear um mercado antes de escolher concorrentes ou páginas.
+- Use a [Análise de concorrentes](/docs/skills/competitor-analysis) para estudar um concorrente.
+- Use o [Agrupamento de palavras-chave](/docs/skills/keyword-clustering) para transformar palavras-chave em grupos de páginas.
+- Use a [Prospecção de links](/docs/skills/link-prospecting) para encontrar sites para outreach de um conteúdo que merece links.
 
-## Troubleshooting
+## Solução de problemas
 
-If your client cannot connect, check that the server URL is exactly `https://app.openseo.so/mcp`.
+Se o seu cliente não conseguir se conectar, confira se a URL do servidor é exatamente `https://seo.agenciare9.com.br/mcp`.
 
-If Codex reports `Authorization server response missing required issuer: expected https://app.openseo.so`, upgrade Codex CLI or the Codex desktop app to 0.147.0 or later. Codex 0.143 through 0.146 drop the issuer from the OAuth callback. You can also [connect with an API key](#connect-with-an-api-key) instead of OAuth.
+Se o Codex informar `Authorization server response missing required issuer: expected https://seo.agenciare9.com.br`, atualize o Codex CLI ou o app desktop do Codex para a versão 0.147.0 ou mais recente. As versões 0.143 a 0.146 do Codex removem o issuer do callback do OAuth. Você também pode [conectar com uma chave de API](#connect-with-an-api-key) em vez de usar OAuth.
 
-If authorization fails, disconnect the OpenSEO server in your client, add it again, and repeat the login flow.
+Se a autorização falhar, desconecte o servidor do RE9 SEO no seu cliente, adicione-o de novo e repita o login.
 
-If your agent cannot find a project, ask it to list OpenSEO projects first and use the returned project ID in later tool calls.
+Se o seu agente não encontrar um projeto, peça para ele listar primeiro os projetos do RE9 SEO e usar o ID de projeto retornado nas próximas chamadas de ferramenta.

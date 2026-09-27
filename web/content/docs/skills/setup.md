@@ -1,81 +1,81 @@
 ---
-title: "Set up OpenSEO Agent Skills"
-description: "Add OpenSEO skill files to your AI agent after connecting OpenSEO MCP."
+title: "Configure as skills de agente do RE9 SEO"
+description: "Adicione os arquivos de skills do RE9 SEO ao seu agente de IA depois de conectar o MCP do RE9 SEO."
 ---
 
-OpenSEO Agent Skills are separate files from OpenSEO MCP.
+As skills de agente do RE9 SEO são arquivos separados do MCP do RE9 SEO.
 
-On Claude Code, skip the steps below and use the [OpenSEO plugin](/docs/claude-code-plugin) instead — it installs MCP and every skill in one step. On Codex CLI, use the [OpenSEO plugin](/docs/codex-plugin) the same way.
+No Claude Code, pule os passos abaixo e use o [plugin do RE9 SEO](/docs/claude-code-plugin) — ele instala o MCP e todas as skills em um só passo. No Codex CLI, use o [plugin do RE9 SEO](/docs/codex-plugin) da mesma forma.
 
-First, [set up OpenSEO MCP](/docs/mcp). MCP gives your agent access to OpenSEO data.
+Primeiro, [configure o MCP do RE9 SEO](/docs/mcp). O MCP dá ao seu agente acesso aos dados do RE9 SEO.
 
-Then add the OpenSEO `SKILL.md` files you want your agent to use. Each skill gives your agent one SEO workflow.
+Depois, adicione os arquivos `SKILL.md` do RE9 SEO que você quer que o agente use. Cada skill dá ao agente um fluxo de trabalho de SEO.
 
-## Choose an installation option
+## Escolha uma opção de instalação
 
-Pick the option that matches how you want to install the files.
+Escolha a opção que corresponde à forma como você quer instalar os arquivos.
 
-### Option 1: Install and choose interactively
+### Opção 1: instalar e escolher de forma interativa
 
-Use this if you want the installer to show the available skills and agents.
+Use esta opção se quiser que o instalador mostre as skills e os agentes disponíveis.
 
 ```bash
-npx skills add every-app/open-seo
+npx skills add renoribeiro/seo-re9
 ```
 
-### Option 2: Install all OpenSEO skills
+### Opção 2: instalar todas as skills do RE9 SEO
 
-Use this if you want every OpenSEO skill.
+Use esta opção se quiser todas as skills do RE9 SEO.
 
 ```bash
-npx skills add every-app/open-seo --skill '*'
+npx skills add renoribeiro/seo-re9 --skill '*'
 ```
 
-### Option 3: Install all skills for Claude Code only
+### Opção 3: instalar todas as skills só para o Claude Code
 
-Use this if the skills should be available in Claude Code only.
+Use esta opção se as skills devem ficar disponíveis apenas no Claude Code.
 
 ```bash
-npx skills add every-app/open-seo --skill '*' --agent claude-code
+npx skills add renoribeiro/seo-re9 --skill '*' --agent claude-code
 ```
 
-### Option 4: Install all skills for OpenAI Codex only
+### Opção 4: instalar todas as skills só para o OpenAI Codex
 
-Use this if the skills should be available in Codex only.
+Use esta opção se as skills devem ficar disponíveis apenas no Codex.
 
 ```bash
-npx skills add every-app/open-seo --skill '*' --agent codex
+npx skills add renoribeiro/seo-re9 --skill '*' --agent codex
 ```
 
-### Option 5: Copy the skill files manually
+### Opção 5: copiar os arquivos das skills manualmente
 
-Use this if you prefer to copy files into your agent's skills folder.
+Use esta opção se preferir copiar os arquivos para a pasta de skills do seu agente.
 
 ```bash
-git clone https://github.com/every-app/open-seo.git
+git clone https://github.com/renoribeiro/seo-re9.git
 
 # Codex
 mkdir -p ~/.codex/skills
-cp -R open-seo/plugins/openseo/skills/* ~/.codex/skills/
+cp -R seo-re9/plugins/openseo/skills/* ~/.codex/skills/
 
 # Claude Code
 mkdir -p ~/.claude/skills
-cp -R open-seo/plugins/openseo/skills/* ~/.claude/skills/
+cp -R seo-re9/plugins/openseo/skills/* ~/.claude/skills/
 ```
 
-You can also review the source skills on GitHub:
+Você também pode revisar as skills originais no GitHub:
 
-- [OpenSEO Agent Skills on GitHub](https://github.com/every-app/open-seo/tree/main/.agents/skills)
+- [Skills de agente do RE9 SEO no GitHub](https://github.com/renoribeiro/seo-re9/tree/main/.agents/skills)
 
-Each skill page also links to its source `SKILL.md`.
+A página de cada skill também tem um link para o `SKILL.md` original.
 
-## Update installed skills
+## Atualize as skills instaladas
 
-Use the [update prompt or commands for your installation method](/docs/agent-setup#update-your-skills). Update the OpenSEO plugin if it supplies your skills; otherwise use the installer you originally chose or update your manual copies.
+Use o [prompt ou os comandos de atualização do seu método de instalação](/docs/agent-setup#update-your-skills). Atualize o plugin do RE9 SEO se é ele que fornece suas skills; caso contrário, use o instalador que você escolheu originalmente ou atualize suas cópias manuais.
 
-## Run a skill
+## Execute uma skill
 
-After the skill files are available to your agent, run the matching slash command:
+Depois que os arquivos das skills estiverem disponíveis para o agente, execute o comando de barra correspondente:
 
 - `/seo-project-setup`
 - `/seo-coach`
@@ -87,6 +87,6 @@ After the skill files are available to your agent, run the matching slash comman
 - `/local-seo`
 - `/seo-audit`
 
-## Next step
+## Próximo passo
 
-Start with [SEO Project Setup](/docs/skills/seo-project-setup) if this is a new SEO project, or [SEO Coach](/docs/skills/seo-coach) if you are not sure which workflow to run first.
+Comece pela [Configuração do projeto de SEO](/docs/skills/seo-project-setup) se este for um projeto de SEO novo, ou pelo [SEO Coach](/docs/skills/seo-coach) se não souber qual fluxo executar primeiro.

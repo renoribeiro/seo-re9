@@ -8,5 +8,9 @@ export function getAgentSetupPrompt(origin: string) {
   const instructions = installerSkill
     .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
     .trim();
-  return instructions.replaceAll("https://app.openseo.so", origin);
+  // The app and the public docs share a hostname, so only the instance
+  // endpoints are rewritten; docs links stay absolute.
+  return instructions
+    .replaceAll("https://seo.agenciare9.com.br/mcp", `${origin}/mcp`)
+    .replaceAll("https://seo.agenciare9.com.br/settings", `${origin}/settings`);
 }

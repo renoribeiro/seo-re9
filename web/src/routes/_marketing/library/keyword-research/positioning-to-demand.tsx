@@ -10,19 +10,19 @@ const PATH = "/library/keyword-research/positioning-to-demand";
 
 const faqs = [
   {
-    question: "Should I invent a name for my category?",
+    question: "Devo inventar um nome para a minha categoria?",
     answer:
-      "Only with a plan for the demand gap. An invented term has no search behind it on day one and may never earn any, so anything a stranger needs to find has to be findable through the vocabulary that already exists. Keep the invented term for the pitch, where you have someone's attention.",
+      "Só se houver um plano para a falta de demanda. Um termo inventado não tem nenhuma busca no primeiro dia e talvez nunca tenha, então tudo o que um desconhecido precisa encontrar tem que ser encontrável pelo vocabulário que já existe. Guarde o termo inventado para a apresentação, quando você já tem a atenção da pessoa.",
   },
   {
-    question: "What if my keyword has no search volume?",
+    question: "E se a minha palavra-chave não tiver volume de busca?",
     answer:
-      "Treat it as a signal about the market rather than a limitation of the tool. Zero volume for a category term usually means people describe the problem differently, and the related terms that do have volume will show you how. Low volume is different from zero, and can be worth owning when the intent is strong.",
+      "Trate isso como um sinal sobre o mercado, não como uma limitação da ferramenta. Volume zero para um termo de categoria geralmente significa que as pessoas descrevem o problema de outro jeito, e os termos relacionados que têm volume vão mostrar como. Volume baixo é diferente de zero e pode valer a pena quando a intenção é forte.",
   },
   {
-    question: "How do I find the words my customers use?",
+    question: "Como descobrir as palavras que meus clientes usam?",
     answer:
-      "Sales calls, support tickets, and recorded interviews, which is the same source that produces good seed keywords. People describe problems in language that no keyword database originates, because the database only knows what has already been typed enough times to register.",
+      "Ligações de vendas, tickets de suporte e entrevistas gravadas, que são a mesma fonte das boas palavras-chave semente. As pessoas descrevem problemas com uma linguagem que nenhuma base de palavras-chave cria, porque a base só conhece o que já foi digitado vezes suficientes para ser registrado.",
   },
 ];
 
@@ -41,10 +41,10 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Does Your Positioning Have Search Demand Behind It?",
+      title: "O seu posicionamento tem demanda de busca por trás?",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -52,7 +52,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Map positioning to real demand"
+        crumb="Ligue o posicionamento à demanda real"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

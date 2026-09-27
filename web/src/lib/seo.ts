@@ -1,6 +1,6 @@
-const DEFAULT_SITE_URL = "https://openseo.so";
+const DEFAULT_SITE_URL = "https://seo.agenciare9.com.br";
 const DEFAULT_SOCIAL_IMAGE_PATH = "/social-card.jpg";
-const DEFAULT_SOCIAL_IMAGE_ALT = "OpenSEO product preview";
+const DEFAULT_SOCIAL_IMAGE_ALT = "Prévia do RE9 SEO";
 
 export const SITE_URL = (
   process.env.SITE_URL ??
@@ -59,7 +59,8 @@ export function buildPageSeo({
     meta: [
       { title: fullTitle },
       ...(description ? [{ name: "description", content: description }] : []),
-      { property: "og:site_name", content: "OpenSEO" },
+      { property: "og:site_name", content: "RE9 SEO" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: ogType },
       { property: "og:title", content: fullTitle },
       ...(description

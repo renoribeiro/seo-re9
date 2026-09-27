@@ -10,19 +10,19 @@ const PATH = "/library/keyword-research/long-tail-question-mining";
 
 const faqs = [
   {
-    question: "What are long-tail keywords in SEO?",
+    question: "O que são palavras-chave de cauda longa em SEO?",
     answer:
-      "Specific multi-word queries with lower individual volume but higher combined traffic and clearer intent than head terms. They're the fastest way for a newer site to rank, because competition concentrates on head terms.",
+      "São consultas específicas, com várias palavras, que têm menos volume individual, mas mais tráfego somado e uma intenção mais clara do que os termos principais. Elas são o caminho mais rápido para um site novo ranquear, porque a concorrência se concentra nos termos principais.",
   },
   {
-    question: "How do I use long-tail keywords in content?",
+    question: "Como usar palavras-chave de cauda longa no conteúdo?",
     answer:
-      "One intent per page. Make the long-tail query the H2 (or H1) verbatim where natural, answer it in the first paragraph, then earn depth below. Don't scatter twenty tails across one page; cluster related tails, then split by intent.",
+      "Uma intenção por página. Use a consulta de cauda longa literalmente como H2 (ou H1) quando soar natural, responda no primeiro parágrafo e aprofunde abaixo. Não espalhe vinte caudas numa única página; agrupe as caudas relacionadas e depois separe por intenção.",
   },
   {
-    question: "Is there a free long-tail keyword generator?",
+    question: "Existe gerador gratuito de palavras-chave de cauda longa?",
     answer:
-      "Google gives you two: autocomplete and People Also Ask. Your Search Console is the third and best; it's your site's actual tail. OpenSEO connects your Search Console and expands what you find into full keyword lists. You can start for free; paid plans start at $10/month.",
+      "O Google oferece dois: o preenchimento automático e o People Also Ask. O seu Search Console é o terceiro e o melhor; ele mostra a cauda real do seu site. O RE9 SEO conecta o seu Search Console e expande o que você encontra em listas completas de palavras-chave.",
   },
 ];
 
@@ -41,10 +41,10 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "What Are Long-Tail Keywords? How to Find and Use Them",
+      title: "O que são palavras-chave de cauda longa? Como encontrar e usar",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
@@ -52,7 +52,7 @@ export const Route = createFileRoute(
       <LibrarySpokePage
         title={frontmatter.title}
         description={frontmatter.description}
-        crumb="Long-tail & question mining"
+        crumb="Cauda longa e garimpo de perguntas"
         path={PATH}
       >
         <Content components={{ ...defaultMdxComponents }} />

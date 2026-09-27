@@ -1,54 +1,54 @@
 ---
-title: "Keyword Clustering Agent Skill"
-description: "Cluster keywords by intent and map them to existing or proposed pages with your AI agent."
+title: "Skill de agrupamento de palavras-chave"
+description: "Agrupe palavras-chave por intenção e associe-as a páginas existentes ou propostas com o seu agente de IA."
 ---
 
 <RunSkillCallout command="/keyword-clustering" />
 
-The Keyword Clustering Agent Skill turns a messy keyword list into a page plan.
+A skill de agrupamento de palavras-chave (`keyword-clustering`) transforma uma lista bagunçada de palavras-chave em um plano de páginas.
 
-Your agent sorts keywords, compares intent, and decides which terms belong on the same page. It uses the keyword set, SERP context, and your site context to recommend page groups.
+O agente organiza as palavras-chave, compara a intenção e decide quais termos pertencem à mesma página. Ele usa o conjunto de palavras-chave, o contexto das SERPs e o contexto do seu site para recomendar grupos de páginas.
 
-You get a content map: which keywords belong together, which pages should target them, where existing pages fit, and where cannibalization might become a problem.
+Você recebe um mapa de conteúdo: quais palavras-chave ficam juntas, quais páginas devem mirá-las, onde as páginas existentes se encaixam e onde a canibalização pode virar um problema.
 
-## What this skill helps your agent do
+## O que esta skill ajuda seu agente a fazer
 
-- Group keywords by intent, SERP similarity, and page type.
-- Separate terms that look similar but need different pages.
-- Map clusters to existing URLs when they fit.
-- Recommend new pages when no current page matches the search intent.
-- Flag weak, off-strategy, or do-not-target keywords.
-- Suggest saved keyword tags only after user confirmation.
+- Agrupar palavras-chave por intenção, semelhança de SERP e tipo de página.
+- Separar termos que parecem iguais, mas precisam de páginas diferentes.
+- Associar grupos a URLs existentes quando elas se encaixam.
+- Recomendar páginas novas quando nenhuma página atual atende à intenção de busca.
+- Sinalizar palavras-chave fracas, fora da estratégia ou que não devem ser trabalhadas.
+- Sugerir tags para palavras-chave salvas somente após a confirmação do usuário.
 
-## When to use it
+## Quando usar
 
-Use this skill when you already have keywords but do not yet have a content plan.
+Use esta skill quando você já tem palavras-chave, mas ainda não tem um plano de conteúdo.
 
-It helps when a keyword export is too large to sort by hand, when multiple pages might compete for the same intent, or when you need to turn research into page briefs.
+Ela ajuda quando uma exportação de palavras-chave é grande demais para organizar à mão, quando várias páginas podem disputar a mesma intenção ou quando você precisa transformar pesquisa em briefings de páginas.
 
-## What you get back
+## O que você recebe
 
-Your agent should return clusters, primary keywords, secondary keywords, search intent, page targets, priorities, and notes about cannibalization or consolidation.
+O agente deve entregar grupos, palavras-chave principais, palavras-chave secundárias, intenção de busca, páginas-alvo, prioridades e observações sobre canibalização ou consolidação.
 
-## How to get the best result
+## Como obter o melhor resultado
 
-- Provide a keyword list, saved keyword tag, Search Console export, seed topic, or target domain.
-- Share existing pages if you want the agent to map keywords to current URLs.
-- Ask the agent to check SERP overlap for important borderline terms.
-- Keep final tag changes user-approved.
+- Forneça uma lista de palavras-chave, uma tag de palavras-chave salvas, uma exportação do Search Console, um tema inicial ou um domínio-alvo.
+- Compartilhe as páginas existentes se quiser que o agente associe palavras-chave às URLs atuais.
+- Peça ao agente para verificar a sobreposição de SERPs em termos importantes que estejam no limite.
+- Mantenha as alterações finais de tags sujeitas à sua aprovação.
 
-## Use it with OpenSEO MCP
+## Use com o MCP do RE9 SEO
 
-Set up [OpenSEO MCP](/docs/mcp) so your agent can read saved keywords, inspect SERPs, and use OpenSEO project context while clustering.
+Configure o [MCP do RE9 SEO](/docs/mcp) para que o agente possa ler palavras-chave salvas, analisar SERPs e usar o contexto do projeto no RE9 SEO durante o agrupamento.
 
-## Read the actual skill
+## Leia a skill original
 
-The source `SKILL.md` lives on GitHub:
+O `SKILL.md` original fica no GitHub:
 
-- [Keyword Clustering skill](https://github.com/every-app/open-seo/tree/main/.agents/skills/keyword-clustering)
+- [Skill de agrupamento de palavras-chave](https://github.com/renoribeiro/seo-re9/tree/main/.agents/skills/keyword-clustering)
 
-## Related skills
+## Skills relacionadas
 
-- [Keyword Research](/docs/skills/keyword-research) when you need more candidate terms.
-- [Competitor Analysis](/docs/skills/competitor-analysis) when competitor pages should inform the map.
-- [SEO Coach](/docs/skills/seo-coach) if you are unsure whether clustering is the next step.
+- [Pesquisa de palavras-chave](/docs/skills/keyword-research), quando você precisar de mais termos candidatos.
+- [Análise de concorrentes](/docs/skills/competitor-analysis), quando as páginas dos concorrentes devem orientar o mapa.
+- [SEO Coach](/docs/skills/seo-coach), se você não tem certeza de que o agrupamento é o próximo passo.

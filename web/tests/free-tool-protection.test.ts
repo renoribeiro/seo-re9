@@ -12,7 +12,7 @@ import {
 } from "../src/lib/free-tools/server";
 
 const request = (headers: Record<string, string> = {}) =>
-  new Request("https://openseo.so/api/backlink-check", {
+  new Request("https://seo.agenciare9.com.br/api/backlink-check", {
     method: "POST",
     headers: { "cf-connecting-ip": "203.0.113.1", ...headers },
   });
@@ -33,7 +33,7 @@ beforeEach(() => {
   fetchMock = vi.fn().mockResolvedValue(
     Response.json({
       success: true,
-      hostname: "openseo.so",
+      hostname: "seo.agenciare9.com.br",
       action: "free_tool",
     }),
   );
@@ -87,7 +87,7 @@ describe("public tool verification", () => {
   it.each([
     { success: false },
     { success: true, hostname: "other.example", action: "free_tool" },
-    { success: true, hostname: "openseo.so", action: "login" },
+    { success: true, hostname: "seo.agenciare9.com.br", action: "login" },
     { success: true },
   ])("rejects invalid or mismatched verification %j", async (data) => {
     fetchMock.mockResolvedValue(Response.json(data));
@@ -114,21 +114,29 @@ describe("public tool verification", () => {
 
 describe("body and budget protections", () => {
   it("rejects oversized streamed JSON without relying on Content-Length", async () => {
-    const req = new Request("https://openseo.so/api/backlink-check", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ target: "a".repeat(17000) }),
-    });
+    const req = new Request(
+      "https://seo.agenciare9.com.br/api/backlink-check",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ target: "a".repeat(17000) }),
+      },
+    );
     expect(((await readToolBody(req)) as Response).status).toBe(413);
   });
   it("requires JSON and accepts an ordinary small request", async () => {
     expect(((await readToolBody(request())) as Response).status).toBe(415);
-    const req = new Request("https://openseo.so/api/backlink-check", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: '{"target":"openseo.so"}',
+    const req = new Request(
+      "https://seo.agenciare9.com.br/api/backlink-check",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: '{"target":"seo.agenciare9.com.br"}',
+      },
+    );
+    expect(await readToolBody(req)).toEqual({
+      target: "seo.agenciare9.com.br",
     });
-    expect(await readToolBody(req)).toEqual({ target: "openseo.so" });
   });
   it("fails closed if budget coordination is missing or fails", async () => {
     const input = {
@@ -173,13 +181,22 @@ describe("body and budget protections", () => {
 
 describe("every free API protects cache hits and provider calls", () => {
   const cases = [
-    ["backlink-check", { target: "openseo.so" }],
-    ["competitor-keyword-finder", { target: "openseo.so", locationCode: 2840 }],
+    ["backlink-check", { target: "seo.agenciare9.com.br" }],
+    [
+      "competitor-keyword-finder",
+      { target: "seo.agenciare9.com.br", locationCode: 2840 },
+    ],
     ["keyword-generator", { keyword: "email marketing", locationCode: 2840 }],
-    ["website-traffic-checker", { target: "openseo.so", locationCode: 2840 }],
-    ["competitor-analysis", { competitor: "openseo.so", locationCode: 2840 }],
-    ["spam-score-checker", { target: "openseo.so" }],
-    ["domain-age-checker", { domains: ["openseo.so"] }],
+    [
+      "website-traffic-checker",
+      { target: "seo.agenciare9.com.br", locationCode: 2840 },
+    ],
+    [
+      "competitor-analysis",
+      { competitor: "seo.agenciare9.com.br", locationCode: 2840 },
+    ],
+    ["spam-score-checker", { target: "seo.agenciare9.com.br" }],
+    ["domain-age-checker", { domains: ["seo.agenciare9.com.br"] }],
   ] as const;
   it.each(cases)(
     "%s rejects missing verification before cache or provider access",
@@ -189,7 +206,7 @@ describe("every free API protects cache hits and provider calls", () => {
       vi.stubGlobal("caches", { default: { match } });
       const { Route } = await import(`../src/routes/api/${slug}.ts`);
       const response = await Route.server.handlers.POST({
-        request: new Request(`https://openseo.so/api/${slug}`, {
+        request: new Request(`https://seo.agenciare9.com.br/api/${slug}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -214,7 +231,7 @@ describe("every free API protects cache hits and provider calls", () => {
       });
       const { Route } = await import(`../src/routes/api/${slug}.ts`);
       const response = await Route.server.handlers.POST({
-        request: new Request(`https://openseo.so/api/${slug}`, {
+        request: new Request(`https://seo.agenciare9.com.br/api/${slug}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -237,11 +254,12 @@ describe("every free API protects cache hits and provider calls", () => {
     bindings.value.FREE_TOOL_BUDGET = { getByName: () => ({ reserve }) };
     vi.stubGlobal("caches", {
       default: {
-        match: vi
-          .fn()
-          .mockResolvedValue(
-            Response.json({ ok: true, data: { target: "openseo.so" } }),
-          ),
+        match: vi.fn().mockResolvedValue(
+          Response.json({
+            ok: true,
+            data: { target: "seo.agenciare9.com.br" },
+          }),
+        ),
       },
     });
     const module = await import("../src/routes/api/backlink-check");
@@ -251,13 +269,16 @@ describe("every free API protects cache hits and provider calls", () => {
       };
     };
     const response = await route.server.handlers.POST({
-      request: new Request("https://openseo.so/api/backlink-check", {
+      request: new Request("https://seo.agenciare9.com.br/api/backlink-check", {
         method: "POST",
         headers: {
           "content-type": "application/json",
           "cf-connecting-ip": "203.0.113.2",
         },
-        body: JSON.stringify({ target: "openseo.so", turnstileToken: "token" }),
+        body: JSON.stringify({
+          target: "seo.agenciare9.com.br",
+          turnstileToken: "token",
+        }),
       }),
     });
     expect(response.status).toBe(200);
@@ -328,7 +349,7 @@ describe("keyword discovery provider contracts", () => {
         .mockResolvedValueOnce(
           Response.json({
             success: true,
-            hostname: "openseo.so",
+            hostname: "seo.agenciare9.com.br",
             action: "free_tool",
           }),
         )
@@ -339,7 +360,7 @@ describe("keyword discovery provider contracts", () => {
         );
       const { Route } = await import(`../src/routes/api/${slug}.ts`);
       const response = await Route.server.handlers.POST({
-        request: new Request(`https://openseo.so/api/${slug}`, {
+        request: new Request(`https://seo.agenciare9.com.br/api/${slug}`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

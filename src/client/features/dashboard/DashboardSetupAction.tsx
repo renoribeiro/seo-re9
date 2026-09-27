@@ -77,7 +77,7 @@ export function DashboardSetupAction({
         <AgentSetupPanel
           prompt={getAgentSetupPrompt(
             typeof window === "undefined"
-              ? "https://app.openseo.so"
+              ? "https://seo.agenciare9.com.br"
               : window.location.origin,
           )}
           onCopy={() =>

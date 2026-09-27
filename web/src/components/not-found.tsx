@@ -7,16 +7,16 @@ export function NotFound() {
     <HomeLayout {...baseOptions()} className="text-center py-32 justify-center">
       <div className="flex flex-col items-center gap-4">
         <h1 className="text-6xl font-bold text-fd-muted-foreground">404</h1>
-        <h2 className="text-2xl font-semibold">Page Not Found</h2>
+        <h2 className="text-2xl font-semibold">Página não encontrada</h2>
         <p className="text-fd-muted-foreground max-w-md">
-          The page you are looking for might have been removed, had its name
-          changed, or is temporarily unavailable.
+          A página que você procura pode ter sido removida, mudado de nome ou
+          estar temporariamente indisponível.
         </p>
         <Link
           to="/"
           className="mt-4 px-4 py-2 rounded-lg bg-fd-primary text-fd-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
         >
-          Back to Home
+          Voltar para o início
         </Link>
       </div>
     </HomeLayout>

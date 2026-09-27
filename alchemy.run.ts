@@ -293,6 +293,10 @@ const dataEnv = {
   // Alchemy reconciles worker vars on every deploy, so the telemetry opt-out
   // must live in the env file — a dashboard-set var would be wiped.
   OPENSEO_TELEMETRY_DISABLED: optionalVar("OPENSEO_TELEMETRY_DISABLED"),
+  // Telemetry is off unless the operator supplies their own PostHog key.
+  SELF_HOST_TELEMETRY_POSTHOG_KEY: optionalSecret(
+    "SELF_HOST_TELEMETRY_POSTHOG_KEY",
+  ),
 };
 
 export default Alchemy.Stack(

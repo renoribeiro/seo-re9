@@ -1,112 +1,115 @@
 ---
-title: "Keyword gap analysis: subtract the brand terms first"
-description: "A raw keyword gap between you and a competitor is mostly noise, because most ranked-keyword lists are mostly brand. How to strip brand from both sides and turn the remainder into a page plan."
+title: "Análise de lacuna de palavras-chave: tire os termos de marca primeiro"
+description: "Uma lacuna de palavras-chave bruta entre você e um concorrente é quase só ruído, porque a maioria das listas de palavras-chave ranqueadas é quase só marca. Como tirar a marca dos dois lados e transformar o que sobra em um plano de páginas."
 ---
 
-## What is a keyword gap analysis?
+## O que é uma análise de lacuna de palavras-chave?
 
-A keyword gap analysis compares the keywords a competitor ranks for against the keywords you rank for, and treats the difference as your opportunity list. It is the single most requested competitive report, and in its raw form it is close to useless.
+A análise de lacuna de palavras-chave compara as palavras-chave para as quais um concorrente ranqueia com as palavras-chave para as quais você ranqueia e trata a diferença como a sua lista de oportunidades. É o relatório competitivo mais pedido e, na forma bruta, chega perto de ser inútil.
 
-The reason is arithmetic. Pull the ranked keywords for a well-established competitor and a smaller site in the same market and the two numbers are not comparable. Here is a real pair from the property restoration category: the national brand ranks for 49,475 organic keywords. The regional operator ranks for 79.
+O motivo é aritmético. Puxe as palavras-chave ranqueadas de um concorrente bem estabelecido e de um site menor do mesmo mercado e os dois números não são comparáveis. Veja um par real do setor de restauração de imóveis: a marca nacional ranqueia para 49.475 palavras-chave orgânicas. A empresa regional ranqueia para 79.
 
-A raw gap analysis reports that as 49,396 opportunities. That number is not a plan. It is a way of feeling behind.
+Uma análise de lacuna bruta apresenta isso como 49.396 oportunidades. Esse número não é um plano. É um jeito de se sentir para trás.
 
-## Why your ranked-keyword list is mostly your own name
+## Por que sua lista de palavras-chave ranqueadas é quase só o seu próprio nome
 
-Look at what the smaller site actually ranks for, sorted by traffic.
+Veja para o que o site menor realmente ranqueia, ordenado por tráfego.
 
-![A ranked-keyword list showing 457 estimated organic traffic and 79 organic keywords, where the top rows are all brand terms containing the company's own name](/library/competitive-analysis/brand-dominated-ranked-keywords-openseo.png)
+![Lista de palavras-chave ranqueadas mostrando 457 de tráfego orgânico estimado e 79 palavras-chave orgânicas, em que as primeiras linhas são todas termos de marca com o nome da própria empresa](/library/competitive-analysis/brand-dominated-ranked-keywords-openseo.png)
 
-Every row at the top of that list is the company's own name in some arrangement. Below the fold it gets stranger: the site also ranks for several _other_ restoration companies' brand names, for a street address, and for a local civic app that happens to share a word with one of its city pages.
+Todas as linhas do topo dessa lista são o nome da própria empresa em alguma combinação. Mais abaixo, fica mais estranho: o site também ranqueia para o nome de _outras_ empresas de restauração, para um endereço de rua e para um aplicativo local de serviços públicos que por acaso compartilha uma palavra com uma das páginas de cidade do site.
 
-Strip all of that out and the genuine service rankings are a short list: one city plus water damage at position 19, one city plus mold removal at position 18, one city plus fire damage at position 18. Three real footholds, not 79.
+Tire tudo isso e as posições reais em serviços viram uma lista curta: uma cidade + danos por água na posição 19, uma cidade + remoção de mofo na posição 18, uma cidade + danos por incêndio na posição 18. Três pontos de apoio reais, não 79.
 
-That is the actual starting position, and it is much better news than the raw number, because three near-miss service pages is a quarter's worth of work rather than an impossible backlog.
+Esse é o ponto de partida de verdade, e é uma notícia muito melhor do que o número bruto, porque três páginas de serviço quase lá são o trabalho de um trimestre, e não uma fila impossível.
 
-The same subtraction has to run on the competitor's side. Their 49,475 includes their brand, their franchise location pages, their glossary, and a large volume of close variants. The comparable figure on both sides is service terms only.
+A mesma subtração precisa ser feita do lado do concorrente. As 49.475 palavras-chave dele incluem a marca, as páginas das unidades franqueadas, o glossário e um volume grande de variantes próximas. O número comparável, dos dois lados, é o de termos de serviço apenas.
 
-## How to run a keyword gap in OpenSEO
+## Como fazer uma análise de lacuna de palavras-chave no RE9 SEO
 
-OpenSEO does not have a one-click "keyword gap" report that takes two domains and returns the difference. What it has are the two halves: you pull ranked keywords for each domain and the agent performs the join. In practice this is more flexible than a fixed report, because you control the filters on both sides, but it is worth knowing before you go looking for a button.
+O RE9 SEO não tem um relatório de "lacuna de palavras-chave" em um clique, que recebe dois domínios e devolve a diferença. O que ele tem são as duas metades: você puxa as palavras-chave ranqueadas de cada domínio e o agente faz o cruzamento. Na prática, isso é mais flexível do que um relatório fixo, porque você controla os filtros dos dois lados, mas vale saber disso antes de sair procurando um botão.
 
-The filter that does the real work is brand exclusion, which is a parameter on the ranked-keywords tool rather than something you have to post-process.
+O filtro que faz o trabalho pesado é a exclusão de marca, que é um parâmetro da ferramenta de palavras-chave ranqueadas, e não algo que você precisa tratar depois.
 
 ```text
-Using the OpenSEO MCP, run a keyword gap between [mydomain.com]
-and [competitor.com].
+Usando o MCP do RE9 SEO, faça uma análise de lacuna de palavras-chave
+entre [meudominio.com] e [concorrente.com].
 
-1. Pull ranked keywords for both domains. On both sides, exclude
-   brand terms: [my brand and its variants] and [their brand,
-   their parent company, their location-page naming pattern].
+1. Puxe as palavras-chave ranqueadas dos dois domínios. Dos dois
+   lados, exclua os termos de marca: [minha marca e suas variações]
+   e [a marca deles, a empresa controladora, o padrão de nome das
+   páginas de unidades].
 
-2. Drop anything that is a competitor's brand name, a street
-   address, or an obvious mismatch. Show me what you dropped and
-   why, in a short list.
+2. Descarte tudo o que for nome de marca de concorrente, endereço
+   de rua ou incompatibilidade óbvia. Mostre o que você descartou
+   e por quê, em uma lista curta.
 
-3. Return three tables:
-   - terms they rank top 10 for and I do not rank for at all
-   - terms we both rank for where they are ahead of me
-   - terms I rank 11-30 for that they do not hold, which is
-     defensible ground rather than a gap
+3. Traga três tabelas:
+   - termos em que eles estão no top 10 e para os quais eu não
+     ranqueio de jeito nenhum
+   - termos para os quais nós dois ranqueamos e eles estão à
+     minha frente
+   - termos em que estou entre as posições 11 e 30 e que eles não
+     ocupam, que são terreno a defender, e não uma lacuna
 
-4. For table one, group by the page on their site that ranks, so
-   I can see whether the gap is many pages or one strong page.
+4. Na tabela um, agrupe pela página do site deles que ranqueia,
+   para eu ver se a lacuna são muitas páginas ou uma página forte.
 
-Sort each table by search volume and tell me which table you
-would work first.
+Ordene cada tabela por volume de busca e diga qual tabela você
+trabalharia primeiro.
 ```
 
-Table three is the one most gap reports omit and the one most worth having. A gap analysis that only looks at what you are missing will walk you away from the terms you are quietly already winning.
+A tabela três é a que a maioria dos relatórios de lacuna omite e a que mais vale a pena ter. Uma análise de lacuna que só olha para o que está faltando vai afastar você dos termos que você já está ganhando sem alarde.
 
-## Learn from the gap, do not copy it
+## Aprenda com a lacuna, não a copie
 
-The output of this workflow is a list of things a competitor has that you do not. The obvious move is to build the same pages. It is usually the wrong move.
+O resultado deste fluxo é uma lista do que o concorrente tem e você não. O movimento óbvio é construir as mesmas páginas. Normalmente, é o movimento errado.
 
-Tom Malesic, who runs the agency EZMarketing, put the objection plainly when asked how to use competitor research without producing a copy of the competitor:
+Tom Malesic, que comanda a agência EZMarketing, resumiu a objeção sem rodeios quando perguntado sobre como usar a pesquisa de concorrentes sem produzir uma cópia do concorrente:
 
-> So for small business owners, their competitors are generally small business owners. And most small business owners' marketing is terrible. So I worry less about sounding like the competitor, and I worry more about creating the voice and sounding like the business that I'm representing.
+> Para donos de pequenos negócios, os concorrentes geralmente são outros donos de pequenos negócios. E o marketing da maioria dos donos de pequenos negócios é péssimo. Então eu me preocupo menos em soar como o concorrente e mais em criar a voz e soar como o negócio que estou representando.
 
-A gap tells you a topic has demand and that somebody satisfied it well enough to rank. It does not tell you that their page is good. Frequently the page holding position four is thin, dated, and beatable by anyone willing to answer the question properly.
+Uma lacuna mostra que um tema tem demanda e que alguém o atendeu bem o suficiente para ranquear. Ela não mostra que a página dele é boa. Muitas vezes, a página na posição quatro é rasa, desatualizada e superável por qualquer um disposto a responder à pergunta direito.
 
-Gert Mellak of Solicom AI Consulting frames the useful version as a narrowing exercise rather than a copying one:
+Gert Mellak, da Solicom AI Consulting, enxerga a versão útil como um exercício de afunilar, e não de copiar:
 
-> Let's really analyze those five. Let's go to competitors, let's see what's working for them, what can we learn from them? How can we go deeper on those five topics, angles, aspects?
+> Vamos analisar a fundo esses cinco. Vamos aos concorrentes, ver o que está funcionando para eles, o que podemos aprender com eles. Como podemos nos aprofundar nesses cinco temas, ângulos, aspectos?
 
-Five is closer to the right number than five hundred. A gap report's value is in the top of the list, not its length.
+Cinco está mais perto do número certo do que quinhentos. O valor de um relatório de lacuna está no topo da lista, não no tamanho dela.
 
-## Turning the gap into pages
+## Como transformar a lacuna em páginas
 
-Once the list is clean, it stops being a competitive artefact and becomes an ordinary content plan. Group the surviving terms by intent, then by the page that would satisfy them, exactly as you would with any other keyword set. The workflows in [clustering keywords into topical hubs](/library/keyword-research/cluster-topical-hubs) and [search-intent mapping](/library/keyword-research/search-intent-mapping) apply here without modification, because at this point the source of the keywords no longer matters.
+Depois que a lista está limpa, ela deixa de ser um material competitivo e vira um plano de conteúdo comum. Agrupe os termos que sobraram por intenção e depois pela página que os atenderia, exatamente como você faria com qualquer outro conjunto de palavras-chave. Os fluxos de [agrupar palavras-chave em hubs temáticos](/library/keyword-research/cluster-topical-hubs) e de [mapeamento de intenção de busca](/library/keyword-research/search-intent-mapping) se aplicam aqui sem nenhuma alteração, porque, a essa altura, a origem das palavras-chave já não importa.
 
-Two rules specific to gap-sourced keywords:
+Duas regras específicas para palavras-chave vindas de uma lacuna:
 
-1. **Check the ranking page before you commit.** If a competitor holds thirty terms with one page, you need one page, not thirty. Grouping by their URL is what reveals this.
-2. **Do not chase terms your product does not serve.** A competitor with a broader product line will rank for things you have no business ranking for. The restoration comparison above is a good example: a large share of the national brand's traffic comes from general cleaning services, which is a different business.
+1. **Confira a página que ranqueia antes de se comprometer.** Se um concorrente ocupa trinta termos com uma página, você precisa de uma página, não de trinta. É o agrupamento pela URL deles que revela isso.
+2. **Não corra atrás de termos que o seu produto não atende.** Um concorrente com uma linha de produtos mais ampla vai ranquear para coisas para as quais você não tem motivo nenhum para ranquear. A comparação de restauração acima é um bom exemplo: uma fatia grande do tráfego da marca nacional vem de serviços de limpeza em geral, que é outro negócio.
 
-That second point is developed further in [reading a competitor's domain overview honestly](/library/competitive-analysis/competitor-traffic-estimates).
+Esse segundo ponto é aprofundado em [ler a visão geral do domínio de um concorrente com honestidade](/library/competitive-analysis/competitor-traffic-estimates).
 
-## What to do first
+## Por onde começar
 
-Run the gap on one competitor, with brand excluded on both sides, and stop at the first ten rows. Pick the one row where a competitor's page is visibly weaker than what you could write, and write that page. A gap analysis that produces one shipped page has outperformed the vast majority of gap analyses, which produce a spreadsheet.
+Rode a lacuna com um concorrente, com a marca excluída dos dois lados, e pare nas dez primeiras linhas. Escolha a linha em que a página do concorrente é visivelmente mais fraca do que a que você conseguiria escrever, e escreva essa página. Uma análise de lacuna que gera uma página publicada já superou a grande maioria das análises de lacuna, que geram uma planilha.
 
-If you have not built the gap list yet, the [free competitor analysis tool](/competitor-analysis) will show you up to twenty keywords a competitor ranks for that you do not.
+Se você ainda não montou a lista de lacunas, a [ferramenta gratuita de análise de concorrentes](/competitor-analysis) mostra até vinte palavras-chave para as quais um concorrente ranqueia e você não.
 
-Then run it again in ninety days on the same competitor. The change between the two runs is more informative than either run alone.
+Depois, rode de novo daqui a noventa dias, com o mesmo concorrente. A mudança entre as duas rodadas diz mais do que qualquer uma delas sozinha.
 
-## Keyword gap analysis FAQ
+## Perguntas frequentes sobre análise de lacuna de palavras-chave
 
-### What is a keyword gap in SEO?
+### O que é lacuna de palavras-chave em SEO?
 
-The set of keywords a competitor ranks for and you do not. Useful only after brand terms are removed from both sides, because otherwise the largest part of the difference is simply that you have different company names.
+É o conjunto de palavras-chave para as quais um concorrente ranqueia e você não. Só é útil depois que os termos de marca são tirados dos dois lados, porque, do contrário, a maior parte da diferença é simplesmente que as empresas têm nomes diferentes.
 
-### How do you do a content gap analysis for free?
+### Como fazer uma análise de lacuna de conteúdo de graça?
 
-The discovery half costs nothing: read the competitor's pages, note what they cover that you do not, and check your own Search Console for questions you already receive impressions for. The part that costs money is the ranked-keyword data on the competitor's side, which is why quality SEO data sits behind a subscription in every tool. OpenSEO is open source and free to start, with a paid plan at $10/month that includes usage credits.
+A parte da descoberta não custa nada: leia as páginas do concorrente, anote o que elas cobrem e as suas não, e confira no seu Search Console as perguntas para as quais você já recebe impressões. A parte que custa dinheiro são os dados de palavras-chave ranqueadas do lado do concorrente, e é por isso que dados de SEO de qualidade ficam atrás de uma assinatura em todas as ferramentas. O RE9 SEO é de código aberto e mostra o custo estimado antes de rodar cada pesquisa.
 
-### Should I target every keyword my competitor ranks for?
+### Devo mirar todas as palavras-chave para as quais meu concorrente ranqueia?
 
-No. A competitor's ranked-keyword list includes their brand, their variants, and terms served by product lines you do not have. The list worth acting on is usually a few dozen rows, not a few thousand.
+Não. A lista de palavras-chave ranqueadas de um concorrente inclui a marca dele, as variações e termos atendidos por linhas de produto que você não tem. A lista que vale a pena trabalhar costuma ter algumas dezenas de linhas, não alguns milhares.
 
-### What if my competitor ranks for thousands of keywords and I rank for almost none?
+### E se meu concorrente ranqueia para milhares de palavras-chave e eu para quase nenhuma?
 
-Group their keywords by the page that ranks. A large keyword count is often a small number of strong pages, and a small number of strong pages is something you can compete with. The count itself is a poor measure of how far ahead they are.
+Agrupe as palavras-chave dele pela página que ranqueia. Uma contagem grande de palavras-chave muitas vezes corresponde a um número pequeno de páginas fortes, e com um número pequeno de páginas fortes dá para competir. A contagem em si é uma medida ruim de quanto ele está à frente.

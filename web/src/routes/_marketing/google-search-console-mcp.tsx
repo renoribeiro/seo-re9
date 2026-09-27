@@ -12,26 +12,14 @@ const PATH = "/google-search-console-mcp";
 const softwareApplicationLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "OpenSEO Google Search Console MCP",
+  name: "MCP do Google Search Console do RE9 SEO",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: toCanonicalUrl(PATH),
   description: frontmatter.description,
-  offers: {
-    "@type": "Offer",
-    price: "10.00",
-    priceCurrency: "USD",
-    priceSpecification: {
-      "@type": "UnitPriceSpecification",
-      price: "10.00",
-      priceCurrency: "USD",
-      billingDuration: 1,
-      unitCode: "MON",
-    },
-  },
   provider: {
     "@type": "Organization",
-    name: "OpenSEO",
+    name: "RE9 Online",
     url: SITE_URL,
   },
 };
@@ -39,10 +27,11 @@ const softwareApplicationLd = {
 export const Route = createFileRoute("/_marketing/google-search-console-mcp")({
   head: () =>
     buildPageSeo({
-      title: "Google Search Console MCP Server: No Google Cloud Setup",
+      title:
+        "Servidor MCP do Google Search Console sem configurar o Google Cloud",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO",
+      titleSuffix: "RE9 SEO",
       ogType: "article",
     }),
   component: GoogleSearchConsoleMcpPage,
@@ -65,18 +54,17 @@ function GoogleSearchConsoleMcpPage() {
         ) : null}
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
-            href="https://app.openseo.so/sign-up"
+            href="https://seo.agenciare9.com.br/sign-up"
             className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Get started
+            Começar agora
             <span className="ml-2" aria-hidden="true">
               &rarr;
             </span>
           </a>
         </div>
         <p className="mt-3 text-xs text-neutral-500">
-          $10/month, 30-day money-back guarantee. Search Console tools never use
-          credits.
+          As ferramentas do Search Console nunca consomem créditos.
         </p>
       </header>
 
@@ -103,30 +91,30 @@ function GoogleSearchConsoleMcpCta() {
   return (
     <section className="mt-14 rounded-xl border border-[var(--color-border-subtle)] bg-white p-6">
       <p className="text-xl font-semibold tracking-tight text-neutral-950">
-        Point your AI at your real search data
+        Coloque sua IA para trabalhar com seus dados reais de busca
       </p>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-brand-muted)]">
-        No Google Cloud project. Zero credits to read your own data. Works with
-        Claude, Codex, OpenClaw, OpenCode, and Gemini.
+        Sem projeto no Google Cloud. Nenhum crédito consumido para ler seus
+        próprios dados. Funciona com Claude, Codex, OpenClaw, OpenCode e Gemini.
       </p>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <a
-          href="https://app.openseo.so/sign-up"
+          href="https://seo.agenciare9.com.br/sign-up"
           className="inline-flex h-10 items-center justify-center rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
         >
-          Get started
+          Começar agora
           <span className="ml-2" aria-hidden="true">
             &rarr;
           </span>
         </a>
         <a
-          href="https://github.com/every-app/open-seo"
+          href="https://github.com/renoribeiro/seo-re9"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-[var(--color-border-subtle)] bg-white px-4 text-sm font-medium text-neutral-950 transition-colors hover:border-neutral-950"
         >
           <GitHubIcon />
-          Star on GitHub
+          Dar uma estrela no GitHub
         </a>
       </div>
     </section>

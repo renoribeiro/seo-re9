@@ -30,7 +30,7 @@ export function ToolTable({
     <div className={`min-w-0 ${className ?? ""}`}>
       {scrollable ? (
         <p className="mb-2 text-xs text-[var(--color-brand-muted)]">
-          Scroll sideways to see all columns.
+          Role para o lado para ver todas as colunas.
         </p>
       ) : null}
       <div

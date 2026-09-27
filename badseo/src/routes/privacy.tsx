@@ -30,7 +30,7 @@ function PrivacyPage() {
           badseo.dev is operated by Every App, Inc. as a public test site for
           OpenSEO. The site has no accounts, forms, purchases, or user-submitted
           content. Privacy questions and requests can be sent to{" "}
-          <a href="mailto:ben@openseo.so">ben@openseo.so</a>.
+          <a href="mailto:trafego@re9.online">trafego@re9.online</a>.
         </p>
 
         <h2>Plausible Analytics</h2>

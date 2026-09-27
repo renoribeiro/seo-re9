@@ -261,7 +261,7 @@ function SubscribePage() {
           <li className="-mt-1 pl-6 text-xs">
             <a
               className="text-base-content/60 underline decoration-base-content/40 decoration-dotted underline-offset-4 transition-colors hover:text-base-content"
-              href="https://openseo.so/pricing"
+              href="https://seo.agenciare9.com.br/pricing"
               target="_blank"
               rel="noreferrer"
               onClick={() =>

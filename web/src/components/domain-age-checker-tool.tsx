@@ -22,7 +22,7 @@ function formatDate(value: string | null): string {
   if (!value) return "—";
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "—";
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString("pt-BR", {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -31,9 +31,9 @@ function formatDate(value: string | null): string {
 
 function formatAge(row: AgeRow): string {
   if (row.ageYears === null || row.ageMonths === null) return "—";
-  const years = row.ageYears === 1 ? "1 year" : `${row.ageYears} years`;
-  const months = row.ageMonths === 1 ? "1 month" : `${row.ageMonths} months`;
-  return row.ageYears === 0 ? months : `${years}, ${months}`;
+  const years = row.ageYears === 1 ? "1 ano" : `${row.ageYears} anos`;
+  const months = row.ageMonths === 1 ? "1 mês" : `${row.ageMonths} meses`;
+  return row.ageYears === 0 ? months : `${years} e ${months}`;
 }
 
 export function DomainAgeCheckerTool() {
@@ -55,10 +55,10 @@ export function DomainAgeCheckerTool() {
         input={{ domains: entered.slice(0, MAX_DOMAINS) }}
         status={status}
         errorMessage={errorMessage}
-        cacheDuration="7 days"
+        cacheDuration="7 dias"
       >
         <label htmlFor="age-domains" className="sr-only">
-          Domains to check, one per line
+          Domínios para verificar, um por linha
         </label>
         <textarea
           id="age-domains"
@@ -68,36 +68,39 @@ export function DomainAgeCheckerTool() {
           spellCheck={false}
           value={domains}
           onChange={(e) => setDomains(e.target.value)}
-          placeholder={"example.com\ncompetitor.com"}
+          placeholder={"exemplo.com.br\nconcorrente.com.br"}
           disabled={status === "loading"}
           className={`${FIELD_CLASS} h-auto py-2.5`}
         />
         <p className="mt-2 text-xs text-[var(--color-brand-muted)]">
-          One domain per line, up to {MAX_DOMAINS}.
+          Um domínio por linha, até {MAX_DOMAINS}.
         </p>
         {overLimit ? (
           <p className="mt-1 text-xs text-neutral-900">
-            You pasted {entered.length} domains. Only the first {MAX_DOMAINS}{" "}
-            domains are checked.
+            Você colou {entered.length} domínios. Só os {MAX_DOMAINS} primeiros
+            serão verificados.
           </p>
         ) : null}
         <div className="mt-3">
-          <SubmitButton status={status} idleLabel="Check domain age" />
+          <SubmitButton
+            status={status}
+            idleLabel="Verificar idade do domínio"
+          />
         </div>
       </ToolForm>
 
       {status === "done" && result ? (
         <div className="mt-6">
-          <ToolTable label="Domain Age Checker results">
+          <ToolTable label="Resultados do verificador de idade de domínio">
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead>
                 <tr className="border-b border-[var(--color-border-subtle)] text-xs text-[var(--color-brand-muted)]">
-                  <th className="px-4 py-3 font-medium">Domain</th>
-                  <th className="px-4 py-3 font-medium">Age</th>
-                  <th className="px-4 py-3 font-medium">Registered</th>
-                  <th className="px-4 py-3 font-medium">Updated</th>
-                  <th className="px-4 py-3 font-medium">Expires</th>
-                  <th className="px-4 py-3 font-medium">Registrar</th>
+                  <th className="px-4 py-3 font-medium">Domínio</th>
+                  <th className="px-4 py-3 font-medium">Idade</th>
+                  <th className="px-4 py-3 font-medium">Registrado em</th>
+                  <th className="px-4 py-3 font-medium">Atualizado em</th>
+                  <th className="px-4 py-3 font-medium">Expira em</th>
+                  <th className="px-4 py-3 font-medium">Registrador</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--color-border-subtle)]">
@@ -138,9 +141,10 @@ export function DomainAgeCheckerTool() {
             </table>
           </ToolTable>
 
-          <UpsellCard tool={TOOL} cta="See ranking keywords">
-            Age alone says very little. What matters is whether the domain has
-            earned links and rankings in those years — OpenSEO shows both.
+          <UpsellCard tool={TOOL} cta="Ver palavras-chave ranqueadas">
+            A idade sozinha diz muito pouco. O que importa é se o domínio
+            conquistou links e posições ao longo desses anos — o RE9 SEO mostra
+            as duas coisas.
           </UpsellCard>
         </div>
       ) : null}

@@ -1,139 +1,140 @@
 ---
-title: "Index bloat: when the fix is deleting pages"
-description: "Homes.com removed 5 million pages from a 110-million-page site and recovered from Panda. On a small site the same instinct is usually wrong. How to tell which situation you are in before you delete anything."
+title: "Inchaço de índice: quando a solução é apagar páginas"
+description: "O Homes.com removeu 5 milhões de páginas de um site de 110 milhões e se recuperou do Panda. Num site pequeno, o mesmo instinto costuma estar errado. Veja como descobrir em qual situação você está antes de apagar qualquer coisa."
 ---
 
-## What is index bloat?
+## O que é inchaço de índice (index bloat)?
 
-More URLs eligible for indexing than the site has distinct things to say. It shows up as pagination, filter parameters, tag archives, per-answer or per-comment permalinks, and templated pages generated for combinations nobody searches for. Each one returns 200 and looks healthy in a crawl report. Nothing is broken. That is the difficulty: a crawler grades pages one at a time and index bloat is a property of the set.
+É quando o site tem mais URLs aptas à indexação do que coisas diferentes para dizer. O inchaço aparece como paginação, parâmetros de filtro, arquivos de tags, links permanentes para cada resposta ou comentário e páginas geradas por template para combinações que ninguém pesquisa. Cada uma dessas URLs retorna 200 e parece saudável no relatório de rastreamento. Nada está quebrado. A dificuldade está justamente aí: o rastreador avalia uma página de cada vez, e o inchaço de índice é uma característica do conjunto.
 
-The remedy is unpopular because it means deleting work someone was paid to produce. It is also, at scale, one of the few interventions with a documented before and after.
+A solução é impopular porque significa apagar um trabalho pelo qual alguém foi pago. Ao mesmo tempo, em grande escala, é uma das poucas intervenções com um antes e depois documentado.
 
-## The version where deleting 5 million pages was correct
+## O caso em que apagar 5 milhões de páginas foi a decisão certa
 
-Grant Simmons was hired into Homes.com in 2014 after the site lost roughly 60% of its organic traffic to what turned out to be Panda. The diagnosis was not subtle:
+Grant Simmons foi contratado pelo Homes.com em 2014, depois que o site perdeu cerca de 60% do tráfego orgânico por algo que acabou se revelando o Panda. O diagnóstico não tinha nada de sutil:
 
-> We should clean up a lot of crap, a lot of thin pages that existed purely for just existing
+> A gente precisava limpar muito lixo, um monte de páginas rasas que existiam só por existir
 
-The scale of the cut is the part people do not believe:
+A escala do corte é a parte em que as pessoas não acreditam:
 
-> it was a matter of getting rid of millions of pages from a 110 million page site, taking some really big risks in chopping.
+> era uma questão de se livrar de milhões de páginas de um site de 110 milhões de páginas, correndo uns riscos bem grandes ao cortar.
 
-Five million pages came out of the index. Grant then did the thing every SEO fantasises about, which is get a straight answer from Google in person. At SMX London, with John Mueller in the audience, he described the site and the remediation:
+Cinco milhões de páginas saíram do índice. Depois, Grant fez o que todo profissional de SEO sonha fazer: conseguir uma resposta direta do Google, pessoalmente. No SMX London, com John Mueller na plateia, ele descreveu o site e o que tinha sido feito para corrigi-lo:
 
-> He got on his laptop, he typed in and 20 seconds later he goes, yeah, you're under a Panda penalty. And I go, all right, well, they know that stuff.
+> Ele abriu o laptop, digitou alguma coisa e, 20 segundos depois, falou: é, vocês estão sob uma penalidade do Panda. E eu pensei: tá bom, eles sabem dessas coisas.
 
-And the outcome:
+E o resultado:
 
-> we made those changes and when Panda was pushed out at that time, the rolling updates, we got back all our traffic and then some.
+> a gente fez essas mudanças e, quando o Panda foi lançado naquela época, nas atualizações contínuas, recuperamos todo o nosso tráfego e mais um pouco.
 
-His summary of why the incumbent agency had not fixed it is the transferable lesson:
+O resumo dele sobre por que a agência que cuidava do site não tinha resolvido o problema é a lição que serve para qualquer caso:
 
-> They were not thinking to be aggressive. I've seen in those days recovery had to be aggressive.
+> Eles não estavam pensando em ser agressivos. Naquela época, eu vi que a recuperação tinha que ser agressiva.
 
-Grant's full episode covers entity SEO, measurement, and what he thinks reporting still gets wrong: [listen here](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/).
+O episódio completo do Grant fala sobre SEO de entidades, mensuração e o que, na opinião dele, os relatórios ainda erram: [ouça aqui](https://unscriptedseo.com/grant-simmons-on-entity-seo-llms-and-the-future-of-search-visibility/) (em inglês).
 
-Three things made deletion the right call at Homes.com and they are worth stating, because they are the conditions most sites fail to meet. The pages were near-duplicates generated by a template. There were millions of them, enough to change how the whole domain was assessed. And there was a measured traffic collapse to recover, not a hunch.
+Três fatores tornaram a exclusão das páginas a decisão certa no Homes.com, e vale deixá-los claros, porque são justamente as condições que a maioria dos sites não cumpre. As páginas eram quase duplicadas, geradas por um template. Eram milhões, o suficiente para mudar a forma como o domínio inteiro era avaliado. E havia uma queda de tráfego medida a ser recuperada, não uma intuição.
 
-## The version where deleting is a waste of a weekend
+## O caso em que apagar é desperdiçar um fim de semana
 
-Now the small-site case, from a crawl of seoarcade.com.
+Agora, o caso do site pequeno, a partir de um rastreamento do seoarcade.com.
 
-The site runs a Q&A section. Every question has a page, and every individual answer to that question also gets its own permalink. Filtering the crawl to a single question about keyword forecasts returns **20 of the 867 crawled URLs**. Eight of those came back 200, all carrying the same title and between 824 and 1,127 words of overlapping text.
+O site tem uma seção de perguntas e respostas. Cada pergunta tem uma página, e cada resposta a essa pergunta também ganha seu próprio link permanente. Ao filtrar o rastreamento por uma única pergunta sobre previsões de palavras-chave, aparecem **20 das 867 URLs rastreadas**. Oito delas retornaram 200, todas com o mesmo título e entre 824 e 1.127 palavras de texto sobreposto.
 
-![OpenSEO site audit pages tab filtered to one question slug, showing 20 of 867 crawled URLs, all sharing the title "How does my life change with keyword forecasts? -" with word counts between 824 and 1,127, four of them returning 429 and the rest returning 200](/library/site-audit/duplicate-answer-permalinks-openseo.png)
+![Aba de páginas da auditoria do site no RE9 SEO filtrada pelo slug de uma pergunta, mostrando 20 de 867 URLs rastreadas, todas com o título “How does my life change with keyword forecasts? -” e contagem de palavras entre 824 e 1.127; quatro retornam 429 e as demais retornam 200](/library/site-audit/duplicate-answer-permalinks-openseo.png)
 
-Each of those eight sits in the sitemap and reports `isIndexable: true`. By any crawl-based definition this is index bloat, and the obvious move is to noindex the answer permalinks and ship it.
+Cada uma dessas oito está no sitemap e informa `isIndexable: true`. Por qualquer definição baseada em rastreamento, isso é inchaço de índice, e o movimento óbvio é aplicar noindex nos links permanentes das respostas e seguir em frente.
 
-Then you check what Google did with them, which is the step almost nobody takes.
+Aí você confere o que o Google fez com elas, que é o passo que quase ninguém dá.
 
-Search Console URL inspection on six URLs from that site returned **"URL is unknown to Google" for five of them**: the keyword-forecasts question page, two of its answer permalinks, a third answer permalink from a different question, and the parameter archive at `/?post_type=answer`. The only one that came back "Submitted and indexed" was an ordinary question page, which is the page that should be indexed. It reported a Google-selected canonical matching its declared canonical, three referring URLs, and a Q&A rich result.
+A inspeção de URL do Search Console em seis URLs desse site retornou **“URL desconhecida pelo Google” (URL is unknown to Google) para cinco delas**: a página da pergunta sobre previsões de palavras-chave, dois links permanentes de respostas dessa pergunta, um terceiro link permanente de resposta de outra pergunta e o arquivo com parâmetro em `/?post_type=answer`. A única que voltou como “Enviada e indexada” (Submitted and indexed) foi uma página comum de pergunta, que é exatamente a página que deveria estar indexada. Ela mostrava uma canônica escolhida pelo Google igual à canônica declarada, três URLs de referência e um resultado aprimorado de perguntas e respostas.
 
-There was nothing to remove. The crawler found a mess and the index did not have one.
+Não havia nada para remover. O rastreador encontrou uma bagunça, e o índice não tinha nenhuma.
 
-## Check before you cut
+## Confira antes de cortar
 
-This is the difference between the two cases, and it costs nothing to establish. Google's URL Inspection API costs nothing and uses no OpenSEO credits, and it answers the only question that matters: does Google know this URL exists, and if it does, which URL did it pick as canonical?
+Essa é a diferença entre os dois casos, e descobri-la não custa nada. A API de Inspeção de URL do Google é gratuita e não consome créditos do RE9 SEO, e ela responde à única pergunta que importa: o Google sabe que essa URL existe e, se sabe, qual URL ele escolheu como canônica?
 
-Four verdicts come back, and each implies a different action.
+Voltam quatro veredictos, e cada um pede uma ação diferente.
 
-- If the URL is unknown to Google, there is nothing to remove. Fix the sitemap so you stop submitting it, and move on.
-- "Duplicate, Google chose a different canonical" also leaves you nothing to remove, because Google has already consolidated the set. Confirm the URL it picked is the one you want.
-- The real bloat signal is "Crawled, currently not indexed" or "Discovered, currently not indexed". Google has seen the page and declined it, so either make the page worth indexing or take it out of the sitemap and the internal link graph.
-- A page that comes back "Submitted and indexed" when you never wanted it indexed is the one case for `noindex` or removal.
+- Se a URL é desconhecida pelo Google, não há nada para remover. Corrija o sitemap para parar de enviá-la e siga em frente.
+- “Cópia, o Google escolheu uma canônica diferente” também não deixa nada para remover, porque o Google já consolidou o conjunto. Confirme se a URL que ele escolheu é a que você quer.
+- O sinal real de inchaço é “Rastreada, mas não indexada no momento” ou “Detectada, mas não indexada no momento”. O Google viu a página e recusou; então, ou você faz a página merecer a indexação, ou a tira do sitemap e da estrutura de links internos.
+- Uma página que volta como “Enviada e indexada” quando você nunca quis que ela fosse indexada é o único caso para `noindex` ou remoção.
 
-Patrick Stox, who built Site Audit and Page Inspect at Ahrefs, points out that the discovery side has more inputs than most people account for, which is why bloat keeps reappearing after you delete it:
+Patrick Stox, que construiu o Site Audit e o Page Inspect na Ahrefs, lembra que a descoberta de URLs tem mais fontes do que a maioria das pessoas considera, e é por isso que o inchaço volta depois que você apaga as páginas:
 
-> But what are the data sources for these systems? Most people will tell you sitemaps, or crawling. Well, there's more. RSS feeds are a thing.
+> Mas quais são as fontes de dados desses sistemas? A maioria das pessoas vai dizer sitemaps, ou rastreamento. Bom, tem mais. Feeds RSS existem.
 
-Removing a URL from a sitemap does not remove it from an RSS feed, an internal link, or somebody else's page. If a URL keeps coming back after you deleted it, one of the other sources is still publishing it. Patrick's episode on building for the GEO era is on [the Unscripted SEO podcast](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/).
+Tirar uma URL do sitemap não a tira de um feed RSS, de um link interno ou da página de outra pessoa. Se uma URL continua voltando depois que você a apagou, alguma dessas outras fontes ainda a está publicando. O episódio do Patrick sobre construir ferramentas na era do GEO está no [podcast Unscripted SEO](https://unscriptedseo.com/patrick-stox-on-building-in-the-geo-era/) (em inglês).
 
-## The workflow
+## O fluxo de trabalho
 
-1. Crawl the site and read the pages report rather than the issues report. Bloat is not an issue type; it is a pattern in URLs, titles, and word counts.
-2. Sort by title. Repeated titles across many URLs are where templated duplication lives. Sort by word count next, because the low end is where thin templated output collects.
-3. Take a sample of 10 suspect URLs and inspect them in Search Console.
-4. Act on the verdicts, not the crawl. Unknown and duplicate URLs need a sitemap fix. Indexed-but-unwanted URLs need `noindex` or a 410.
-5. Re-inspect the same sample in 30 days. Index changes are slow and a re-check is the only way to know the change landed.
+1. Rastreie o site e leia o relatório de páginas, não o de problemas. Inchaço não é um tipo de problema; é um padrão em URLs, títulos e contagens de palavras.
+2. Ordene por título. Títulos repetidos em muitas URLs são onde mora a duplicação gerada por template. Depois, ordene por contagem de palavras, porque é na ponta de baixo que se acumula o conteúdo raso produzido por template.
+3. Separe uma amostra de 10 URLs suspeitas e inspecione-as no Search Console.
+4. Aja de acordo com os veredictos, não com o rastreamento. URLs desconhecidas e duplicadas pedem uma correção no sitemap. URLs indexadas, mas indesejadas, pedem `noindex` ou um 410.
+5. Inspecione a mesma amostra de novo em 30 dias. Mudanças no índice são lentas, e uma nova checagem é a única forma de saber se a mudança pegou.
 
-## Run this with the OpenSEO MCP
+## Faça isso com o MCP do RE9 SEO
 
-`get_audit_pages` gives you the crawl side and `inspect_urls` gives you Google's side, so an agent can join them in one pass. Both are free calls: they read stored audit state and Search Console rather than a paid data provider.
+`get_audit_pages` mostra o lado do rastreamento e `inspect_urls` mostra o lado do Google, então um agente consegue cruzar os dois de uma vez. Nenhuma das duas chamadas consome créditos: elas leem o estado salvo da auditoria e o Search Console, e não um provedor de dados pago.
 
 ```text
-Using the OpenSEO MCP on project [name]:
+Usando o MCP do RE9 SEO no projeto [nome]:
 
-1. From the most recent site audit, pull all crawled pages. Group
-   them by exact title and show me every title used by more than
-   two URLs, with the URL count and the word-count range.
+1. Da auditoria do site mais recente, puxe todas as páginas
+   rastreadas. Agrupe-as pelo título exato e me mostre todo título
+   usado por mais de duas URLs, com a quantidade de URLs e a faixa de
+   contagem de palavras.
 
-2. Do the same for URL patterns: show me any path segment or query
-   parameter that appears on more than ten URLs (things like
-   /answer/, /page/, /tag/, ?filter=).
+2. Faça o mesmo com os padrões de URL: me mostre qualquer segmento de
+   caminho ou parâmetro de consulta que apareça em mais de dez URLs
+   (coisas como /answer/, /page/, /tag/, ?filter=).
 
-3. Pick the ten worst-looking URLs from those groups, weighted
-   toward the largest group, and run inspect_urls on them.
+3. Escolha as dez URLs com pior aparência desses grupos, dando mais
+   peso ao maior grupo, e rode inspect_urls nelas.
 
-4. Report each URL with its coverage state and its Google-selected
-   canonical. Then sort them into: unknown to Google, canonicalised
-   away, crawled but not indexed, and indexed.
+4. Mostre cada URL com o status de cobertura e a canônica escolhida
+   pelo Google. Depois, separe-as em: desconhecidas pelo Google,
+   consolidadas em outra canônica, rastreadas mas não indexadas, e
+   indexadas.
 
-5. Tell me the count in each bucket and what fraction of the
-   suspect set is in the index. Recommend an action per
-   bucket, and say plainly if the answer is that there is nothing
-   to remove.
+5. Me diga quantas há em cada grupo e que fração do conjunto suspeito
+   está no índice. Recomende uma ação por grupo e diga com todas as
+   letras se a resposta for que não há nada para remover.
 ```
 
-Point five is the instruction that keeps this workflow honest. Ask an agent to find index bloat and it will find index bloat. Ask it what fraction of the suspects are in the index and you get a number that can come back as zero.
+O item cinco é a instrução que mantém esse fluxo honesto. Peça a um agente para encontrar inchaço de índice e ele vai encontrar inchaço de índice. Pergunte que fração das URLs suspeitas está no índice e você recebe um número que pode muito bem ser zero.
 
-## Deletion is a scale decision
+## Apagar é uma decisão de escala
 
-Both stories in this guide are true and they point in opposite directions, which is the useful part.
+As duas histórias deste guia são verdadeiras e apontam em direções opostas, e essa é a parte útil.
 
-At 110 million pages with a measured 60% traffic loss, removing 5 million near-duplicates was the intervention that worked, and the agency that would not be aggressive enough had already failed at it. At 867 pages with no traffic collapse, the same instinct would have burned a weekend removing URLs Google had never fetched.
+Com 110 milhões de páginas e uma perda de tráfego medida de 60%, remover 5 milhões de páginas quase duplicadas foi a intervenção que funcionou, e a agência que não quis ser agressiva o bastante já tinha fracassado. Com 867 páginas e nenhuma queda de tráfego, o mesmo instinto teria queimado um fim de semana removendo URLs que o Google nunca tinha acessado.
 
-What separates them is not the size of the mess in the crawl report. It is whether the mess made it into the index and whether anything measurable got worse. Establish both before you delete a page, and the audit becomes evidence instead of an argument.
+O que separa os dois casos não é o tamanho da bagunça no relatório de rastreamento. É se a bagunça chegou ao índice e se algo mensurável piorou. Descubra as duas coisas antes de apagar qualquer página, e a auditoria vira evidência em vez de discussão.
 
-If part of your crawl came back blocked, hold this workflow until that is fixed, because a blocked page reports no title and zero words and will look exactly like thin content.
+Se parte do seu rastreamento voltou bloqueada, segure esse fluxo até resolver isso, porque uma página bloqueada aparece sem título e com zero palavras, e fica idêntica a um conteúdo raso.
 
-## Index bloat FAQ
+## Perguntas frequentes sobre inchaço de índice
 
-### How do I know if my site has index bloat?
+### Como saber se meu site tem inchaço de índice?
 
-Compare the number of URLs you want indexed against the indexed count in Search Console's page indexing report. A large gap is the signal. Then inspect a sample of the surplus URLs, because a crawler can show you hundreds of near-duplicate pages that Google never fetched, which is not bloat.
+Compare o número de URLs que você quer indexadas com a contagem de indexadas no relatório de indexação de páginas do Search Console. Uma diferença grande é o sinal. Depois, inspecione uma amostra das URLs excedentes, porque um rastreador pode mostrar centenas de páginas quase duplicadas que o Google nunca acessou, e isso não é inchaço.
 
-### Does index bloat hurt rankings?
+### Inchaço de índice prejudica o ranqueamento?
 
-It can, at scale, when a large share of a domain's pages are thin or duplicated and the domain gets assessed as a whole. On a site of a few hundred pages the more common effects are wasted crawling and internal link equity spread across URLs that were never going to rank. Neither is urgent on its own.
+Pode prejudicar, em grande escala, quando uma parte grande das páginas de um domínio é rasa ou duplicada e o domínio passa a ser avaliado como um todo. Num site de algumas centenas de páginas, os efeitos mais comuns são rastreamento desperdiçado e autoridade de links internos espalhada por URLs que nunca iam ranquear. Nenhum dos dois é urgente por si só.
 
-### Should I noindex or delete duplicate pages?
+### Devo usar noindex ou apagar páginas duplicadas?
 
-Use `noindex` when the page has a purpose for users, such as a filtered listing or a paginated archive. Use a 410 or a 301 when the page has no purpose at all. Removing a URL from the sitemap alone does not deindex it; it only stops you asking for indexing.
+Use `noindex` quando a página tem alguma utilidade para o usuário, como uma listagem filtrada ou um arquivo paginado. Use um 410 ou um 301 quando a página não tem utilidade nenhuma. Tirar uma URL só do sitemap não a remove do índice; apenas faz você parar de pedir a indexação.
 
-### How many pages should a website have indexed?
+### Quantas páginas um site deve ter indexadas?
 
-As many as there are distinct things worth ranking, which for most small business sites is dozens rather than thousands. The count matters less than the ratio: if most of your indexed URLs get no impressions in a year, the set is larger than the site can support.
+Tantas quantas forem as coisas diferentes que valem a pena ranquear, o que, para a maioria dos sites de pequenas empresas, significa dezenas, e não milhares. A quantidade importa menos que a proporção: se a maioria das suas URLs indexadas não recebe nenhuma impressão em um ano, o conjunto é maior do que o site consegue sustentar.
 
-### Can a site audit tool find index bloat?
+### Uma ferramenta de auditoria de site consegue encontrar inchaço de índice?
 
-Not directly, because every bloated page returns 200 and passes its per-page checks. What a crawler gives you is the raw material, repeated titles, thin word counts, and recurring URL patterns. Pair it with Search Console URL inspection to find out which of those URLs Google holds. OpenSEO does both: crawls up to 50 pages on the free plan and 10,000 on the $10/month plan, and runs URL inspection against your connected property at no credit cost.
+Não diretamente, porque toda página inchada retorna 200 e passa nas checagens de página. O que um rastreador entrega é a matéria-prima: títulos repetidos, contagens de palavras baixas e padrões de URL recorrentes. Junte isso à inspeção de URL do Search Console para descobrir quais dessas URLs o Google mantém. O RE9 SEO faz as duas coisas: rastreia o site e roda a inspeção de URL na propriedade conectada, e a inspeção não consome créditos.

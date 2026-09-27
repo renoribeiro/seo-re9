@@ -169,7 +169,7 @@ function SignUpPage() {
               <p className="text-sm leading-relaxed text-base-content/60">
                 Ao criar uma conta, você concorda com nossos{" "}
                 <a
-                  href="https://openseo.so/terms-and-conditions"
+                  href="https://seo.agenciare9.com.br/terms-and-conditions"
                   target="_blank"
                   rel="noreferrer"
                   className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"
@@ -178,7 +178,7 @@ function SignUpPage() {
                 </a>{" "}
                 e com a{" "}
                 <a
-                  href="https://openseo.so/privacy"
+                  href="https://seo.agenciare9.com.br/privacy"
                   target="_blank"
                   rel="noreferrer"
                   className="text-base-content underline underline-offset-2 hover:text-base-content/80 transition-colors"

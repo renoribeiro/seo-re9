@@ -32,8 +32,12 @@ const CACHE_TTL_SECONDS = 86_400;
 const ROW_LIMIT = 5;
 
 const requestSchema = z.object({
-  target: z.string().trim().min(1, "Enter a domain").max(300),
-  compare: z.string().trim().max(300).optional(),
+  target: z
+    .string()
+    .trim()
+    .min(1, "Digite um domínio")
+    .max(300, "Domínio longo demais"),
+  compare: z.string().trim().max(300, "Domínio longo demais").optional(),
   locationCode: z.number().int(),
   turnstileToken: z.string().max(4096).optional(),
 });
@@ -57,20 +61,20 @@ export const Route = createFileRoute("/api/website-traffic-checker")({
         const parsed = requestSchema.safeParse(body);
         if (!parsed.success) {
           return jsonResponse(
-            { error: parsed.error.issues[0]?.message ?? "Invalid request" },
+            { error: parsed.error.issues[0]?.message ?? "Requisição inválida" },
             400,
           );
         }
 
         const language = countryLanguage(parsed.data.locationCode);
         if (!language) {
-          return jsonResponse({ error: "Pick a supported country" }, 400);
+          return jsonResponse({ error: "Escolha um país disponível" }, 400);
         }
 
         const target = normalizeDomain(parsed.data.target);
         if (!target) {
           return jsonResponse(
-            { error: "Enter a valid domain, like example.com" },
+            { error: "Digite um domínio válido, como exemplo.com.br" },
             400,
           );
         }
@@ -79,7 +83,10 @@ export const Route = createFileRoute("/api/website-traffic-checker")({
         const compare = compareInput ? normalizeDomain(compareInput) : null;
         if (compareInput && !compare) {
           return jsonResponse(
-            { error: "Enter a valid domain to compare, like example.com" },
+            {
+              error:
+                "Digite um domínio válido para comparar, como concorrente.com.br",
+            },
             400,
           );
         }
@@ -151,7 +158,7 @@ export const Route = createFileRoute("/api/website-traffic-checker")({
           );
         } catch (err) {
           console.error("Website traffic check error:", err);
-          const message = "Traffic check failed. Please try again.";
+          const message = "A verificação de tráfego falhou. Tente novamente.";
           await Promise.all(
             misses.map((domain) =>
               writeCached(

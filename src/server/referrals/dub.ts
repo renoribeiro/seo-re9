@@ -6,7 +6,7 @@ import { captureServerError } from "@/server/lib/posthog";
 import { buildDubSaleRequest } from "./dub-sale";
 
 // Dub referral attribution (hosted only). Flow:
-//  1. links.openseo.so/<partner> redirects to openseo.so/?dub_id=<clickId>;
+//  1. links.openseo.so/<partner> redirects to seo.agenciare9.com.br/?dub_id=<clickId>;
 //     the marketing site persists it as a `dub_id` cookie on `.openseo.so`.
 //  2. On signup we send a Dub lead and pin `referred-user:<userId>` in KV.
 //     The lead creates a pseudonymous Dub customer record (random name +

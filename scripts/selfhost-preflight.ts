@@ -14,8 +14,9 @@ import {
 import { isTelemetryOptOutValue } from "../src/shared/selfhost-checks";
 import { version } from "../package.json";
 
-const SELF_HOST_POSTHOG_KEY =
-  "phc_xaXj4vE4LikxfvR7q6EHemAYNBSZW4hQkqor7fpf8aGT";
+// Off unless the operator supplies their own PostHog key (same rule as
+// src/server/lib/self-host-telemetry.ts).
+const SELF_HOST_POSTHOG_KEY = process.env.SELF_HOST_TELEMETRY_POSTHOG_KEY;
 const SELF_HOST_POSTHOG_HOST = "https://us.i.posthog.com";
 
 function telemetryDisabled(): boolean {
@@ -29,7 +30,7 @@ function telemetryDisabled(): boolean {
 // throwaway distinct id, no env values. Without this, installs that never
 // finish booting are invisible — the regular heartbeat needs a working app.
 async function sendPreflightFailedBeacon(failedChecks: string[]) {
-  if (telemetryDisabled()) return;
+  if (!SELF_HOST_POSTHOG_KEY || telemetryDisabled()) return;
 
   try {
     await fetch(`${SELF_HOST_POSTHOG_HOST}/i/v0/e/`, {
@@ -54,7 +55,7 @@ async function sendPreflightFailedBeacon(failedChecks: string[]) {
 
 const result = runSelfhostPreflight(process.env);
 
-console.log("--- OpenSEO self-host preflight ---");
+console.log("--- RE9 SEO self-host preflight ---");
 console.log(formatPreflightReport(result));
 
 if (result.failed) {

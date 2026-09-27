@@ -27,7 +27,8 @@ export function useToolRun<T>(tool: string, path: string) {
         | { error?: string };
       if (!res.ok) {
         throw new Error(
-          (data as { error?: string }).error || "Something went wrong",
+          (data as { error?: string }).error ||
+            "Algo deu errado. Tente novamente.",
         );
       }
       setResult(data as T);
@@ -36,7 +37,9 @@ export function useToolRun<T>(tool: string, path: string) {
     } catch (err) {
       setStatus("error");
       setErrorMessage(
-        err instanceof Error ? err.message : "Something went wrong",
+        err instanceof Error
+          ? err.message
+          : "Algo deu errado. Tente novamente.",
       );
     }
   };

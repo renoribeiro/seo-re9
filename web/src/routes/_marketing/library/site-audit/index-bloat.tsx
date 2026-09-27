@@ -11,29 +11,30 @@ const PATH = "/library/site-audit/index-bloat";
 
 const faqs = [
   {
-    question: "How do I know if my site has index bloat?",
+    question: "Como saber se meu site tem inchaço de índice?",
     answer:
-      "Compare the number of URLs you want indexed against the indexed count in Search Console's page indexing report. A large gap is the signal. Then inspect a sample of the surplus URLs, because a crawler can show you hundreds of near-duplicate pages that Google never fetched, which is not bloat.",
+      "Compare o número de URLs que você quer indexadas com a contagem de indexadas no relatório de indexação de páginas do Search Console. Uma diferença grande é o sinal. Depois, inspecione uma amostra das URLs excedentes, porque um rastreador pode mostrar centenas de páginas quase duplicadas que o Google nunca buscou, e isso não é inchaço.",
   },
   {
-    question: "Does index bloat hurt rankings?",
+    question: "O inchaço de índice prejudica as posições?",
     answer:
-      "It can, at scale, when a large share of a domain's pages are thin or duplicated and the domain gets assessed as a whole. On a site of a few hundred pages the more common effects are wasted crawling and internal link equity spread across URLs that were never going to rank. Neither is urgent on its own.",
+      "Pode prejudicar, em escala, quando uma grande parte das páginas de um domínio é rasa ou duplicada e o domínio é avaliado como um todo. Num site de algumas centenas de páginas, os efeitos mais comuns são rastreamento desperdiçado e autoridade de links internos espalhada por URLs que nunca iriam ranquear. Nenhum dos dois é urgente por si só.",
   },
   {
-    question: "Should I noindex or delete duplicate pages?",
+    question: "Devo usar noindex ou apagar páginas duplicadas?",
     answer:
-      "Use noindex when the page has a purpose for users, such as a filtered listing or a paginated archive. Use a 410 or a 301 when the page has no purpose at all. Removing a URL from the sitemap alone does not deindex it; it only stops you asking for indexing.",
+      "Use noindex quando a página tem utilidade para as pessoas, como uma listagem filtrada ou um arquivo paginado. Use um 410 ou um 301 quando a página não tem utilidade nenhuma. Tirar uma URL do sitemap não a desindexa; só faz você parar de pedir a indexação.",
   },
   {
-    question: "How many pages should a website have indexed?",
+    question: "Quantas páginas um site deveria ter indexadas?",
     answer:
-      "As many as there are distinct things worth ranking, which for most small business sites is dozens rather than thousands. The count matters less than the ratio: if most of your indexed URLs get no impressions in a year, the set is larger than the site can support.",
+      "Tantas quantas forem as coisas distintas que valem ranquear, o que, para a maioria dos sites de pequenas empresas, significa dezenas, não milhares. A contagem importa menos do que a proporção: se a maioria das suas URLs indexadas não recebe nenhuma impressão em um ano, o conjunto é maior do que o site consegue sustentar.",
   },
   {
-    question: "Can a site audit tool find index bloat?",
+    question:
+      "Uma ferramenta de auditoria do site consegue encontrar inchaço de índice?",
     answer:
-      "Not directly, because every bloated page returns 200 and passes its per-page checks. What a crawler gives you is the raw material, repeated titles, thin word counts, and recurring URL patterns. Pair it with Search Console URL inspection to find out which of those URLs Google holds. OpenSEO does both: crawls up to 50 pages on the free plan and 10,000 on the $10/month plan, and runs URL inspection against your connected property at no credit cost.",
+      "Não diretamente, porque toda página inchada retorna 200 e passa nas verificações por página. O que um rastreador entrega é a matéria-prima: títulos repetidos, contagens de palavras baixas e padrões de URL recorrentes. Combine isso com a inspeção de URL do Search Console para descobrir quais dessas URLs o Google mantém. O RE9 SEO faz as duas coisas: rastreia o site e roda a inspeção de URL na sua propriedade conectada sem consumir créditos.",
   },
 ];
 
@@ -52,17 +53,17 @@ export const Route = createFileRoute(
 )({
   head: () =>
     buildPageSeo({
-      title: "Index Bloat: When the Fix Is Deleting Pages",
+      title: "Inchaço de índice: quando a correção é apagar páginas",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="Index bloat"
+      crumb="Inchaço de índice"
       path={PATH}
       library={SITE_AUDIT_LIBRARY}
     >

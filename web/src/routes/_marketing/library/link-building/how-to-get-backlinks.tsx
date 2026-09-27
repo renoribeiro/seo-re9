@@ -11,29 +11,29 @@ const PATH = "/library/link-building/how-to-get-backlinks";
 
 const faqs = [
   {
-    question: "How do I get backlinks for a new website?",
+    question: "Como conseguir backlinks para um site novo?",
     answer:
-      "Start with the businesses that share your customer and do not compete with you: partners, suppliers, the tools your customers use, the communities they belong to. Ask for a mention where it helps their reader. Then build one thing worth linking to, a tool or a piece of data, and tell the ten people most likely to use it.",
+      "Comece pelas empresas que atendem o mesmo cliente e não competem com você: parceiros, fornecedores, as ferramentas que seus clientes usam, as comunidades de que eles participam. Peça uma menção onde ela ajude o leitor deles. Depois, crie uma coisa que valha um link, uma ferramenta ou um dado, e conte para as dez pessoas com mais chance de usá-la.",
   },
   {
-    question: "What is a linkable asset?",
+    question: "O que é um ativo linkável?",
     answer:
-      "A page that does something for another site's reader that a paragraph of prose cannot: a calculator, a template, a dataset, a checklist, a tool. On the site above, a traffic calculator has links from 17 domains; no article on the site has more than 10.",
+      "Uma página que faz pelo leitor de outro site algo que um parágrafo de texto não consegue: uma calculadora, um modelo, uma base de dados, um checklist, uma ferramenta. No site citado acima, uma calculadora de tráfego tem links de 17 domínios; nenhum artigo do site tem mais de 10.",
   },
   {
-    question: "Does link building outreach still work?",
+    question: "Outreach para link building ainda funciona?",
     answer:
-      "Personal outreach to a short list works. The podcast's host once got ten links from ten handwritten letters. Mass email to a purchased list mostly produces replies from people selling links, and those are the links that show up in an audit with spam scores in the 60s.",
+      "Contato pessoal com uma lista curta funciona. O apresentador do podcast conseguiu certa vez dez links com dez cartas escritas à mão. E-mail em massa para uma lista comprada gera principalmente respostas de quem vende links, e esses são os links que aparecem numa auditoria com spam score na casa dos 60.",
   },
   {
-    question: "Should I buy backlinks?",
+    question: "Devo comprar backlinks?",
     answer:
-      "No. The sellers who email you produce links from casino and PBN domains that search engines ignore and that make your profile look manufactured. Practitioners on the podcast also warn that AI search systems may not forgive a manipulated profile the way Google eventually did.",
+      "Não. Os vendedores que mandam e-mail para você produzem links de domínios de cassino e de PBN que os buscadores ignoram e que deixam o seu perfil com cara de fabricado. Os profissionais do podcast também alertam que os sistemas de busca com IA talvez não perdoem um perfil manipulado como o Google acabou perdoando.",
   },
   {
-    question: "How does OpenSEO help with link building?",
+    question: "Como o RE9 SEO ajuda no link building?",
     answer:
-      "The backlinks tool shows which of your pages attract links and from where, which is the starting point above. It shows the same for any competitor, so you can list the domains that link to them and not to you. Use the app’s Top Pages table to compare referring-domain counts by page; the MCP provides backlink summaries and individual backlink rows. The link-prospecting skill packages the competitor workflow.",
+      "A ferramenta de backlinks mostra quais das suas páginas atraem links e de onde, que é o ponto de partida acima. Ela mostra o mesmo para qualquer concorrente, então você pode listar os domínios que apontam para ele e não para você. Use a tabela de páginas principais do app para comparar a contagem de domínios de referência por página; o MCP entrega resumos de backlinks e as linhas individuais de backlinks. A skill de prospecção de links empacota o fluxo de concorrentes.",
   },
 ];
 
@@ -53,17 +53,17 @@ export const Route = createFileRoute(
   head: () =>
     buildPageSeo({
       title:
-        "How to Get Backlinks: Start From the Pages That Already Earn Them",
+        "Como conseguir backlinks: comece pelas páginas que já conquistam links",
       description: frontmatter.description,
       path: PATH,
-      titleSuffix: "OpenSEO Library",
+      titleSuffix: "Biblioteca RE9 SEO",
       ogType: "article",
     }),
   component: () => (
     <LibrarySpokePage
       title={frontmatter.title}
       description={frontmatter.description}
-      crumb="How to get backlinks"
+      crumb="Como conseguir backlinks"
       path={PATH}
       library={LINK_BUILDING_LIBRARY}
     >
