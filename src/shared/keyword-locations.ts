@@ -16,10 +16,11 @@
  * googleAdsOnly entries must exist in BOTH the Google Ads and SERP language
  * lists (rank tracking shares this picker and uses the SERP API).
  *
- * Entries are sorted alphabetically by country name; pick US as the
- * product-wide default via DEFAULT_LOCATION_CODE below.
+ * Entries are sorted alphabetically by country name; RE9 SEO serves the
+ * Brazilian market, so Brazil/Portuguese is the product-wide default.
  */
-export const DEFAULT_LOCATION_CODE = 2840;
+export const DEFAULT_LOCATION_CODE = 2076;
+export const DEFAULT_LANGUAGE_CODE = "pt";
 
 /**
  * Human-readable form of a canonical DataForSEO location_name, whose segments
@@ -766,7 +767,10 @@ export function resolveLabsMarket(
     args,
     projectIsServed
       ? project
-      : { locationCode: DEFAULT_LOCATION_CODE, languageCode: "en" },
+      : {
+          locationCode: DEFAULT_LOCATION_CODE,
+          languageCode: DEFAULT_LANGUAGE_CODE,
+        },
   );
 }
 

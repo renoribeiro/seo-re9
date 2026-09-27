@@ -1,3 +1,7 @@
+import {
+  DEFAULT_LANGUAGE_CODE,
+  DEFAULT_LOCATION_CODE,
+} from "@/shared/keyword-locations";
 import { and, count, desc, eq, isNotNull, isNull, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { projects } from "@/db/schema";
@@ -157,6 +161,8 @@ async function tryCreateDefaultProject(organizationId: string) {
       organizationId,
       name: "Default",
       domain: null,
+      locationCode: DEFAULT_LOCATION_CODE,
+      languageCode: DEFAULT_LANGUAGE_CODE,
     })
     .onConflictDoNothing()
     .returning({ id: projects.id });

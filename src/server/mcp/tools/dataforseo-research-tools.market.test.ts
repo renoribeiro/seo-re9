@@ -173,13 +173,13 @@ describe("market resolution for Labs tools", () => {
     );
   });
 
-  it("falls back to the US when the project market is not Labs-served", async () => {
+  it("falls back to the default market (Brazil) when the project market is not Labs-served", async () => {
     // Iceland (2352) is served from Google Ads data; the Labs-only market
     // tools must not inherit it.
     setProject({ locationCode: 2352, languageCode: "en" });
     const rankedKeywords = await runRankedKeywords({});
     expect(rankedKeywords).toHaveBeenCalledWith(
-      expect.objectContaining({ locationCode: 2840, languageCode: "en" }),
+      expect.objectContaining({ locationCode: 2076, languageCode: "pt" }),
     );
   });
 });

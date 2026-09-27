@@ -5,6 +5,7 @@
  * so an unknown code is rejected rather than passed through.
  */
 export const TOOL_COUNTRIES = [
+  { code: 2076, label: "Brasil", language: "pt" },
   { code: 2840, label: "Estados Unidos", language: "en" },
   { code: 2826, label: "Reino Unido", language: "en" },
   { code: 2124, label: "Canadá", language: "en" },
@@ -14,10 +15,9 @@ export const TOOL_COUNTRIES = [
   { code: 2724, label: "Espanha", language: "es" },
   { code: 2356, label: "Índia", language: "en" },
   { code: 2528, label: "Países Baixos", language: "nl" },
-  { code: 2076, label: "Brasil", language: "pt" },
 ] as const;
 
-export const DEFAULT_COUNTRY_CODE = 2840;
+export const DEFAULT_COUNTRY_CODE = 2076;
 
 export function countryLanguage(code: number): string | null {
   return (
