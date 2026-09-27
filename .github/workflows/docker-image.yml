@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - re9-personalizacao
     tags:
       - "v*"
   workflow_dispatch:
@@ -14,7 +15,7 @@ permissions:
 
 jobs:
   docker:
-    if: github.repository == 'every-app/open-seo'
+    if: github.repository == 'renoribeiro/seo-re9'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -37,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/every-app/open-seo
+          images: ghcr.io/renoribeiro/seo-re9
           tags: |
             type=ref,event=branch
             type=ref,event=tag
@@ -53,6 +54,6 @@ jobs:
           context: .
           file: Dockerfile.selfhost
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
